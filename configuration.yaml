@@ -17,10 +17,10 @@ sun:
 recorder:
   purge_days: 8
 
-automation: !include_dir_list config/automations/
+automation: !include_dir_list config/automations
 group: !include config/groups.yaml
-input_boolean: !include configuration/input_booleans.yaml
-sensor: !include_dir_list config/sensors/
+input_boolean: !include config/input_booleans.yaml
+sensor: !include_dir_merge_list config/sensors
 
 http:
   api_password: !secret http_password

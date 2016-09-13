@@ -1,28 +1,58 @@
-Woonkamer:
+# Tabs
+default_view:
+  view: yes
+  entities:
+    - group.livingroom
+    - group.backyard
+    - group.shed
+    - group.traveltime
+    - group.weather
+
+network_view:
+  name: Netwerk
+  view: yes
+  icon: "mdi:lan"
+  entities:
+    - group.network
+
+# Groups
+livingroom:
+  name: Woonkamer
+  entities:
     - switch.greenwave_powernode_1_port_switch_2
     - binary_sensor.neo_coolcam_unknown_type0003_id1083_sensor_4
     - sensor.neo_coolcam_unknown_type0003_id1083_luminance_4
 
-Achtertuin:
+backyard:
+  name: Achtertuin
+  entities:
     - switch.greenwave_powernode_1_port_switch_3
 
-Schuur:
+shed:
+  name: Schuur
+  entities:
     - switch.neo_coolcam_power_plug_12a_switch_6
     - sensor.neo_coolcam_power_plug_12a_power_6
 
-Reistijd:
+travel-time:
+  name: Reistijd
+  entities:
     - sensor.sjors_heenreis
     - sensor.sjors_terugreis
     - sensor.saskia_heenreis
     - sensor.saskia_terugreis
 
-Weer:
+weather:
+  name: Weer
+  entities:
     - sensor.pws_weather
     - sensor.pws_temp_c
     - sensor.pws_wind_dir
     - sensor.pws_wind_kph
 
-Netwerk:
+network:
+  name: Netwerk
+  entities:
     - sensor.speedtest_upload
     - sensor.speedtest_download
     - sensor.speedtest_ping

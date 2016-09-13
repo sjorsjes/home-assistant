@@ -1,0 +1,7 @@
+alias: "Woonkamer aan na zonsondergang"
+trigger:
+  platform: sun
+  event: sunset
+action:
+  service: switch.turn_on
+  entity_id: group.livingroom
