@@ -9,30 +9,35 @@ default_view:
     - group.weather
 
 network_view:
-  name: Netwerk
   view: yes
   icon: "mdi:lan"
   entities:
     - group.network
 
+automation_view:
+  view: yes
+  icon: "mdi:auto-fix"
+  entities:
+    - group.automation
+
 # Groups
 livingroom:
   name: Woonkamer
   entities:
-    - switch.greenwave_powernode_1_port_switch_2
-    - binary_sensor.neo_coolcam_unknown_type0003_id1083_sensor_4
-    - sensor.neo_coolcam_unknown_type0003_id1083_luminance_4
+    - !secret livingroom_light_toggle
+    - !secret livingroom_motion
+    - !secret livingroom_lux
 
 backyard:
   name: Achtertuin
   entities:
-    - switch.greenwave_powernode_1_port_switch_3
+    - !secret backyard_light_toggle
 
 shed:
   name: Schuur
   entities:
-    - switch.neo_coolcam_power_plug_12a_switch_6
-    - sensor.neo_coolcam_power_plug_12a_power_6
+    - !secret shed_washingmachine_power_toggle
+    - !secret shed_washingmachine_power_usage
 
 travel-time:
   name: Reistijd
@@ -56,3 +61,11 @@ network:
     - sensor.speedtest_upload
     - sensor.speedtest_download
     - sensor.speedtest_ping
+
+automation:
+  name: Automagisch
+  entities:
+    - input_boolean.auto_livingroom_lights_on
+    - input_boolean.auto_livingroom_lights_off
+    - input_boolean.auto_backyard_lights_on
+    - input_boolean.auto_backyard_lights_off

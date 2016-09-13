@@ -1,7 +1,12 @@
-alias: "Woonkamer aan na zonsondergang"
+alias: "Woonkamer wanneer het te donker is"
 trigger:
-  platform: sun
-  event: sunset
+  platform: numeric_state
+  entity_id: !secret livingroom_lux
+  below: '100'
+condition:
+  condition: state
+  entity_id: 'input_boolean.auto_livingroom_lights_on'
+  state: 'on'
 action:
   service: switch.turn_on
   entity_id: group.livingroom

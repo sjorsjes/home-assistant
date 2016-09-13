@@ -1,7 +1,15 @@
-auto_backyard_lights_toggle:
-  name: Automatisch de achtertuin verlichting regelen
+auto_livingroom_lights_on:
+  name: Woonkamer verlichting aan
+  initial: off
+
+auto_livingroom_lights_off:
+  name: Woonkamer verlichting uit
   initial: on
 
-auto_livingroom_lights_toggle:
-  name: Automatisch de woonkamer verlichting regelen
-  initial: off
+auto_backyard_lights_on:
+  name: Achtertuin verlichting aan
+  initial: on
+
+auto_backyard_lights_off:
+  name: Achtertuin verlichting uit
+  initial: on
