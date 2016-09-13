@@ -1,8 +1,13 @@
 # Home-Assistant
-Current Version: 0.28.2  
+Current Version: 0.28.2
 Running on a Raspberry PI 1 Model B
 
 ## Setup
+### Installation
+[Raspberry Pi All-In-One Installer](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/)
+
+### USB
+[Set a persistant USB name](http://www.domoticz.com/wiki/PersistentUSBDevices)
 
 ### Samba share
 * ```sudo apt-get install samba```
@@ -27,6 +32,3 @@ Running on a Raspberry PI 1 Model B
     ```
 * ```sudo smbpasswd -a pi```
 * ```sudo service smbd restart```
-
-### Info & Tips
-* http://www.bruhautomation.com/single-post/2016/07/25/Part-1-Raspberry-Pi-Setup-and-Installing-Home-Assistant
