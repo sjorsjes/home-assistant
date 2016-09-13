@@ -1,0 +1,38 @@
+# Thuis:
+#   - group.woonkamer
+#   - group.achtertuin
+
+Woonkamer:
+    - switch.greenwave_powernode_1_port_switch_2
+    - binary_sensor.neo_coolcam_unknown_type0003_id1083_sensor_4
+    - sensor.neo_coolcam_unknown_type0003_id1083_luminance_4
+
+Achtertuin:
+    - switch.greenwave_powernode_1_port_switch_3
+
+Schuur:
+    - switch.neo_coolcam_power_plug_12a_switch_6
+    - sensor.neo_coolcam_power_plug_12a_power_6
+
+Reistijd:
+    - sensor.sjors_heenreis
+    - sensor.sjors_terugreis
+    - sensor.saskia_heenreis
+    - sensor.saskia_terugreis
+
+Weer:
+    - sensor.pws_weather
+    - sensor.pws_temp_c
+    - sensor.pws_wind_dir
+    - sensor.pws_wind_kph
+
+Netwerk:
+    - sensor.speedtest_upload
+    - sensor.speedtest_download
+    - sensor.speedtest_ping
+
+NAS:
+    - sensor.nas__name
+    - sensor.nas__temp
+    - sensor.nas__dsm_version
+    - sensor.nas__dsm_upgrade_available

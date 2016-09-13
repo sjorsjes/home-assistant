@@ -1,0 +1,15 @@
+- alias: "Tuinverlichting aan na zonsondergang"
+  trigger:
+    platform: sun
+    event: sunset
+    offset: -00:30
+  action:
+    service: switch.turn_on
+    entity_id: group.achtertuin
+- alias: 'Tuinverlichting uit om 00:00'
+  trigger:
+    platform: time
+    after: '00:00:00'
+  action:
+    service: switch.turn_off
+    entity_id: group.achtertuin

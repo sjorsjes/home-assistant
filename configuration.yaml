@@ -1,0 +1,26 @@
+homeassistant:
+  name: Corky Assistant
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 0
+  unit_system: metric
+  temperature_unit: C
+  time_zone: Europe/Amsterdam
+  customize: !include config/customization.yaml
+
+frontend:
+updater:
+#discovery:
+history:
+logbook:
+sun:
+
+sensor: !include config/sensors.yaml
+group: !include config/groups.yaml
+automation: !include config/automations.yaml
+
+http:
+  api_password: !secret http_password
+
+zwave:
+  usb_path: /dev/ttyUSB-Zwave

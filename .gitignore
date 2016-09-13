@@ -1,0 +1,15 @@
+.DS_Store
+.DS_Store?
+._*
+*.xml
+*.txt
+*.db
+*.conf
+*.sqlite
+*.log
+.smb*
+
+.HA_VERSION
+/deps
+secrets.yaml
+known_devices.yaml
