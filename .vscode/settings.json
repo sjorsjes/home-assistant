@@ -1,0 +1,26 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  // The number of spaces a tab is equal to.
+  "editor.tabSize": 2,
+
+  // Insert spaces when pressing Tab.
+  "editor.insertSpaces": true,
+
+  // When enabled, will trim trailing whitespace when you save a file.
+  "files.trimTrailingWhitespace": false,
+
+  // Configure glob patterns for excluding files and folders.
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "/deps": true,
+    ".HA_VERSION": true,
+    "._*": true,
+    "._.DS_Store": true,
+    "*.xml": true,
+    "*.sqlite": true,
+    "OZW_Log.txt": true
+  }
+}

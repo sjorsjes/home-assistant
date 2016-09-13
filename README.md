@@ -1,5 +1,5 @@
 # Home-Assistant
-Current Version: 0.28.2
+Current Version: 0.28.2  
 Running on a Raspberry PI 1 Model B
 
 ## Setup
@@ -13,7 +13,7 @@ Running on a Raspberry PI 1 Model B
 * ```sudo apt-get install samba```
 * ```sudo nano /etc/samba/smb.conf```
 * Add/Edit the rules below under the "Share Definitions" section
-* ```
+* ``` 
     [home assistent]
     path = /home/hass/.homeassistant
     comment = No comment
