@@ -1,7 +1,3 @@
-# Thuis:
-#   - group.woonkamer
-#   - group.achtertuin
-
 Woonkamer:
     - switch.greenwave_powernode_1_port_switch_2
     - binary_sensor.neo_coolcam_unknown_type0003_id1083_sensor_4
@@ -30,9 +26,3 @@ Netwerk:
     - sensor.speedtest_upload
     - sensor.speedtest_download
     - sensor.speedtest_ping
-
-NAS:
-    - sensor.nas__name
-    - sensor.nas__temp
-    - sensor.nas__dsm_version
-    - sensor.nas__dsm_upgrade_available

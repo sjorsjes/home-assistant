@@ -1,5 +1,5 @@
 homeassistant:
-  name: Corky Assistant
+  name: Home
   latitude: !secret latitude
   longitude: !secret longitude
   elevation: 0
@@ -14,10 +14,13 @@ updater:
 history:
 logbook:
 sun:
+recorder:
+  purge_days: 8
 
-sensor: !include config/sensors.yaml
+automation: !include_dir_list config/automations/
 group: !include config/groups.yaml
-automation: !include config/automations.yaml
+input_boolean: !include configuration/input_booleans.yaml
+sensor: !include_dir_list config/sensors/
 
 http:
   api_password: !secret http_password
