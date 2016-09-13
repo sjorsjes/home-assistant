@@ -13,22 +13,22 @@ Running on a Raspberry PI 1 Model B
 * ```sudo apt-get install samba```
 * ```sudo nano /etc/samba/smb.conf```
 * Add/Edit the rules below under the "Share Definitions" section
-* ``` 
-    [home assistent]
-    path = /home/hass/.homeassistant
-    comment = No comment
-    browsable = yes
-    read only = no
-    valid users =
-    writable = yes
-    guest ok = yes
-    public = yes
-    create mask = 0777
-    directory mask = 0777
-    force user = root
-    force create mode = 0777
-    force directory mode = 0777
-    hosts allow =
-    ```
+```
+[home assistent]
+path = /home/hass/.homeassistant
+comment = No comment
+browsable = yes
+read only = no
+valid users =
+writable = yes
+guest ok = yes
+public = yes
+create mask = 0777
+directory mask = 0777
+force user = root
+force create mode = 0777
+force directory mode = 0777
+hosts allow =
+```
 * ```sudo smbpasswd -a pi```
 * ```sudo service smbd restart```
