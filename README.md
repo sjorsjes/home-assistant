@@ -32,3 +32,8 @@ hosts allow =
 ```
 * ```sudo smbpasswd -a pi```
 * ```sudo service smbd restart```
+
+### Publish to Github
+```cd /home/hass/.homeassistant```
+```git commit -a```
+```git push```
