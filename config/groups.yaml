@@ -3,6 +3,7 @@ default_view:
   view: yes
   entities:
     - group.livingroom
+    - group.bathroom
     - group.backyard
     - group.shed
     - group.traveltime
@@ -28,6 +29,12 @@ livingroom:
     - !secret livingroom_motion
     - !secret livingroom_lux
 
+bathroom:
+  name: Badkamer
+  entities:
+    - !secret bathroom_power_toggle
+    - !secret bathroom_power_usage
+
 backyard:
   name: Achtertuin
   entities:
@@ -38,6 +45,8 @@ shed:
   entities:
     - !secret shed_washingmachine_power_toggle
     - !secret shed_washingmachine_power_usage
+    - !secret dryer_power_toggle
+    - !secret dryer_power_usage
 
 travel-time:
   name: Reistijd

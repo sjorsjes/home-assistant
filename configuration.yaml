@@ -10,7 +10,7 @@ homeassistant:
 
 frontend:
 updater:
-#discovery:
+# discovery:
 history:
 logbook:
 sun:

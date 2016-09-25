@@ -1,101 +1,146 @@
 # Weer
 sun.sun:
-    hidden: true
+  hidden: true
 
 sensor.pws_weather:
-    friendly_name: " "
+  friendly_name: " "
 sensor.pws_temp_c:
-    friendly_name: "Temperatuur"
-    icon: "mdi:thermometer-lines"
+  friendly_name: "Temperatuur"
+  icon: "mdi:thermometer-lines"
 sensor.pws_wind_dir:
-    friendly_name: "Windrichting"
-    icon: "mdi:compass-outline"
+  friendly_name: "Windrichting"
+  icon: "mdi:compass-outline"
 sensor.pws_wind_kph:
-    friendly_name: "Windsnelheid"
-    icon: "mdi:weather-windy"
+  friendly_name: "Windsnelheid"
+  icon: "mdi:weather-windy"
 
 # Bewegingssensor
 !secret livingroom_motion:
-    friendly_name: "Bewegingssensor"
-    icon: "mdi:walk"
+  friendly_name: "Bewegingssensor"
+  icon: "mdi:walk"
 !secret livingroom_lux:
-    friendly_name: "Lichtsterkte"
-    icon: "mdi:eye"
+  friendly_name: "Lichtsterkte"
+  icon: "mdi:eye"
 sensor.neo_coolcam_unknown_type0003_id1083_alarm_level_4:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_unknown_type0003_id1083_alarm_type_4:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_unknown_type0003_id1083_burglar_4:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_unknown_type0003_id1083_sourcenodeid_4:
-    hidden: true
+  hidden: true
 
 # Woonkamer
 !secret livingroom_light_toggle:
-    friendly_name: "Lamp"
-    icon: "mdi:lightbulb-outline"
+  friendly_name: "Lamp"
+  icon: "mdi:lightbulb-outline"
 sensor.greenwave_powernode_1_port_power_2:
-    hidden: true
+  hidden: true
 sensor.greenwave_powernode_1_port_energy_2:
-    hidden: true
+  hidden: true
 sensor.greenwave_powernode_1_port_previous_reading_2:
-    hidden: true
+  hidden: true
 sensor.__alarm_level_6:
-    hidden: true
+  hidden: true
 sensor.__alarm_type_6:
-    hidden: true
+  hidden: true
+
+# Bathroom
+!secret bathroom_power_toggle:
+  friendly_name: "Stekker"
+  icon: "mdi:lightbulb-outline"
+!secret bathroom_power_usage:
+  friendly_name: "Stekker verbruik"
+sensor.neo_coolcam_power_plug_12a_power_management_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_sourcenodeid_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_voltage_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_alarm_level_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_alarm_type_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_current_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_energy_7:
+  hidden: true
 
 # Achtertuin
 !secret backyard_light_toggle:
-    friendly_name: "Led lampjes"
-    icon: "mdi:led-outline"
+  friendly_name: "Led lampjes"
+  icon: "mdi:led-outline"
 sensor.greenwave_powernode_1_port_energy_3:
-    hidden: true
+  hidden: true
 sensor.greenwave_powernode_1_port_power_3:
-    hidden: true
+  hidden: true
 sensor.greenwave_powernode_1_port_previous_reading_3:
-    hidden: true
+  hidden: true
 
 # Schuur
 !secret shed_washingmachine_power_toggle:
-    friendly_name: "Wasmachine"
-    icon: "mdi:basket-fill"
+  friendly_name: "Wasmachine"
+  icon: "mdi:basket-fill"
 !secret shed_washingmachine_power_usage:
-    hidden: true
+  friendly_name: "Wasmachine verbruik"
 sensor.neo_coolcam_power_plug_12a_alarm_level_6:
-   hidden: true
+  hidden: true
 sensor.neo_coolcam_power_plug_12a_alarm_type_6:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_power_plug_12a_current_6:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_power_plug_12a_energy_6:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_power_plug_12a_power_management_6:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_power_plug_12a_previous_reading_6:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_power_plug_12a_sourcenodeid_6:
-    hidden: true
+  hidden: true
 sensor.neo_coolcam_power_plug_12a_voltage_6:
-    hidden: true
+  hidden: true
+
+# !secret dryer_power_toggle:
+  friendly_name: "Droger"
+  icon: "mdi:basket-unfill"
+!secret dryer_power_usage:
+  friendly_name: "Droger verbruik"
+sensor.neo_coolcam_power_plug_12a_power_management_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_sourcenodeid_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_voltage_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_alarm_level_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_alarm_type_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_current_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_energy_8:
+  hidden: true
 
 # Reistijd
 sensor.sjors_heenreis:
-    icon: "mdi:traffic-light"
+  icon: "mdi:traffic-light"
 sensor.sjors_terugreis:
-    icon: "mdi:traffic-light"
+  icon: "mdi:traffic-light"
 sensor.saskia_heenreis:
-    icon: "mdi:traffic-light"
+  icon: "mdi:traffic-light"
 sensor.saskia_terugreis:
-    icon: "mdi:traffic-light"
+  icon: "mdi:traffic-light"
 
 #Speedtest
 sensor.speedtest_download:
-    icon: "mdi:download"
-    friendly_name: "Download"
+  icon: "mdi:download"
+  friendly_name: "Download"
 sensor.speedtest_upload:
-    icon: "mdi:upload"
-    friendly_name: "Upload"
+  icon: "mdi:upload"
+  friendly_name: "Upload"
 sensor.speedtest_ping:
-    icon: "mdi:timer"
-    friendly_name: "Ping"
+  icon: "mdi:timer"
+  friendly_name: "Ping"

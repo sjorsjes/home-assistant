@@ -4,6 +4,7 @@
 *.xml
 *.txt
 *.db
+*.db-journal
 *.conf
 *.sqlite
 *.log
