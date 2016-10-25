@@ -37,3 +37,12 @@ hosts allow =
 ```cd /home/hass/.homeassistant```
 ```git commit -a```
 ```git push```
+
+### LetEncrypt
+* [Guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
+
+#### Renew Certificate
+```./certbot-auto renew --quiet --no-self-upgrade --standalone \ --standalone-supported-challenges http-01```
+
+* Creation date 30-09-2016
+* Renewal date 29-12-2016

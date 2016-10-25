@@ -9,11 +9,18 @@ homeassistant:
   customize: !include config/customization.yaml
 
 frontend:
-updater:
-# discovery:
-history:
+
+# updater:
+discovery:
+# history:
+
 logbook:
+  exclude:
+    domains:
+      - sun
+
 sun:
+
 recorder:
   purge_days: 8
 
@@ -24,6 +31,8 @@ sensor: !include_dir_merge_list config/sensors
 
 http:
   api_password: !secret http_password
+  # ssl_certificate: /etc/letsencrypt/live/gngr-hass.duckdns.org/fullchain.pem
+  # ssl_key: /etc/letsencrypt/live/gngr-hass.duckdns.org/privkey.pem
 
 zwave:
   usb_path: /dev/ttyUSB-Zwave

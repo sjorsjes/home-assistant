@@ -1,6 +1,6 @@
 auto_livingroom_lights_on:
   name: Woonkamer verlichting aan
-  initial: off
+  initial: on
 
 auto_livingroom_lights_off:
   name: Woonkamer verlichting uit

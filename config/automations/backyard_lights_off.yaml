@@ -1,11 +1,11 @@
 alias: 'Tuinverlichting uit om 00:00'
 trigger:
   platform: time
-  after: '00:00:00'
+  after: '23:59:00'
 condition:
   condition: state
   entity_id: 'input_boolean.auto_backyard_lights_off'
-  state: 'on'
+  state: 'off'
 action:
   service: switch.turn_off
   entity_id: group.backyard
