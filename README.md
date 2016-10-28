@@ -1,6 +1,7 @@
 # Home-Assistant
-Current Version: 0.28.2  
-Running on a Raspberry PI 1 Model B
+Current Version: 0.31.1  
+Running on a Raspberry PI 1 Model B  
+Raspbian Jessie 8.0
 
 ## Setup
 ### Installation
@@ -10,9 +11,10 @@ Running on a Raspberry PI 1 Model B
 [Set a persistant USB name](http://www.domoticz.com/wiki/PersistentUSBDevices)
 
 ### Samba share
-* ```sudo apt-get install samba```
-* ```sudo nano /etc/samba/smb.conf```
-* Add/Edit the rules below under the "Share Definitions" section
+```$ sudo apt-get install samba```  
+```$ sudo nano /etc/samba/smb.conf```  
+
+Add/Edit the rules below under the "Share Definitions" section  
 ```
 [home assistent]
 path = /home/hass/.homeassistant
@@ -30,29 +32,31 @@ force create mode = 0777
 force directory mode = 0777
 hosts allow =
 ```
-* ```sudo smbpasswd -a pi```
-* ```sudo service smbd restart```
+```$ sudo smbpasswd -a pi```
+```$ sudo service smbd restart```
 
 ### Install MySQL DB
-* ```sudo apt-get update && sudo apt-get upgrade```
-* ```sudo apt-get install mysql-server && sudo apt-get install mysql-client```
-* ```mysql -uroot -p```
-* ```CREATE DATABASE dbname;```
-* ```CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'password';```
-* ```GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost';```
-* ```FLUSH PRIVILEGES;```
-* test if user works: ```mysql -udbuser dbname -p```
+```$ sudo apt-get update && sudo apt-get upgrade```  
+```$ sudo apt-get install mysql-server && sudo apt-get install mysql-client```  
+```$ mysql -uroot -p```  
+```$ CREATE DATABASE dbname;```  
+```$ CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'password';```  
+```$ GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost';```  
+```$ FLUSH PRIVILEGES;```  
+
+**Test if user works:**  
+```$ mysql -udbuser dbname -p```
 
 ### LetEncrypt
-* [Guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
+[Guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
 
 #### Renew Certificate
-```./certbot-auto renew --quiet --no-self-upgrade --standalone \ --standalone-supported-challenges http-01```
+```$ ./certbot-auto renew --quiet --no-self-upgrade --standalone \ --standalone-supported-challenges http-01```
 
 * Creation date 30-09-2016
 * Renewal date 29-12-2016
 
 ### Publish to Github
-* ```cd /home/hass/.homeassistant```
-* ```git commit -a```
-* ```git push```
+```$ cd /home/hass/.homeassistant```  
+```$ git commit -a```  
+```$ git push```
