@@ -1,8 +1,7 @@
 alias: "Woonkamer wanneer het te donker is"
 trigger:
-  platform: numeric_state
-  entity_id: !secret livingroom_lux
-  below: '100'
+  platform: sun
+  event: sunset
 condition:
   condition: state
   entity_id: 'input_boolean.auto_livingroom_lights_on'

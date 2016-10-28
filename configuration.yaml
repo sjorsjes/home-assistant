@@ -2,7 +2,7 @@ homeassistant:
   name: Home
   latitude: !secret latitude
   longitude: !secret longitude
-  elevation: 0
+  elevation: 5
   unit_system: metric
   temperature_unit: C
   time_zone: Europe/Amsterdam
@@ -10,9 +10,9 @@ homeassistant:
 
 frontend:
 
-# updater:
+updater:
 discovery:
-# history:
+history:
 
 logbook:
   exclude:
@@ -22,7 +22,8 @@ logbook:
 sun:
 
 recorder:
-  purge_days: 8
+  purge_days: 7
+  db_url: !secret mysql # mysql://dbuser:password@localhost/dbname
 
 automation: !include_dir_list config/automations
 group: !include config/groups.yaml

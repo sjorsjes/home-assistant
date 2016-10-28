@@ -95,7 +95,7 @@ sensor.neo_coolcam_power_plug_12a_sourcenodeid_6_2:
 sensor.neo_coolcam_power_plug_12a_voltage_6_16:
   hidden: true
 
-# !secret dryer_power_toggle:
+!secret dryer_power_toggle:
   friendly_name: "Droger"
   icon: "mdi:basket-unfill"
 !secret dryer_power_usage:

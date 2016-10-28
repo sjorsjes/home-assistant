@@ -33,10 +33,15 @@ hosts allow =
 * ```sudo smbpasswd -a pi```
 * ```sudo service smbd restart```
 
-### Publish to Github
-```cd /home/hass/.homeassistant```
-```git commit -a```
-```git push```
+### Install MySQL DB
+* ```sudo apt-get update && sudo apt-get upgrade```
+* ```sudo apt-get install mysql-server && sudo apt-get install mysql-client```
+* ```mysql -uroot -p```
+* ```CREATE DATABASE dbname;```
+* ```CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'password';```
+* ```GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost';```
+* ```FLUSH PRIVILEGES;```
+* test if user works: ```mysql -udbuser dbname -p```
 
 ### LetEncrypt
 * [Guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
@@ -46,3 +51,8 @@ hosts allow =
 
 * Creation date 30-09-2016
 * Renewal date 29-12-2016
+
+### Publish to Github
+* ```cd /home/hass/.homeassistant```
+* ```git commit -a```
+* ```git push```
