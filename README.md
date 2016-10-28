@@ -55,6 +55,12 @@ hosts allow =
 ```$ source /srv/hass/hass_venv/bin/activate```  
 ```$ pip3 install --upgrade mysqlclient```  
 
+**Add to configuration.yaml**  
+```yaml
+recorder:
+  db_url: mysql://dbuser:password@localhost/dbname
+```
+
 ### LetEncrypt
 [Guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
 
