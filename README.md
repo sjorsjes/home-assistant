@@ -61,14 +61,20 @@ recorder:
   db_url: mysql://dbuser:password@localhost/dbname
 ```
 
+### DuckDNS
+* [Installation guide](https://www.duckdns.org/install.jsp?tab=pi)
+
 ### LetEncrypt
-[Guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)
+* [Installation guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)  
+* After installation:  
+  ```sudo chmod -R 777 /etc/letsencrypt/archive```  
+  ```sudo chmod -R 777 /etc/letsencrypt/live```
 
 #### Renew Certificate
-```$ ./certbot-auto renew --quiet --no-self-upgrade --standalone \ --standalone-supported-challenges http-01```
+```./certbot-auto renew --quiet --no-self-upgrade --standalone --standalone-supported-challenges http-01```
 
-* Creation date 30-09-2016
-* Renewal date 29-12-2016
+* Creation date 09-11-2016
+* Renewal date 07-02-2016
 
 ### Publish to Github
 ```$ cd /home/hass/.homeassistant```  

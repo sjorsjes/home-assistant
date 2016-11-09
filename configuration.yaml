@@ -32,8 +32,13 @@ sensor: !include_dir_merge_list config/sensors
 
 http:
   api_password: !secret http_password
-  # ssl_certificate: /etc/letsencrypt/live/gngr-hass.duckdns.org/fullchain.pem
-  # ssl_key: /etc/letsencrypt/live/gngr-hass.duckdns.org/privkey.pem
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+
+notify:
+  - name: pushbullet
+    platform: pushbullet
+    api_key: !secret pushbullet_api
 
 zwave:
   usb_path: /dev/ttyUSB-Zwave
