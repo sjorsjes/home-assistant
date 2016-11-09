@@ -13,3 +13,11 @@ auto_backyard_lights_on:
 auto_backyard_lights_off:
   name: Achtertuin verlichting uit
   initial: on
+
+washingmachine_busy:
+  name: Wasmachine bezig
+  initial: off
+
+dryer_busy:
+  name: Droger bezig
+  initial: off

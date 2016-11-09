@@ -32,8 +32,10 @@ shed:
   entities:
     - !secret shed_washingmachine_power_toggle
     - !secret shed_washingmachine_power_usage
+    - input_boolean.washingmachine_busy
     - !secret dryer_power_toggle
     - !secret dryer_power_usage
+    - input_boolean.dryer_busy
 
 travel-time:
   name: Reistijd
