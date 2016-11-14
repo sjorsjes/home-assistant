@@ -1,9 +1,0 @@
-alias: Test notification
-trigger:
-  - platform: time
-    minutes: '/05'
-    seconds: 0
-action:
-  - service: notify.pushbullet
-    data:
-      message: 'Test {{now.now().strftime("%Y%m%d-%H%M%S")}}'

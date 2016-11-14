@@ -1,0 +1,11 @@
+alias: 'Televisie uit om 00:00'
+trigger:
+  platform: time
+  after: '00:00:00'
+condition:
+  condition: state
+  entity_id: 'input_boolean.auto_television_off'
+  state: 'on'
+action:
+  service: switch.turn_off
+  entity_id: !secret livingroom_television_toggle

@@ -3,14 +3,14 @@ Current Version: 0.31.1
 Running on a Raspberry PI 1 Model B  
 Raspbian Jessie 8.0
 
-## Setup
-### Installation
+# Setup
+## Installation
 [Raspberry Pi All-In-One Installer](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/)
 
-### USB
+## USB
 [Set a persistant USB name](http://www.domoticz.com/wiki/PersistentUSBDevices)
 
-### Samba share
+## Samba share
 ```$ sudo apt-get install samba```  
 ```$ sudo nano /etc/samba/smb.conf```  
 
@@ -35,7 +35,13 @@ hosts allow =
 ```$ sudo smbpasswd -a pi```
 ```$ sudo service smbd restart```
 
-### Install MySQL DB
+## Z-Wave network key
+```$ sudo nano /srv/hass/src/open-zwave-control-panel/config/options.xml```  
+Uncomment the network key:  
+```<Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10" />```  
+And add the unique key
+
+## Install MySQL DB
 ```$ sudo apt-get update && sudo apt-get upgrade```  
 ```$ sudo apt-get install mysql-server && sudo apt-get install mysql-client```  
 ```$ sudo apt-get install libmysqlclient-dev```  
@@ -61,22 +67,27 @@ recorder:
   db_url: mysql://dbuser:password@localhost/dbname
 ```
 
-### DuckDNS
+## DuckDNS
 * [Installation guide](https://www.duckdns.org/install.jsp?tab=pi)
 
-### LetEncrypt
+## LetEncrypt
 * [Installation guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)  
 * After installation:  
-  ```sudo chmod -R 777 /etc/letsencrypt/archive```  
-  ```sudo chmod -R 777 /etc/letsencrypt/live```
+  ```$ sudo chmod -R 777 /etc/letsencrypt/archive```  
+  ```$ sudo chmod -R 777 /etc/letsencrypt/live```
 
-#### Renew Certificate
-```./certbot-auto renew --quiet --no-self-upgrade --standalone --standalone-supported-challenges http-01```
+### Renew Certificate
+```$ ./certbot-auto renew --quiet --no-self-upgrade --standalone --standalone-supported-challenges http-01```
 
 * Creation date 09-11-2016
 * Renewal date 07-02-2016
 
-### Publish to Github
+# Publish to Github
 ```$ cd /home/hass/.homeassistant```  
-```$ git commit -a```  
+```$ git add -A```  
+```$ git commit -m "Commit message"```  
 ```$ git push```
+
+# Z-Wave settings
+* Greenwave wall sockets
+  * timeout: 255

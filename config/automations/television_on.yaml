@@ -1,0 +1,28 @@
+alias: "Televisie aan"
+trigger:
+  - platform: time
+    after: '08:00:00'
+  - platform: time
+    after: '17:00:00'
+condition:
+  - condition: state
+    entity_id: 'input_boolean.auto_television_on'
+    state: 'on'
+  - condition: or
+    conditions:
+      - condition: time
+        after: "08:00:00"
+        weekday:
+          - wed
+          - thu
+          - sat
+          - sun
+      - condition: time
+        after: "17:00:00"
+        weekday:
+          - mon
+          - tue
+          - fri
+action:
+  service: switch.turn_on
+  entity_id: !secret livingroom_television_toggle

@@ -6,6 +6,14 @@ auto_livingroom_lights_off:
   name: Woonkamer verlichting uit
   initial: on
 
+auto_television_off:
+  name: Televisie uit
+  initial: on
+
+auto_television_on:
+  name: Televisie uit
+  initial: on
+
 auto_backyard_lights_on:
   name: Achtertuin verlichting aan
   initial: on

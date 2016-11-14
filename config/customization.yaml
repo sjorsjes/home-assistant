@@ -30,7 +30,7 @@ sensor.neo_coolcam_unknown_type0003_id1083_burglar_4_10:
 sensor.neo_coolcam_unknown_type0003_id1083_sourcenodeid_4_2:
   hidden: true
 
-# Woonkamer
+# Woonkamer - Lamp
 !secret livingroom_light_toggle:
   friendly_name: "Lamp"
   icon: "mdi:lightbulb-outline"
@@ -41,6 +41,47 @@ sensor.greenwave_powernode_1_port_power_2_8:
 sensor.greenwave_powernode_1_port_previous_reading_2_1:
   hidden: true
 sensor.greenwave_powernode_1_port_previous_reading_2_9:
+  hidden: true
+
+# Woonkamer - Televisie
+!secret livingroom_television_toggle:
+  friendly_name: "Televisie"
+  icon: "mdi:television-guide"
+sensor.neo_coolcam_power_plug_12a_alarm_level_9_1:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_alarm_type_9_0:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_current_9_20:
+  hidden: true
+!secret livingroom_television_power_usage_total:
+  friendly_name: "Televisie verbruik (kWh)"
+  icon: "mdi:power-plug"
+sensor.neo_coolcam_power_plug_12a_exporting_9_32:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_9_10:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_9_18:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_9_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_9_22:
+  hidden: true
+!secret livingroom_television_power_usage:
+  friendly_name: "Televisie verbruik (w)"
+  icon: "mdi:power-plug"
+sensor.neo_coolcam_power_plug_12a_power_management_9_11:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_9_1:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_9_17:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_9_21:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_9_9:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_sourcenodeid_9_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_voltage_9_16:
   hidden: true
 
 # Achtertuin
@@ -132,7 +173,6 @@ sensor.neo_coolcam_power_plug_12a_sourcenodeid_8_2:
   hidden: true
 sensor.neo_coolcam_power_plug_12a_voltage_8_16:
   hidden: true
-
 
 # Reistijd
 sensor.sjors_heenreis:

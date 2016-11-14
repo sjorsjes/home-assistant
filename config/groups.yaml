@@ -21,6 +21,9 @@ livingroom:
     - !secret livingroom_light_toggle
     - !secret livingroom_motion
     - !secret livingroom_lux
+    - !secret livingroom_television_toggle
+    - !secret livingroom_television_power_usage
+    - !secret livingroom_television_power_usage_total
 
 backyard:
   name: Achtertuin
@@ -58,5 +61,7 @@ automation:
   entities:
     - input_boolean.auto_livingroom_lights_on
     - input_boolean.auto_livingroom_lights_off
+    - input_boolean.auto_television_on
+    - input_boolean.auto_television_off
     - input_boolean.auto_backyard_lights_on
     - input_boolean.auto_backyard_lights_off
