@@ -6,7 +6,6 @@ default_view:
     - group.backyard
     - group.shed
     - group.traveltime
-    - group.weather
 
 automation_view:
   view: yes
@@ -47,14 +46,6 @@ travel-time:
     - sensor.sjors_terugreis
     - sensor.saskia_heenreis
     - sensor.saskia_terugreis
-
-weather:
-  name: Weer
-  entities:
-    - sensor.pws_weather
-    - sensor.pws_temp_c
-    - sensor.pws_wind_dir
-    - sensor.pws_wind_kph
 
 automation:
   name: Automagisch

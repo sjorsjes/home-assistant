@@ -77,6 +77,7 @@ recorder:
   ```$ sudo chmod -R 777 /etc/letsencrypt/live```
 
 ### Renew Certificate
+```$ cd certbot```  
 ```$ ./certbot-auto renew --quiet --no-self-upgrade --standalone --standalone-supported-challenges http-01```
 
 * Creation date 09-11-2016

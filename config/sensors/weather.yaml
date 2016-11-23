@@ -15,12 +15,12 @@
     #- dewpoint_c
     #- dewpoint_f
     #- dewpoint_string
-    - wind_kph
+    # - wind_kph
     #- wind_mph
     #- UV
     #- pressure_in
     #- pressure_mb
-    - wind_dir
+    # - wind_dir
     #- wind_string
     #- relative_humidity
     #- visibility_mi

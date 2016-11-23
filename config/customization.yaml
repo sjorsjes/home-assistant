@@ -2,17 +2,17 @@
 sun.sun:
   hidden: true
 
-sensor.pws_weather:
-  friendly_name: " "
-sensor.pws_temp_c:
-  friendly_name: "Temperatuur"
-  icon: "mdi:thermometer-lines"
-sensor.pws_wind_dir:
-  friendly_name: "Windrichting"
-  icon: "mdi:compass-outline"
-sensor.pws_wind_kph:
-  friendly_name: "Windsnelheid"
-  icon: "mdi:weather-windy"
+# sensor.pws_weather:
+#   friendly_name: " "
+# sensor.pws_temp_c:
+#   friendly_name: "Temperatuur"
+#   icon: "mdi:thermometer-lines"
+# sensor.pws_wind_dir:
+#   friendly_name: "Windrichting"
+#   icon: "mdi:compass-outline"
+# sensor.pws_wind_kph:
+#   friendly_name: "Windsnelheid"
+#   icon: "mdi:weather-windy"
 
 # Bewegingssensor
 !secret livingroom_motion:
