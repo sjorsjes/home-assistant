@@ -1,12 +1,20 @@
 # Home-Assistant
-Current Version: 0.31.1  
+Current Version: 0.33.4  
 Running on a Raspberry PI 1 Model B  
 Raspbian Jessie 8.0
 
 # Setup
 ## Installation
-[Raspberry Pi All-In-One Installer](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/)
-
+* Install Raspbian Jessie (lite)
+* ```$ sudo raspi-config```
+  * Update Locale/Timezone
+  * Change password
+  * Expand filesystem
+* ```$ sudo apt-get update```
+* ```$ sudo apt-get dist-upgrade```
+* ```$ sudo reboot```
+* [Run the All-In-One Installer](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/) *(takes ~2 hours on a PI 3)*
+  
 ## USB
 [Set a persistant USB name](http://www.domoticz.com/wiki/PersistentUSBDevices)
 
@@ -92,3 +100,6 @@ recorder:
 # Z-Wave settings
 * Greenwave wall sockets
   * timeout: 255
+  
+# Documentation
+* https://objectpartners.com/2016/04/12/setting-up-the-raspberry-pi-3-for-home-assistant/
