@@ -40,7 +40,7 @@ force create mode = 0777
 force directory mode = 0777
 hosts allow =
 ```
-```$ sudo smbpasswd -a pi```
+```$ sudo smbpasswd -a pi```  
 ```$ sudo service smbd restart```
 
 ## Z-Wave network key
