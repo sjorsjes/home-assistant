@@ -13,6 +13,23 @@ automation_view:
   entities:
     - group.automation
 
+toon_view:
+  view: yes
+  icon: "mdi:radiator"
+  entities:
+    - scene.toon_away
+    - scene.toon_comfort
+    - scene.toon_home
+    - scene.toon_sleep
+    - sensor.toon
+    - sensor.toongasusage
+    - sensor.toonpowerusage
+    - sensor.toonprogramm
+    - sensor.toontemp
+    - switch.toon_prog_comfort_sleep
+    - switch.toon_prog_home_away
+
+
 # Groups
 livingroom:
   name: Woonkamer

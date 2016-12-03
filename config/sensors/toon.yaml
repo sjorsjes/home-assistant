@@ -1,0 +1,23 @@
+- platform: command_line
+  name: toon
+  command: "python !secret toon_path -t -p -g -c -U !secret toon_username -P !secret toon_password"
+  scan_interval: 60
+
+- platform: template
+  sensors:
+    toontemp:
+      value_template: '{{ states.sensor.toon.state.split("\n")[0] }}'
+    toonpowerusage:
+      value_template: '{{ states.sensor.toon.state.split("\n")[1] }}'
+    toongasusage:
+      value_template: '{{ states.sensor.toon.state.split("\n")[2] }}'
+    toonprogramm:
+      value_template: '{% if states.sensor.toon.state.split("\n")[3] == "0" %}Comfort{% elif states.sensor.toon.state.split("\n")[3] == "1" %}Home{% elif states.sensor.toon.state.split("\n")[3] == "2" %}Sleep{% elif states.sensor.toon.state.split("\n")[3] == "3" %}Away{% endif %}'
+
+# The toonprgramma sensor returns current state
+# Program Turned Off(programm off) == -1
+# RELAX (comfort) == 0
+# ACTIVE (home) == 1
+# SLEEP (sleep) == 2
+# AWAY (away) == 3
+# HOLIDAY (holiday) == 4
