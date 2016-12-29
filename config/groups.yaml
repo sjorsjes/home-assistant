@@ -2,67 +2,40 @@
 default_view:
   view: yes
   entities:
+    - sensor.pws_temp_c
+    - sensor.sjors_heenreis
+    - sensor.sjors_terugreis
+    - sensor.saskia_heenreis
+    - sensor.saskia_terugreis
     - group.livingroom
     - group.backyard
-    - group.shed
-    - group.traveltime
-
-automation_view:
-  view: yes
-  icon: "mdi:auto-fix"
-  entities:
+    - group.appliances
     - group.automation
-
-toon_view:
-  view: yes
-  icon: "mdi:radiator"
-  entities:
-    - scene.toon_away
-    - scene.toon_comfort
-    - scene.toon_home
-    - scene.toon_sleep
-    - sensor.toon
-    - sensor.toongasusage
-    - sensor.toonpowerusage
-    - sensor.toonprogramm
-    - sensor.toontemp
-    - switch.toon_prog_comfort_sleep
-    - switch.toon_prog_home_away
-
 
 # Groups
 livingroom:
   name: Woonkamer
   entities:
-    - !secret livingroom_light_toggle
+    - !secret livingroom_light
+    - light.hue_color_lamp_2
     - !secret livingroom_motion
     - !secret livingroom_lux
     - !secret livingroom_television_toggle
-    - !secret livingroom_television_power_usage
-    - !secret livingroom_television_power_usage_total
 
 backyard:
   name: Achtertuin
   entities:
     - !secret backyard_light_toggle
 
-shed:
-  name: Schuur
+appliances:
+  name: Apparaten
   entities:
-    - !secret shed_washingmachine_power_toggle
+    - !secret dishwasher_power_toggle
+    - !secret dishwasher_power_usage
     - !secret shed_washingmachine_power_usage
     - input_boolean.washingmachine_busy
-    - !secret dryer_power_toggle
     - !secret dryer_power_usage
     - input_boolean.dryer_busy
-
-travel-time:
-  name: Reistijd
-  entities:
-    - sensor.sjors_heenreis
-    - sensor.sjors_terugreis
-    - sensor.saskia_heenreis
-    - sensor.saskia_terugreis
 
 automation:
   name: Automagisch

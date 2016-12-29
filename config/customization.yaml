@@ -3,16 +3,16 @@ sun.sun:
   hidden: true
 
 # sensor.pws_weather:
-#   friendly_name: " "
-# sensor.pws_temp_c:
-#   friendly_name: "Temperatuur"
-#   icon: "mdi:thermometer-lines"
-# sensor.pws_wind_dir:
-#   friendly_name: "Windrichting"
-#   icon: "mdi:compass-outline"
-# sensor.pws_wind_kph:
-#   friendly_name: "Windsnelheid"
-#   icon: "mdi:weather-windy"
+  friendly_name: " "
+sensor.pws_temp_c:
+  friendly_name: "Temperatuur"
+  icon: "mdi:thermometer-lines"
+sensor.pws_wind_dir:
+  friendly_name: "Windrichting"
+  icon: "mdi:compass-outline"
+sensor.pws_wind_kph:
+  friendly_name: "Windsnelheid"
+  icon: "mdi:weather-windy"
 
 # Bewegingssensor
 !secret livingroom_motion:
@@ -28,19 +28,6 @@ sensor.neo_coolcam_unknown_type0003_id1083_alarm_type_4_0:
 sensor.neo_coolcam_unknown_type0003_id1083_burglar_4_10:
   hidden: true
 sensor.neo_coolcam_unknown_type0003_id1083_sourcenodeid_4_2:
-  hidden: true
-
-# Woonkamer - Lamp
-!secret livingroom_light_toggle:
-  friendly_name: "Lamp"
-  icon: "mdi:lightbulb-outline"
-sensor.greenwave_powernode_1_port_energy_2_0:
-  hidden: true
-sensor.greenwave_powernode_1_port_power_2_8:
-  hidden: true
-sensor.greenwave_powernode_1_port_previous_reading_2_1:
-  hidden: true
-sensor.greenwave_powernode_1_port_previous_reading_2_9:
   hidden: true
 
 # Woonkamer - Televisie
@@ -97,12 +84,28 @@ sensor.greenwave_powernode_1_port_previous_reading_3_1:
 sensor.greenwave_powernode_1_port_previous_reading_3_9:
   hidden: true
 
-# Schuur
+# Apparaten
+# Vaatwasser
+!secret dishwasher_power_toggle:
+  friendly_name: "Vaatwasser"
+  icon: "mdi:washing-machine"
+sensor.greenwave_powernode_1_port_energy_2_0:
+  hidden: true
+!secret dishwasher_power_usage:
+  friendly_name: "Vaatwasser verbruik"
+  icon: "mdi:power-plug"
+sensor.greenwave_powernode_1_port_previous_reading_2_1:
+  hidden: true
+sensor.greenwave_powernode_1_port_previous_reading_2_9:
+  hidden: true
+
+# Wasmachine
 !secret shed_washingmachine_power_toggle:
   friendly_name: "Wasmachine"
-  icon: "mdi:basket-fill"
+  icon: "mdi:washing-machine"
 !secret shed_washingmachine_power_usage:
   friendly_name: "Wasmachine verbruik"
+  icon: "mdi:power-plug"
 sensor.neo_coolcam_power_plug_12a_alarm_level_6_1:
   hidden: true
 sensor.neo_coolcam_power_plug_12a_alarm_type_6_0:
@@ -136,11 +139,13 @@ sensor.neo_coolcam_power_plug_12a_sourcenodeid_6_2:
 sensor.neo_coolcam_power_plug_12a_voltage_6_16:
   hidden: true
 
+# Droger
 !secret dryer_power_toggle:
   friendly_name: "Droger"
-  icon: "mdi:basket-unfill"
+  icon: "mdi:washing-machine"
 !secret dryer_power_usage:
   friendly_name: "Droger verbruik"
+  icon: "mdi:power-plug"
 sensor.neo_coolcam_power_plug_12a_alarm_level_8_1:
   hidden: true
 sensor.neo_coolcam_power_plug_12a_alarm_type_8_0:
@@ -173,6 +178,14 @@ sensor.neo_coolcam_power_plug_12a_sourcenodeid_8_2:
   hidden: true
 sensor.neo_coolcam_power_plug_12a_voltage_8_16:
   hidden: true
+
+# Philips Hue
+!secret livingroom_light:
+  friendly_name: "Lamp Woonkamer"
+  icon: "mdi:lightbulb-outline"
+light.hue_color_lamp_2:
+  friendly_name: "Lamp Bijkeuken"
+  icon: "mdi:lightbulb-outline"
 
 # Reistijd
 sensor.sjors_heenreis:

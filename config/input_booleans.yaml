@@ -25,7 +25,9 @@ auto_backyard_lights_off:
 washingmachine_busy:
   name: Wasmachine bezig
   initial: off
+  icon: "mdi:arrow-right-drop-circle-outline"
 
 dryer_busy:
   name: Droger bezig
   initial: off
+  icon: "mdi:arrow-right-drop-circle-outline"

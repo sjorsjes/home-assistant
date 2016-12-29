@@ -32,40 +32,9 @@ recorder:
 automation: !include_dir_list config/automations
 group: !include config/groups.yaml
 input_boolean: !include config/input_booleans.yaml
+scene: !include_dir_merge_list config/scenes
+script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
-
-switch:
-# The following swith set Toon to "Comfort" with the oncmd and sets Toon to "Sleep" with the offcmd.
-  - platform: command_line
-    switches:
-      toon_prog_comfort_sleep:
-        command_on: "python !secret toon_path -C 0 -U !toon_username -P !secret toon_password"
-        command_off: "python !secret toon_path -C 2 -U !toon_username -P !secret toon_password"
-
-# The following swith set Toon to "Home" with the oncmd and sets Toon to "Away" with the offcmd.      
-  - platform: command_line
-    switches:
-      toon_prog_home_away:
-        command_on: "python !secret toon_path -C 1 -U !toon_username -P !secret toon_password"
-        command_off: "python !secret toon_path -C 3 -U !toon_username -P !secret toon_password"
-
-# Special Scenes to easily activate the different Toon Programm States
-scene:
-  - name: Toon Comfort
-    entities:
-      switch.toon_prog_comfort: on
-
-  - name: Toon Sleep
-    entities:
-      switch.toon_prog_comfort: off
-
-  - name: Toon Home
-    entities:
-      switch.toon_prog_thuis: on
-
-  - name: Toon Away
-    entities:
-      switch.toon_prog_thuis: off
 
 http:
   api_password: !secret api_password

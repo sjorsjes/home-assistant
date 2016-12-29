@@ -1,6 +1,6 @@
 # Home-Assistant
-Current Version: 0.33.4  
-Running on a Raspberry PI 1 Model B  
+Current Version: 0.35.3  
+Running on a Raspberry PI 3 Model B  
 Raspbian Jessie 8.0
 
 # Setup
@@ -90,12 +90,6 @@ recorder:
 
 * Creation date 09-11-2016
 * Renewal date 07-02-2016
-
-# Publish to Github
-```$ cd /home/hass/.homeassistant```  
-```$ git add -A```  
-```$ git commit -m "Commit message"```  
-```$ git push```
 
 # Z-Wave settings
 * Greenwave wall sockets
