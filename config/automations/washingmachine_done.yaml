@@ -1,0 +1,8 @@
+alias: Washingmachine busy
+trigger:
+  - platform: numeric_state
+    entity_id: !secret shed_washingmachine_power_usage
+    below: 50
+action:
+  - service: input_boolean.turn_off
+    entity_id: input_boolean.washingmachine_busy

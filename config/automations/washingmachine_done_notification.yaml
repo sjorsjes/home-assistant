@@ -1,0 +1,13 @@
+alias: Washmingmachine done notification
+trigger:
+  - platform: state
+    entity_id: input_boolean.washingmachine_busy
+    state: 'off'
+condition:
+  - condition: state
+    entity_id: input_boolean.washingmachine_busy
+    state: 'off'
+    for:
+      minutes: 5
+action:
+  - service: script.hue_flash

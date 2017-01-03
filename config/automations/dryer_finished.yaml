@@ -1,7 +1,0 @@
-alias: Dryer finished
-trigger:
-  - platform: state
-    entity_id: input_boolean.dryer_busy
-    state: 'off'
-action:
-  service: script.hue_flash

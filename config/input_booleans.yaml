@@ -11,7 +11,7 @@ auto_television_off:
   initial: on
 
 auto_television_on:
-  name: Televisie uit
+  name: Televisie aan
   initial: on
 
 auto_backyard_lights_on:

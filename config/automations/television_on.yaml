@@ -24,5 +24,5 @@ condition:
           - tue
           - fri
 action:
-  service: switch.turn_on
-  entity_id: !secret livingroom_television_toggle
+  - service: switch.turn_on
+    entity_id: !secret livingroom_television_toggle

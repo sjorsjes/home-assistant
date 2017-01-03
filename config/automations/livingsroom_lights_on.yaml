@@ -2,13 +2,12 @@ alias: "Woonkamer wanneer het te donker is"
 trigger:
   # platform: sun
   # event: sunset
-  platform: time
-  after: '16:20:00'
+  - platform: time
+    after: '16:20:00'
 condition:
-  condition: state
-  entity_id: 'input_boolean.auto_livingroom_lights_on'
-  state: 'on'
+  - condition: state
+    entity_id: 'input_boolean.auto_livingroom_lights_on'
+    state: 'on'
 action:
-  service: light.turn_on
-  entity_id:
-    - !secret livingroom_light
+  - service: light.turn_on
+    entity_id: !secret livingroom_light

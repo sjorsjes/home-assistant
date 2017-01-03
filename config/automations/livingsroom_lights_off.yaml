@@ -1,12 +1,11 @@
 alias: 'Woonkamer uit om 00:00'
 trigger:
-  platform: time
-  after: '00:00:00'
+  - platform: time
+    after: '00:00:00'
 condition:
-  condition: state
-  entity_id: 'input_boolean.auto_livingroom_lights_off'
-  state: 'on'
+  - condition: state
+    entity_id: 'input_boolean.auto_livingroom_lights_off'
+    state: 'on'
 action:
-  service: light.turn_off
-  entity_id:
-    - !secret livingroom_light
+  - service: light.turn_off
+    entity_id: !secret livingroom_light

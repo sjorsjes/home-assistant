@@ -1,7 +1,0 @@
-alias: Washmingmachine finished
-trigger:
-  - platform: state
-    entity_id: input_boolean.washingmachine_busy
-    state: 'off'
-action:
-  service: script.hue_flash

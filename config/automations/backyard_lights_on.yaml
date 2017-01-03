@@ -2,12 +2,12 @@ alias: "Tuinverlichting aan na zonsondergang"
 trigger:
   # platform: sun
   # event: sunset
-  platform: time
-  after: '16:20:00'
+  - platform: time
+    after: '16:20:00'
 condition:
-  condition: state
-  entity_id: 'input_boolean.auto_backyard_lights_on'
-  state: 'on'
+  - condition: state
+    entity_id: 'input_boolean.auto_backyard_lights_on'
+    state: 'on'
 action:
-  service: switch.turn_on
-  entity_id: group.backyard
+  - service: switch.turn_on
+    entity_id: group.backyard

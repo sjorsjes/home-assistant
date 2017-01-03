@@ -12,7 +12,6 @@ frontend:
 updater:
 discovery:
 history:
-
 logbook:
   exclude:
     domains:
@@ -22,24 +21,19 @@ logbook:
     #   - sensor.pws_temp_c
     #   - sensor.pws_wind_dir
     #   - sensor.pws_wind_kph
-
 sun:
 
 recorder:
   purge_days: 7
   db_url: !secret mysql # mysql://dbuser:password@localhost/dbname
 
+http: !include config/http.yaml
 automation: !include_dir_list config/automations
 group: !include config/groups.yaml
 input_boolean: !include config/input_booleans.yaml
 scene: !include_dir_merge_list config/scenes
 script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
-
-http:
-  api_password: !secret api_password
-  ssl_certificate: !secret ssl_certificate
-  ssl_key: !secret ssl_key
 
 notify:
   name: pushbullet
