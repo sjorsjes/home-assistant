@@ -1,16 +1,23 @@
 # Tabs
 default_view:
+  icon: mdi:home
   view: yes
   entities:
-    - sensor.pws_temp_c
     - sensor.sjors_heenreis
     - sensor.sjors_terugreis
     - sensor.saskia_heenreis
     - sensor.saskia_terugreis
     - group.livingroom
     - group.backyard
-    - group.appliances
     - group.automation
+    #- group.appliances
+  
+automations:
+  name: 'Automagisch'
+  icon: mdi:auto-fix
+  view: yes
+  entities:
+    - group.automation_tab
 
 # Groups
 livingroom:
@@ -27,18 +34,22 @@ backyard:
   entities:
     - !secret backyard_light_toggle
 
-appliances:
-  name: Apparaten
-  entities:
-    - !secret dishwasher_power_toggle
-    - !secret dishwasher_power_usage
-    - !secret shed_washingmachine_power_usage
-    - input_boolean.washingmachine_busy
-    - !secret dryer_power_usage
-    - input_boolean.dryer_busy
+# appliances: 
+#   name: Apparaten 
+#   entities: 
+#     - !secret dishwasher_power_toggle 
+#     - !secret dishwasher_power_usage 
+#     - !secret shed_washingmachine_power_usage 
+#     - input_boolean.washingmachine_busy 
+#     - !secret dryer_power_usage 
+#     - input_boolean.dryer_busy 
 
 automation:
   name: Automagisch
+  entities:
+    - input_boolean.vacation_mode
+
+automation_tab:
   entities:
     - input_boolean.auto_livingroom_lights_on
     - input_boolean.auto_livingroom_lights_off

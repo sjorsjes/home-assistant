@@ -1,8 +1,8 @@
-hue_flash:
-  alias: "Flash hue livingroom lights"
+hue_flash_blue:
+  alias: "Flash hue livingroom lights blue"
   sequence:
     - service: scene.turn_on
-      entity_id: scene.woonkamer_flash
+      entity_id: scene.woonkamer_flash_blue
     - delay:
         seconds: 15
     - service: light.hue_activate_scene

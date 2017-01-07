@@ -1,6 +1,6 @@
-- name: 'Woonkamer flash'
+- name: 'Woonkamer flash groen'
   entities:
     !secret livingroom_light:
       state: 'on'
-      color_name: 'green'
+      rgb_color: [29, 131, 72]
       flash: long
