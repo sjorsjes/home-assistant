@@ -82,14 +82,23 @@ recorder:
 * [Installation guide](https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/)  
 * After installation:  
   ```$ sudo chmod -R 777 /etc/letsencrypt/archive```  
-  ```$ sudo chmod -R 777 /etc/letsencrypt/live```
+  ```$ sudo chmod -R 777 /etc/letsencrypt/live```  
+  ```$ sudo chmod -R 777 /etc/letsencrypt/renewal```
 
 ### Renew Certificate
 ```$ cd certbot```  
-```$ ./certbot-auto renew --quiet --no-self-upgrade --standalone --standalone-supported-challenges http-01```
+```$ sudo ./certbot-auto renew --standalone --no-self-upgrade --force-renewal --preferred-challenges http-01```  
+```$ sudo reboot```
 
-* Creation date 09-11-2016
-* Renewal date 07-02-2016
+* Creation date 31-01-2017
+* Renewal date 01-05-2017
+
+### Upgrade Lets Encrypt & Certificates
+```$ cd certbot```  
+```$ ./certbot-auto renew```
+
+### Check Validity
+```$ openssl x509 -in /etc/letsencrypt/live/<domain>/fullchain.pem -text -noout | grep -A2 Validity```
 
 # Z-Wave settings
 * Greenwave wall sockets
