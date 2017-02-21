@@ -3,5 +3,5 @@
     !secret livingroom_light:
       state: 'on'
       rgb_color: [33, 97, 140]
-      brightness: 255
+      brightness: 254
       flash: long

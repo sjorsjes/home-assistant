@@ -1,13 +1,17 @@
-alias: "Tuinverlichting aan na zonsondergang"
+alias: "Tuinverlichting aan na zonsondergang en na 17:30"
 trigger:
-  # platform: sun
-  # event: sunset
-  - platform: time
-    after: '16:20:00'
-condition:
-  - condition: state
-    entity_id: 'input_boolean.auto_backyard_lights_on'
-    state: 'on'
+  platform: numeric_state
+  entity_id: sun.sun
+  value_template: '{{ state.attributes.elevation }}'
+  below: -3.5
+condition: 
+  condition: and
+  conditions: 
+    - condition: state
+      entity_id: input_boolean.auto_backyard_lights_on
+      state: 'on'
+    - condition: time
+      after: '17:30:00'
 action:
   - service: switch.turn_on
     entity_id: group.backyard

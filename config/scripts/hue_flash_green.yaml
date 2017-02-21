@@ -2,7 +2,7 @@ hue_flash_green:
   alias: "Flash hue livingroom lights green"
   sequence:
     - service: scene.turn_on
-      entity_id: scene.woonkamer_flash_green
+      entity_id: scene.woonkamer_flash_groen
     - delay:
         seconds: 15
     - service: light.hue_activate_scene

@@ -3,20 +3,20 @@ sun.sun:
   hidden: true
 
 # Bewegingssensor
-!secret livingroom_motion:
-  friendly_name: "Bewegingssensor"
-  icon: "mdi:walk"
-!secret livingroom_lux:
-  friendly_name: "Lichtsterkte"
-  icon: "mdi:eye"
-sensor.neo_coolcam_unknown_type0003_id1083_alarm_level_4_1:
-  hidden: true
-sensor.neo_coolcam_unknown_type0003_id1083_alarm_type_4_0:
-  hidden: true
-sensor.neo_coolcam_unknown_type0003_id1083_burglar_4_10:
-  hidden: true
-sensor.neo_coolcam_unknown_type0003_id1083_sourcenodeid_4_2:
-  hidden: true
+# !secret livingroom_motion:
+#   friendly_name: "Bewegingssensor"
+#   icon: "mdi:walk"
+# !secret livingroom_lux:
+#   friendly_name: "Lichtsterkte"
+#   icon: "mdi:eye"
+# sensor.neo_coolcam_unknown_type0003_id1083_alarm_level_4_1:
+#   hidden: true
+# sensor.neo_coolcam_unknown_type0003_id1083_alarm_type_4_0:
+#   hidden: true
+# sensor.neo_coolcam_unknown_type0003_id1083_burglar_4_10:
+#   hidden: true
+# sensor.neo_coolcam_unknown_type0003_id1083_sourcenodeid_4_2:
+#   hidden: true
 
 # Woonkamer - Televisie
 !secret livingroom_television_toggle:

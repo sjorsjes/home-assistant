@@ -10,7 +10,7 @@ default_view:
     - group.livingroom
     - group.backyard
     - group.automation
-    #- group.appliances
+    - group.appliances
   
 automations:
   name: 'Automagisch'
@@ -34,15 +34,15 @@ backyard:
   entities:
     - !secret backyard_light_toggle
 
-# appliances: 
-#   name: Apparaten 
-#   entities: 
-#     - !secret dishwasher_power_toggle 
-#     - !secret dishwasher_power_usage 
-#     - !secret shed_washingmachine_power_usage 
-#     - input_boolean.washingmachine_busy 
-#     - !secret dryer_power_usage 
-#     - input_boolean.dryer_busy 
+appliances: 
+  name: Apparaten 
+  entities: 
+    - !secret dishwasher_power_toggle 
+    - !secret dishwasher_power_usage 
+    - !secret shed_washingmachine_power_usage 
+    - input_boolean.washingmachine_busy 
+    - !secret dryer_power_usage 
+    - input_boolean.dryer_busy 
 
 automation:
   name: Automagisch

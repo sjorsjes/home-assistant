@@ -1,7 +1,7 @@
 alias: "Televisie aan"
 trigger:
   - platform: time
-    after: '08:00:00'
+    after: '07:00:00'
   - platform: time
     after: '17:00:00'
 condition:
@@ -11,7 +11,7 @@ condition:
   - condition: or
     conditions:
       - condition: time
-        after: "08:00:00"
+        after: "07:00:00"
         weekday:
           - wed
           - thu
