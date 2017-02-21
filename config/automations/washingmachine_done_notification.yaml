@@ -5,10 +5,20 @@ trigger:
     from: 'on'
     to: 'off'
     for:
-      minutes: 5
+      minutes: 1
 condition:
   - condition: state
     entity_id: !secret livingroom_light
     state: 'on'
 action:
-  - service: script.hue_flash_blue
+  - service: scene.turn_on
+    entity_id: scene.woonkamer_flash_blauw
+  - delay:
+      seconds: 15
+  - service: light.hue_activate_scene
+    data:
+      group_name: "Woonkamer"
+      scene_name: "Ontspannen"
+
+# Todo
+# - return light to previous state (on/off/scene)
