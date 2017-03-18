@@ -8,6 +8,7 @@ homeassistant:
   time_zone: Europe/Amsterdam
   customize: !include config/customization.yaml
 
+config:
 frontend:
 updater:
 discovery:
@@ -31,4 +32,5 @@ script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
 
 zwave:
+  device_config: !include config/zwave_device_config.yaml
   usb_path: /dev/ttyUSB-Zwave

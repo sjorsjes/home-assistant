@@ -5,7 +5,7 @@ trigger:
     from: 'on'
     to: 'off'
     for:
-      minutes: 1
+      minutes: 5
 condition:
   - condition: state
     entity_id: !secret livingroom_light
