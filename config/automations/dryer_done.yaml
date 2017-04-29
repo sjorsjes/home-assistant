@@ -2,7 +2,7 @@ alias: Washingmachine busy
 trigger:
   - platform: numeric_state
     entity_id: !secret dryer_power_usage
-    below: 99
+    below: 9
 action:
   - service: input_boolean.turn_off
     entity_id: input_boolean.dryer_busy

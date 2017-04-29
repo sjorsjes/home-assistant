@@ -158,13 +158,3 @@ sensor.neo_coolcam_power_plug_12a_voltage_8_16:
 light.hue_color_lamp_2:
   friendly_name: "Lamp Bijkeuken"
   icon: "mdi:lightbulb-outline"
-
-# Reistijd
-sensor.sjors_heenreis:
-  icon: "mdi:traffic-light"
-sensor.sjors_terugreis:
-  icon: "mdi:traffic-light"
-sensor.saskia_heenreis:
-  icon: "mdi:traffic-light"
-sensor.saskia_terugreis:
-  icon: "mdi:traffic-light"

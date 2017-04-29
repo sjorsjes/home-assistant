@@ -1,31 +1,31 @@
-- platform: google_travel_time
-  name: "Sjors heenreis"
-  api_key: !secret google_travel_time_api
-  origin: !secret google_travel_time_home
-  destination: !secret google_travel_time_work_sjors
-  options:
-    mode: driving
+# - platform: google_travel_time
+#   name: "Sjors heenreis"
+#   api_key: !secret google_travel_time_api
+#   origin: !secret google_travel_time_home
+#   destination: !secret google_travel_time_work_sjors
+#   options:
+#     mode: driving
 
-- platform: google_travel_time
-  name: "Sjors terugreis"
-  api_key: !secret google_travel_time_api
-  origin: !secret google_travel_time_work_sjors
-  destination: !secret google_travel_time_home
-  options:
-    mode: driving
+# - platform: google_travel_time
+#   name: "Sjors terugreis"
+#   api_key: !secret google_travel_time_api
+#   origin: !secret google_travel_time_work_sjors
+#   destination: !secret google_travel_time_home
+#   options:
+#     mode: driving
 
-- platform: google_travel_time
-  name: "Saskia heenreis"
-  api_key: !secret google_travel_time_api
-  origin: !secret google_travel_time_home
-  destination: !secret google_travel_time_work_saskia
-  options:
-    mode: driving
+# - platform: google_travel_time
+#   name: "Saskia heenreis"
+#   api_key: !secret google_travel_time_api
+#   origin: !secret google_travel_time_home
+#   destination: !secret google_travel_time_work_saskia
+#   options:
+#     mode: driving
 
-- platform: google_travel_time
-  name: "Saskia terugreis"
-  api_key: !secret google_travel_time_api
-  origin: !secret google_travel_time_work_saskia
-  destination: !secret google_travel_time_home
-  options:
-    mode: driving
+# - platform: google_travel_time
+#   name: "Saskia terugreis"
+#   api_key: !secret google_travel_time_api
+#   origin: !secret google_travel_time_work_saskia
+#   destination: !secret google_travel_time_home
+#   options:
+#     mode: driving
