@@ -3,10 +3,6 @@ default_view:
   icon: mdi:home
   view: yes
   entities:
-    - sensor.sjors_heenreis
-    - sensor.sjors_terugreis
-    - sensor.saskia_heenreis
-    - sensor.saskia_terugreis
     - group.livingroom
     - group.backyard
     - group.automation
@@ -25,8 +21,6 @@ livingroom:
   entities:
     - !secret livingroom_light
     - light.hue_color_lamp_2
-    - !secret livingroom_motion
-    - !secret livingroom_lux
     - !secret livingroom_television_toggle
 
 backyard:

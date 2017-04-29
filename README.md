@@ -1,5 +1,5 @@
 # Home-Assistant
-Current Version: 0.35.3  
+Current Version: 0.43.2  
 Running on a Raspberry PI 3 Model B  
 Raspbian Jessie 8.0
 
@@ -54,20 +54,29 @@ And add the unique key
 ```$ sudo apt-get install mysql-server && sudo apt-get install mysql-client```  
 ```$ sudo apt-get install libmysqlclient-dev```  
 ```$ sudo apt-get install python-dev python3-dev```  
-```$ mysql -uroot -p```  
+```$ mysql -u root -p```  
 ```$ CREATE DATABASE dbname;```  
 ```$ CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'password';```  
 ```$ GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost';```  
 ```$ FLUSH PRIVILEGES;```  
 
 **Test if user works:**  
-```$ mysql -udbuser dbname -p```
+```$ mysql -u dbuser dbname -p```
 
 **Switch to HASS env**  
 ```$ ssh pi@your_raspberry_pi_ip```  
 ```$ sudo su -s /bin/bash hass```  
 ```$ source /srv/hass/hass_venv/bin/activate```  
 ```$ pip3 install --upgrade mysqlclient```  
+
+**Troubleshooting**  
+***Install mysqlclient***  
+```$ ssh pi@your_raspberry_pi_ip```  
+```$ pip3 install mysqlclient```  
+  
+***Mysql running?***  
+```sudo service mysql status```  
+```sudo service mysql start```  
 
 **Add to configuration.yaml**  
 ```yaml

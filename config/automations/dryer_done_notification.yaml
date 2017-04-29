@@ -11,4 +11,14 @@ condition:
     entity_id: !secret livingroom_light
     state: 'on'
 action:
-  - service: script.hue_flash_green
+  - service: scene.turn_on
+    entity_id: scene.woonkamer_flash_groen
+  - delay:
+      seconds: 15
+  - service: light.hue_activate_scene
+    data:
+      group_name: "Woonkamer"
+      scene_name: "Ontspannen"
+
+# Todo
+# - return light to previous state (on/off/scene)
