@@ -1,7 +1,0 @@
-- name: 'Woonkamer flash groen'
-  entities:
-    !secret livingroom_light:
-      state: 'on'
-      rgb_color: [29, 131, 72]
-      brightness: 254
-      flash: long

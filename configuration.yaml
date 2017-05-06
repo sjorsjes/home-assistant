@@ -30,6 +30,7 @@ input_boolean: !include config/input_booleans.yaml
 scene: !include_dir_merge_list config/scenes
 script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
+zone: !include config/zones.yaml
 
 http:
   api_password: !secret api_password

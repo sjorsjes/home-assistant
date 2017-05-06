@@ -1,0 +1,9 @@
+alias: Location update Sjors
+trigger:
+  - platform: time
+    minutes: '/15'
+    seconds: 00
+action:
+  - service: notify.ios_iphonesjors
+    data:
+      message: "request_location_update"

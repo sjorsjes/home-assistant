@@ -6,19 +6,12 @@ trigger:
     to: 'off'
     for:
       minutes: 5
-condition:
-  - condition: state
-    entity_id: !secret livingroom_light
-    state: 'on'
 action:
-  - service: scene.turn_on
-    entity_id: scene.woonkamer_flash_groen
-  - delay:
-      seconds: 15
-  - service: light.hue_activate_scene
+  - service: notify.ios_iphonesaskia
     data:
-      group_name: "Woonkamer"
-      scene_name: "Ontspannen"
-
-# Todo
-# - return light to previous state (on/off/scene)
+      title: "Droger: "
+      message: "Ik ben klaar!"
+  - service: notify.ios_iphonesjors
+    data:
+      title: "Droger: "
+      message: "Ik ben klaar!"

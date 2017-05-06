@@ -2,159 +2,189 @@
 sun.sun:
   hidden: true
 
-# Woonkamer - Televisie
-!secret livingroom_television_toggle:
-  friendly_name: "Televisie"
-  icon: "mdi:television-guide"
-sensor.neo_coolcam_power_plug_12a_alarm_level_9_1:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_alarm_type_9_0:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_current_9_20:
-  hidden: true
-!secret livingroom_television_power_usage_total:
-  friendly_name: "Televisie verbruik (kWh)"
-  icon: "mdi:power-plug"
-sensor.neo_coolcam_power_plug_12a_exporting_9_32:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_9_10:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_9_18:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_9_2:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_9_22:
-  hidden: true
-!secret livingroom_television_power_usage:
-  friendly_name: "Televisie verbruik (w)"
-  icon: "mdi:power-plug"
-sensor.neo_coolcam_power_plug_12a_power_management_9_11:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_9_1:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_9_17:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_9_21:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_9_9:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_sourcenodeid_9_2:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_voltage_9_16:
-  hidden: true
-
-# Achtertuin
-!secret backyard_light_toggle:
-  friendly_name: "Led lampjes"
-  icon: "mdi:led-outline"
-sensor.greenwave_powernode_1_port_energy_3_0:
-  hidden: true
-sensor.greenwave_powernode_1_port_power_3_8:
-  hidden: true
-sensor.greenwave_powernode_1_port_previous_reading_3_1:
-  hidden: true
-sensor.greenwave_powernode_1_port_previous_reading_3_9:
-  hidden: true
-
-# Apparaten
-# Vaatwasser
-!secret dishwasher_power_toggle:
-  friendly_name: "Vaatwasser"
-  icon: "mdi:washing-machine"
-sensor.greenwave_powernode_1_port_energy_2_0:
-  hidden: true
-!secret dishwasher_power_usage:
-  friendly_name: "Vaatwasser verbruik"
-  icon: "mdi:power-plug"
-sensor.greenwave_powernode_1_port_previous_reading_2_1:
-  hidden: true
-sensor.greenwave_powernode_1_port_previous_reading_2_9:
-  hidden: true
-
-# Wasmachine
-!secret shed_washingmachine_power_toggle:
-  friendly_name: "Wasmachine"
-  icon: "mdi:washing-machine"
-!secret shed_washingmachine_power_usage:
-  friendly_name: "Wasmachine verbruik"
-  icon: "mdi:power-plug"
-sensor.neo_coolcam_power_plug_12a_alarm_level_6_1:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_alarm_type_6_0:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_current_6_20:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_energy_6_0:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_exporting_6_32:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_6_10:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_6_18:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_6_2:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_6_22:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_power_management_6_11:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_6_1:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_6_17:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_6_21:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_6_9:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_sourcenodeid_6_2:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_voltage_6_16:
-  hidden: true
-
-# Droger
-!secret dryer_power_toggle:
-  friendly_name: "Droger"
-  icon: "mdi:washing-machine"
-!secret dryer_power_usage:
-  friendly_name: "Droger verbruik"
-  icon: "mdi:power-plug"
-sensor.neo_coolcam_power_plug_12a_alarm_level_8_1:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_alarm_type_8_0:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_current_8_20:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_energy_8_0:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_exporting_8_32:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_8_10:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_8_18:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_8_2:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_interval_8_22:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_power_management_8_11:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_8_1:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_8_17:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_8_21:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_previous_reading_8_9:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_sourcenodeid_8_2:
-  hidden: true
-sensor.neo_coolcam_power_plug_12a_voltage_8_16:
-  hidden: true
-
+# Woonkamer
 # Philips Hue
 !secret livingroom_light:
   friendly_name: "Lamp Woonkamer"
   icon: "mdi:lightbulb-outline"
 light.hue_color_lamp_2:
-  friendly_name: "Lamp Bijkeuken"
-  icon: "mdi:lightbulb-outline"
+  hidden: true
+
+# Televisie
+sensor.woonkamer__televisie_alarm_level_9_1:
+  hidden: true
+sensor.woonkamer__televisie_alarm_type_9_0:
+  hidden: true
+sensor.woonkamer__televisie_current_9_20:
+  hidden: true
+sensor.woonkamer__televisie_energy_9_0:
+  hidden: true
+sensor.woonkamer__televisie_exporting_9_32:
+  hidden: true
+sensor.woonkamer__televisie_interval_9_10:
+  hidden: true
+sensor.woonkamer__televisie_interval_9_18:
+  hidden: true
+sensor.woonkamer__televisie_interval_9_2:
+  hidden: true
+sensor.woonkamer__televisie_interval_9_22:
+  hidden: true
+!secret television_power_usage:
+  friendly_name: "Televisie verbruik (w)"
+  icon: "mdi:power-plug"
+sensor.woonkamer__televisie_power_management_9_11:
+  hidden: true
+sensor.woonkamer__televisie_previous_reading_9_1:
+  hidden: true
+sensor.woonkamer__televisie_previous_reading_9_17:
+  hidden: true
+sensor.woonkamer__televisie_previous_reading_9_21:
+  hidden: true
+sensor.woonkamer__televisie_previous_reading_9_9:
+  hidden: true
+sensor.woonkamer__televisie_sourcenodeid_9_2:
+  hidden: true
+sensor.woonkamer__televisie_voltage_9_16:
+  hidden: true
+!secret television_toggle:
+  friendly_name: "Televisie"
+  icon: "mdi:television-guide"
+zwave.woonkamer__televisie_9:
+  hidden: true
+
+# Woonkamer PIR
+binary_sensor.woonkamer__bewegingsmelder_sensor_10_0: # state: on/off
+  name: "Beweging"
+  icon: "mdi:run"
+sensor.woonkamer__bewegingsmelder_alarm_level_10_1:
+  hidden: true
+sensor.woonkamer__bewegingsmelder_alarm_type_10_0:
+  hidden: true
+sensor.woonkamer__bewegingsmelder_burglar_10_10:
+  hidden: true
+sensor.woonkamer__bewegingsmelder_luminance_10_3:
+  name: "Light"
+  icon: "mdi:white-balance-sunny"
+sensor.woonkamer__bewegingsmelder_sourcenodeid_10_2:
+  hidden: true
+zwave.woonkamer__bewegingsmelder_10:
+  hidden: true
+
+# Achtertuin
+sensor.achtertuin__led_lampjes_energy_3_0:
+  hidden: true
+sensor.achtertuin__led_lampjes_power_3_8:
+  hidden: true
+sensor.achtertuin__led_lampjes_previous_reading_3_1:
+  hidden: true
+sensor.achtertuin__led_lampjes_previous_reading_3_9:
+  hidden: true
+!secret backyard_light_toggle:
+  friendly_name: "Verlichting"
+  icon: "mdi:led-outline"
+zwave.achtertuin__led_lampjes_3:
+  hidden: true
+
+# Apparaten
+# Vaatwasser
+sensor.woonkamer__vaatwasser_energy_2_0:
+  hidden: true
+!secret dishwasher_power_usage:
+  friendly_name: "Vaatwasser verbruik"
+  icon: "mdi:power-plug"
+sensor.woonkamer__vaatwasser_previous_reading_2_1:
+  hidden: true
+sensor.woonkamer__vaatwasser_previous_reading_2_9:
+  hidden: true
+!secret dishwasher_power_toggle:
+  friendly_name: "Vaatwasser"
+  icon: "mdi:washing-machine"
+zwave.woonkamer__vaatwasser_2:
+  hidden: true
+
+# Wasmachine
+sensor.schuur__wasmachine_alarm_level_6_1:
+  hidden: true
+sensor.schuur__wasmachine_alarm_type_6_0:
+  hidden: true
+sensor.schuur__wasmachine_current_6_20:
+  hidden: true
+sensor.schuur__wasmachine_energy_6_0:
+  hidden: true
+sensor.schuur__wasmachine_exporting_6_32:
+  hidden: true
+sensor.schuur__wasmachine_interval_6_10:
+  hidden: true
+sensor.schuur__wasmachine_interval_6_18:
+  hidden: true
+sensor.schuur__wasmachine_interval_6_2:
+  hidden: true
+sensor.schuur__wasmachine_interval_6_22:
+  hidden: true
+!secret washingmachine_power_usage:
+  friendly_name: "Wasmachine verbruik"
+  icon: "mdi:power-plug"
+sensor.schuur__wasmachine_power_management_6_11:
+  hidden: true
+sensor.schuur__wasmachine_previous_reading_6_1:
+  hidden: true
+sensor.schuur__wasmachine_previous_reading_6_17:
+  hidden: true
+sensor.schuur__wasmachine_previous_reading_6_21:
+  hidden: true
+sensor.schuur__wasmachine_previous_reading_6_9:
+  hidden: true
+sensor.schuur__wasmachine_sourcenodeid_6_2:
+  hidden: true
+sensor.schuur__wasmachine_voltage_6_16:
+  hidden: true
+!secret washingmachine_power_toggle:
+  friendly_name: "Wasmachine"
+  icon: "mdi:washing-machine"
+zwave.schuur__wasmachine_6:
+  hidden: true
+
+# Droger
+sensor.schuur__droger_alarm_level_8_1:
+  hidden: true
+sensor.schuur__droger_alarm_type_8_0:
+  hidden: true
+sensor.schuur__droger_current_8_20:
+  hidden: true
+sensor.schuur__droger_energy_8_0:
+  hidden: true
+sensor.schuur__droger_exporting_8_32:
+  hidden: true
+sensor.schuur__droger_interval_8_10:
+  hidden: true
+sensor.schuur__droger_interval_8_18:
+  hidden: true
+sensor.schuur__droger_interval_8_2:
+  hidden: true
+sensor.schuur__droger_interval_8_22:
+  hidden: true
+!secret dryer_power_usage:
+  friendly_name: "Droger verbruik"
+  icon: "mdi:power-plug"
+sensor.schuur__droger_power_management_8_11:
+  hidden: true
+sensor.schuur__droger_previous_reading_8_1:
+  hidden: true
+sensor.schuur__droger_previous_reading_8_17:
+  hidden: true
+sensor.schuur__droger_previous_reading_8_21:
+  hidden: true
+sensor.schuur__droger_previous_reading_8_9:
+  hidden: true
+sensor.schuur__droger_sourcenodeid_8_2:
+  hidden: true
+sensor.schuur__droger_voltage_8_16:
+  hidden: true
+!secret dryer_power_toggle:
+  friendly_name: "Droger"
+  icon: "mdi:washing-machine"
+zwave.schuur__droger_8:
+  hidden: true
+
+zwave.aeotec_zw090_zstick_gen5_1:
+  hidden: true

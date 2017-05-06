@@ -1,4 +1,4 @@
-alias: Washingmachine busy
+alias: Dryer done
 trigger:
   - platform: numeric_state
     entity_id: !secret dryer_power_usage

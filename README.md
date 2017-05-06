@@ -99,12 +99,13 @@ recorder:
 ```$ sudo ./certbot-auto renew --standalone --no-self-upgrade --force-renewal --preferred-challenges http-01```  
 ```$ sudo reboot```
 
-* Creation date 31-01-2017
-* Renewal date 01-05-2017
+* Creation date 03-05-2017
+* Renewal date 01-08-2017
 
 ### Upgrade Lets Encrypt & Certificates
 ```$ cd certbot```  
 ```$ ./certbot-auto renew```
+```$ sudo reboot```
 
 ### Check Validity
 ```$ openssl x509 -in /etc/letsencrypt/live/<domain>/fullchain.pem -text -noout | grep -A2 Validity```
@@ -112,6 +113,9 @@ recorder:
 # Z-Wave settings
 * Greenwave wall sockets
   * timeout: 255
+
+## Copy OZWCP config to HASS  
+```$ sudo cp /srv/hass/src/open-zwave-control-panel/zwcfg_0xe268674f.xml /home/hass/.homeassistant/```  
   
 # Documentation
 * https://objectpartners.com/2016/04/12/setting-up-the-raspberry-pi-3-for-home-assistant/
