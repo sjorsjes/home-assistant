@@ -27,31 +27,11 @@ recorder:
 automation: !include_dir_list config/automations
 group: !include config/groups.yaml
 input_boolean: !include config/input_booleans.yaml
+light: !include config/lights.yaml
 scene: !include_dir_merge_list config/scenes
 script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
 zone: !include config/zones.yaml
-
-light:
-  - platform: mqtt_json
-    name: "SN1 LED"
-    state_topic: "bruh/sensornode1"
-    command_topic: "bruh/sensornode1/set"
-    brightness: true
-    flash: true
-    rgb: true
-    optimistic: false
-    qos: 0
-
-  - platform: mqtt_json
-    name: "SN2 LED"
-    state_topic: "bruh/sensornode2"
-    command_topic: "bruh/sensornode2/set"
-    brightness: true
-    flash: true
-    rgb: true
-    optimistic: false
-    qos: 0
 
 mqtt:
 

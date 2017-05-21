@@ -188,3 +188,33 @@ zwave.schuur__droger_8:
 
 zwave.aeotec_zw090_zstick_gen5_1:
   hidden: true
+
+sensor.sensor_01__temperatuur:
+  friendly_name: "Temperatuur"
+sensor.sensor_01__luchtvochtigheid:
+  friendly_name: "Luchtvochtigheid"
+  icon: "mdi:water-percent"
+sensor.sensor_01__lichtsterkte:
+  friendly_name: "Lichtsterkte"
+  icon: "mdi:white-balance-sunny"
+sensor.sensor_01__bewegingsmelder:
+  friendly_name: "Bewegingsmelder"
+  icon: "mdi:run"
+light.sensor_01__led:
+  friendly_name: "Led"
+  icon: "mdi:led-outline"
+
+sensor.sensor_02__temperatuur:
+  friendly_name: "Temperatuur"
+sensor.sensor_02__luchtvochtigheid:
+  friendly_name: "Luchtvochtigheid"
+  icon: "mdi:water-percent"
+sensor.sensor_02__lichtsterkte:
+  friendly_name: "Lichtsterkte"
+  icon: "mdi:white-balance-sunny"
+sensor.sensor_02__bewegingsmelder:
+  friendly_name: "Bewegingsmelder"
+  icon: "mdi:run"
+light.sensor_02__led:
+  friendly_name: "Led"
+  icon: "mdi:led-outline"

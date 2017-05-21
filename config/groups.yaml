@@ -22,20 +22,20 @@ automations:
 sensor_livingroom:
   name: Woonkamer sensor
   entities:
-    - sensor.sn1_temperature
-    - sensor.sn1_humidity
-    - sensor.sn1_ldr
-    - sensor.sn1_pir
-    - light.sn1_led
+    - sensor.sensor_01__temperatuur
+    - sensor.sensor_01__luchtvochtigheid
+    - sensor.sensor_01__lichtsterkte
+    - sensor.sensor_01__bewegingsmelder
+    - light.sensor_01__led
 
 sensor_bedroom_saar:
   name: Slaapkamer Saar sensor
   entities:
-    - sensor.sn2_temperature
-    - sensor.sn2_humidity
-    - sensor.sn2_ldr
-    - sensor.sn2_pir
-    - light.sn2_led
+    - sensor.sensor_02__temperatuur
+    - sensor.sensor_02__luchtvochtigheid
+    - sensor.sensor_02__lichtsterkte
+    - sensor.sensor_02__bewegingsmelder
+    - light.sensor_02__led
 
 livingroom:
   name: Woonkamer
