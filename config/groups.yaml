@@ -5,9 +5,11 @@ default_view:
   entities:
     - group.livingroom
     - group.backyard
-    - group.automation
-    - group.appliances
     - group.presence
+    - group.miscaleanous
+    - group.appliances
+    - group.sensor_livingroom
+    - group.sensor_bedroom_saar
   
 automations:
   name: 'Automagisch'
@@ -17,6 +19,24 @@ automations:
     - group.automation_tab
 
 # Groups
+sensor_livingroom:
+  name: Woonkamer sensor
+  entities:
+    - sensor.sn1_temperature
+    - sensor.sn1_humidity
+    - sensor.sn1_ldr
+    - sensor.sn1_pir
+    - light.sn1_led
+
+sensor_bedroom_saar:
+  name: Slaapkamer Saar sensor
+  entities:
+    - sensor.sn2_temperature
+    - sensor.sn2_humidity
+    - sensor.sn2_ldr
+    - sensor.sn2_pir
+    - light.sn2_led
+
 livingroom:
   name: Woonkamer
   entities:
@@ -34,12 +54,12 @@ appliances:
   name: Apparaten 
   entities: 
     - !secret dishwasher_power_toggle 
-    - !secret dishwasher_power_usage 
     - !secret washingmachine_power_toggle 
-    - !secret washingmachine_power_usage 
-    - input_boolean.washingmachine_busy 
     - !secret dryer_power_toggle 
+    - !secret dishwasher_power_usage 
+    - !secret washingmachine_power_usage 
     - !secret dryer_power_usage 
+    - input_boolean.washingmachine_busy 
     - input_boolean.dryer_busy 
 
 presence:
@@ -48,10 +68,11 @@ presence:
     - device_tracker.iphonesjors
     - device_tracker.iphonesaskia
 
-automation:
-  name: Automagisch
+miscaleanous:
+  name: Miscaleanous
   entities:
     - input_boolean.vacation_mode
+    - sensor.ssl_certificate_expiry
 
 automation_tab:
   entities:

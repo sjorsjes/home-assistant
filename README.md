@@ -1,5 +1,5 @@
 # Home-Assistant
-Current Version: 0.43.2  
+Current Version: 0.45  
 Running on a Raspberry PI 3 Model B  
 Raspbian Jessie 8.0
 
@@ -13,7 +13,7 @@ Raspbian Jessie 8.0
 * ```$ sudo apt-get update```
 * ```$ sudo apt-get dist-upgrade```
 * ```$ sudo reboot```
-* [Run the All-In-One Installer](https://home-assistant.io/getting-started/installation-raspberry-pi-all-in-one/) *(takes ~2 hours on a PI 3)*
+* [Run the All-In-One Installer](https://home-assistant.io/docs/installation/raspberry-pi-all-in-one/) *(takes ~2 hours on a PI 3)*
   
 ## USB
 [Set a persistant USB name](http://www.domoticz.com/wiki/PersistentUSBDevices)
@@ -93,27 +93,33 @@ recorder:
   ```$ sudo chmod -R 777 /etc/letsencrypt/archive```  
   ```$ sudo chmod -R 777 /etc/letsencrypt/live```  
   ```$ sudo chmod -R 777 /etc/letsencrypt/renewal```
-
+  
 ### Renew Certificate
 ```$ cd certbot```  
 ```$ sudo ./certbot-auto renew --standalone --no-self-upgrade --force-renewal --preferred-challenges http-01```  
 ```$ sudo reboot```
-
-* Creation date 03-05-2017
-* Renewal date 01-08-2017
-
+  
 ### Upgrade Lets Encrypt & Certificates
 ```$ cd certbot```  
 ```$ ./certbot-auto renew```
 ```$ sudo reboot```
-
+  
 ### Check Validity
 ```$ openssl x509 -in /etc/letsencrypt/live/<domain>/fullchain.pem -text -noout | grep -A2 Validity```
-
-# Z-Wave settings
+  
+# Z-Wave
+## Upgrade Python Open Z-Wave
+```$ sudo su -s /bin/bash hass```  
+```$ source /srv/hass/hass_venv/bin/activate```  
+```$ cd /srv/hass/src/python-openzwave/```  
+```$ git pull```  
+```$ make build```  
+```$ make install```  
+  
+## Settings
 * Greenwave wall sockets
   * timeout: 255
-
+  
 ## Copy OZWCP config to HASS  
 ```$ sudo cp /srv/hass/src/open-zwave-control-panel/zwcfg_0xe268674f.xml /home/hass/.homeassistant/```  
   
