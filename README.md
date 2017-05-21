@@ -51,14 +51,16 @@ And add the unique key
 
 ## Install MySQL DB
 ```$ sudo apt-get update && sudo apt-get upgrade```  
-```$ sudo apt-get install mysql-server && sudo apt-get install mysql-client```  
-```$ sudo apt-get install libmysqlclient-dev```  
-```$ sudo apt-get install python-dev python3-dev```  
+```$ sudo apt install mysql-server mysql-client libmysqlclient-dev python-dev python3-dev```  
 ```$ mysql -u root -p```  
 ```$ CREATE DATABASE dbname;```  
 ```$ CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'password';```  
 ```$ GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost';```  
 ```$ FLUSH PRIVILEGES;```  
+
+
+
+
 
 **Test if user works:**  
 ```$ mysql -u dbuser dbname -p```
