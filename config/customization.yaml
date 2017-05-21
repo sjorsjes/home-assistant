@@ -188,3 +188,7 @@ zwave.schuur__droger_8:
 
 zwave.aeotec_zw090_zstick_gen5_1:
   hidden: true
+
+binary_sensor.floorplan:
+  custom_ui_state_card: floorplan
+  config: !include floorplan.yaml

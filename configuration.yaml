@@ -32,6 +32,10 @@ script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
 zone: !include config/zones.yaml
 
+# Floorplan
+panel_custom: !include config/panel_custom.yaml
+binary_sensor: !include config/binary_sensors.yaml
+
 light:
   - platform: mqtt_json
     name: "SN1 LED"

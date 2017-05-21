@@ -1,0 +1,127 @@
+/* SVG shapes */
+
+svg, svg * {
+  vector-effect: non-scaling-stroke !important;
+}
+
+/* Hover over */
+
+.entity:hover {
+  stroke: #03A9F4 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Bootstrap succsss */
+
+.success-light {
+  fill: #dff0d8 !important;
+}
+
+.success-medium {
+  fill: #d6e9c6 !important;
+}
+
+.success-dark {
+  fill: #3c763d !important;
+}
+
+/* Bootstrap info */
+
+.info-light {
+  fill: #bce8f1 !important;
+}
+
+.info-medium {
+  fill: #d9edf7 !important;
+}
+
+.info-dark {
+  fill: #31708f !important;
+}
+
+/* Bootstrap warning */
+
+.warning-light {
+  fill: #faebcc !important;
+}
+
+.warning-medium {
+  fill: #fcf8e3 !important;
+}
+
+.warning-dark {
+  fill: #8a6d3b !important;
+}
+
+/* Bootstrap danger */
+
+.danger-light {
+  fill: #ebccd1 !important;
+}
+
+.danger-medium {
+  fill: #f2dede !important;
+}
+
+.danger-dark {
+  fill: #a94442 !important;
+}
+
+/* Last motion entity */
+
+.last-motion {
+  stroke: #808080 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+/* Alarm Panel */
+
+.alarm-disarmed {
+  fill: #3c763d !important;
+}
+
+.alarm-armed {
+  fill: #8a6d3b !important;
+}
+
+/* Camera */
+
+.camera-idle {
+  fill: #B9CEF7 !important;
+}
+
+/* Light */
+
+.light-off {
+  fill: #C3B7F4 !important;
+}
+
+.light-on {
+  fill: #F8D2B9 !important;
+}
+
+/* Doorbell */
+
+.doorbell-off {
+  fill: #C3B7F4 !important;
+}
+
+.doorbell-on {
+  fill: #F8D2B9 !important;
+}
+
+/* Temperature sensor */
+
+.temp-low {
+  fill: #0000FF !important;
+}
+
+.temp-medium {
+  fill: #000000 !important;
+}
+
+.temp-high {
+  fill: #FF0000 !important;
+}
