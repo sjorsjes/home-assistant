@@ -40,6 +40,8 @@ http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
   base_url: !secret ssl_url
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
 
 zwave:
   usb_path: /dev/ttyUSB-Zwave

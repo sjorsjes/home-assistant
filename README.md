@@ -1,5 +1,5 @@
 # Home-Assistant
-Current Version: 0.45  
+Current Version: 0.46  
 Running on a Raspberry PI 3 Model B  
 Raspbian Jessie 8.0
 
@@ -57,10 +57,6 @@ And add the unique key
 ```$ CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'password';```  
 ```$ GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost';```  
 ```$ FLUSH PRIVILEGES;```  
-
-
-
-
 
 **Test if user works:**  
 ```$ mysql -u dbuser dbname -p```
