@@ -22,7 +22,7 @@ sun:
 
 recorder:
   purge_days: 2
-  db_url: !secret mysql # mysql://dbuser:password@localhost/dbname
+  db_url: !secret mysql
 
 automation: !include_dir_list config/automations
 group: !include config/groups.yaml
@@ -32,6 +32,9 @@ scene: !include_dir_merge_list config/scenes
 script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
 zone: !include config/zones.yaml
+
+shell_command:
+  update_hass: !secret shell_update_hass
 
 mqtt:
 
