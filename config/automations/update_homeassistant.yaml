@@ -1,0 +1,8 @@
+alias: Update Home Assistant
+trigger:
+  - platform: state
+    entity_id: input_boolean.update_hass
+    from: 'off'
+    to: 'on'
+action:
+  - service: shell_command.update_hass

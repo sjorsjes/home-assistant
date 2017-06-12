@@ -1,5 +1,5 @@
 # Home-Assistant
-Current Version: 0.45  
+Current Version: 0.46  
 Running on a Raspberry PI 3 Model B  
 Raspbian Jessie 8.0
 
@@ -51,9 +51,7 @@ And add the unique key
 
 ## Install MySQL DB
 ```$ sudo apt-get update && sudo apt-get upgrade```  
-```$ sudo apt-get install mysql-server && sudo apt-get install mysql-client```  
-```$ sudo apt-get install libmysqlclient-dev```  
-```$ sudo apt-get install python-dev python3-dev```  
+```$ sudo apt install mysql-server mysql-client libmysqlclient-dev python-dev python3-dev```  
 ```$ mysql -u root -p```  
 ```$ CREATE DATABASE dbname;```  
 ```$ CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'password';```  

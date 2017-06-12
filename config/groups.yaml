@@ -6,37 +6,25 @@ default_view:
     - group.livingroom
     - group.backyard
     - group.presence
-    - group.miscaleanous
     - group.appliances
+
+sensors:
+  name: 'Sensors'
+  icon: mdi:access-point
+  view: yes
+  entities:
     - group.sensor_livingroom
     - group.sensor_bedroom_saar
-  
+
 automations:
   name: 'Automagisch'
   icon: mdi:auto-fix
   view: yes
   entities:
     - group.automation_tab
+    - group.miscaleanous
 
-# Groups
-sensor_livingroom:
-  name: Woonkamer sensor
-  entities:
-    - sensor.sn1_temperature
-    - sensor.sn1_humidity
-    - sensor.sn1_ldr
-    - sensor.sn1_pir
-    - light.sn1_led
-
-sensor_bedroom_saar:
-  name: Slaapkamer Saar sensor
-  entities:
-    - sensor.sn2_temperature
-    - sensor.sn2_humidity
-    - sensor.sn2_ldr
-    - sensor.sn2_pir
-    - light.sn2_led
-
+# DEFAULT TAB
 livingroom:
   name: Woonkamer
   entities:
@@ -53,14 +41,14 @@ backyard:
 appliances: 
   name: Apparaten 
   entities: 
-    - !secret dishwasher_power_toggle 
-    - !secret washingmachine_power_toggle 
-    - !secret dryer_power_toggle 
+    # - !secret dishwasher_power_toggle 
+    # - !secret washingmachine_power_toggle 
+    # - !secret dryer_power_toggle 
     - !secret dishwasher_power_usage 
     - !secret washingmachine_power_usage 
     - !secret dryer_power_usage 
-    - input_boolean.washingmachine_busy 
-    - input_boolean.dryer_busy 
+    # - input_boolean.washingmachine_busy 
+    # - input_boolean.dryer_busy 
 
 presence:
   name: Iemand thuis?
@@ -68,6 +56,27 @@ presence:
     - device_tracker.iphonesjors
     - device_tracker.iphonesaskia
 
+
+# SENSOR TAB
+sensor_livingroom:
+  name: Woonkamer
+  entities:
+    - sensor.sensor_01__temperatuur
+    - sensor.sensor_01__luchtvochtigheid
+    - sensor.sensor_01__lichtsterkte
+    - sensor.sensor_01__bewegingsmelder
+    - light.sensor_01__led
+
+sensor_bedroom_saar:
+  name: Slaapkamer Saar
+  entities:
+    - sensor.sensor_02__temperatuur
+    - sensor.sensor_02__luchtvochtigheid
+    - sensor.sensor_02__lichtsterkte
+    - sensor.sensor_02__bewegingsmelder
+    - light.sensor_02__led
+
+# AUTOMATION TAB
 miscaleanous:
   name: Miscaleanous
   entities:
@@ -76,6 +85,7 @@ miscaleanous:
 
 automation_tab:
   entities:
+    - input_boolean.update_hass
     - input_boolean.auto_livingroom_lights_on
     - input_boolean.auto_livingroom_lights_off
     - input_boolean.auto_television_on

@@ -22,40 +22,19 @@ sun:
 
 recorder:
   purge_days: 2
-  db_url: !secret mysql # mysql://dbuser:password@localhost/dbname
+  db_url: !secret mysql
 
 automation: !include_dir_list config/automations
 group: !include config/groups.yaml
 input_boolean: !include config/input_booleans.yaml
+light: !include config/lights.yaml
 scene: !include_dir_merge_list config/scenes
 script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
 zone: !include config/zones.yaml
 
-# Floorplan
-panel_custom: !include config/panel_custom.yaml
-binary_sensor: !include config/binary_sensors.yaml
-
-light:
-  - platform: mqtt_json
-    name: "SN1 LED"
-    state_topic: "bruh/sensornode1"
-    command_topic: "bruh/sensornode1/set"
-    brightness: true
-    flash: true
-    rgb: true
-    optimistic: false
-    qos: 0
-
-  - platform: mqtt_json
-    name: "SN2 LED"
-    state_topic: "bruh/sensornode2"
-    command_topic: "bruh/sensornode2/set"
-    brightness: true
-    flash: true
-    rgb: true
-    optimistic: false
-    qos: 0
+shell_command:
+  update_hass: !secret shell_update_hass
 
 mqtt:
 
@@ -64,6 +43,8 @@ http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
   base_url: !secret ssl_url
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
 
 zwave:
   usb_path: /dev/ttyUSB-Zwave
