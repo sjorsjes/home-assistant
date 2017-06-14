@@ -32,6 +32,7 @@ scene: !include_dir_merge_list config/scenes
 script: !include_dir_merge_named config/scripts
 sensor: !include_dir_merge_list config/sensors
 zone: !include config/zones.yaml
+panel_custom: !include config/panel_custom.yaml
 
 shell_command:
   update_hass: !secret shell_update_hass

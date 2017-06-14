@@ -186,6 +186,29 @@ sensor.schuur__droger_voltage_8_16:
 zwave.schuur__droger_8:
   hidden: true
 
+# Woonkamer MultiSensor
+sensor.sensor_woonkamer__temperatuur:
+  friendly_name: Temperatuur
+sensor.sensor_woonkamer__luchtvochtigheid:
+  friendly_name: Luchtvochtigheid
+sensor.sensor_woonkamer__lichtsterkte:
+  friendly_name: Lichtsterkte
+sensor.sensor_woonkamer__bewegingsmelder:
+  friendly_name: Bewegingsmelder
+light.woonkamer__led:
+  friendly_name: Lampje
+
+sensor.sensor_slaapkamer_saar__temperatuur:
+  friendly_name: Temperatuur
+sensor.sensor_slaapkamer_saar__luchtvochtigheid:
+  friendly_name: Luchtvochtigheid
+sensor.sensor_slaapkamer_saar__lichtsterkte:
+  friendly_name: Lichtsterkte
+sensor.sensor_slaapkamer_saar__bewegingsmelder:
+  friendly_name: Bewegingsmelder
+light.slaapkamer_saar__led:
+  friendly_name: Lampje
+
 zwave.aeotec_zw090_zstick_gen5_1:
   hidden: true
 
