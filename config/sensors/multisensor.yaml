@@ -1,49 +1,49 @@
-# SENSOR 01 - WHITE
+# SENSOR Woonkamer - WHITE
 - platform: mqtt
   state_topic: "bruh/sensornode1"
-  name: "Sensor 01 - Luchtvochtigheid"
+  name: "Sensor Woonkamer - Luchtvochtigheid"
   unit_of_measurement: "%"
   value_template: '{{ value_json.humidity | round(1) }}'
 
 - platform: mqtt
   state_topic: "bruh/sensornode1"
-  name: "Sensor 01 - Lichtsterkte"
+  name: "Sensor Woonkamer - Lichtsterkte"
   ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
   unit_of_measurement: "LUX"
   value_template: '{{ value_json.ldr }}'
 
 - platform: mqtt
   state_topic: "bruh/sensornode1"
-  name: "Sensor 01 - Bewegingsmelder"
+  name: "Sensor Woonkamer - Bewegingsmelder"
   value_template: '{{ value_json.motion }}'
 
 - platform: mqtt
   state_topic: "bruh/sensornode1"
-  name: "Sensor 01 - Temperatuur"
+  name: "Sensor Woonkamer - Temperatuur"
   unit_of_measurement: "°F" # Shown in Celcius in the frontend
   value_template: '{{ value_json.temperature | round(1) }}'
 
-# SENSOR 02 - GREEN
+# SENSOR Slaapkamer Saar - GREEN
 - platform: mqtt
   state_topic: "bruh/sensornode2"
-  name: "Sensor 02 - Luchtvochtigheid"
+  name: "Sensor Slaapkamer Saar - Luchtvochtigheid"
   unit_of_measurement: "%"
   value_template: '{{ value_json.humidity | round(1) }}'
 
 - platform: mqtt
   state_topic: "bruh/sensornode2"
-  name: "Sensor 02 - Lichtsterkte"
+  name: "Sensor Slaapkamer Saar - Lichtsterkte"
   ##This sensor is not calibrated to actual LUX. Rather, this a map of the input voltage ranging from 0 - 1023.
   unit_of_measurement: "LUX"
   value_template: '{{ value_json.ldr }}'
 
 - platform: mqtt
   state_topic: "bruh/sensornode2"
-  name: "Sensor 02 - Bewegingsmelder"
+  name: "Sensor Slaapkamer Saar - Bewegingsmelder"
   value_template: '{{ value_json.motion }}'
 
 - platform: mqtt
   state_topic: "bruh/sensornode2"
-  name: "Sensor 02 - Temperatuur"
+  name: "Sensor Slaapkamer Saar - Temperatuur"
   unit_of_measurement: "°F" # Shown in Celcius in the frontend
   value_template: '{{ value_json.temperature | round(1) }}'

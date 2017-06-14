@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="210px"
+	 height="172px" viewBox="0 0 210 172" enable-background="new 0 0 210 172" xml:space="preserve">
+<g id="woonkamer_temperatuur">
+	<polygon id="sensor.sensor_woonkamer__temperatuur" display="inline" fill="#C8C8C8" points="6.88,52.44
+		74.5,52.44 74.5,163.88 34.92,163.88 34.92,115.33 6.88,115.33 	"/>
+</g>
+<g id="woonkamer_bewegingsmelder">
+
+		<rect id="sensor.sensor_woonkamer__bewegingsmelder" x="34.92" y="52.44" display="inline" fill="#C8C8C8" width="39.58" height="111.44"/>
+</g>
+<g id="beneden_verdieping">
+	<polygon fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" points="6,164.99 24.75,164.99 24.75,162.94 8.12,162.94
+		8.12,107.32 6,107.32 	"/>
+	<polygon fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" points="6,91.19 8,91.19 8,53.69 9.88,53.69 9.88,51.32 6,51.32
+		"/>
+	<polygon fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" points="36,51.32 45.38,51.32 36,51.32 45.38,51.32 	"/>
+	<rect x="36" y="51.32" fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" width="9.38" height="2.25"/>
+	<polygon fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" points="75.5,144.19 73.5,144.19 73.5,53.69 71.62,53.69
+		71.62,51.32 75.5,51.32 	"/>
+	<polygon fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" points="73.56,160.57 75.5,160.57 75.5,164.99 68,164.99
+		68,162.78 73.56,162.78 	"/>
+	<rect x="33.62" y="162.78" fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" width="8.12" height="2.21"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="9.88" y1="52.44" x2="36" y2="52.44"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="45.38" y1="52.44" x2="71.62" y2="52.44"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="6.88" y1="91.19" x2="6.88" y2="107.32"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="24.75" y1="163.88" x2="33.62" y2="163.88"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="41.75" y1="163.88" x2="68" y2="163.88"/>
+	<polyline fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" points="8.12,151.44 20.38,151.44 20.38,150.36 	"/>
+	<polyline fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" points="8.12,141.69 20.38,141.69 20.38,142.78 	"/>
+	<polyline fill="none" stroke="#B9B9B9" stroke-miterlimit="10" points="20.38,131.03 18,131.03 18,115.28 34.92,115.28
+		34.92,116.11 	"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="11.75" y1="151.44" x2="11.75" y2="153.44"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="11.75" y1="161.61" x2="11.75" y2="162.94"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="34.92" y1="124.19" x2="34.92" y2="162.78"/>
+	<line fill="#F0F0F0" stroke="#B9B9B9" stroke-miterlimit="10" x1="74.5" y1="144.19" x2="74.5" y2="160.57"/>
+	<line fill="none" stroke="#B9B9B9" stroke-miterlimit="10" x1="18" y1="115.28" x2="8.12" y2="115.28"/>
+</g>
+</svg>

@@ -63,20 +63,20 @@ presence:
 sensor_livingroom:
   name: Woonkamer
   entities:
-    - sensor.sensor_01__temperatuur
-    - sensor.sensor_01__luchtvochtigheid
-    - sensor.sensor_01__lichtsterkte
-    - sensor.sensor_01__bewegingsmelder
-    - light.sensor_01__led
+    - sensor.sensor_woonkamer__temperatuur
+    - sensor.sensor_woonkamer__luchtvochtigheid
+    - sensor.sensor_woonkamer__lichtsterkte
+    - sensor.sensor_woonkamer__bewegingsmelder
+    - light.woonkamer__led
 
 sensor_bedroom_saar:
   name: Slaapkamer Saar
   entities:
-    - sensor.sensor_02__temperatuur
-    - sensor.sensor_02__luchtvochtigheid
-    - sensor.sensor_02__lichtsterkte
-    - sensor.sensor_02__bewegingsmelder
-    - light.sensor_02__led
+    - sensor.sensor_slaapkamer_saar__temperatuur
+    - sensor.sensor_slaapkamer_saar__luchtvochtigheid
+    - sensor.sensor_slaapkamer_saar__lichtsterkte
+    - sensor.sensor_slaapkamer_saar__bewegingsmelder
+    - light.slaapkamer_saar__led
 
 # AUTOMATION TAB
 miscaleanous:

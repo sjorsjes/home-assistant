@@ -1,5 +1,5 @@
 - platform: mqtt_json
-  name: "Sensor 01 - LED"
+  name: "Woonkamer - LED"
   state_topic: "bruh/sensornode1"
   command_topic: "bruh/sensornode1/set"
   brightness: true
@@ -9,7 +9,7 @@
   qos: 0
 
 - platform: mqtt_json
-  name: "Sensor 02 - LED"
+  name: "Slaapkamer Saar - LED"
   state_topic: "bruh/sensornode2"
   command_topic: "bruh/sensornode2/set"
   brightness: true

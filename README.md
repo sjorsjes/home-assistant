@@ -120,6 +120,19 @@ recorder:
   
 ## Copy OZWCP config to HASS  
 ```$ sudo cp /srv/hass/src/open-zwave-control-panel/zwcfg_0xe268674f.xml /home/hass/.homeassistant/```  
-  
+
+# Floorplan
+* Change floorplan in the illustrator file `www/custom_ui/floorplan/floorplan.ai`
+* Save as svg
+  * Fonts: convert to outline
+  * Decimal places: 2
+
+Sadly illustrator does not convert the id's correctly and we have to find and replace / check our nodes.
+* Replace `_x5F__x5F_` with `__`
+* Replace `_x5F_` with `_`
+
+Some sensor may have an extra `_` at the end of the id, so be sure to check that
+
+
 # Documentation
 * https://objectpartners.com/2016/04/12/setting-up-the-raspberry-pi-3-for-home-assistant/
