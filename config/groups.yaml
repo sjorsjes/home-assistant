@@ -54,7 +54,9 @@ presence:
   name: Iemand thuis?
   entities:
     - device_tracker.iphonesjors
+    - sensor.iphone_van_sjors_battery_level
     - device_tracker.iphonesaskia
+    - sensor.iphone_van_saskia_battery_level_2
 
 
 # SENSOR TAB
