@@ -1,0 +1,9 @@
+language: python
+python:
+  - "3.4.3"
+install: 
+  - "pip install homeassistant"
+  - "bash $TRAVIS_BUILD_DIR/bin/secrets.sh"
+script: "bash $TRAVIS_BUILD_DIR/bin/check_config.sh"
+notifications:
+  email: false
