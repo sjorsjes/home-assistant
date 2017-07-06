@@ -8,4 +8,4 @@ condition:
     state: 'on'
 action:
   - service: switch.turn_off
-    entity_id: !secret television_toggle
+    entity_id: switch.woonkamer__televisie_switch

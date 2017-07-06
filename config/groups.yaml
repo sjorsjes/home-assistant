@@ -28,27 +28,20 @@ automations:
 livingroom:
   name: Woonkamer
   entities:
-    - !secret livingroom_light
-    - !secret television_toggle
-    - binary_sensor.woonkamer__bewegingsmelder_sensor_10_0
-    - sensor.woonkamer__bewegingsmelder_luminance_10_3
+    - light.hue_color_lamp_1
+    - switch.woonkamer__televisie_switch
 
 backyard:
   name: Achtertuin
   entities:
-    - !secret backyard_light_toggle
+    - switch.achtertuin__led_lampjes_switch
 
 appliances: 
   name: Apparaten 
   entities: 
-    # - !secret dishwasher_power_toggle 
-    # - !secret washingmachine_power_toggle 
-    # - !secret dryer_power_toggle 
-    - !secret dishwasher_power_usage 
-    - !secret washingmachine_power_usage 
-    - !secret dryer_power_usage 
-    # - input_boolean.washingmachine_busy 
-    # - input_boolean.dryer_busy 
+    - sensor.woonkamer__vaatwasser_power
+    - sensor.schuur__wasmachine_power
+    - sensor.schuur__droger_power
 
 presence:
   name: Iemand thuis?
@@ -56,7 +49,7 @@ presence:
     - device_tracker.iphonesjors
     - sensor.iphone_van_sjors_battery_level
     - device_tracker.iphonesaskia
-    - sensor.iphone_van_saskia_battery_level_2
+    - sensor.iphone_van_saskia_battery_level
 
 
 # SENSOR TAB
