@@ -1,7 +1,7 @@
 alias: Dryer busy
 trigger:
   - platform: numeric_state
-    entity_id: !secret dryer_power_usage
+    entity_id: sensor.schuur__droger_power
     above: 10
 action:
   - service: input_boolean.turn_on
