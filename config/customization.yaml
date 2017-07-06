@@ -4,7 +4,7 @@ sun.sun:
 
 # Woonkamer
 # Philips Hue
-!secret livingroom_light:
+light.hue_color_lamp_1:
   friendly_name: "Lamp Woonkamer"
   icon: "mdi:lightbulb-outline"
 light.hue_color_lamp_2:

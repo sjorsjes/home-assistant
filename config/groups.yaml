@@ -28,7 +28,7 @@ automations:
 livingroom:
   name: Woonkamer
   entities:
-    - !secret livingroom_light
+    - light.hue_color_lamp_1
     - !secret television_toggle
     - binary_sensor.woonkamer__bewegingsmelder_sensor_10_0
     - sensor.woonkamer__bewegingsmelder_luminance_10_3
@@ -41,14 +41,9 @@ backyard:
 appliances: 
   name: Apparaten 
   entities: 
-    # - !secret dishwasher_power_toggle 
-    # - !secret washingmachine_power_toggle 
-    # - !secret dryer_power_toggle 
     - !secret dishwasher_power_usage 
     - !secret washingmachine_power_usage 
     - !secret dryer_power_usage 
-    # - input_boolean.washingmachine_busy 
-    # - input_boolean.dryer_busy 
 
 presence:
   name: Iemand thuis?
