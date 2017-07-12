@@ -1,6 +1,9 @@
 # Home-Assistant
-Current Version: 0.46  
-Running on a Raspberry PI 3 Model B  
+
+[![Build Status](https://travis-ci.org/sjorsjes/home-assistant.svg?branch=master)](https://travis-ci.org/sjorsjes/home-assistant)
+
+Current Version: 0.48  
+Raspberry PI 3 Model B  
 Raspbian Jessie 8.0
 
 # Setup
@@ -42,12 +45,6 @@ hosts allow =
 ```
 ```$ sudo smbpasswd -a pi```  
 ```$ sudo service smbd restart```
-
-## Z-Wave network key
-```$ sudo nano /srv/hass/src/open-zwave-control-panel/config/options.xml```  
-Uncomment the network key:  
-```<Option name="NetworkKey" value="0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F 0x10" />```  
-And add the unique key
 
 ## Install MySQL DB
 ```$ sudo apt-get update && sudo apt-get upgrade```  
@@ -118,9 +115,6 @@ recorder:
 * Greenwave wall sockets
   * timeout: 255
   
-## Copy OZWCP config to HASS  
-```$ sudo cp /srv/hass/src/open-zwave-control-panel/zwcfg_0xe268674f.xml /home/hass/.homeassistant/```  
-
 # Floorplan
 * Change floorplan in the illustrator file `www/custom_ui/floorplan/floorplan.ai`
 * Save as svg

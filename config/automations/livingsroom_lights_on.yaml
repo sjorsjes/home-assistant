@@ -14,4 +14,4 @@ condition:
       after: '17:30:00'
 action:
   - service: switch.turn_on
-    entity_id: !secret livingroom_light
+    entity_id: light.hue_color_lamp_1

@@ -28,13 +28,20 @@ automations:
 livingroom:
   name: Woonkamer
   entities:
-    - !secret livingroom_light
-    - !secret television_toggle
+    - light.hue_color_lamp_1
+    - switch.woonkamer__televisie_switch
 
 backyard:
   name: Achtertuin
   entities:
-    - !secret backyard_light_toggle
+    - switch.achtertuin__led_lampjes_switch
+
+appliances: 
+  name: Apparaten 
+  entities: 
+    - sensor.woonkamer__vaatwasser_power
+    - sensor.schuur__wasmachine_power
+    - sensor.schuur__droger_power
 
 presence:
   name: Iemand thuis?

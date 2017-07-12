@@ -8,4 +8,4 @@ condition:
     state: 'on'
 action:
   - service: light.turn_off
-    entity_id: !secret livingroom_light
+    entity_id: light.hue_color_lamp_1
