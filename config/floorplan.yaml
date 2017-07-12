@@ -14,22 +14,21 @@ groups:
       var temp = parseFloat(entity.state.replace("°", ""));
       if (temp < 10)
         return "temp-low";
-      else if (temp < 30)
+      else if (temp < 22)
         return "temp-medium";
       else
         return "temp-high";
       '
-
-  # - name: Lights
-  #   entities:
-  #       - light.hallway
-  #       - light.living_room
-  #       - light.patio
-  #   states:
-  #     - state: 'on'
-  #       class: 'light-on'
-  #     - state: 'off'
-  #       class: 'light-off'
+  - name: Lights
+    entities:
+        - light.hue_color_lamp_1
+        # - light.living_room
+        # - light.patio
+    states:
+      - state: 'on'
+        class: 'light-on'
+      - state: 'off'
+        class: 'light-off'
 
   # - name: Switches
   #   entities:

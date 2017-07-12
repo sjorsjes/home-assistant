@@ -6,7 +6,6 @@ default_view:
     - group.livingroom
     - group.backyard
     - group.presence
-    - group.appliances
 
 sensors:
   name: 'Sensors'
@@ -22,6 +21,7 @@ automations:
   view: yes
   entities:
     - group.automation_tab
+    - group.appliances
     - group.miscaleanous
 
 # DEFAULT TAB
@@ -35,13 +35,6 @@ backyard:
   name: Achtertuin
   entities:
     - switch.achtertuin__led_lampjes_switch
-
-appliances: 
-  name: Apparaten 
-  entities: 
-    - sensor.woonkamer__vaatwasser_power
-    - sensor.schuur__wasmachine_power
-    - sensor.schuur__droger_power
 
 presence:
   name: Iemand thuis?
@@ -76,11 +69,17 @@ miscaleanous:
   name: Miscaleanous
   entities:
     - input_boolean.vacation_mode
-    - sensor.ssl_certificate_expiry
+    - input_boolean.update_hass
+
+appliances: 
+  name: Apparaten 
+  entities: 
+    - sensor.woonkamer__vaatwasser_power
+    - sensor.schuur__wasmachine_power
+    - sensor.schuur__droger_power
 
 automation_tab:
   entities:
-    - input_boolean.update_hass
     - input_boolean.auto_livingroom_lights_on
     - input_boolean.auto_livingroom_lights_off
     - input_boolean.auto_television_on

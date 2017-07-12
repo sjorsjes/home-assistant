@@ -38,6 +38,7 @@ shell_command:
   update_hass: !secret shell_update_hass
 
 mqtt:
+  client_id: foo # waiting for fix from community: https://github.com/home-assistant/home-assistant/issues/8315
 
 http:
   api_password: !secret api_password
@@ -46,6 +47,7 @@ http:
   base_url: !secret ssl_url
   ip_ban_enabled: True
   login_attempts_threshold: 3
+  trusted_networks: !secret whitelist_ip
 
 zwave:
   usb_path: /dev/ttyUSB-Zwave
