@@ -53,14 +53,14 @@ zwave.woonkamer__televisie_9:
   hidden: true
 
 # Woonkamer PIR
-binary_sensor.woonkamer__bewegingsmelder_sensor_10_0: # state: on/off
+binary_sensor.woonkamer__bewegingsmelder_sensor: # state: on/off
   name: "Beweging"
   icon: "mdi:run"
-sensor.woonkamer__bewegingsmelder_alarm_level_10_1:
+sensor.woonkamer__bewegingsmelder_alarm_level:
   hidden: true
-sensor.woonkamer__bewegingsmelder_alarm_type_10_0:
+sensor.woonkamer__bewegingsmelder_alarm_type:
   hidden: true
-sensor.woonkamer__bewegingsmelder_burglar_10_10:
+sensor.woonkamer__bewegingsmelder_burglar:
   hidden: true
 sensor.woonkamer__bewegingsmelder_luminance_10_3:
   name: "Light"
@@ -71,13 +71,13 @@ zwave.woonkamer__bewegingsmelder_10:
   hidden: true
 
 # Achtertuin
-sensor.achtertuin__led_lampjes_energy_3_0:
+sensor.achtertuin__led_lampjes_energy:
   hidden: true
-sensor.achtertuin__led_lampjes_power_3_8:
+sensor.achtertuin__led_lampjes_power:
   hidden: true
-sensor.achtertuin__led_lampjes_previous_reading_3_1:
+sensor.achtertuin__led_lampjes_previous_reading:
   hidden: true
-sensor.achtertuin__led_lampjes_previous_reading_3_9:
+sensor.achtertuin__led_lampjes_previous_reading_2:
   hidden: true
 !secret backyard_light_toggle:
   friendly_name: "Verlichting"
@@ -103,87 +103,87 @@ zwave.woonkamer__vaatwasser_2:
   hidden: true
 
 # Wasmachine
-sensor.schuur__wasmachine_alarm_level_6_1:
+sensor.schuur__wasmachine_alarm_level:
   hidden: true
-sensor.schuur__wasmachine_alarm_type_6_0:
+sensor.schuur__wasmachine_alarm_type:
   hidden: true
-sensor.schuur__wasmachine_current_6_20:
+sensor.schuur__wasmachine_current:
   hidden: true
-sensor.schuur__wasmachine_energy_6_0:
+sensor.schuur__wasmachine_energy:
   hidden: true
-sensor.schuur__wasmachine_exporting_6_32:
+sensor.schuur__wasmachine_exporting:
   hidden: true
-sensor.schuur__wasmachine_interval_6_10:
+sensor.schuur__wasmachine_interval:
   hidden: true
-sensor.schuur__wasmachine_interval_6_18:
+sensor.schuur__wasmachine_interval_2:
   hidden: true
-sensor.schuur__wasmachine_interval_6_2:
+sensor.schuur__wasmachine_interval_3:
   hidden: true
-sensor.schuur__wasmachine_interval_6_22:
+sensor.schuur__wasmachine_interval_4:
   hidden: true
 !secret washingmachine_power_usage:
   friendly_name: "Wasmachine verbruik"
   icon: "mdi:power-plug"
-sensor.schuur__wasmachine_power_management_6_11:
+sensor.schuur__wasmachine_power_management:
   hidden: true
-sensor.schuur__wasmachine_previous_reading_6_1:
+sensor.schuur__wasmachine_previous_reading:
   hidden: true
-sensor.schuur__wasmachine_previous_reading_6_17:
+sensor.schuur__wasmachine_previous_reading_2:
   hidden: true
-sensor.schuur__wasmachine_previous_reading_6_21:
+sensor.schuur__wasmachine_previous_reading_3:
   hidden: true
-sensor.schuur__wasmachine_previous_reading_6_9:
+sensor.schuur__wasmachine_previous_reading_4:
   hidden: true
-sensor.schuur__wasmachine_sourcenodeid_6_2:
+sensor.schuur__wasmachine_sourcenodeid:
   hidden: true
-sensor.schuur__wasmachine_voltage_6_16:
+sensor.schuur__wasmachine_voltage:
   hidden: true
 !secret washingmachine_power_toggle:
   friendly_name: "Wasmachine"
   icon: "mdi:washing-machine"
-zwave.schuur__wasmachine_6:
+zwave.schuur__wasmachine:
   hidden: true
 
 # Droger
-sensor.schuur__droger_alarm_level_8_1:
+sensor.schuur__droger_alarm_level:
   hidden: true
-sensor.schuur__droger_alarm_type_8_0:
+sensor.schuur__droger_alarm_type:
   hidden: true
-sensor.schuur__droger_current_8_20:
+sensor.schuur__droger_current:
   hidden: true
-sensor.schuur__droger_energy_8_0:
+sensor.schuur__droger_energy:
   hidden: true
-sensor.schuur__droger_exporting_8_32:
+sensor.schuur__droger_exporting:
   hidden: true
-sensor.schuur__droger_interval_8_10:
+sensor.schuur__droger_interval:
   hidden: true
-sensor.schuur__droger_interval_8_18:
+sensor.schuur__droger_interval_2:
   hidden: true
-sensor.schuur__droger_interval_8_2:
+sensor.schuur__droger_interval_3:
   hidden: true
-sensor.schuur__droger_interval_8_22:
+sensor.schuur__droger_interval_4:
   hidden: true
 !secret dryer_power_usage:
   friendly_name: "Droger verbruik"
   icon: "mdi:power-plug"
-sensor.schuur__droger_power_management_8_11:
+sensor.schuur__droger_power_management:
   hidden: true
-sensor.schuur__droger_previous_reading_8_1:
+sensor.schuur__droger_previous_reading:
   hidden: true
-sensor.schuur__droger_previous_reading_8_17:
+sensor.schuur__droger_previous_reading_2:
   hidden: true
-sensor.schuur__droger_previous_reading_8_21:
+sensor.schuur__droger_previous_reading_3:
   hidden: true
-sensor.schuur__droger_previous_reading_8_9:
+sensor.schuur__droger_previous_reading_4:
   hidden: true
-sensor.schuur__droger_sourcenodeid_8_2:
+sensor.schuur__droger_sourcenodeid:
   hidden: true
-sensor.schuur__droger_voltage_8_16:
+sensor.schuur__droger_voltage:
   hidden: true
 !secret dryer_power_toggle:
   friendly_name: "Droger"
   icon: "mdi:washing-machine"
-zwave.schuur__droger_8:
+zwave.schuur__droger:
   hidden: true
 
 # Woonkamer MultiSensor
@@ -209,7 +209,7 @@ sensor.sensor_slaapkamer_saar__bewegingsmelder:
 light.slaapkamer_saar__led:
   friendly_name: Lampje
 
-zwave.aeotec_zw090_zstick_gen5_1:
+zwave.aeotec_zw090_zstick_gen5:
   hidden: true
 
 binary_sensor.floorplan:

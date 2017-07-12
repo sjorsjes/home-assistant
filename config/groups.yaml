@@ -6,7 +6,6 @@ default_view:
     - group.livingroom
     - group.backyard
     - group.presence
-    - group.appliances
 
 sensors:
   name: 'Sensors'
@@ -22,6 +21,7 @@ automations:
   view: yes
   entities:
     - group.automation_tab
+    - group.appliances
     - group.miscaleanous
 
 # DEFAULT TAB
@@ -30,25 +30,11 @@ livingroom:
   entities:
     - !secret livingroom_light
     - !secret television_toggle
-    - binary_sensor.woonkamer__bewegingsmelder_sensor_10_0
-    - sensor.woonkamer__bewegingsmelder_luminance_10_3
 
 backyard:
   name: Achtertuin
   entities:
     - !secret backyard_light_toggle
-
-appliances: 
-  name: Apparaten 
-  entities: 
-    # - !secret dishwasher_power_toggle 
-    # - !secret washingmachine_power_toggle 
-    # - !secret dryer_power_toggle 
-    - !secret dishwasher_power_usage 
-    - !secret washingmachine_power_usage 
-    - !secret dryer_power_usage 
-    # - input_boolean.washingmachine_busy 
-    # - input_boolean.dryer_busy 
 
 presence:
   name: Iemand thuis?
@@ -56,7 +42,7 @@ presence:
     - device_tracker.iphonesjors
     - sensor.iphone_van_sjors_battery_level
     - device_tracker.iphonesaskia
-    - sensor.iphone_van_saskia_battery_level_2
+    - sensor.iphone_van_saskia_battery_level
 
 
 # SENSOR TAB
@@ -83,11 +69,22 @@ miscaleanous:
   name: Miscaleanous
   entities:
     - input_boolean.vacation_mode
-    - sensor.ssl_certificate_expiry
+    - input_boolean.update_hass
+
+appliances: 
+  name: Apparaten 
+  entities: 
+    # - !secret dishwasher_power_toggle 
+    # - !secret washingmachine_power_toggle 
+    # - !secret dryer_power_toggle 
+    - !secret dishwasher_power_usage 
+    - !secret washingmachine_power_usage 
+    - !secret dryer_power_usage 
+    # - input_boolean.washingmachine_busy 
+    # - input_boolean.dryer_busy 
 
 automation_tab:
   entities:
-    - input_boolean.update_hass
     - input_boolean.auto_livingroom_lights_on
     - input_boolean.auto_livingroom_lights_off
     - input_boolean.auto_television_on
