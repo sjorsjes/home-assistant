@@ -5,15 +5,13 @@ svg, svg * {
   pointer-events: all !important;
 }
 
-/* lightbulb-on-outline
-   https://materialdesignicons.com/icon/lightbulb-on-outline */
+/* lightbulb-on-outline */
 .light-on {
     fill: yellow !important;
     fill-opacity: 0.3 !important;
 }
 
-/* lightbulb-outline
-   https://materialdesignicons.com/icon/lightbulb-outline */
+/* lightbulb-outline */
 .light-off {
     fill: white !important;
     fill-opacity: 0 !important;

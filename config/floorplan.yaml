@@ -1,6 +1,8 @@
-name: Demo Floorplan
+name: Plattegrond
 image: /local/custom_ui/floorplan/floorplan.svg
 stylesheet: /local/custom_ui/floorplan/floorplan.css
+warning: 
+# pan_zoom:
 
 # last_motion_entity: sensor.template_last_motion
 # last_motion_class: last-motion
@@ -19,6 +21,20 @@ groups:
       else
         return "temp-high";
       '
+  - name: temperature
+    entities:
+      - sensor.sensor_woonkamer__temperatuur
+      - sensor.sensor_slaapkamer_saar__temperatuur
+    text_template: '${entity.state ? entity.state + "°C": "-"}'
+    # class_template: 'return "static-temp";'
+
+  - name: humidity
+    entities:
+      - sensor.sensor_woonkamer__luchtvochtigheid
+      - sensor.sensor_slaapkamer_saar__luchtvochtigheid
+    text_template: '${entity.state ? entity.state + "%": "-"}'
+    # class_template: 'return "static-temp";'
+
   - name: Lights
     entities:
         - light.hue_color_lamp_1

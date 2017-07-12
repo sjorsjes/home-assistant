@@ -1,5 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://momentjs.com/downloads/moment.js"></script>
+<!--<script src="svg-pan-zoom.min.js"></script>-->
 
 <dom-module id="ha-floorplan">
 
@@ -9,10 +10,15 @@
         text-align: center;
         padding: 8px;
       }
-      
+
       .loading {
         height: 0px;
         overflow: hidden;
+      }
+
+      #warnings {
+        color: #FF851B;
+        display: none;
       }
     </style>
 
@@ -22,7 +28,10 @@
       </div>
     </template>
 
-    <div id="debug"></div>
+    <div id="warnings">
+      <ul></ul>
+    </div>
+
     <div id="floorplan" on-tap="stopPropagation"></div>
 
   </template>
@@ -46,6 +55,7 @@
     properties: {
       hass: {
         type: Object,
+        observer: 'hassChanged'
       },
       inDialog: {
         type: Boolean,
@@ -80,24 +90,26 @@
       e.stopPropagation();
     },
 
+    hassChanged: function (newHass, oldHass) {
+      this.handleEntities(newHass.states);
+    },
+
     onAttached() {
-      var authToken = (window.localStorage && window.localStorage.authToken) ? window.localStorage.authToken : '';
+      if (!this.config.groups) {
+        this.isLoading = false;
+        this.warn(`Cannot find 'groups' in floorplan configuration`);
+        return;
+      }
 
-      var wsUri = ((window.location.protocol === 'https:') ? 'wss:' : 'ws:') + '//' + window.location.host + '/api/websocket';
-      window.HAWS.createConnection(wsUri, { authToken: authToken }).then(conn => {
+      this.hass.connection.socket.addEventListener('message', event => {
+        var data = JSON.parse(event.data);
 
-        conn.socket.addEventListener('message', event => {
-          var data = JSON.parse(event.data);
-
-          // Store the time difference between the local web browser and the Home Assistant server
-          if (data.event && data.event.time_fired) {
-            var lastEventFiredTime = moment(data.event.time_fired).toDate();
-            this.timeDifference = moment().diff(moment(lastEventFiredTime), 'milliseconds');
-          }
-        });
-
-        window.HAWS.subscribeEntities(conn, entities => this.handleEntities(entities));
-      }, err => { console.error(err); });
+        // Store the time difference between the local web browser and the Home Assistant server
+        if (data.event && data.event.time_fired) {
+          var lastEventFiredTime = moment(data.event.time_fired).toDate();
+          this.timeDifference = moment().diff(moment(lastEventFiredTime), 'milliseconds');
+        }
+      });
 
       this.addExternalCss(() => {
         this.loadFloorPlan(() => {
@@ -154,10 +166,36 @@
           $(svg).width('100%');
           $(svg).css('position', this.instance.isPanel ? 'absolute' : 'relative');
 
+          var uniqueId = (new Date()).getTime();
+
           var svgShapes = $(svg).find('*').toArray();
 
           for (var entityGroup of this.instance.config.groups) {
-            for (var entityId of entityGroup.entities) {
+            var targetEntityIds = [];
+
+            // Split out HA entity groups into separate entities
+            if (entityGroup.groups) {
+              for (var entityId of entityGroup.groups) {
+                var group = this.instance.hass.states[entityId];
+                if (group) {
+                  for (var targetEntityId of group.attributes.entity_id) {
+                    targetEntityIds.push(targetEntityId);
+                  }
+                }
+                else {
+                  this.instance.warn(`Cannot find '${entityId}' in HA group configuration`);
+                }
+              }
+            }
+
+            // HA entities treated as is
+            if (entityGroup.entities) {
+              for (var entityId of entityGroup.entities) {
+                targetEntityIds.push(entityId);
+              }
+            }
+
+            for (var entityId of targetEntityIds) {
               var entityConfig = {
                 group: entityGroup,
                 lastState: undefined,
@@ -177,6 +215,11 @@
                 };
 
                 $(svgShape).find('*').each((i, svgNestedShape) => {
+                  // Ensure that all child elements have an Id.
+                  if (!svgNestedShape.id) {
+                    svgNestedShape.id = uniqueId++;
+                  }
+
                   entityConfig.svgShapeConfigs[svgNestedShape.id] = {
                     svgShapeId: svgNestedShape.id,
                     svgShape: svgNestedShape,
@@ -184,6 +227,9 @@
                     entityId: entityId
                   };
                 });
+              }
+              else {
+                this.instance.warn(`Cannot find element '${entityId}' in SVG file`);
               }
             }
           }
@@ -217,8 +263,9 @@
 
                 $(newSvgShape).attr('title', 'test');
                 $(newSvgShape).on('click', this.instance.onShapeClick.bind(this.instance));
+                $(newSvgShape).on('touchstart', this.instance.onShapeClick.bind(this.instance));
                 $(newSvgShape).css('cursor', 'pointer');
-                $(newSvgShape).addClass('entity');
+                $(newSvgShape).addClass('ha-entity');
 
                 if ((newSvgShape[0].nodeName === 'text') && (newSvgShape[0].id === entityId)) {
                   var boundingBox = newSvgShape[0].getBBox();
@@ -236,6 +283,16 @@
                 }
               }
             }
+          }
+
+          // Enable pan / zoom if enabled in config
+          if ((this.instance.config.pan_zoom === null) || (this.instance.config.pan_zoom !== undefined)) {
+            svgPanZoom($(newSvg)[0], {
+              zoomEnabled: true,
+              controlIconsEnabled: true,
+              fit: true,
+              center: true,
+            });
           }
 
           this.callback();
@@ -333,6 +390,8 @@
             targetClass = this.assemble(entityConfig.group.class_template, entityState, entities);
           }
 
+          var originalClasses = this.getArray(svgShapeConfig.clonedSvgShape.classList);
+
           // Get the config for the current state
           if (entityConfig.group.states) {
             var stateConfig = entityConfig.group.states.find(stateConfig => (stateConfig.state === entityState.state));
@@ -341,16 +400,22 @@
             }
 
             // Remove any other previously-added state classes
-            for (var otherStateConfig of entityConfig.group.states.filter(otherStateConfig => !stateConfig || (otherStateConfig.state != stateConfig.state))) {
-              if (otherStateConfig.class && (otherStateConfig.class != 'entity') && $(svgShape).hasClass(otherStateConfig.class)) {
-                obsoleteClasses.push(otherStateConfig.class);
+            for (var otherStateConfig of entityConfig.group.states) {
+              if (!stateConfig || (otherStateConfig.state != stateConfig.state)) {
+                if (otherStateConfig.class && (otherStateConfig.class != 'ha-entity') && $(svgShape).hasClass(otherStateConfig.class)) {
+                  if (originalClasses.indexOf(otherStateConfig.class) < 0) {
+                    obsoleteClasses.push(otherStateConfig.class);
+                  }
+                }
               }
             }
           }
           else {
             for (var otherClassName of this.getArray(svgShape.classList)) {
-              if ((otherClassName != targetClass) && (otherClassName != 'entity')) {
-                obsoleteClasses.push(otherClassName);
+              if ((otherClassName != targetClass) && (otherClassName != 'ha-entity')) {
+                if (originalClasses.indexOf(otherClassName) < 0) {
+                  obsoleteClasses.push(otherClassName);
+                }
               }
             }
           }
@@ -382,7 +447,7 @@
       if ($(svgShape).hasClass('ha-leave-me-alone')) {
         return;
       }
-      
+
       if (!$(svgShape).hasClass(className)) {
         //console.log(`${entityId}: adding class "${className}" for current state "${entityState.state}" (${svgShape.id})`);
         $(svgShape).addClass(className);
@@ -477,32 +542,29 @@
     setEntityStyle(svgShapeConfig, svgShape, entityConfig, state) {
       var stateConfig = entityConfig.group.states.find(stateConfig => (stateConfig.state === entityConfig.lastState));
       if (stateConfig) {
-        if (svgShape.nodeName === 'text') {
-          var stroke = this.getStroke(stateConfig);
-          if (stroke) {
-            svgShape.syle.stroke = stroke;
-          }
-          else {
-            if (svgShapeConfig.clonedSvgShape) {
-              svgShape.style.stroke = svgShapeConfig.clonedSvgShape.style.stroke;
-            }
-            else {
-              // ???
-            }
-          }
+        var stroke = this.getStroke(stateConfig);
+        if (stroke) {
+          svgShape.style.stroke = stroke;
         }
         else {
-          var fill = this.getFill(stateConfig);
-          if (fill) {
-            svgShape.style.fill = fill;
+          if (svgShapeConfig.clonedSvgShape) {
+            svgShape.style.stroke = svgShapeConfig.clonedSvgShape.style.stroke;
           }
           else {
-            if (svgShapeConfig.clonedSvgShape) {
-              svgShape.style.fill = svgShapeConfig.clonedSvgShape.style.fill;
-            }
-            else {
-              // ???
-            }
+            // ???
+          }
+        }
+
+        var fill = this.getFill(stateConfig);
+        if (fill) {
+          svgShape.style.fill = fill;
+        }
+        else {
+          if (svgShapeConfig.clonedSvgShape) {
+            svgShape.style.fill = svgShapeConfig.clonedSvgShape.style.fill;
+          }
+          else {
+            // ???
           }
         }
       }
@@ -536,13 +598,33 @@
             }
             else {
               var rgb = cssRule.style.fill.substring(4).slice(0, -1).split(',').map(x => parseInt(x));
-              fill = `#${rgb[0].toString(16)}${rgb[1].toString(16)}${rgb[2].toString(16)}`;
+              fill = `#${rgb[0].toString(16)[0]}${rgb[1].toString(16)[0]}${rgb[2].toString(16)[0]}`;
             }
           }
         }
       }
 
       return fill;
+    },
+
+    getStroke(stateConfig) {
+      var stroke = undefined;
+
+      for (var cssRule of this.cssRules) {
+        if (cssRule.selectorText.indexOf(`.${stateConfig.class}`) >= 0) {
+          if (cssRule.style && cssRule.style.stroke) {
+            if (cssRule.style.stroke[0] === '#') {
+              stroke = cssRule.style.stroke;
+            }
+            else {
+              var rgb = cssRule.style.stroke.substring(4).slice(0, -1).split(',').map(x => parseInt(x));
+              stroke = `#${rgb[0].toString(16)[0]}${rgb[1].toString(16)[0]}${rgb[2].toString(16)[0]}`;
+            }
+          }
+        }
+      }
+
+      return stroke;
     },
 
     setTransitionFill(svgShape, fromFill, toFill, value) {
@@ -577,9 +659,12 @@
       return func(entity, entities, this.hass, this.config);
     },
 
-    debug(message) {
-      var debug = Polymer.dom(this.$.debug).node;
-      $(debug).html($(debug).html() + message + '<br>')
+    warn(message) {
+      if ((this.config.warnings === null) || (this.config.warnings !== undefined)) {
+        var warnings = Polymer.dom(this.$.warnings).node;
+        $(warnings).find('ul').append(`<li>${message}</li>`)
+        $(warnings).css('display', 'block');
+      }
     },
 
     rgbToHex(rgb) {
