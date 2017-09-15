@@ -1,40 +1,56 @@
-# Tabs
+# ------------------------------------------------
+# TABS
+# ------------------------------------------------
+
 default_view:
-  icon: mdi:home
+  name: 'Woonkamer'
   view: yes
   entities:
     - group.livingroom
-    - group.backyard
     - group.presence
 
-sensors:
-  name: 'Sensors'
-  icon: mdi:access-point
+office_view:
+  name: 'Kantoor'
   view: yes
   entities:
-    - group.sensor_livingroom
+    - group.sensor_office
+
+bedroom_saar_view:
+  name: 'Slaapkamer Saar'
+  view: yes
+  entities:
     - group.sensor_bedroom_saar
+
+attic_view:
+  name: 'Zolder'
+  view: yes
+  entities:
+    - group.appliances
 
 automations:
   name: 'Automagisch'
-  icon: mdi:auto-fix
   view: yes
   entities:
     - group.automation_tab
-    - group.appliances
     - group.miscaleanous
 
-# DEFAULT TAB
+
+# ------------------------------------------------
+# TAB GROUPS
+# ------------------------------------------------
+
 livingroom:
   name: Woonkamer
   entities:
     - light.hue_color_lamp_1
-    - switch.woonkamer__televisie_switch
 
-backyard:
-  name: Achtertuin
-  entities:
-    - switch.achtertuin__led_lampjes_switch
+appliances: 
+  name: Apparaten 
+  entities: 
+    - sensor.greenwave_1_power
+    - input_boolean.washingmachine_busy
+    - sensor.greenwave_2_power
+    - input_boolean.dryer_busy
 
 presence:
   name: Iemand thuis?
@@ -44,39 +60,30 @@ presence:
     - device_tracker.iphonesaskia
     - sensor.iphone_van_saskia_battery_level
 
-
-# SENSOR TAB
-sensor_livingroom:
-  name: Woonkamer
+sensor_office:
+  name: Kantoor
   entities:
-    - sensor.sensor_woonkamer__temperatuur
-    - sensor.sensor_woonkamer__luchtvochtigheid
-    - sensor.sensor_woonkamer__lichtsterkte
-    - sensor.sensor_woonkamer__bewegingsmelder
-    - light.woonkamer__led
+    - sensor.sensor_kantoor__lichtsterkte
+    - sensor.sensor_kantoor__luchtvochtigheid
+    - sensor.sensor_kantoor__temperatuur
+    - sensor.sensor_kantoor__temperatuur_heat_index
+    - sensor.sensor_kantoor__pir
+    - light.kantoor__led
 
 sensor_bedroom_saar:
   name: Slaapkamer Saar
   entities:
-    - sensor.sensor_slaapkamer_saar__temperatuur
-    - sensor.sensor_slaapkamer_saar__luchtvochtigheid
     - sensor.sensor_slaapkamer_saar__lichtsterkte
-    - sensor.sensor_slaapkamer_saar__bewegingsmelder
+    - sensor.sensor_slaapkamer_saar__luchtvochtigheid
+    - sensor.sensor_slaapkamer_saar__temperatuur
+    - sensor.sensor_slaapkamer_saar__temperatuur_heat_index
+    - sensor.sensor_slaapkamer_saar__pir
     - light.slaapkamer_saar__led
 
-# AUTOMATION TAB
 miscaleanous:
   name: Miscaleanous
   entities:
     - input_boolean.vacation_mode
-    - input_boolean.update_hass
-
-appliances: 
-  name: Apparaten 
-  entities: 
-    - sensor.woonkamer__vaatwasser_power
-    - sensor.schuur__wasmachine_power
-    - sensor.schuur__droger_power
 
 automation_tab:
   entities:

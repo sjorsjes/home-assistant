@@ -5,19 +5,6 @@
 	 width="70.5px" height="121.93px" viewBox="5.5 43.56 70.5 121.93" enable-background="new 5.5 43.56 70.5 121.93"
 	 xml:space="preserve">
 <rect id="wrapper" x="-0.25" y="37" fill="#FFFFFF" width="157.25" height="134.25"/>
-<g id="woonkamer_bewegingsmelder">
-	
-		<rect id="sensor.sensor_woonkamer__bewegingsmelder_1_" x="34.92" y="52.44" fill="#FFFFFF" width="39.58" height="111.44"/>
-</g>
-<g id="light_hue_color_lamp_1">
-	<circle id="light.hue_color_lamp_1" fill="#FFFFFF" cx="42.69" cy="155.14" r="5.7"/>
-	<g id="icon">
-		<path fill="#666666" d="M42.69,153.19c0.79,0,1.42,0.64,1.42,1.42c0,0.49-0.24,0.91-0.61,1.17v0.46c0,0.11-0.09,0.2-0.2,0.2h-1.22
-			c-0.11,0-0.2-0.09-0.2-0.2v-0.46c-0.37-0.26-0.61-0.68-0.61-1.17C41.26,153.83,41.9,153.19,42.69,153.19 M42.08,157.06v-0.2h1.22
-			v0.2c0,0.11-0.09,0.2-0.2,0.2h-0.81C42.17,157.26,42.08,157.17,42.08,157.06 M42.69,153.6c-0.56,0-1.02,0.46-1.02,1.02
-			c0,0.42,0.25,0.78,0.61,0.93v0.49h0.81v-0.49c0.36-0.16,0.61-0.52,0.61-0.93C43.71,154.06,43.25,153.6,42.69,153.6z"/>
-	</g>
-</g>
 <g id="beneden_verdieping">
 	<rect x="8.12" y="70.72" fill="#CCCCCC" width="8.12" height="36.31"/>
 	<g>
@@ -84,12 +71,15 @@
 		C16.12,155.54,15.21,154.29,11.75,154.29z"/>
 	<path fill="none" stroke="#666666" stroke-width="0.5" stroke-miterlimit="10" d="M34.92,117.02v6.5l4.38-5.25
 		C39.29,118.27,38.38,117.02,34.92,117.02z"/>
-	<rect x="36.38" y="104.66" fill="none" width="36.67" height="3.67"/>
-	
-		<text id="sensor.sensor_woonkamer__temperatuur" transform="matrix(1 0 0 1 49.8262 107.168)" fill="#666666" font-size="3.5">20 °C.</text>
-	<rect x="36.38" y="109" fill="none" width="36.67" height="3.67"/>
-	
-		<text id="sensor.sensor_woonkamer__luchtvochtigheid" transform="matrix(1 0 0 1 52.2065 110.7852)" fill="#666666" font-size="2.5">30%</text>
+	<g id="light_hue_color_lamp_1">
+		<circle id="light.hue_color_lamp_1" fill="#FFFFFF" cx="42.69" cy="155.14" r="5.7"/>
+		<g id="icon">
+			<path fill="#666666" d="M42.69,153.19c0.79,0,1.42,0.64,1.42,1.42c0,0.49-0.24,0.91-0.61,1.17v0.46c0,0.11-0.09,0.2-0.2,0.2
+				h-1.22c-0.11,0-0.2-0.09-0.2-0.2v-0.46c-0.37-0.26-0.61-0.68-0.61-1.17C41.26,153.83,41.9,153.19,42.69,153.19 M42.08,157.06
+				v-0.2h1.22v0.2c0,0.11-0.09,0.2-0.2,0.2h-0.81C42.17,157.26,42.08,157.17,42.08,157.06 M42.69,153.6c-0.56,0-1.02,0.46-1.02,1.02
+				c0,0.42,0.25,0.78,0.61,0.93v0.49h0.81v-0.49c0.36-0.16,0.61-0.52,0.61-0.93C43.71,154.06,43.25,153.6,42.69,153.6z"/>
+		</g>
+	</g>
 </g>
 <g id="eerste_verdieping">
 	<polyline fill="none" stroke="#999999" stroke-width="0.5" stroke-miterlimit="10" points="81.25,85.25 81.25,52.44 151.08,52.44 
@@ -144,11 +134,17 @@
 	<line fill="none" stroke="#CCCCCC" stroke-width="0.25" stroke-miterlimit="10" x1="83.69" y1="120.29" x2="93" y2="123.54"/>
 	<line fill="none" stroke="#CCCCCC" stroke-width="0.25" stroke-miterlimit="10" x1="83.69" y1="117.38" x2="89.33" y2="122.26"/>
 	<rect x="92.36" y="123.01" fill="#666666" width="0.97" height="2.11"/>
+	<rect x="111.29" y="144.1" fill="none" width="36.67" height="3.67"/>
+	
+		<text id="sensor.sensor_kantoor__temperatuur" transform="matrix(1 0 0 1 124.7422 146.6035)" fill="#666666" font-family="'ArialMT'" font-size="3.5">20 °C.</text>
+	<rect x="111.29" y="148.43" fill="none" width="36.67" height="3.67"/>
+	
+		<text id="sensor.sensor_kantoor__luchtvochtigheid" transform="matrix(1 0 0 1 127.123 150.2207)" fill="#666666" font-family="'ArialMT'" font-size="2.5">30%</text>
 	<rect x="83.71" y="97.53" fill="none" width="26.58" height="3.67"/>
 	
-		<text id="sensor.sensor_slaapkamer_saar__temperatuur" transform="matrix(1 0 0 1 92.1167 100.0322)" fill="#666666" font-size="3.5">20 °C.</text>
+		<text id="sensor.sensor_slaapkamer_saar__temperatuur" transform="matrix(1 0 0 1 92.1167 100.0322)" fill="#666666" font-family="'ArialMT'" font-size="3.5">20 °C.</text>
 	<rect x="83.71" y="101.86" fill="none" width="26.58" height="3.67"/>
 	
-		<text id="sensor.sensor_slaapkamer_saar__luchtvochtigheid" transform="matrix(1 0 0 1 94.4976 103.6494)" fill="#666666" font-size="2.5">30%</text>
+		<text id="sensor.sensor_slaapkamer_saar__luchtvochtigheid" transform="matrix(1 0 0 1 94.4976 103.6494)" fill="#666666" font-family="'ArialMT'" font-size="2.5">30%</text>
 </g>
 </svg>
