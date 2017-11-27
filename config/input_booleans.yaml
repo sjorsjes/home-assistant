@@ -36,8 +36,3 @@ vacation_mode:
   name: Vakantie modus
   initial: off
   icon: "mdi:airplane"
-
-update_hass:
-  name: Update Home Assistant
-  initial: off
-  icon: mdi:update

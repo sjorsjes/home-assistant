@@ -1,0 +1,206 @@
+# - id: '000000001'
+#   alias: 'Tuinverlichting uit om 00:00'
+#   trigger:
+#     - platform: time
+#       at: '00:00:00'
+#   condition:
+#     - condition: state
+#       entity_id: 'input_boolean.auto_backyard_lights_off'
+#       state: 'on'
+#   action:
+#     - service: switch.turn_off
+#       entity_id: group.backyard
+
+# - id: '000000002'
+#   alias: "Tuinverlichting aan na zonsondergang en na 17:30"
+#   trigger:
+#     platform: numeric_state
+#     entity_id: sun.sun
+#     value_template: '{{ state.attributes.elevation }}'
+#     below: -3.5
+#   condition: 
+#     condition: and
+#     conditions: 
+#       - condition: state
+#         entity_id: input_boolean.auto_backyard_lights_on
+#         state: 'on'
+#       - condition: time
+#         after: '17:30:00'
+#   action:
+#     - service: switch.turn_on
+#       entity_id: group.backyard
+
+# - id: '000000003'
+#   alias: Dryer busy
+#   trigger:
+#     - platform: numeric_state
+#       entity_id: sensor.greenwave_2_power
+#       above: 1.5
+#   action:
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.dryer_busy
+
+# - id: '000000004'
+#   alias: Dryer done notification
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.dryer_busy
+#       from: 'on'
+#       to: 'off'
+#       for:
+#         minutes: 5
+#   action:
+#     - service: notify.ios_iphonesaskia
+#       data:
+#         title: "Droger: "
+#         message: "Ik ben klaar!"
+#     - service: notify.ios_iphonesjors
+#       data:
+#         title: "Droger: "
+#         message: "Ik ben klaar!"
+
+# - id: '000000005'
+#   alias: Dryer done
+#   trigger:
+#     - platform: numeric_state
+#       entity_id: sensor.neo_plug_3_power
+#       below: 9
+#   action:
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.dryer_busy
+
+# - id: '000000006'
+#   alias: 'Woonkamer uit om 00:00'
+#   trigger:
+#     - platform: time
+#       at: '00:00:00'
+#   condition:
+#     - condition: state
+#       entity_id: 'input_boolean.auto_livingroom_lights_off'
+#       state: 'on'
+#   action:
+#     - service: light.turn_off
+#       entity_id: light.hue_color_lamp_1
+
+# - id: '000000007'
+#   alias: "Woonkamer aan na zonsondergang en na 17:30"
+#   trigger:
+#     platform: numeric_state
+#     entity_id: sun.sun
+#     value_template: '{{ state.attributes.elevation }}'
+#     below: -3.5
+#   condition: 
+#     condition: and
+#     conditions: 
+#       - condition: state
+#         entity_id: input_boolean.auto_livingroom_lights_on
+#         state: 'on'
+#       - condition: time
+#         after: '17:30:00'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.hue_color_lamp_1
+
+# - id: '000000008'
+#   alias: Location update Saskia
+#   trigger:
+#     - platform: time
+#       minutes: '/15'
+#       seconds: 00
+#   action:
+#     - service: notify.ios_iphonesaskia
+#       data:
+#         message: "request_location_update"
+
+# - id: '000000009'
+#   alias: Location update Sjors
+#   trigger:
+#     - platform: time
+#       minutes: '/15'
+#       seconds: 00
+#   action:
+#     - service: notify.ios_iphonesjors
+#       data:
+#         message: "request_location_update"
+
+- id: '000000010'
+  alias: 'Televisie uit om 00:00'
+  trigger:
+    - platform: time
+      at: '01:00:00'
+  condition:
+    - condition: state
+      entity_id: 'input_boolean.auto_television_off'
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.neo_plug_1_switch
+
+- id: '000000011'
+  alias: "Televisie aan"
+  trigger:
+    - platform: time
+      at: '07:00:00'
+    - platform: time
+      at: '17:00:00'
+  condition:
+    - condition: state
+      entity_id: 'input_boolean.auto_television_on'
+      state: 'on'
+    - condition: or
+      conditions:
+        - condition: time
+          after: "07:00:00"
+          weekday:
+            - wed
+            - thu
+            - sat
+            - sun
+        - condition: time
+          after: "17:00:00"
+          weekday:
+            - mon
+            - tue
+            - fri
+  action:
+    - service: switch.turn_on
+      entity_id: switch.neo_plug_1_switch
+
+# - id: '000000012'
+#   alias: Washingmachine busy
+#   trigger:
+#     - platform: numeric_state
+#       entity_id: sensor.greenwave_2_power
+#       above: 1.5
+#   action:
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.washingmachine_busy
+
+# - id: '000000013'
+#   alias: Washingmachine done notification
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.washingmachine_busy
+#       from: 'on'
+#       to: 'off'
+#       for:
+#         minutes: 5
+#   action:
+#     - service: notify.ios_iphonesaskia
+#       data:
+#         title: "Wasmachine: "
+#         message: "Ik ben klaar!"
+#     - service: notify.ios_iphonesjors
+#       data:
+#         title: "Wasmachine: "
+#         message: "Ik ben klaar!"
+
+# - id: '000000014'
+#   alias: Washingmachine busy
+#   trigger:
+#     - platform: numeric_state
+#       entity_id: sensor.greenwave_1_power
+#       below: 9
+#   action:
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.washingmachine_busy

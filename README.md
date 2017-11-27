@@ -122,8 +122,9 @@ recorder:
   * Decimal places: 2
 
 Sadly illustrator does not convert the id's correctly and we have to find and replace / check our nodes.
-* Replace `_x5F__x5F_` with `__`
-* Replace `_x5F_` with `_`
+* Replace `_x5F__x5F_` with `__`  
+* Replace `_x5F_` with `_`  
+* Remove all  `font-family=""` tags  
 
 Some sensor may have an extra `_` at the end of the id, so be sure to check that
 

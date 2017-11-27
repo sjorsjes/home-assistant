@@ -1,12 +1,7 @@
 appliances:
   entities:
-  - switch.woonkamer__vaatwasser_switch_2_0
-  - switch.schuur__wasmachine_switch_6_0
-  - switch.schuur__droger_switch_8_0
-  - sensor.woonkamer__vaatwasser_power_2_8
-  - sensor.schuur__wasmachine_power_6_8
-  - sensor.schuur__droger_power_8_8
-  - input_boolean.washingmachine_busy
-  - input_boolean.dryer_busy
+  - sensor.greenwave_2_power
+  - sensor.neo_plug_2_power
+  - sensor.neo_plug_3_power
   name: Apparaten
   view: false
