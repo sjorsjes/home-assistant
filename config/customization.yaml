@@ -83,147 +83,145 @@ switch.neo_plug_1_switch:
 zwave.neo_plug_1:
   hidden: true
 
+zwave.aeotec_zw090_zstick_gen5:
+  hidden: true
+
+switch.sonoff_2:
+  friendly_name: Slaapkamer - Opladers
+
+device_tracker.iphonesjors:
+  friendly_name: Sjors
+sensor.iphone_van_sjors_battery_level:
+  friendly_name: Battery Sjors
+device_tracker.iphonesaskia:
+  friendly_name: Saskia
+sensor.iphone_van_saskia_battery_level:
+  friendly_name: Battery Saskia
 
 ########################################## OUD ##########################################
 # Televisie
 
 # Woonkamer PIR
-binary_sensor.neo_pir_1_sensor: # state: on/off
-  name: "Beweging"
-  icon: "mdi:run"
-sensor.neo_pir_1_alarm_level:
-  hidden: true
-sensor.neo_pir_1_alarm_type:
-  hidden: true
-sensor.neo_pir_1_burglar:
-  hidden: true
-sensor.neo_pir_1_luminance:
-  name: "Light"
-  icon: "mdi:white-balance-sunny"
-sensor.neo_pir_1_sourcenodeid:
-  hidden: true
-zwave.neo_pir_1:
-  hidden: true
+# binary_sensor.neo_pir_1_sensor: # state: on/off
+#   name: "Beweging"
+#   icon: "mdi:run"
+# sensor.neo_pir_1_alarm_level:
+#   hidden: true
+# sensor.neo_pir_1_alarm_type:
+#   hidden: true
+# sensor.neo_pir_1_burglar:
+#   hidden: true
+# sensor.neo_pir_1_luminance:
+#   name: "Light"
+#   icon: "mdi:white-balance-sunny"
+# sensor.neo_pir_1_sourcenodeid:
+#   hidden: true
+# zwave.neo_pir_1:
+#   hidden: true
 
 # Wasmachine
-sensor.neo_plug_2_alarm_level:
-  hidden: true
-sensor.neo_plug_2_alarm_type:
-  hidden: true
-sensor.neo_plug_2_current:
-  hidden: true
-sensor.neo_plug_2_energy:
-  hidden: true
-sensor.neo_plug_2_exporting:
-  hidden: true
-sensor.neo_plug_2_interval:
-  hidden: true
-sensor.neo_plug_2_interval_2:
-  hidden: true
-sensor.neo_plug_2_interval_3:
-  hidden: true
-sensor.neo_plug_2_interval_4:
-  hidden: true
-sensor.neo_plug_2_power:
-  friendly_name: "Wasmachine verbruik"
-  icon: "mdi:power-plug"
-sensor.neo_plug_2_power_management:
-  hidden: true
-sensor.neo_plug_2_previous_reading:
-  hidden: true
-sensor.neo_plug_2_previous_reading_2:
-  hidden: true
-sensor.neo_plug_2_previous_reading_3:
-  hidden: true
-sensor.neo_plug_2_previous_reading_4:
-  hidden: true
-sensor.neo_plug_2_sourcenodeid:
-  hidden: true
-sensor.neo_plug_2_voltage:
-  hidden: true
-switch.neo_plug_2_switch:
-  friendly_name: "Wasmachine"
-  icon: "mdi:washing-machine"
-zwave.neo_plug_2:
-  hidden: true
+# sensor.neo_plug_2_alarm_level:
+#   hidden: true
+# sensor.neo_plug_2_alarm_type:
+#   hidden: true
+# sensor.neo_plug_2_current:
+#   hidden: true
+# sensor.neo_plug_2_energy:
+#   hidden: true
+# sensor.neo_plug_2_exporting:
+#   hidden: true
+# sensor.neo_plug_2_interval:
+#   hidden: true
+# sensor.neo_plug_2_interval_2:
+#   hidden: true
+# sensor.neo_plug_2_interval_3:
+#   hidden: true
+# sensor.neo_plug_2_interval_4:
+#   hidden: true
+# sensor.neo_plug_2_power:
+#   friendly_name: "Wasmachine verbruik"
+#   icon: "mdi:power-plug"
+# sensor.neo_plug_2_power_management:
+#   hidden: true
+# sensor.neo_plug_2_previous_reading:
+#   hidden: true
+# sensor.neo_plug_2_previous_reading_2:
+#   hidden: true
+# sensor.neo_plug_2_previous_reading_3:
+#   hidden: true
+# sensor.neo_plug_2_previous_reading_4:
+#   hidden: true
+# sensor.neo_plug_2_sourcenodeid:
+#   hidden: true
+# sensor.neo_plug_2_voltage:
+#   hidden: true
+# switch.neo_plug_2_switch:
+#   friendly_name: "Wasmachine"
+#   icon: "mdi:washing-machine"
+# zwave.neo_plug_2:
+#   hidden: true
 
 # Droger
-sensor.neo_plug_3_alarm_level:
-  hidden: true
-sensor.neo_plug_3_alarm_type:
-  hidden: true
-sensor.neo_plug_3_current:
-  hidden: true
-sensor.neo_plug_3_energy:
-  hidden: true
-sensor.neo_plug_3_exporting:
-  hidden: true
-sensor.neo_plug_3_interval:
-  hidden: true
-sensor.neo_plug_3_interval_2:
-  hidden: true
-sensor.neo_plug_3_interval_3:
-  hidden: true
-sensor.neo_plug_3_interval_4:
-  hidden: true
-sensor.neo_plug_3_power:
-  friendly_name: "Droger verbruik"
-  icon: "mdi:power-plug"
-sensor.neo_plug_3_power_management:
-  hidden: true
-sensor.neo_plug_3_previous_reading:
-  hidden: true
-sensor.neo_plug_3_previous_reading_2:
-  hidden: true
-sensor.neo_plug_3_previous_reading_3:
-  hidden: true
-sensor.neo_plug_3_previous_reading_4:
-  hidden: true
-sensor.neo_plug_3_sourcenodeid:
-  hidden: true
-sensor.neo_plug_3_voltage:
-  hidden: true
-switch.neo_plug_3_switch:
-  friendly_name: "Droger"
-  icon: "mdi:washing-machine"
-zwave.neo_plug_3:
-  hidden: true
+# sensor.neo_plug_3_alarm_level:
+#   hidden: true
+# sensor.neo_plug_3_alarm_type:
+#   hidden: true
+# sensor.neo_plug_3_current:
+#   hidden: true
+# sensor.neo_plug_3_energy:
+#   hidden: true
+# sensor.neo_plug_3_exporting:
+#   hidden: true
+# sensor.neo_plug_3_interval:
+#   hidden: true
+# sensor.neo_plug_3_interval_2:
+#   hidden: true
+# sensor.neo_plug_3_interval_3:
+#   hidden: true
+# sensor.neo_plug_3_interval_4:
+#   hidden: true
+# sensor.neo_plug_3_power:
+#   friendly_name: "Droger verbruik"
+#   icon: "mdi:power-plug"
+# sensor.neo_plug_3_power_management:
+#   hidden: true
+# sensor.neo_plug_3_previous_reading:
+#   hidden: true
+# sensor.neo_plug_3_previous_reading_2:
+#   hidden: true
+# sensor.neo_plug_3_previous_reading_3:
+#   hidden: true
+# sensor.neo_plug_3_previous_reading_4:
+#   hidden: true
+# sensor.neo_plug_3_sourcenodeid:
+#   hidden: true
+# sensor.neo_plug_3_voltage:
+#   hidden: true
+# switch.neo_plug_3_switch:
+#   friendly_name: "Droger"
+#   icon: "mdi:washing-machine"
+# zwave.neo_plug_3:
+#   hidden: true
 
 # Woonkamer MultiSensor
-sensor.sensor_woonkamer__temperatuur:
-  friendly_name: Temperatuur
-sensor.sensor_woonkamer__luchtvochtigheid:
-  friendly_name: Luchtvochtigheid
-sensor.sensor_woonkamer__lichtsterkte:
-  friendly_name: Lichtsterkte
-sensor.sensor_neo_pir_1:
-  friendly_name: Bewegingsmelder
-light.woonkamer__led:
-  friendly_name: Lampje
+# sensor.sensor_woonkamer__temperatuur:
+#   friendly_name: Temperatuur
+# sensor.sensor_woonkamer__luchtvochtigheid:
+#   friendly_name: Luchtvochtigheid
+# sensor.sensor_woonkamer__lichtsterkte:
+#   friendly_name: Lichtsterkte
+# sensor.sensor_neo_pir_1:
+#   friendly_name: Bewegingsmelder
+# light.woonkamer__led:
+#   friendly_name: Lampje
 
-sensor.sensor_slaapkamer_saar__temperatuur:
-  friendly_name: Temperatuur
-sensor.sensor_slaapkamer_saar__luchtvochtigheid:
-  friendly_name: Luchtvochtigheid
-sensor.sensor_slaapkamer_saar__lichtsterkte:
-  friendly_name: Lichtsterkte
-sensor.sensor_slaapkamer_saar__bewegingsmelder:
-  friendly_name: Bewegingsmelder
-light.slaapkamer_saar__led:
-  friendly_name: Lampje
-
-zwave.aeotec_zw090_zstick_gen5:
-  hidden: true
-
-# device_tracker.iphonesjors:
-#   friendly_name: Sjors
-# sensor.iphone_van_sjors_battery_level:
-#   friendly_name: Battery Sjors
-# device_tracker.iphonesaskia:
-#   friendly_name: Saskia
-# sensor.iphone_van_saskia_battery_level:
-#   friendly_name: Battery Saskia
-
-binary_sensor.floorplan:
-  custom_ui_state_card: floorplan
-  config: !include floorplan.yaml
+# sensor.sensor_slaapkamer_saar__temperatuur:
+#   friendly_name: Temperatuur
+# sensor.sensor_slaapkamer_saar__luchtvochtigheid:
+#   friendly_name: Luchtvochtigheid
+# sensor.sensor_slaapkamer_saar__lichtsterkte:
+#   friendly_name: Lichtsterkte
+# sensor.sensor_slaapkamer_saar__bewegingsmelder:
+#   friendly_name: Bewegingsmelder
+# light.slaapkamer_saar__led:
+#   friendly_name: Lampje

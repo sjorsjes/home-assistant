@@ -97,16 +97,15 @@
   - data:
       entity_id: light.hue_color_lamp_1
     service: light.turn_on
-  alias: Woonkamer - Aan na zonsondergang en/of na 17:00
+  alias: Woonkamer - Aan na zonsondergang
   condition:
   - condition: state
     entity_id: input_boolean.auto_livingroom_lights_on
     state: 'on'
-  - after: '17:00'
-    condition: time
   id: '1504638716665'
   trigger:
   - event: sunset
+    offset: -01:00:00
     platform: sun
 - action:
   - data:
@@ -158,4 +157,22 @@
   - at: 06:00:00
     platform: time
   - at: '17:00:00'
+    platform: time
+- action:
+  - data:
+      entity_id: switch.sonoff_2
+    service: switch.turn_on
+  alias: Slaapkamer - Opladers aan
+  id: '1511807928'
+  trigger:
+  - at: '22:00:00'
+    platform: time
+- action:
+  - data:
+      entity_id: switch.sonoff_2
+    service: switch.turn_off
+  alias: Slaapkamer - Opladers uit
+  id: '1511808013'
+  trigger:
+  - at: '07:00:00'
     platform: time

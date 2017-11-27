@@ -3,23 +3,29 @@
 # ------------------------------------------------
 
 default_view:
-  name: 'Woonkamer'
+  name: 'Home'
   view: yes
   entities:
     - group.livingroom
     - group.presence
+
+bedroom_view:
+  name: 'Wij'
+  view: yes
+  entities:
+    - group.bedroom
+
+bedroom_saar_view:
+  name: 'Saar'
+  view: yes
+  entities:
+    - group.sensor_bedroom_saar
 
 office_view:
   name: 'Kantoor'
   view: yes
   entities:
     - group.sensor_office
-
-bedroom_saar_view:
-  name: 'Slaapkamer Saar'
-  view: yes
-  entities:
-    - group.sensor_bedroom_saar
 
 attic_view:
   name: 'Zolder'
@@ -28,7 +34,7 @@ attic_view:
     - group.appliances
 
 automations:
-  name: 'Automagisch'
+  name: 'Auto'
   view: yes
   entities:
     - group.automation_tab
@@ -70,6 +76,11 @@ sensor_office:
     - sensor.sensor_kantoor__pir
     - light.kantoor__led
 
+bedroom:
+  name: Slaapkamer
+  entities:
+    - switch.sonoff_2
+
 sensor_bedroom_saar:
   name: Slaapkamer Saar
   entities:
@@ -86,6 +97,7 @@ miscaleanous:
     - input_boolean.vacation_mode
 
 automation_tab:
+  name: "Automations"
   entities:
     - input_boolean.auto_livingroom_lights_on
     - input_boolean.auto_livingroom_lights_off

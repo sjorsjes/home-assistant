@@ -1,0 +1,12 @@
+# ---------------------------------------------------------- #
+# SWITCH - SLAAPKAMER OPLADERS
+# ---------------------------------------------------------- #
+
+- platform: mqtt
+  name: "Sonoff 2"
+  command_topic: "cmnd/homeassistant/sonoff2/POWER"
+  state_topic: "stat/homeassistant/sonoff2/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

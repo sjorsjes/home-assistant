@@ -47,13 +47,13 @@
 #define mqtt_port 1883
 
 /**************************** FOR OTA **************************************************/
-#define SENSORNAME "multisensor02"
+#define SENSORNAME "multisensor01"
 #define OTApassword "PASSWORD" // change this to whatever password you want to use when you upload OTA
 int OTAport = 8266;
 
 /************* MQTT TOPICS (change these topics as you wish)  **************************/
-#define light_state_topic "homeassistant/multisensor02"
-#define light_set_topic "homeassistant/multisensor02/set"
+#define light_state_topic "homeassistant/multisensor01"
+#define light_set_topic "homeassistant/multisensor021/set"
 
 const char* on_cmd = "ON";
 const char* off_cmd = "OFF";
