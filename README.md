@@ -1,6 +1,6 @@
 # Home Assistant
 
-Ubuntu server 18.04 LTS on a Mac mini 2011  
+[Running docker](https://github.com/sjorsjes/docker-setup) on a Mac mini with Ubuntu server 18.04 LTS
 Current Home Assistant version: 0.83.3
 
 # Custom installations
