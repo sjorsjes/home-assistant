@@ -37,7 +37,7 @@ views:
         layout: vertical
         cards:
           - type: weather-forecast
-            entity:  weather.dark_sky
+            entity: weather.dark_sky
 
           - type: picture-entity
             entity: camera.weer
@@ -86,9 +86,13 @@ views:
               - type: glance
                 entities:
                   - entity: sensor.wasmachine_verbruik
+                    icon: 'mdi:washing-machine'
                   - entity: sensor.droger_verbruik
+                    icon: 'mdi:tumble-dryer'
                   - entity: sensor.vaatwasser_verbruik
+                    icon: 'mdi:dishwasher'
                   - entity: sensor.tv_verbruik
+                    icon: 'mdi:television'
 
           - type: horizontal-stack
             cards:
@@ -129,8 +133,10 @@ views:
             entities:
               - entity: sensor.sensor_slaapkamer_saar__lichtsterkte
                 name: Lichtsterkte
+                icon: 'mdi:white-balance-sunny'
               - entity: sensor.sensor_slaapkamer_saar__luchtvochtigheid
                 name: Luchtvochtigheid
+                icon: 'mdi:water-percent'
               - entity: sensor.sensor_slaapkamer_saar__temperatuur
                 name: Temperatuur
           - type: glance
@@ -139,6 +145,7 @@ views:
                 name: Beweging?
               - entity: light.slaapkamer_saar__led
                 name: Led
+                icon: 'mdi:lamp'
           - <<: *compact-header
 
   - title: Zolder
@@ -152,8 +159,10 @@ views:
             entities:
               - entity: sensor.sensor_zolder__lichtsterkte
                 name: Lichtsterkte
+                icon: 'mdi:white-balance-sunny'
               - entity: sensor.sensor_zolder__luchtvochtigheid
                 name: Luchtvochtigheid
+                icon: 'mdi:water-percent'
               - entity: sensor.sensor_zolder__temperatuur
                 name: Temperatuur
           - type: glance
@@ -162,6 +171,7 @@ views:
                 name: Beweging?
               - entity: light.zolder__led
                 name: Led
+                icon: 'mdi:lamp'
           - <<: *compact-header
 
   - title: Overig

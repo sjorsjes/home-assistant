@@ -9,6 +9,7 @@ group.all_switches:
 
 light.hue_color_lamp_1:
   friendly_name: "Lamp woonkamer"
+  icon: 'mdi:floor-lamp'
 light.woonkamer:
   hidden: true
 
