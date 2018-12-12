@@ -23,10 +23,10 @@ x-compact-header: &compact-header
 # Images for Afvalwijzer
 x-afval-images: &afval-images
 - state_image:
-    "gft": /local/afvalwijzer/gft.png
-    "papier": /local/afvalwijzer/papier.png
-    "restafval": /local/afvalwijzer/rest.png
-    "plastic verpakkingsafval": /local/afvalwijzer/plastic.png
+    "gft": /local/afvalwijzer/gft_large.png
+    "papier": /local/afvalwijzer/papier_large.png
+    "restafval": /local/afvalwijzer/rest_large.png
+    "plastic verpakkingsafval": /local/afvalwijzer/plastic_large.png
     "Geen": /local/afvalwijzer/kliko.png
 
 views:
