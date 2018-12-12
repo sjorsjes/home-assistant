@@ -1,0 +1,207 @@
+resources:
+  - url: /local/lovelace/mini-media-player-bundle.js?v=0.9.4
+    type: module
+  - url: /local/lovelace/layout-card.js?v=0
+    type: module
+  - url: /local/lovelace/useful-markdown-card.js?v=0
+    type: module
+  - url: /local/lovelace/compact-custom-header/compact-custom-header.js?v=0.0.1
+    type: module
+
+views:
+  - title: Home
+
+    panel: true
+
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        cards:
+          - type: weather-forecast
+            entity:  weather.dark_sky
+
+          - type: picture-entity
+            entity: camera.weer
+            aspect_ratio: 16:9
+
+          - break
+
+          - type: glance
+            entities:
+              - device_tracker.iphonesjors
+              - device_tracker.iphone_van_saskia
+
+          - type: light
+            entity: light.hue_color_lamp_1
+
+          - type: horizontal-stack
+            cards:
+              - type: entity-button
+                entity: switch.sonoff_4
+                tap_action: toggle
+              - type: entity-button
+                entity: switch.sonoff_2
+                tap_action: toggle
+
+          - break
+
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                title: Temperatuur
+                entities:
+                  - entity: sensor.sensor_zolder__temperatuur
+                    name: Zolder
+                  - entity: sensor.sensor_slaapkamer_saar__temperatuur
+                    name: Saar
+              - type: glance
+                title: Beweging
+                entities:
+                  - entity: sensor.sensor_zolder__pir
+                    name: Zolder
+                  - entity: sensor.sensor_slaapkamer_saar__pir
+                    name: Saar
+
+          - type: vertical-stack
+            cards:
+              - type: glance
+                entities:
+                  - entity: sensor.wasmachine_verbruik
+                  - entity: sensor.droger_verbruik
+                  # - entity: sensor.nas_verbruik
+                  - entity: sensor.vaatwasser_verbruik
+                  - entity: sensor.tv_verbruik
+
+          - type: horizontal-stack
+            cards:
+              - type: picture-entity
+                entity: sensor.trash_today
+                name: Vandaag
+                state_image:
+                  "gft": /local/afvalwijzer/gft.png
+                  "papier": /local/afvalwijzer/papier.png
+                  "restafval": /local/afvalwijzer/rest.png
+                  "plastic verpakkingsafval": /local/afvalwijzer/plastic.png
+                  "Geen": /local/afvalwijzer/kliko.png
+              - type: picture-entity
+                entity: sensor.trash_tomorrow
+                name: Morgen
+                state_image:
+                  "gft": /local/afvalwijzer/gft.png
+                  "papier": /local/afvalwijzer/papier.png
+                  "restafval": /local/afvalwijzer/rest.png
+                  "plastic verpakkingsafval": /local/afvalwijzer/plastic.png
+                  "Geen": /local/afvalwijzer/kliko.png
+
+          - type: custom:useful-markdown-card
+            content: >
+              Vandaag is het [[ sensor.date_formatted.state ]]
+
+          - type: glance
+            entities:
+              - entity: sensor.trash_gft_formatted
+                name: GFT
+              - entity: sensor.trash_papier_formatted
+                name: Papier
+              - entity: sensor.trash_plastic_verpakkingsafval_formatted
+                name: Plastic
+              - entity: sensor.trash_restafval_formatted
+                name: Rest
+
+          - type: custom:compact-custom-header
+            notification: true
+            menu: true
+            options: false
+            voice: false
+            clock: notification
+            clock_format: 24
+            clock_am_pm: false
+            header: true
+
+  - title: Slaapkamer Saar
+    panel: true
+    cards:
+      - type: glance
+        columns: 5
+        entities:
+          - entity: sensor.sensor_slaapkamer_saar__lichtsterkte
+            name: Lichtsterkte
+          - entity: sensor.sensor_slaapkamer_saar__luchtvochtigheid
+            name: Luchtvochtigheid
+          - entity: sensor.sensor_slaapkamer_saar__temperatuur
+            name: Temperatuur
+          - entity: sensor.sensor_slaapkamer_saar__pir
+            name: Beweging?
+          - entity: light.slaapkamer_saar__led
+            name: Led
+      - type: custom:compact-custom-header
+        notification: true
+        menu: true
+        options: false
+        voice: false
+        clock: notification
+        clock_format: 24
+        clock_am_pm: false
+        header: true
+
+  - title: Zolder
+    panel: true
+    cards:
+      - type: glance
+        columns: 5
+        entities:
+          - entity: sensor.sensor_zolder__lichtsterkte
+            name: Lichtsterkte
+          - entity: sensor.sensor_zolder__luchtvochtigheid
+            name: Luchtvochtigheid
+          - entity: sensor.sensor_zolder__temperatuur
+            name: Temperatuur
+          - entity: sensor.sensor_zolder__pir
+            name: Beweging?
+          - entity: light.zolder__led
+            name: Led
+      - type: custom:compact-custom-header
+        notification: true
+        menu: true
+        options: false
+        voice: false
+        clock: notification
+        clock_format: 24
+        clock_am_pm: false
+        header: true
+
+  - title: Overig
+    cards:
+      - type: custom:mini-media-player
+        entity: media_player.woonkamer_2
+        hide_controls: true
+        show_tts: google
+        # group: true
+        power_color: true
+        hide_power: true
+
+      - type: entity-button
+        entity: input_boolean.play_saskia_pick_up_sound
+        tap_action: toggle
+
+      - type: entities
+        entities:
+          - entity: group.all_automations
+            name: Automations
+          - entity: group.all_devices
+            name: All devices
+          - entity: group.all_lights
+            name: All lights
+          - entity: sensor.sensor_slaapkamer_saar__pir
+            name: Beweging?
+          - entity: group.all_switches
+            name: All lights
+      - type: custom:compact-custom-header
+        notification: true
+        menu: true
+        options: false
+        voice: false
+        clock: notification
+        clock_format: 24
+        clock_am_pm: false
+        header: true

@@ -1,0 +1,19 @@
+washingmachine_busy:
+  name: Wasmachine bezig
+  initial: off
+  icon: "mdi:washing-machine"
+
+dryer_busy:
+  name: Droger bezig
+  initial: off
+  icon: "mdi:washing-machine"
+
+dishwasher_busy:
+  name: Vaatwasser bezig
+  initial: off
+  icon: "mdi:washing-machine"
+
+play_saskia_pick_up_sound:
+  name: Saskia neem je telefoon op
+  initial: off
+  icon: "mdi:voice"

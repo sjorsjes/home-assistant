@@ -1,0 +1,21 @@
+# Sensor Zolder (white)
+- platform: mqtt_json
+  name: "Zolder - LED"
+  state_topic: "homeassistant/multisensor01"
+  command_topic: "homeassistant/multisensor01/set"
+  brightness: true
+  flash: true
+  rgb: true
+  optimistic: false
+  qos: 0
+
+# Sensor Slaapkamer Saar (Green)
+- platform: mqtt_json
+  name: "Slaapkamer Saar - LED"
+  state_topic: "homeassistant/multisensor02"
+  command_topic: "homeassistant/multisensor02/set"
+  brightness: true
+  flash: true
+  rgb: true
+  optimistic: false
+  qos: 0

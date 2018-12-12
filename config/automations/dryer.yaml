@@ -1,0 +1,51 @@
+# Droger - BUSY
+- alias: Droger - bezig
+  trigger:
+    - platform: numeric_state
+      above: '2'
+      entity_id: sensor.greenwave_powernode_1_port_power_2
+
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.dryer_busy
+
+# Droger - DONE
+- alias: Droger - klaar
+  trigger:
+    - platform: numeric_state
+      below: '1.5'
+      entity_id: sensor.greenwave_powernode_1_port_power_2
+
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.dryer_busy
+
+# Droger - NOTIFICATION
+- alias: Droger - notificatie
+  trigger:
+    - platform: state
+      entity_id: input_boolean.dryer_busy
+      from: 'on'
+      to: 'off'
+      for:
+        minutes: 10
+
+  action:
+    - service: notify.ios_iphonesjors
+      data:
+        title: 'Droger: '
+        message: Ik ben klaar!
+    - service: notify.ios_iphone_van_saskia
+      data:
+        title: 'Droger: '
+        message: Ik ben klaar!
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.woonkamer_2
+        volume_level: '0.50'
+    - service: tts.google_say
+      entity_id:
+        - media_player.woonkamer_2
+      data_template:
+        message: 'De droger is klaar!'

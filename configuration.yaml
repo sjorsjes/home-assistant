@@ -1,0 +1,109 @@
+homeassistant:
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: metric
+  time_zone: Europe/Amsterdam
+  customize: !include config/customize.yaml
+
+frontend:
+  javascript_version: latest
+
+config:
+discovery:
+  ignore:
+    - google_cast
+ios:
+
+google_assistant:
+  project_id: !secret google_project_id
+  expose_by_default: false
+  exposed_domains:
+    - switch
+
+tts:
+  - platform: google
+    language: 'nl'
+    base_url: !secret base_url_full
+
+cast:
+  media_player:
+    - host: !secret google_home_mini
+    # - host: !secret chromecast_audio
+    # - host: !secret chromecast
+
+history:
+  include:
+    domains:
+      - sensor
+      - switch
+      - light
+      - binary_sensor
+      - cover
+  exclude:
+    entities:
+      - sensor.date
+      - sensor.time
+
+logbook:
+  exclude:
+    domains:
+      - zwave
+    entities:
+      - sensor.time
+      - sensor.date
+
+recorder:
+  db_url: !secret database_url
+
+influxdb:
+  host: influxdb
+  include:
+    entities:
+      - sensor.current_power_consumption
+      - sensor.gas_consumption
+      - sensor.sensor_slaapkamer_saar__temperatuur
+      - sensor.sensor_slaapkamer_saar__luchtvochtigheid
+      - sensor.sensor_zolder__temperatuur
+      - sensor.sensor_zolder__luchtvochtigheid
+      - sensor.vaatwasser_verbruik
+      - sensor.tv_verbruik
+      - sensor.wasmachine_verbruik
+      - sensor.droger_verbruik
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_temperature
+
+map:
+
+http:
+  base_url: !secret base_url
+  api_password: !secret api_password
+
+mqtt:
+  broker: mqtt
+
+zwave:
+  usb_path: /dev/ttyACM0
+
+sun:
+
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky
+
+automation: !include_dir_merge_list config/automations
+group: !include config/groups.yaml
+input_boolean: !include config/input_booleans.yaml
+# input_select: !include config/input_select.yaml
+# input_number: !include config/input_number.yaml
+light: !include config/lights.yaml
+# script: !include config/scripts.yaml
+sensor: !include_dir_merge_list config/sensors
+switch: !include config/switches.yaml
+# zone: !include config/zones.yaml
+
+camera:
+  platform: generic
+  name: Weer
+  still_image_url: https://api.buienradar.nl/image/1.0/RadarMapNL?w=480&h=480
+  content_type: 'image/gif'

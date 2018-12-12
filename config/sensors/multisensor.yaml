@@ -1,0 +1,69 @@
+# Sensor Zolder (white)
+- platform: mqtt
+  state_topic: "homeassistant/multisensor01"
+  name: "Sensor Zolder - Luchtvochtigheid"
+  unit_of_measurement: "%"
+  force_update: true
+  value_template: '{{ value_json.humidity | round(1) }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/multisensor01"
+  name: "Sensor Zolder - Lichtsterkte"
+  unit_of_measurement: "LUX"
+  force_update: true
+  value_template: '{{ value_json.ldr }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/multisensor01"
+  name: "Sensor Zolder - PIR"
+  force_update: true
+  value_template: '{{ value_json.motion }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/multisensor01"
+  name: "Sensor Zolder - Temperatuur"
+  unit_of_measurement: "°C"
+  force_update: true
+  value_template: '{{ value_json.temperature | round(1) }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/multisensor01"
+  name: "Sensor Zolder - Temperatuur heat index"
+  unit_of_measurement: "°C"
+  force_update: true
+  value_template: '{{ value_json.heatIndex | round(1) }}'
+
+# Sensor Slaapkamer Saar (Green)
+- platform: mqtt
+  state_topic: "homeassistant/multisensor02"
+  name: "Sensor Slaapkamer Saar - Luchtvochtigheid"
+  unit_of_measurement: "%"
+  force_update: true
+  value_template: '{{ value_json.humidity | round(1) }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/multisensor02"
+  name: "Sensor Slaapkamer Saar - Lichtsterkte"
+  unit_of_measurement: "LUX"
+  force_update: true
+  value_template: '{{ value_json.ldr }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/multisensor02"
+  name: "Sensor Slaapkamer Saar - PIR"
+  force_update: true
+  value_template: '{{ value_json.motion }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/multisensor02"
+  name: "Sensor Slaapkamer Saar - Temperatuur"
+  unit_of_measurement: "°C"
+  force_update: true
+  value_template: '{{ value_json.temperature | round(1) }}'
+
+- platform: mqtt
+  state_topic: "homeassistant/multisensor02"
+  name: "Sensor Slaapkamer Saar - Temperatuur heat index"
+  unit_of_measurement: "°C"
+  force_update: true
+  value_template: '{{ value_json.heatIndex | round(1) }}'

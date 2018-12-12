@@ -1,0 +1,8 @@
+- platform: darksky
+  api_key: !secret dark_sky
+  language: 'nl'
+  monitored_conditions:
+    - temperature
+    - humidity
+  update_interval:
+    minutes: 5

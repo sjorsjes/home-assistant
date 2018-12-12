@@ -1,0 +1,23 @@
+- alias: Play sound - Saskia pick up
+  trigger:
+    - platform: state
+      entity_id: input_boolean.play_saskia_pick_up_sound
+      from: 'off'
+      to: 'on'
+
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.woonkamer_2
+        volume_level: '1'
+    - service: tts.google_say
+      entity_id:
+        - media_player.woonkamer_2
+      data_template:
+        message: 'Saskia neem je telefoon eens op'
+    - service: media_player.volume_set
+      data:
+        entity_id:
+          - media_player.woonkamer_2
+        volume_level: '0.50'

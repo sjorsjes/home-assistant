@@ -1,0 +1,13 @@
+- alias: Location - Update
+  trigger:
+    - platform: time
+      minutes: /15
+      seconds: 0
+
+  action:
+    - service: notify.ios_iphonesjors
+      data:
+        message: request_location_update
+    - service: notify.ios_iphone_van_saskia
+      data:
+        message: request_location_update

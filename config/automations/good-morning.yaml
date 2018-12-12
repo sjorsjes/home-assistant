@@ -1,0 +1,69 @@
+# Good Morning Routines - ON
+- alias: 'Good Morning Weekdays Routine - ON'
+  trigger:
+    platform: time
+    at: '06:40:00'
+  condition:
+  - condition: sun
+    before: sunrise
+  - condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    service: light.turn_on
+    entity_id: light.hue_color_lamp_1
+    data:
+      brightness: 255
+      transition: 300
+
+- alias: 'Good Morning Weekend Routine - ON'
+  trigger:
+    platform: time
+    at: '08:00:00'
+  condition:
+    - condition: sun
+      before: sunrise
+    - condition: time
+      weekday:
+        - sat
+        - sun
+  action:
+    service: light.turn_on
+    entity_id: light.hue_color_lamp_1
+    data:
+      brightness: 255
+      transition: 300
+
+# Good Morning Routines - OFF
+- alias: 'Good Morning Weekdays Routine - OFF'
+  trigger:
+    platform: time
+    at: '08:30:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    service: light.turn_off
+    entity_id: light.hue_color_lamp_1
+
+- alias: 'Good Morning Weekend Routine - OFF'
+  trigger:
+    platform: time
+    at: '10:00:00'
+  condition:
+    condition: time
+    weekday:
+      - sat
+      - sun
+  action:
+    service: light.turn_off
+    entity_id: light.hue_color_lamp_1

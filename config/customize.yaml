@@ -1,0 +1,185 @@
+group.all_automations:
+  hidden: false
+group.all_devices:
+  hidden: false
+group.all_lights:
+  hidden: false
+group.all_switches:
+  hidden: false
+
+light.hue_color_lamp_1:
+  friendly_name: "Lamp woonkamer"
+light.woonkamer:
+  hidden: true
+
+sensor.wasmachine_verbruik:
+  icon: "mdi:power-plug"
+sensor.greenwave_powernode_1_port_energy:
+  hidden: true
+sensor.greenwave_powernode_1_port_previous_reading:
+  hidden: true
+sensor.greenwave_powernode_1_port_previous_reading_2:
+  hidden: true
+switch.greenwave_powernode_1_port_switch:
+  friendly_name: "Wasmachine"
+zwave.greenwave_powernode_1_port:
+  hidden: true
+
+sensor.droger_verbruik:
+  icon: "mdi:power-plug"
+sensor.greenwave_powernode_1_port_energy_2:
+  hidden: true
+sensor.greenwave_powernode_1_port_previous_reading_3:
+  hidden: true
+sensor.greenwave_powernode_1_port_previous_reading_4:
+  hidden: true
+switch.greenwave_powernode_1_port_switch_2:
+  friendly_name: "Droger"
+zwave.greenwave_powernode_1_port_2:
+  hidden: true
+
+# node_id: 4
+sensor.neo_coolcam_power_plug_12a_alarm_level:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_alarm_type:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_current:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_energy:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_exporting:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_3:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_4:
+  hidden: true
+sensor.nas_verbruik:
+  icon: "mdi:power-plug"
+sensor.neo_coolcam_power_plug_12a_power_management:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_3:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_4:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_sourcenodeid:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_voltage:
+  hidden: true
+switch.neo_coolcam_power_plug_12a_switch:
+  hidden: true
+zwave.neo_coolcam_power_plug_12a:
+  hidden: true
+
+# node_id: 5
+sensor.vaatwasser_verbruik:
+  icon: "mdi:power-plug"
+sensor.neo_coolcam_power_plug_12a_alarm_level_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_alarm_type_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_current_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_energy_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_exporting_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_voltage_2:
+  hidden: true
+switch.neo_coolcam_power_plug_12a_switch_2:
+  hidden: true
+zwave.neo_coolcam_power_plug_12a_2:
+  hidden: true
+
+# node_id: 6
+sensor.tv_verbruik:
+  icon: "mdi:power-plug"
+sensor.neo_coolcam_power_plug_12a_alarm_level_3:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_alarm_type_3:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_current_3:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_energy_3:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_exporting_3:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_5:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_6:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_interval_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_power_management_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_5:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_6:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_7:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_previous_reading_8:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_sourcenodeid_2:
+  hidden: true
+sensor.neo_coolcam_power_plug_12a_voltage_3:
+  hidden: true
+switch.neo_coolcam_power_plug_12a_switch_3:
+  hidden: true
+zwave.neo_coolcam_power_plug_12a_3:
+  hidden: true
+
+sensor.sensor_zolder__pir:
+  icon: "mdi:run"
+sensor.sensor_slaapkamer_saar__pir:
+  icon: "mdi:run"
+
+sensor.yr_symbol:
+  hidden: true
+
+sun.sun:
+  hidden: true
+
+sensor.afval:
+  friendly_name: "Vandaag"
+sensor.afval_datum:
+  friendly_name: "Volgende keer"
+  icon: mdi:calendar-check
+sensor.afval_soort:
+  friendly_name: 'Type'
+
+zwave.aeotec_zw090_zstick_gen5_eu:
+  hidden: true
+
+switch.sonoff_2:
+  friendly_name: 'Kerstboom'
+  icon: mdi:pine-tree
+
+switch.sonoff_4:
+  friendly_name: 'Stereo'
+  icon: mdi:speaker
+
+media_player.woonkamer_2:
+  friendly_name: 'Google Home Mini'
+  icon: mdi:google-home
+
+sensor.trash_gft_formatted:
+  entity_picture: /local/afvalwijzer/gft.png
+
+sensor.trash_papier_formatted:
+  entity_picture: /local/afvalwijzer/papier.png
+
+sensor.trash_plastic_verpakkingsafval_formatted:
+  entity_picture: /local/afvalwijzer/plastic.png
+
+sensor.trash_restafval_formatted:
+  entity_picture: /local/afvalwijzer/rest.png

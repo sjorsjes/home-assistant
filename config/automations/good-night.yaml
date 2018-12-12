@@ -1,0 +1,45 @@
+# Good night Routine - ON
+- alias: 'Good Night Routine - ON'
+  trigger:
+    platform: sun
+    event: 'sunset'
+    offset: '-00:15:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.hue_color_lamp_1
+      data:
+        brightness: 255
+        transition: 300
+    - service: switch.turn_on
+      entity_id: switch.sonoff_2
+
+# Good night Routine - OFF
+- alias: 'Good Night Routine - OFF'
+  trigger:
+    - platform: time
+      at: '23:00:00'
+    - platform: time
+      at: '00:00:00'
+  condition:
+    condition: or
+    conditions:
+      - condition: time
+        after: '23:00:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - sun
+      - condition: time
+        after: '00:30:00'
+        weekday:
+          - fri
+          - sat
+  action:
+    - service: light.turn_off
+      entity_id: light.hue_color_lamp_1
+      data:
+        transition: 300
+    - service: switch.turn_on
+      entity_id: switch.sonoff_2
