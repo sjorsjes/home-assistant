@@ -5,14 +5,33 @@ resources:
     type: module
   - url: /local/lovelace/useful-markdown-card.js?v=0
     type: module
-  - url: /local/lovelace/compact-custom-header/compact-custom-header.js?v=0.0.1
+  - url: /local/lovelace/compact-custom-header/compact-custom-header.js?v=0.0.4
     type: module
+
+# Compact header
+x-compact-header: &compact-header
+- type: custom:compact-custom-header
+  notification: true
+  menu: true
+  options: false
+  voice: false
+  clock: notification
+  clock_format: 24
+  clock_am_pm: false
+  header: true
+
+# Images for Afvalwijzer
+x-afval-images: &afval-images
+- state_image:
+    "gft": /local/afvalwijzer/gft.png
+    "papier": /local/afvalwijzer/papier.png
+    "restafval": /local/afvalwijzer/rest.png
+    "plastic verpakkingsafval": /local/afvalwijzer/plastic.png
+    "Geen": /local/afvalwijzer/kliko.png
 
 views:
   - title: Home
-
     panel: true
-
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -68,7 +87,6 @@ views:
                 entities:
                   - entity: sensor.wasmachine_verbruik
                   - entity: sensor.droger_verbruik
-                  # - entity: sensor.nas_verbruik
                   - entity: sensor.vaatwasser_verbruik
                   - entity: sensor.tv_verbruik
 
@@ -77,21 +95,11 @@ views:
               - type: picture-entity
                 entity: sensor.trash_today
                 name: Vandaag
-                state_image:
-                  "gft": /local/afvalwijzer/gft.png
-                  "papier": /local/afvalwijzer/papier.png
-                  "restafval": /local/afvalwijzer/rest.png
-                  "plastic verpakkingsafval": /local/afvalwijzer/plastic.png
-                  "Geen": /local/afvalwijzer/kliko.png
+                <<: *afval-images
               - type: picture-entity
                 entity: sensor.trash_tomorrow
                 name: Morgen
-                state_image:
-                  "gft": /local/afvalwijzer/gft.png
-                  "papier": /local/afvalwijzer/papier.png
-                  "restafval": /local/afvalwijzer/rest.png
-                  "plastic verpakkingsafval": /local/afvalwijzer/plastic.png
-                  "Geen": /local/afvalwijzer/kliko.png
+                <<: *afval-images
 
           - type: custom:useful-markdown-card
             content: >
@@ -108,67 +116,53 @@ views:
               - entity: sensor.trash_restafval_formatted
                 name: Rest
 
-          - type: custom:compact-custom-header
-            notification: true
-            menu: true
-            options: false
-            voice: false
-            clock: notification
-            clock_format: 24
-            clock_am_pm: false
-            header: true
+          - <<: *compact-header
 
   - title: Slaapkamer Saar
     panel: true
     cards:
-      - type: glance
-        columns: 5
-        entities:
-          - entity: sensor.sensor_slaapkamer_saar__lichtsterkte
-            name: Lichtsterkte
-          - entity: sensor.sensor_slaapkamer_saar__luchtvochtigheid
-            name: Luchtvochtigheid
-          - entity: sensor.sensor_slaapkamer_saar__temperatuur
-            name: Temperatuur
-          - entity: sensor.sensor_slaapkamer_saar__pir
-            name: Beweging?
-          - entity: light.slaapkamer_saar__led
-            name: Led
-      - type: custom:compact-custom-header
-        notification: true
-        menu: true
-        options: false
-        voice: false
-        clock: notification
-        clock_format: 24
-        clock_am_pm: false
-        header: true
+      - type: custom:layout-card
+        layout: horizontal
+        column_num: 2
+        cards:
+          - type: glance
+            entities:
+              - entity: sensor.sensor_slaapkamer_saar__lichtsterkte
+                name: Lichtsterkte
+              - entity: sensor.sensor_slaapkamer_saar__luchtvochtigheid
+                name: Luchtvochtigheid
+              - entity: sensor.sensor_slaapkamer_saar__temperatuur
+                name: Temperatuur
+          - type: glance
+            entities:
+              - entity: sensor.sensor_slaapkamer_saar__pir
+                name: Beweging?
+              - entity: light.slaapkamer_saar__led
+                name: Led
+          - <<: *compact-header
 
   - title: Zolder
     panel: true
     cards:
-      - type: glance
-        columns: 5
-        entities:
-          - entity: sensor.sensor_zolder__lichtsterkte
-            name: Lichtsterkte
-          - entity: sensor.sensor_zolder__luchtvochtigheid
-            name: Luchtvochtigheid
-          - entity: sensor.sensor_zolder__temperatuur
-            name: Temperatuur
-          - entity: sensor.sensor_zolder__pir
-            name: Beweging?
-          - entity: light.zolder__led
-            name: Led
-      - type: custom:compact-custom-header
-        notification: true
-        menu: true
-        options: false
-        voice: false
-        clock: notification
-        clock_format: 24
-        clock_am_pm: false
-        header: true
+      - type: custom:layout-card
+        layout: horizontal
+        column_num: 2
+        cards:
+          - type: glance
+            entities:
+              - entity: sensor.sensor_zolder__lichtsterkte
+                name: Lichtsterkte
+              - entity: sensor.sensor_zolder__luchtvochtigheid
+                name: Luchtvochtigheid
+              - entity: sensor.sensor_zolder__temperatuur
+                name: Temperatuur
+          - type: glance
+            entities:
+              - entity: sensor.sensor_zolder__pir
+                name: Beweging?
+              - entity: light.zolder__led
+                name: Led
+          - <<: *compact-header
 
   - title: Overig
     cards:
@@ -176,13 +170,16 @@ views:
         entity: media_player.woonkamer_2
         hide_controls: true
         show_tts: google
-        # group: true
         power_color: true
         hide_power: true
 
       - type: entity-button
         entity: input_boolean.play_saskia_pick_up_sound
         tap_action: toggle
+
+      - type: entities
+        entities:
+          - entity: sensor.influxdb_database_size
 
       - type: entities
         entities:
@@ -196,12 +193,5 @@ views:
             name: Beweging?
           - entity: group.all_switches
             name: All lights
-      - type: custom:compact-custom-header
-        notification: true
-        menu: true
-        options: false
-        voice: false
-        clock: notification
-        clock_format: 24
-        clock_am_pm: false
-        header: true
+
+      - <<: *compact-header
