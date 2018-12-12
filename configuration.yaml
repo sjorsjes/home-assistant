@@ -92,14 +92,14 @@ weather:
     api_key: !secret dark_sky
 
 automation: !include_dir_merge_list config/automations
-group: !include config/groups.yaml
 input_boolean: !include config/input_booleans.yaml
-# input_select: !include config/input_select.yaml
-# input_number: !include config/input_number.yaml
 light: !include config/lights.yaml
-# script: !include config/scripts.yaml
 sensor: !include_dir_merge_list config/sensors
 switch: !include config/switches.yaml
+# group: !include config/groups.yaml
+# input_select: !include config/input_select.yaml
+# input_number: !include config/input_number.yaml
+# script: !include config/scripts.yaml
 # zone: !include config/zones.yaml
 
 camera:
