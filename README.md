@@ -9,6 +9,15 @@ Current Home Assistant version: 0.83.3
 * [Download](https://github.com/arendst/Sonoff-Tasmota) the latest firmware
 * Follow the [getting started guide](https://github.com/arendst/Sonoff-Tasmota/wiki/Prerequisite)
 
+### Tasmota Console commands for retaining state:
+```
+$ SwitchRetain off
+$ ButtonRetain on
+$ ButtonRetain off
+$ PowerOnState 3
+```
+More info: https://www.youtube.com/watch?v=31IyfM1gygo
+
 ## ESP8266
 ### Multisensor settings
 

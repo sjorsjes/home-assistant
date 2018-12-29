@@ -1,12 +1,14 @@
 resources:
   - url: /local/lovelace/mini-media-player-bundle.js?v=0.9.4
     type: module
-  - url: /local/lovelace/layout-card.js?v=0
+  - url: /local/lovelace/layout-card.js?v=bd7e5a
     type: module
-  - url: /local/lovelace/useful-markdown-card.js?v=0
+  - url: /local/lovelace/useful-markdown-card.js?v=dfc268
     type: module
-  - url: /local/lovelace/compact-custom-header/compact-custom-header.js?v=0.0.4
-    type: module
+  - url: /local/lovelace/compact-custom-header/compact-custom-header.js?v=0.1.6
+    type: js
+  - url: /local/lovelace/tracker-card.js?v=0.1.5
+    type: js
 
 # Compact header
 x-compact-header: &compact-header
@@ -36,15 +38,6 @@ views:
       - type: custom:layout-card
         layout: vertical
         cards:
-          - type: weather-forecast
-            entity: weather.dark_sky
-
-          - type: picture-entity
-            entity: camera.weer
-            aspect_ratio: 16:9
-
-          - break
-
           - type: glance
             entities:
               - device_tracker.iphonesjors
@@ -107,7 +100,7 @@ views:
 
           - type: custom:useful-markdown-card
             content: >
-              Vandaag is het [[ sensor.date_formatted.state ]]
+              Vandaag is het [[ sensor.date_formatted.state ]] nog [[ sensor.trash_days_to_next_pickup.state ]] dagen tot de volgende pickup
 
           - type: glance
             entities:
@@ -119,6 +112,15 @@ views:
                 name: Plastic
               - entity: sensor.trash_restafval_formatted
                 name: Rest
+
+          - break
+
+          - type: weather-forecast
+            entity: weather.dark_sky
+
+          - type: picture-entity
+            entity: camera.weer
+            aspect_ratio: 16:9
 
           - <<: *compact-header
 
@@ -176,6 +178,11 @@ views:
 
   - title: Overig
     cards:
+      - type: custom:tracker-card
+        trackers:
+          - sensor.custom_card_tracker
+          - sensor.custom_component_tracker
+
       - type: custom:mini-media-player
         entity: media_player.woonkamer_2
         hide_controls: true
@@ -186,10 +193,6 @@ views:
       - type: entity-button
         entity: input_boolean.play_saskia_pick_up_sound
         tap_action: toggle
-
-      - type: entities
-        entities:
-          - entity: sensor.influxdb_database_size
 
       - type: entities
         entities:

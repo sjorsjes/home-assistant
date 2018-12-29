@@ -1,34 +1,53 @@
 class CompactCustomHeader extends HTMLElement {
   set hass(hass) {
+    if (!this.content) {
+      const card = document.createElement('ha-card');
+      card.header = this.config.title;
+      this.content = document.createElement('div');
+      this.content.style.cssText = 'display: none;';
+      card.appendChild(this.content);
+      this.appendChild(card);
+    }
     let header = format_config(this.config.header);
     let menu = format_config(this.config.menu);
     let notify = format_config(this.config.notification);
     let voice = format_config(this.config.voice);
     let options = format_config(this.config.options);
+    let tabs = format_config(this.config.tabs);
     let clock = format_config(this.config.clock);
     let clock_format = format_config(this.config.clock_format);
     let clock_am_pm = format_config(this.config.clock_am_pm);
+    let disable = format_config(this.config.disable);
+    let dir = this.config.dir || '/www/lovelace/compact-custom-header/';
+    let card_dir = dir.replace(/\/www\//gi, '/local/');
+    // Empty agent for main config at start to keep index numbers consistant.
     let user_agent = ',' + this.config.user_agent;
     user_agent = user_agent.split(',');
-    let ua = 0;
-    for (let i = 0; i < user_agent.length; i++) {
+    let uai = 0;  // user agent index
+    // Find user agent's index number to grab it's config.
+    for (let i = 1; i < user_agent.length; i++) {
       let regex = new RegExp(user_agent[i], 'i');
       if (regex.test(navigator.userAgent)) {
-        ua = i;
+        uai = i;
       }
     }
-    window.cch_header = conf_def(header[0], header[ua], true);
-    window.cch_menu = conf_def(menu[0], menu[ua], true);
-    window.cch_notify = conf_def(notify[0], notify[ua], true);
-    window.cch_voice = conf_def(voice[0], voice[ua], true);
-    window.cch_options = conf_def(options[0], options[ua], true);
-    window.cch_clock = conf_def(clock[0], clock[ua], false);
-    window.cch_clock_format = conf_def(clock_format[0], clock_format[ua], 12);
-    window.cch_am_pm = conf_def(clock_am_pm[0], clock_am_pm[ua], true);
+    // Global variables for the main script.
+    window.cch_header = conf_def(header[0], header[uai], true);
+    window.cch_menu = conf_def(menu[0], menu[uai], true);
+    window.cch_notify = conf_def(notify[0], notify[uai], true);
+    window.cch_voice = conf_def(voice[0], voice[uai], true);
+    window.cch_options = conf_def(options[0], options[uai], true);
+    window.cch_tabs = conf_def(tabs[0], tabs[uai], true);
+    window.cch_clock = conf_def(clock[0], clock[uai], false);
+    window.cch_clock_format = conf_def(clock_format[0], clock_format[uai], 12);
+    window.cch_am_pm = conf_def(clock_am_pm[0], clock_am_pm[uai], true);
+    window.cch_disable = conf_def(disable[0], disable[uai], false);
+
+    // Insert the main script in head, run, remove.
     const script = document.createElement('script');
-    script.src = '/local/lovelace/compact-custom-header/' +
-                 'compact-custom-header.lib.js?v0.0.4';
-    document.head.appendChild(script);
+    script.src = card_dir + 'compact-custom-header.lib.js?v0.1.6';
+    document.head.appendChild(script).parentNode.removeChild(script);
+    // Resize the window to redraw header
     window.dispatchEvent(new Event('resize'));
   }
   setConfig(config) {
@@ -38,21 +57,27 @@ class CompactCustomHeader extends HTMLElement {
     return 0;
   }
 }
-// Config to string, to list, and strip spaces.
+// Convert config options to string, strip spaces, and convert to list.
+// Allows grabbing everything with a list index.
 function format_config(config) {
   return String(config).replace(/\s+/g, '').split(',');
 }
-// Configuration and defaults. User-agent > main-config > default.
+// Config and defaults. user-agent || main-config || default.
 function conf_def(main_ua, this_ua, default_val) {
-  if (this_ua == undefined) {
-    if (main_ua == undefined) {
+  // Check if user agent config is set.
+  if (this_ua == undefined || this_ua == 'undefined' || this_ua == '') {
+    // Check if main config is set.
+    if (main_ua == undefined || main_ua == 'undefined' || main_ua == '') {
+      // Return the cards default if both aren't set.
       return default_val;
     } else {
+      // Return main config if user agent's isn't set
       let x = main_ua == 'true' || main_ua == 'false' ?
         (main_ua == 'true') : main_ua;
       return x;
     }
   } else {
+    // Return user_agent's config
     let x = this_ua == 'true' || this_ua == 'false' ?
       (this_ua == 'true') : this_ua;
     return x;

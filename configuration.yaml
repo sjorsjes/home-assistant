@@ -9,6 +9,17 @@ homeassistant:
 frontend:
   javascript_version: latest
 
+lovelace:
+  mode: yaml
+
+custom_updater:
+  track:
+    - cards
+    - components
+  component_urls:
+    - https://raw.githubusercontent.com/maykar/custom-lovelace/master/tracker.json
+    - https://raw.githubusercontent.com/xirixiz/home-assistant-config/master/custom_updater.json
+
 config:
 discovery:
   ignore:
