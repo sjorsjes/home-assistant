@@ -1,17 +1,6 @@
 # https://github.com/thehookup/shelly1tasmota/blob/master/Best_HA_Config.yaml
 
 - platform: mqtt
-  name: "Sonoff 2"
-  state_topic: "stat/homeassistant/sonoff2/POWER"
-  command_topic: "cmnd/homeassistant/sonoff2/POWER"
-  availability_topic: "tele/homeassistant/sonoff2/LWT"
-  payload_on: "ON"
-  payload_off: "OFF"
-  payload_available: "Online"
-  payload_not_available: "Offline"
-  retain: false
-
-- platform: mqtt
   name: "Sonoff 4"
   state_topic: "stat/homeassistant/sonoff4/POWER"
   command_topic: "cmnd/homeassistant/sonoff4/POWER"

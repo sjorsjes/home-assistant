@@ -1,5 +1,6 @@
 # Sensor Zolder (white)
-- platform: mqtt_json
+- platform: mqtt
+  schema: json
   name: "Zolder - LED"
   state_topic: "homeassistant/multisensor01"
   command_topic: "homeassistant/multisensor01/set"
@@ -10,7 +11,8 @@
   qos: 0
 
 # Sensor Slaapkamer Saar (Green)
-- platform: mqtt_json
+- platform: mqtt
+  schema: json
   name: "Slaapkamer Saar - LED"
   state_topic: "homeassistant/multisensor02"
   command_topic: "homeassistant/multisensor02/set"

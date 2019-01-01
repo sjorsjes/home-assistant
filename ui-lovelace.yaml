@@ -46,14 +46,12 @@ views:
           - type: light
             entity: light.hue_color_lamp_1
 
-          - type: horizontal-stack
-            cards:
-              - type: entity-button
-                entity: switch.sonoff_4
-                tap_action: toggle
-              - type: entity-button
-                entity: switch.sonoff_2
-                tap_action: toggle
+          - type: entities
+            entities:
+              - entity: switch.sonoff_4
+                secondary_info: last-changed
+              - entity: switch.neo_coolcam_power_plug_12a_switch_3
+                secondary_info: last-changed
 
           - break
 
@@ -79,39 +77,29 @@ views:
               - type: glance
                 entities:
                   - entity: sensor.wasmachine_verbruik
-                    icon: 'mdi:washing-machine'
                   - entity: sensor.droger_verbruik
-                    icon: 'mdi:tumble-dryer'
                   - entity: sensor.vaatwasser_verbruik
-                    icon: 'mdi:dishwasher'
                   - entity: sensor.tv_verbruik
-                    icon: 'mdi:television'
 
           - type: horizontal-stack
             cards:
               - type: picture-entity
                 entity: sensor.trash_today
-                name: Vandaag
                 <<: *afval-images
               - type: picture-entity
                 entity: sensor.trash_tomorrow
-                name: Morgen
                 <<: *afval-images
 
           - type: custom:useful-markdown-card
             content: >
-              Vandaag is het [[ sensor.date_formatted.state ]] nog [[ sensor.trash_days_to_next_pickup.state ]] dagen tot de volgende pickup
+              Vandaag is het [[ sensor.date_formatted.state ]] nog [[  sensor.trash_next_in_days.state ]] dag(en) tot de volgende pickup
 
           - type: glance
             entities:
               - entity: sensor.trash_gft_formatted
-                name: GFT
               - entity: sensor.trash_papier_formatted
-                name: Papier
               - entity: sensor.trash_plastic_verpakkingsafval_formatted
-                name: Plastic
               - entity: sensor.trash_restafval_formatted
-                name: Rest
 
           - break
 
@@ -124,87 +112,75 @@ views:
 
           - <<: *compact-header
 
-  - title: Slaapkamer Saar
-    panel: true
+  - title: Boven
     cards:
-      - type: custom:layout-card
-        layout: horizontal
-        column_num: 2
-        cards:
-          - type: glance
-            entities:
-              - entity: sensor.sensor_slaapkamer_saar__lichtsterkte
-                name: Lichtsterkte
-                icon: 'mdi:white-balance-sunny'
-              - entity: sensor.sensor_slaapkamer_saar__luchtvochtigheid
-                name: Luchtvochtigheid
-                icon: 'mdi:water-percent'
-              - entity: sensor.sensor_slaapkamer_saar__temperatuur
-                name: Temperatuur
-          - type: glance
-            entities:
-              - entity: sensor.sensor_slaapkamer_saar__pir
-                name: Beweging?
-              - entity: light.slaapkamer_saar__led
-                name: Led
-                icon: 'mdi:lamp'
-          - <<: *compact-header
-
-  - title: Zolder
-    panel: true
-    cards:
-      - type: custom:layout-card
-        layout: horizontal
-        column_num: 2
-        cards:
-          - type: glance
-            entities:
-              - entity: sensor.sensor_zolder__lichtsterkte
-                name: Lichtsterkte
-                icon: 'mdi:white-balance-sunny'
-              - entity: sensor.sensor_zolder__luchtvochtigheid
-                name: Luchtvochtigheid
-                icon: 'mdi:water-percent'
-              - entity: sensor.sensor_zolder__temperatuur
-                name: Temperatuur
-          - type: glance
-            entities:
-              - entity: sensor.sensor_zolder__pir
-                name: Beweging?
-              - entity: light.zolder__led
-                name: Led
-                icon: 'mdi:lamp'
-          - <<: *compact-header
-
-  - title: Overig
-    cards:
-      - type: custom:tracker-card
-        trackers:
-          - sensor.custom_card_tracker
-          - sensor.custom_component_tracker
-
-      - type: custom:mini-media-player
-        entity: media_player.woonkamer_2
-        hide_controls: true
-        show_tts: google
-        power_color: true
-        hide_power: true
-
-      - type: entity-button
-        entity: input_boolean.play_saskia_pick_up_sound
-        tap_action: toggle
+      - type: entities
+        title: "Slaapkamer Saar"
+        show_header_toggle: false
+        entities:
+          - entity: sensor.sensor_slaapkamer_saar__lichtsterkte
+            secondary_info: last-changed
+          - entity: sensor.sensor_slaapkamer_saar__luchtvochtigheid
+            secondary_info: last-changed
+          - entity: sensor.sensor_slaapkamer_saar__temperatuur
+            secondary_info: last-changed
+          - entity: sensor.sensor_slaapkamer_saar__pir
+            secondary_info: last-changed
+          - entity: light.slaapkamer_saar__led
+            secondary_info: last-changed
 
       - type: entities
+        title: "Zolder"
+        show_header_toggle: false
         entities:
-          - entity: group.all_automations
-            name: Automations
-          - entity: group.all_devices
-            name: All devices
-          - entity: group.all_lights
-            name: All lights
-          - entity: sensor.sensor_slaapkamer_saar__pir
-            name: Beweging?
-          - entity: group.all_switches
-            name: All lights
-
+          - entity: sensor.sensor_zolder__lichtsterkte
+            secondary_info: last-changed
+          - entity: sensor.sensor_zolder__luchtvochtigheid
+            secondary_info: last-changed
+          - entity: sensor.sensor_zolder__temperatuur
+            secondary_info: last-changed
+          - entity: sensor.sensor_zolder__pir
+            secondary_info: last-changed
+          - entity: light.zolder__led
+            secondary_info: last-changed
       - <<: *compact-header
+
+  - title: Overig
+    panel: true
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        cards:
+          - type: custom:tracker-card
+            trackers:
+              - sensor.custom_card_tracker
+              - sensor.custom_component_tracker
+
+          - type: entities
+            entities:
+              - entity: group.all_automations
+                name: Automations
+              - entity: group.all_devices
+                name: All devices
+              - entity: group.all_lights
+                name: All lights
+              - entity: sensor.sensor_slaapkamer_saar__pir
+                name: Beweging?
+              - entity: group.all_switches
+                name: All lights
+
+          - break
+
+          - type: custom:mini-media-player
+            entity: media_player.woonkamer_2
+            hide_controls: true
+            show_tts: google
+            power_color: true
+            hide_power: true
+
+          - type: entities
+            entities:
+              - entity: input_boolean.play_saskia_pick_up_sound
+                secondary_info: last-changed
+
+          - <<: *compact-header

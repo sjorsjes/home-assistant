@@ -14,7 +14,7 @@ light.woonkamer:
   hidden: true
 
 sensor.wasmachine_verbruik:
-  icon: "mdi:power-plug"
+  icon: "mdi:washing-machine"
 sensor.greenwave_powernode_1_port_energy:
   hidden: true
 sensor.greenwave_powernode_1_port_previous_reading:
@@ -27,7 +27,7 @@ zwave.greenwave_powernode_1_port:
   hidden: true
 
 sensor.droger_verbruik:
-  icon: "mdi:power-plug"
+  icon: "mdi:tumble-dryer"
 sensor.greenwave_powernode_1_port_energy_2:
   hidden: true
 sensor.greenwave_powernode_1_port_previous_reading_3:
@@ -81,7 +81,7 @@ zwave.neo_coolcam_power_plug_12a:
 
 # node_id: 5
 sensor.vaatwasser_verbruik:
-  icon: "mdi:power-plug"
+  icon: "mdi:dishwasher"
 sensor.neo_coolcam_power_plug_12a_alarm_level_2:
   hidden: true
 sensor.neo_coolcam_power_plug_12a_alarm_type_2:
@@ -101,7 +101,7 @@ zwave.neo_coolcam_power_plug_12a_2:
 
 # node_id: 6
 sensor.tv_verbruik:
-  icon: "mdi:power-plug"
+  icon: "mdi:television"
 sensor.neo_coolcam_power_plug_12a_alarm_level_3:
   hidden: true
 sensor.neo_coolcam_power_plug_12a_alarm_type_3:
@@ -135,14 +135,40 @@ sensor.neo_coolcam_power_plug_12a_sourcenodeid_2:
 sensor.neo_coolcam_power_plug_12a_voltage_3:
   hidden: true
 switch.neo_coolcam_power_plug_12a_switch_3:
+  icon: "mdi:television"
   hidden: true
 zwave.neo_coolcam_power_plug_12a_3:
   hidden: true
 
 sensor.sensor_zolder__pir:
+  friendly_name: "Beweging?"
   icon: "mdi:run"
+light.zolder__led:
+  friendly_name: "Led"
+  icon: "mdi:lamp"
+sensor.sensor_zolder__lichtsterkte:
+  friendly_name: "Lichtsterkte"
+  icon: "mdi:white-balance-sunny"
+sensor.sensor_zolder__luchtvochtigheid:
+  friendly_name: "Luchtvochtigheid"
+  icon: "mdi:water-percent"
+sensor.sensor_zolder__temperatuur:
+  friendly_name: "Temperatuur"
+
 sensor.sensor_slaapkamer_saar__pir:
+  friendly_name: "Beweging?"
   icon: "mdi:run"
+light.slaapkamer_saar__led:
+  friendly_name: "Led"
+  icon: "mdi:lamp"
+sensor.sensor_slaapkamer_saar__lichtsterkte:
+  friendly_name: "Lichtsterkte"
+  icon: "mdi:white-balance-sunny"
+sensor.sensor_slaapkamer_saar__luchtvochtigheid:
+  friendly_name: "Luchtvochtigheid"
+  icon: "mdi:water-percent"
+sensor.sensor_slaapkamer_saar__temperatuur:
+  friendly_name: "Temperatuur"
 
 sensor.yr_symbol:
   hidden: true
@@ -161,9 +187,9 @@ sensor.afval_soort:
 zwave.aeotec_zw090_zstick_gen5_eu:
   hidden: true
 
-switch.sonoff_2:
-  friendly_name: 'Kerstboom'
-  icon: mdi:pine-tree
+# switch.sonoff_2:
+#   friendly_name: 'Kerstboom'
+#   icon: mdi:pine-tree
 
 switch.sonoff_4:
   friendly_name: 'Stereo'
@@ -174,13 +200,23 @@ media_player.woonkamer_2:
   icon: mdi:google-home
 
 sensor.trash_gft_formatted:
+  friendly_name: "GFT"
   entity_picture: /local/afvalwijzer/gft.png
 
 sensor.trash_papier_formatted:
+  friendly_name: "Papier"
   entity_picture: /local/afvalwijzer/papier.png
 
 sensor.trash_plastic_verpakkingsafval_formatted:
+  friendly_name: "Plastic"
   entity_picture: /local/afvalwijzer/plastic.png
 
 sensor.trash_restafval_formatted:
+  friendly_name: "Rest"
   entity_picture: /local/afvalwijzer/rest.png
+
+sensor.trash_today:
+  friendly_name: "Vandaag"
+
+sensor.trash_tomorrow:
+  friendly_name: "Morgen"
