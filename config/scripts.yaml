@@ -1,0 +1,14 @@
+set_hue_scene:
+  sequence:
+    - service: hue.hue_activate_scene
+      data_template:
+        group_name: 'Woonkamer'
+        scene_name: '{{ states.input_select.hue_scenes.state }}'
+    - service: hue.hue_activate_scene
+      data_template:
+        group_name: 'Eetkamer'
+        scene_name: '{{ states.input_select.hue_scenes.state }}'
+    - service: hue.hue_activate_scene
+      data_template:
+        group_name: 'Keuken'
+        scene_name: '{{ states.input_select.hue_scenes.state }}'

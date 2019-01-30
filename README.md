@@ -1,40 +1,22 @@
 # Home Assistant
 
-[Running docker](https://github.com/sjorsjes/docker-setup) on a Mac mini with Ubuntu server 18.04 LTS
-Current Home Assistant version: 0.83.3
+[Running docker](https://github.com/sjorsjes/docker-setup) on a Mac mini with Ubuntu server 18.04 LTS  
+Current Home Assistant version: 0.86.3
 
-# Custom installations
+# Custom installations using [ESPHome](https://esphomelib.com/index.html) (Yaml)
 
-## Sonoff
-* [Download](https://github.com/arendst/Sonoff-Tasmota) the latest firmware
-* Follow the [getting started guide](https://github.com/arendst/Sonoff-Tasmota/wiki/Prerequisite)
+## Multisensor
+* Download the docker image `$ docker pull ottowinter/esphomeyaml`
+* Create a file <config file>.yaml **OR**
+* ... run the wizard `$ docker run --rm -v ${PWD}:/config -it ottowinter/esphomeyaml <config file>.yaml wizard`
+* Compile based on the config file `$ docker run --rm -v ${PWD}:/config -it ottowinter/esphomeyaml <config file>.yaml compile`
+* Download and run the [ESPHome Flasher](https://github.com/esphome/ESPHome-Flasher/releases)
+* Select the com port and select `..\<sensor name>\.pioenvs\<sensor name>\firmware.bin`
+* Add the device as ESPHome integration to Home Assistant
 
-### Tasmota Console commands for retaining state:
-```
-$ SwitchRetain off
-$ ButtonRetain on
-$ ButtonRetain off
-$ PowerOnState 3
-```
-More info: https://www.youtube.com/watch?v=31IyfM1gygo
-
-## ESP8266
-### Multisensor settings
-
-| Tools         | Type                            |
-| ------------- | ------------------------------- |
-| Board         | `NodeMCU 1.0 (ESP-12E Module)`  |
-| CPU Freq      | `80 MHz`                        |
-| Flash size    | `4M (3M SPIFFS)`                |
-| Upload speed  | `115200`                        |
-| Port          | `<select corresponding sensor>` |
-
-### SONOFF settings
-
-| Tools         | Type                            |
-| ------------- | ------------------------------- |
-| Board         | `Generic ESP 8266 Module`  |
-| CPU Freq      | `80 MHz`                        |
-| Flash size    | `4M (3M SPIFFS)`                |
-| Upload speed  | `115200`                        |
-| Port          | `<select corresponding sensor>` |
+## Upgrade Sonoff Basics to ESPHome
+* Follow the steps above, except for the part running the ESPHome Flasher
+* Access the Sonoff in the browser, select _Firmware Upgrade_
+* Upload `..\<sensor name>\.pioenvs\<sensor name>\firmware.bin`
+* After a while you'll get _Upload Successful_ and the web interface will not be working anymore
+* Add the device as ESPHome integration to Home Assistant

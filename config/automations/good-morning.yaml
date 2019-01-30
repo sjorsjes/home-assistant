@@ -14,11 +14,16 @@
       - thu
       - fri
   action:
-    service: light.turn_on
-    entity_id: light.hue_color_lamp_1
-    data:
-      brightness: 255
-      transition: 300
+    - service: light.turn_on
+      entity_id: light.woonkamer
+      data:
+        brightness: 255
+        transition: 300
+    - service: light.turn_on
+      entity_id: light.keuken
+      data:
+        brightness: 255
+        transition: 300
 
 - alias: 'Good Morning Weekend Routine - ON'
   trigger:
@@ -32,11 +37,16 @@
         - sat
         - sun
   action:
-    service: light.turn_on
-    entity_id: light.hue_color_lamp_1
-    data:
-      brightness: 255
-      transition: 300
+    - service: light.turn_on
+      entity_id: light.woonkamer
+      data:
+        brightness: 255
+        transition: 300
+    - service: light.turn_on
+      entity_id: light.keuken
+      data:
+        brightness: 255
+        transition: 300
 
 # Good Morning Routines - OFF
 - alias: 'Good Morning Weekdays Routine - OFF'
@@ -52,8 +62,18 @@
       - thu
       - fri
   action:
-    service: light.turn_off
-    entity_id: light.hue_color_lamp_1
+    - service: light.turn_off
+      entity_id: light.woonkamer
+      data:
+        transition: 300
+    - service: light.turn_off
+      entity_id: light.keuken
+      data:
+        transition: 300
+    - service: light.turn_off
+      entity_id: light.eetkamer
+      data:
+        transition: 300
 
 - alias: 'Good Morning Weekend Routine - OFF'
   trigger:
@@ -65,5 +85,15 @@
       - sat
       - sun
   action:
-    service: light.turn_off
-    entity_id: light.hue_color_lamp_1
+    - service: light.turn_off
+      entity_id: light.woonkamer
+      data:
+        transition: 300
+    - service: light.turn_off
+      entity_id: light.keuken
+      data:
+        transition: 300
+    - service: light.turn_off
+      entity_id: light.eetkamer
+      data:
+        transition: 300

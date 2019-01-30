@@ -140,36 +140,6 @@ switch.neo_coolcam_power_plug_12a_switch_3:
 zwave.neo_coolcam_power_plug_12a_3:
   hidden: true
 
-sensor.sensor_zolder__pir:
-  friendly_name: "Beweging?"
-  icon: "mdi:run"
-light.zolder__led:
-  friendly_name: "Led"
-  icon: "mdi:lamp"
-sensor.sensor_zolder__lichtsterkte:
-  friendly_name: "Lichtsterkte"
-  icon: "mdi:white-balance-sunny"
-sensor.sensor_zolder__luchtvochtigheid:
-  friendly_name: "Luchtvochtigheid"
-  icon: "mdi:water-percent"
-sensor.sensor_zolder__temperatuur:
-  friendly_name: "Temperatuur"
-
-sensor.sensor_slaapkamer_saar__pir:
-  friendly_name: "Beweging?"
-  icon: "mdi:run"
-light.slaapkamer_saar__led:
-  friendly_name: "Led"
-  icon: "mdi:lamp"
-sensor.sensor_slaapkamer_saar__lichtsterkte:
-  friendly_name: "Lichtsterkte"
-  icon: "mdi:white-balance-sunny"
-sensor.sensor_slaapkamer_saar__luchtvochtigheid:
-  friendly_name: "Luchtvochtigheid"
-  icon: "mdi:water-percent"
-sensor.sensor_slaapkamer_saar__temperatuur:
-  friendly_name: "Temperatuur"
-
 sensor.yr_symbol:
   hidden: true
 
@@ -187,10 +157,6 @@ sensor.afval_soort:
 zwave.aeotec_zw090_zstick_gen5_eu:
   hidden: true
 
-# switch.sonoff_2:
-#   friendly_name: 'Kerstboom'
-#   icon: mdi:pine-tree
-
 switch.sonoff_4:
   friendly_name: 'Stereo'
   icon: mdi:speaker
@@ -207,7 +173,7 @@ sensor.trash_papier_formatted:
   friendly_name: "Papier"
   entity_picture: /local/afvalwijzer/papier.png
 
-sensor.trash_plastic_verpakkingsafval_formatted:
+sensor.trash_plastic_formatted:
   friendly_name: "Plastic"
   entity_picture: /local/afvalwijzer/plastic.png
 

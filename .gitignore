@@ -11,6 +11,7 @@
 __pycache__
 .HA_VERSION
 .ios.conf
+.cloud
 .uuid
 known_devices.yaml
 OZW_Log.txt

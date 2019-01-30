@@ -3,7 +3,7 @@
   trigger:
     - platform: numeric_state
       above: '2'
-      entity_id: sensor.greenwave_powernode_1_port_power
+      entity_id: sensor.wasmachine_verbruik
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.washingmachine_busy
@@ -13,7 +13,7 @@
   trigger:
     - platform: numeric_state
       below: '5'
-      entity_id: sensor.greenwave_powernode_1_port_power
+      entity_id: sensor.wasmachine_verbruik
 
   action:
     - service: input_boolean.turn_off

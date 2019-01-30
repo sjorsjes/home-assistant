@@ -1,0 +1,13 @@
+- platform: rest
+  resource: http://192.168.178.5/api/MupGmEG6rOe0AGOi1gYS4fQt2l-M5RRueqpVAFWl/sensors/18
+  value_template: '{{ value_json.state.buttonevent }}'
+  name: 'Hue Switch'
+  scan_interval: 1
+  verify_ssl: false
+
+- platform: rest
+  resource: http://192.168.178.5/api/MupGmEG6rOe0AGOi1gYS4fQt2l-M5RRueqpVAFWl/sensors/18
+  value_template: '{{ value_json.state.lastupdated }}'
+  name: 'Hue Switch Updated'
+  scan_interval: 1
+  verify_ssl: false

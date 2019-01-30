@@ -6,12 +6,15 @@
     offset: '-00:15:00'
   action:
     - service: light.turn_on
-      entity_id: light.hue_color_lamp_1
+      entity_id: light.woonkamer
       data:
         brightness: 255
         transition: 300
-    - service: switch.turn_on
-      entity_id: switch.sonoff_2
+    - service: light.turn_on
+      entity_id: light.keuken
+      data:
+        brightness: 255
+        transition: 300
 
 # Good night Routine - OFF
 - alias: 'Good Night Routine - OFF'
@@ -38,8 +41,14 @@
           - sat
   action:
     - service: light.turn_off
-      entity_id: light.hue_color_lamp_1
+      entity_id: light.woonkamer
       data:
         transition: 300
-    - service: switch.turn_on
-      entity_id: switch.sonoff_2
+    - service: light.turn_off
+      entity_id: light.keuken
+      data:
+        transition: 300
+    - service: light.turn_off
+      entity_id: light.eetkamer
+      data:
+        transition: 300
