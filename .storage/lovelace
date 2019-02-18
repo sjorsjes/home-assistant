@@ -391,27 +391,6 @@
                                     ],
                                     "type": "custom:tracker-card"
                                 },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "group.all_automations",
-                                            "name": "Automations"
-                                        },
-                                        {
-                                            "entity": "group.all_devices",
-                                            "name": "All devices"
-                                        },
-                                        {
-                                            "entity": "group.all_lights",
-                                            "name": "All lights"
-                                        },
-                                        {
-                                            "entity": "group.all_switches",
-                                            "name": "All lights"
-                                        }
-                                    ],
-                                    "type": "entities"
-                                },
                                 "break",
                                 {
                                     "entity": "media_player.google_home_mini",
@@ -436,17 +415,6 @@
                     ],
                     "panel": true,
                     "title": "Overig"
-                }
-            ],
-            "x-afval-images": [
-                {
-                    "state_image": {
-                        "Geen": "/local/afvalwijzer/kliko.png",
-                        "gft": "/local/afvalwijzer/gft_large.png",
-                        "papier": "/local/afvalwijzer/papier_large.png",
-                        "plastic": "/local/afvalwijzer/plastic_large.png",
-                        "restafval": "/local/afvalwijzer/rest_large.png"
-                    }
                 }
             ]
         }
