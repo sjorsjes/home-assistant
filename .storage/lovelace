@@ -1,0 +1,456 @@
+{
+    "data": {
+        "config": {
+            "resources": [
+                {
+                    "type": "js",
+                    "url": "/local/lovelace/card-tools.js?v=f5bb8e"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/lovelace/mini-media-player-bundle.js?v=1.0.1"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/lovelace/layout-card.js?v=2b29c0"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/lovelace/useful-markdown-card.js?v=9377d8"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/lovelace/slider-entity-row.js?v=be80ff"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/lovelace/tracker-card.js?v=0.3.2"
+                }
+            ],
+            "views": [
+                {
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "device_tracker.iphonesjors",
+                                        "device_tracker.iphone_van_saskia"
+                                    ],
+                                    "type": "glance"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "switch.sonoff04_basic_relay",
+                                            "secondary_info": "last-changed"
+                                        },
+                                        {
+                                            "entity": "switch.tv_switch",
+                                            "secondary_info": "last-changed"
+                                        }
+                                    ],
+                                    "type": "entities"
+                                },
+                                "break",
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.multisensor02_temperature",
+                                                    "name": "Zolder"
+                                                },
+                                                {
+                                                    "entity": "sensor.multisensor01_temperature",
+                                                    "name": "Saar"
+                                                }
+                                            ],
+                                            "title": "Temperatuur",
+                                            "type": "glance"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "binary_sensor.multisensor02_motion",
+                                                    "name": "Zolder"
+                                                },
+                                                {
+                                                    "entity": "binary_sensor.multisensor01_motion",
+                                                    "name": "Saar"
+                                                }
+                                            ],
+                                            "title": "Beweging",
+                                            "type": "glance"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.wasmachine_verbruik"
+                                                },
+                                                {
+                                                    "entity": "sensor.droger_verbruik"
+                                                },
+                                                {
+                                                    "entity": "sensor.vaatwasser_verbruik"
+                                                },
+                                                {
+                                                    "entity": "sensor.tv_verbruik"
+                                                }
+                                            ],
+                                            "type": "glance"
+                                        }
+                                    ],
+                                    "type": "vertical-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.trash_today",
+                                            "state_image": {
+                                                "Geen": "/local/afvalwijzer/kliko.png",
+                                                "gft": "/local/afvalwijzer/gft_large.png",
+                                                "papier": "/local/afvalwijzer/papier_large.png",
+                                                "plastic": "/local/afvalwijzer/plastic_large.png",
+                                                "restafval": "/local/afvalwijzer/rest_large.png"
+                                            },
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_tomorrow",
+                                            "state_image": {
+                                                "Geen": "/local/afvalwijzer/kliko.png",
+                                                "gft": "/local/afvalwijzer/gft_large.png",
+                                                "papier": "/local/afvalwijzer/papier_large.png",
+                                                "plastic": "/local/afvalwijzer/plastic_large.png",
+                                                "restafval": "/local/afvalwijzer/rest_large.png"
+                                            },
+                                            "type": "picture-entity"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "content": "Vandaag is het [[ sensor.date_formatted.state ]] nog [[  sensor.trash_next.state ]] dag(en) tot de volgende pickup\n",
+                                    "type": "custom:useful-markdown-card"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.trash_gft_formatted"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_papier_formatted"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_plastic_formatted"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_restafval_formatted"
+                                        }
+                                    ],
+                                    "type": "glance"
+                                },
+                                "break",
+                                {
+                                    "entity": "weather.dark_sky",
+                                    "type": "weather-forecast"
+                                },
+                                {
+                                    "aspect_ratio": 969,
+                                    "entity": "camera.weer",
+                                    "type": "picture-entity"
+                                }
+                            ],
+                            "layout": "vertical",
+                            "type": "custom:layout-card"
+                        }
+                    ],
+                    "panel": true,
+                    "title": "Home"
+                },
+                {
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "light.woonkamer",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.eetkamer",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.keuken",
+                                            "type": "custom:slider-entity-row"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "type": "entities"
+                                },
+                                "break",
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "light.hue_color_lamp_1",
+                                            "icon": "mdi:floor-lamp",
+                                            "name": "Lamp",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_2",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 1",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_4",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 2",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_3",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 3",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_1",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 4",
+                                            "type": "custom:slider-entity-row"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Woonkamer",
+                                    "type": "entities"
+                                },
+                                "break",
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "light.hue_ambiance_lamp_1",
+                                            "name": "Lamp 1",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_color_lamp_1_2",
+                                            "name": "Lamp 2",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_lamp_2",
+                                            "name": "Lamp 3",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_2_3",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 1",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_3_3",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 2",
+                                            "type": "custom:slider-entity-row"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Eetkamer",
+                                    "type": "entities"
+                                },
+                                "break",
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "light.hue_ambiance_spot_1_2",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 1",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_2_2",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 2",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_3_2",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 3",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_4_2",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 4",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_1_3",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 5",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_4_3",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 6",
+                                            "type": "custom:slider-entity-row"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Keuken",
+                                    "type": "entities"
+                                }
+                            ],
+                            "layout": "vertical",
+                            "type": "custom:layout-card"
+                        }
+                    ],
+                    "panel": true,
+                    "title": "Beneden"
+                },
+                {
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.multisensor01_brightness",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.multisensor01_humidity",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.multisensor01_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.multisensor01_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "light.multisensor01_light",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Slaapkamer Saar",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.multisensor02_brightness",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.multisensor02_humidity",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.multisensor02_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.multisensor02_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "light.multisensor02_light",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Zolder",
+                            "type": "entities"
+                        }
+                    ],
+                    "title": "Boven"
+                },
+                {
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "trackers": [
+                                        "sensor.custom_card_tracker",
+                                        "sensor.custom_component_tracker"
+                                    ],
+                                    "type": "custom:tracker-card"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "group.all_automations",
+                                            "name": "Automations"
+                                        },
+                                        {
+                                            "entity": "group.all_devices",
+                                            "name": "All devices"
+                                        },
+                                        {
+                                            "entity": "group.all_lights",
+                                            "name": "All lights"
+                                        },
+                                        {
+                                            "entity": "group.all_switches",
+                                            "name": "All lights"
+                                        }
+                                    ],
+                                    "type": "entities"
+                                },
+                                "break",
+                                {
+                                    "entity": "media_player.google_home_mini",
+                                    "tts": {
+                                        "platform": "google"
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_boolean.play_saskia_pick_up_sound",
+                                            "secondary_info": "last-changed"
+                                        }
+                                    ],
+                                    "type": "entities"
+                                }
+                            ],
+                            "layout": "vertical",
+                            "type": "custom:layout-card"
+                        }
+                    ],
+                    "panel": true,
+                    "title": "Overig"
+                }
+            ],
+            "x-afval-images": [
+                {
+                    "state_image": {
+                        "Geen": "/local/afvalwijzer/kliko.png",
+                        "gft": "/local/afvalwijzer/gft_large.png",
+                        "papier": "/local/afvalwijzer/papier_large.png",
+                        "plastic": "/local/afvalwijzer/plastic_large.png",
+                        "restafval": "/local/afvalwijzer/rest_large.png"
+                    }
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

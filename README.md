@@ -1,7 +1,7 @@
 # Home Assistant
 
-[Running docker](https://github.com/sjorsjes/docker-setup) on a Mac mini with Ubuntu server 18.04 LTS  
-Current Home Assistant version: 0.86.3
+[Running docker](https://github.com/sjorsjes/docker-setup) on a Synology DS718+  
+Current Home Assistant version: 0.87.1
 
 # Custom installations using [ESPHome](https://esphomelib.com/index.html) (Yaml)
 
