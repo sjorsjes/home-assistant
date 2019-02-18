@@ -5,7 +5,7 @@ Current Home Assistant version: 0.86.3
 
 # Custom installations using [ESPHome](https://esphomelib.com/index.html) (Yaml)
 
-## [Multisensor](https://esphome.io/cookbook/bruh.html
+## [Multisensor](https://esphome.io/cookbook/bruh.html)
 * Download the docker image `$ docker pull ottowinter/esphomeyaml`
 * Create a file <config file>.yaml **OR**
 * ... run the wizard `$ docker run --rm -v ${PWD}:/config -it ottowinter/esphomeyaml <config file>.yaml wizard`
