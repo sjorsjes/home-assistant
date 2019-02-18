@@ -1,15 +1,15 @@
 resources:
-  - url: /local/lovelace/card-tools.js?v=297fcc
+  - url: /local/lovelace/card-tools.js?v=f5bb8e
     type: js
-  - url: /local/lovelace/mini-media-player-bundle.js?v=0.9.8
+  - url: /local/lovelace/mini-media-player-bundle.js?v=1.0.1
     type: module
-  - url: /local/lovelace/layout-card.js?v=a313b7
+  - url: /local/lovelace/layout-card.js?v=2b29c0
     type: module
-  - url: /local/lovelace/useful-markdown-card.js?v=dfc268
+  - url: /local/lovelace/useful-markdown-card.js?v=9377d8
     type: module
-  - url: /local/lovelace/slider-entity-row.js?v=ba8f50
+  - url: /local/lovelace/slider-entity-row.js?v=be80ff
     type: js
-  - url: /local/lovelace/tracker-card.js?v=0.2.0
+  - url: /local/lovelace/tracker-card.js?v=0.3.2
     type: js
 
 # Images for Afvalwijzer
@@ -272,11 +272,9 @@ views:
           - break
 
           - type: custom:mini-media-player
-            entity: media_player.woonkamer_2
-            hide_controls: true
-            show_tts: google
-            power_color: true
-            hide_power: true
+            entity: media_player.google_home_mini
+            tts:
+              platform: google
 
           - type: entities
             entities:

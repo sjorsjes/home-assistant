@@ -10,7 +10,6 @@ frontend:
   javascript_version: latest
 
 lovelace:
-  mode: yaml
 
 custom_updater:
   track:
@@ -23,11 +22,14 @@ custom_updater:
     - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
 
 config:
+system_health:
 discovery:
   ignore:
     - google_cast
-ios:
+    - plex_mediaserver
 
+ios:
+    
 cloud:
   google_actions:
     filter:
@@ -69,24 +71,23 @@ logbook:
 recorder:
   db_url: !secret database_url
 
-influxdb:
-  host: influxdb
-  include:
-    entities:
-      - sensor.current_power_consumption
-      - sensor.gas_consumption
-      - sensor.vaatwasser_verbruik
-      - sensor.tv_verbruik
-      - sensor.wasmachine_verbruik
-      - sensor.droger_verbruik
-      - sensor.dark_sky_humidity
-      - sensor.dark_sky_temperature
+# influxdb:
+#   host: influxdb
+#   include:
+#     entities:
+#       - sensor.current_power_consumption
+#       - sensor.gas_consumption
+#       - sensor.vaatwasser_verbruik
+#       - sensor.tv_verbruik
+#       - sensor.wasmachine_verbruik
+#       - sensor.droger_verbruik
+#       - sensor.dark_sky_humidity
+#       - sensor.dark_sky_temperature
 
 map:
 
 http:
   base_url: !secret base_url
-  api_password: !secret api_password
 
 mqtt:
   broker: mqtt

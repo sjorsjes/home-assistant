@@ -1,26 +1,30 @@
 # Washing Machine - BUSY
 - alias: Wasmachine - bezig
+  initial_state: 'on'
   trigger:
     - platform: numeric_state
       above: '2'
       entity_id: sensor.wasmachine_verbruik
   action:
     - service: input_boolean.turn_on
-      entity_id: input_boolean.washingmachine_busy
+      data:
+        entity_id: input_boolean.washingmachine_busy
 
 # Washing Machine - DONE
 - alias: Wasmachine - klaar
+  initial_state: 'on'
   trigger:
     - platform: numeric_state
       below: '5'
       entity_id: sensor.wasmachine_verbruik
-
   action:
     - service: input_boolean.turn_off
-      entity_id: input_boolean.washingmachine_busy
+      data:
+        entity_id: input_boolean.washingmachine_busy
 
 # Washing Machine - NOTIFICATION
 - alias: Wasmachine - notificatie
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: input_boolean.washingmachine_busy
@@ -28,7 +32,6 @@
       to: 'off'
       for:
         minutes: 10
-
   action:
     - service: notify.ios_iphonesjors
       data:
@@ -40,12 +43,10 @@
         message: Ik ben klaar!
     - service: media_player.volume_set
       data:
-        entity_id:
-          - media_player.woonkamer_2
+        entity_id: media_player.google_home_mini
         volume_level: '0.50'
     - service: tts.google_say
-      entity_id:
-        - media_player.woonkamer_2
-      data_template:
+      entity_id: media_player.google_home_mini
+      data:
         message: 'De wasmachine is klaar!'
 

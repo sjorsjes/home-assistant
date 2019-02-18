@@ -1,23 +1,25 @@
 # Good night Routine - ON
 - alias: 'Good Night Routine - ON'
+  initial_state: 'on'
   trigger:
     platform: sun
     event: 'sunset'
     offset: '-00:15:00'
   action:
     - service: light.turn_on
-      entity_id: light.woonkamer
       data:
+        entity_id: light.woonkamer
         brightness: 255
         transition: 300
     - service: light.turn_on
-      entity_id: light.keuken
       data:
+        entity_id: light.keuken
         brightness: 255
         transition: 300
 
 # Good night Routine - OFF
 - alias: 'Good Night Routine - OFF'
+  initial_state: 'on'
   trigger:
     - platform: time
       at: '23:00:00'
@@ -41,14 +43,14 @@
           - sat
   action:
     - service: light.turn_off
-      entity_id: light.woonkamer
       data:
+        entity_id: light.woonkamer
         transition: 300
     - service: light.turn_off
-      entity_id: light.keuken
       data:
+        entity_id: light.keuken
         transition: 300
     - service: light.turn_off
-      entity_id: light.eetkamer
       data:
+        entity_id: light.eetkamer
         transition: 300

@@ -1,15 +1,19 @@
 - alias: 'TV - ON'
+  initial_state: 'on'
   trigger:
     platform: time
     at: '06:15:00'
   action:
     service: switch.turn_on
-    entity_id: switch.neo_coolcam_power_plug_12a_switch_3
+    data:
+      entity_id: switch.tv_switch
 
 - alias: 'TV - OFF'
+  initial_state: 'on'
   trigger:
     platform: time
     at: '01:00:00'
   action:
     service: switch.turn_off
-    entity_id: switch.neo_coolcam_power_plug_12a_switch_3
+    data:
+      entity_id: switch.tv_switch

@@ -1,27 +1,30 @@
 #  Vaatwasser - BUSY
 - alias: Vaatwasser - bezig
+  initial_state: 'on'
   trigger:
     - platform: numeric_state
       above: '2'
       entity_id: sensor.vaatwasser_verbruik
-
   action:
     - service: input_boolean.turn_on
-      entity_id: input_boolean.dishwasher_busy
+      data:
+        entity_id: input_boolean.dishwasher_busy
 
 # Vaatwasser - DONE
 - alias: Vaatwasser - klaar
+  initial_state: 'on'
   trigger:
     - platform: numeric_state
       below: '1.5'
       entity_id: sensor.vaatwasser_verbruik
-
   action:
     - service: input_boolean.turn_off
-      entity_id: input_boolean.dishwasher_busy
+      data:
+        entity_id: input_boolean.dishwasher_busy
 
 # Vaatwasser - NOTIFICATION
 - alias: Vaatwasser - notificatie
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: input_boolean.dishwasher_busy
@@ -29,7 +32,6 @@
       to: 'off'
       for:
         minutes: 30
-
   action:
     - service: notify.ios_iphonesjors
       data:
@@ -41,11 +43,9 @@
         message: Ik ben klaar!
     - service: media_player.volume_set
       data:
-        entity_id:
-          - media_player.woonkamer_2
-        volume_level: '0.50'
+        entity_id: media_player.google_home_mini
+        volume_level: '0.5'
     - service: tts.google_say
-      entity_id:
-        - media_player.woonkamer_2
-      data_template:
+      entity_id: media_player.google_home_mini
+      data:
         message: 'De vaatwasser is klaar!'

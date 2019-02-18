@@ -1,5 +1,6 @@
 # Good Morning Routines - ON
 - alias: 'Good Morning Weekdays Routine - ON'
+  initial_state: 'on'
   trigger:
     platform: time
     at: '06:40:00'
@@ -15,17 +16,18 @@
       - fri
   action:
     - service: light.turn_on
-      entity_id: light.woonkamer
       data:
+        entity_id: light.woonkamer
         brightness: 255
         transition: 300
     - service: light.turn_on
-      entity_id: light.keuken
       data:
+        entity_id: light.keuken
         brightness: 255
         transition: 300
 
 - alias: 'Good Morning Weekend Routine - ON'
+  initial_state: 'on'
   trigger:
     platform: time
     at: '08:00:00'
@@ -38,8 +40,8 @@
         - sun
   action:
     - service: light.turn_on
-      entity_id: light.woonkamer
       data:
+        entity_id: light.woonkamer
         brightness: 255
         transition: 300
     - service: light.turn_on
@@ -50,6 +52,7 @@
 
 # Good Morning Routines - OFF
 - alias: 'Good Morning Weekdays Routine - OFF'
+  initial_state: 'on'
   trigger:
     platform: time
     at: '08:30:00'
@@ -63,19 +66,20 @@
       - fri
   action:
     - service: light.turn_off
-      entity_id: light.woonkamer
       data:
+        entity_id: light.woonkamer
         transition: 300
     - service: light.turn_off
-      entity_id: light.keuken
       data:
+        entity_id: light.keuken
         transition: 300
     - service: light.turn_off
-      entity_id: light.eetkamer
       data:
+        entity_id: light.eetkamer
         transition: 300
 
 - alias: 'Good Morning Weekend Routine - OFF'
+  initial_state: 'on'
   trigger:
     platform: time
     at: '10:00:00'
@@ -86,14 +90,14 @@
       - sun
   action:
     - service: light.turn_off
-      entity_id: light.woonkamer
       data:
+        entity_id: light.woonkamer
         transition: 300
     - service: light.turn_off
-      entity_id: light.keuken
       data:
+        entity_id: light.keuken
         transition: 300
     - service: light.turn_off
-      entity_id: light.eetkamer
       data:
+        entity_id: light.eetkamer
         transition: 300
