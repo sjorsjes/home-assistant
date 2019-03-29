@@ -58,30 +58,46 @@
                                         {
                                             "entities": [
                                                 {
+                                                    "entity": "sensor.multisensor03_temperature",
+                                                    "name": "Buiten",
+                                                    "secondary_info": "last-changed"
+                                                },
+                                                {
                                                     "entity": "sensor.multisensor02_temperature",
-                                                    "name": "Zolder"
+                                                    "name": "Zolder",
+                                                    "secondary_info": "last-changed"
                                                 },
                                                 {
                                                     "entity": "sensor.multisensor01_temperature",
-                                                    "name": "Saar"
+                                                    "name": "Saar",
+                                                    "secondary_info": "last-changed"
                                                 }
                                             ],
+                                            "show_header_toggle": false,
                                             "title": "Temperatuur",
-                                            "type": "glance"
+                                            "type": "entities"
                                         },
                                         {
                                             "entities": [
                                                 {
+                                                    "entity": "binary_sensor.multisensor03_motion",
+                                                    "name": "Buiten",
+                                                    "secondary_info": "last-changed"
+                                                },
+                                                {
                                                     "entity": "binary_sensor.multisensor02_motion",
-                                                    "name": "Zolder"
+                                                    "name": "Zolder",
+                                                    "secondary_info": "last-changed"
                                                 },
                                                 {
                                                     "entity": "binary_sensor.multisensor01_motion",
-                                                    "name": "Saar"
+                                                    "name": "Saar",
+                                                    "secondary_info": "last-changed"
                                                 }
                                             ],
+                                            "show_header_toggle": false,
                                             "title": "Beweging",
-                                            "type": "glance"
+                                            "type": "entities"
                                         }
                                     ],
                                     "type": "horizontal-stack"
@@ -116,7 +132,7 @@
                                                 "Geen": "/local/afvalwijzer/kliko.png",
                                                 "gft": "/local/afvalwijzer/gft_large.png",
                                                 "papier": "/local/afvalwijzer/papier_large.png",
-                                                "plastic": "/local/afvalwijzer/plastic_large.png",
+                                                "plastic verpakkingsafval": "/local/afvalwijzer/plastic_large.png",
                                                 "restafval": "/local/afvalwijzer/rest_large.png"
                                             },
                                             "type": "picture-entity"
@@ -127,7 +143,7 @@
                                                 "Geen": "/local/afvalwijzer/kliko.png",
                                                 "gft": "/local/afvalwijzer/gft_large.png",
                                                 "papier": "/local/afvalwijzer/papier_large.png",
-                                                "plastic": "/local/afvalwijzer/plastic_large.png",
+                                                "plastic verpakkingsafval": "/local/afvalwijzer/plastic_large.png",
                                                 "restafval": "/local/afvalwijzer/rest_large.png"
                                             },
                                             "type": "picture-entity"
@@ -379,6 +395,38 @@
                         }
                     ],
                     "title": "Boven"
+                },
+                {
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.multisensor03_brightness",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.multisensor03_humidity",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.multisensor03_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.multisensor03_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "light.multisensor03_light",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Buiten",
+                            "type": "entities"
+                        }
+                    ],
+                    "title": "Buiten"
                 },
                 {
                     "cards": [

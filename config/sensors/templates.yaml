@@ -7,8 +7,8 @@
         entity_id: sensor.trash_papier
         value_template: '{{ as_timestamp(strptime(states.sensor.trash_papier.state, "%d-%m-%Y")) | timestamp_custom("%a %d %b") }}'
       trash_plastic_formatted:
-        entity_id: sensor.trash_plastic
-        value_template: '{{ as_timestamp(strptime(states.sensor.trash_plastic.state, "%d-%m-%Y")) | timestamp_custom("%a %d %b") }}'
+        entity_id: sensor.trash_plastic_verpakkingsafval
+        value_template: '{{ as_timestamp(strptime(states.sensor.trash_plastic_verpakkingsafval.state, "%d-%m-%Y")) | timestamp_custom("%a %d %b") }}'
       trash_restafval_formatted:
         entity_id: sensor.trash_restafval
         value_template: '{{ as_timestamp(strptime(states.sensor.trash_restafval.state, "%d-%m-%Y")) | timestamp_custom("%a %d %b") }}'

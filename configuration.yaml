@@ -17,7 +17,7 @@ custom_updater:
     - components
   component_urls:
     - https://raw.githubusercontent.com/maykar/custom-lovelace/master/tracker.json
-    - https://raw.githubusercontent.com/xirixiz/home-assistant-config/master/custom_updater.json
+    - https://raw.githubusercontent.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer/master/custom_updater.json
   card_urls:
     - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
 
@@ -29,7 +29,7 @@ discovery:
     - plex_mediaserver
 
 ios:
-    
+
 cloud:
   google_actions:
     filter:
@@ -71,18 +71,26 @@ logbook:
 recorder:
   db_url: !secret database_url
 
-# influxdb:
-#   host: influxdb
-#   include:
-#     entities:
-#       - sensor.current_power_consumption
-#       - sensor.gas_consumption
-#       - sensor.vaatwasser_verbruik
-#       - sensor.tv_verbruik
-#       - sensor.wasmachine_verbruik
-#       - sensor.droger_verbruik
-#       - sensor.dark_sky_humidity
-#       - sensor.dark_sky_temperature
+influxdb:
+  host: !secret influxdb_url
+  database: !secret influxdb_db
+  include:
+    entities:
+      - sensor.vaatwasser_verbruik
+      - sensor.tv_verbruik
+      - sensor.wasmachine_verbruik
+      - sensor.droger_verbruik
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_temperature
+      - sensor.multisensor01_brightness
+      - sensor.multisensor01_humidity
+      - sensor.multisensor01_temperature
+      - sensor.multisensor02_brightness
+      - sensor.multisensor02_humidity
+      - sensor.multisensor02_temperature
+      - sensor.multisensor03_brightness
+      - sensor.multisensor03_humidity
+      - sensor.multisensor03_temperature
 
 map:
 

@@ -4,5 +4,5 @@
   monitored_conditions:
     - temperature
     - humidity
-  update_interval:
+  scan_interval:
     minutes: 5
