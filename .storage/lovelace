@@ -69,7 +69,7 @@
                                                 },
                                                 {
                                                     "entity": "sensor.multisensor01_temperature",
-                                                    "name": "Saar",
+                                                    "name": "Woonkamer",
                                                     "secondary_info": "last-changed"
                                                 }
                                             ],
@@ -91,7 +91,7 @@
                                                 },
                                                 {
                                                     "entity": "binary_sensor.multisensor01_motion",
-                                                    "name": "Saar",
+                                                    "name": "Woonkamer",
                                                     "secondary_info": "last-changed"
                                                 }
                                             ],
@@ -451,6 +451,21 @@
                                     "entities": [
                                         {
                                             "entity": "input_boolean.play_saskia_pick_up_sound",
+                                            "secondary_info": "last-changed"
+                                        }
+                                    ],
+                                    "type": "entities"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "input_boolean.enable_occupancy_simulator",
+                                            "icon": "mdi:run-fast",
+                                            "secondary_info": "last-changed"
+                                        },
+                                        {
+                                            "entity": "input_boolean.enable_vacation",
+                                            "icon": "mdi:beach",
                                             "secondary_info": "last-changed"
                                         }
                                     ],

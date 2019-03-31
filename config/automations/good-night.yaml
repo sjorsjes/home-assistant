@@ -1,10 +1,13 @@
-# Good night Routine - ON
 - alias: 'Good Night Routine - ON'
   initial_state: 'on'
   trigger:
     platform: sun
     event: 'sunset'
     offset: '-00:15:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.occupancy
+      state: 'on'
   action:
     - service: light.turn_on
       data:
@@ -17,7 +20,6 @@
         brightness: 255
         transition: 300
 
-# Good night Routine - OFF
 - alias: 'Good Night Routine - OFF'
   initial_state: 'on'
   trigger:
@@ -26,21 +28,22 @@
     - platform: time
       at: '00:00:00'
   condition:
-    condition: or
-    conditions:
-      - condition: time
-        after: '23:00:00'
-        weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - sun
-      - condition: time
-        after: '00:30:00'
-        weekday:
-          - fri
-          - sat
+    - condition: state
+      entity_id: input_boolean.occupancy
+      state: 'on'
+    - condition: time
+      after: '23:00:00'
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - sun
+    - condition: time
+      after: '00:30:00'
+      weekday:
+        - fri
+        - sat
   action:
     - service: light.turn_off
       data:

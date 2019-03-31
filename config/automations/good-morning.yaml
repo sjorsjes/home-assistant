@@ -1,19 +1,21 @@
-# Good Morning Routines - ON
 - alias: 'Good Morning Weekdays Routine - ON'
   initial_state: 'on'
   trigger:
     platform: time
     at: '06:40:00'
   condition:
-  - condition: sun
-    before: sunrise
-  - condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+    - condition: state
+      entity_id: input_boolean.occupancy
+      state: 'on'
+    - condition: sun
+      before: sunrise
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   action:
     - service: light.turn_on
       data:
@@ -32,6 +34,9 @@
     platform: time
     at: '08:00:00'
   condition:
+    - condition: state
+      entity_id: input_boolean.occupancy
+      state: 'on'
     - condition: sun
       before: sunrise
     - condition: time
@@ -50,20 +55,22 @@
         brightness: 255
         transition: 300
 
-# Good Morning Routines - OFF
 - alias: 'Good Morning Weekdays Routine - OFF'
   initial_state: 'on'
   trigger:
     platform: time
     at: '08:30:00'
   condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+    - condition: state
+      entity_id: input_boolean.occupancy
+      state: 'on'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   action:
     - service: light.turn_off
       data:
@@ -84,10 +91,13 @@
     platform: time
     at: '10:00:00'
   condition:
-    condition: time
-    weekday:
-      - sat
-      - sun
+    - condition: state
+      entity_id: input_boolean.occupancy
+      state: 'on'
+    - condition: time
+      weekday:
+        - sat
+        - sun
   action:
     - service: light.turn_off
       data:

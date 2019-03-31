@@ -22,11 +22,13 @@ custom_updater:
     - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
 
 config:
+
 system_health:
-discovery:
-  ignore:
-    - google_cast
-    - plex_mediaserver
+
+# discovery:
+#   ignore:
+#     - google_cast
+#     - plex_mediaserver
 
 ios:
 
@@ -91,14 +93,14 @@ influxdb:
       - sensor.multisensor03_brightness
       - sensor.multisensor03_humidity
       - sensor.multisensor03_temperature
+      - binary_sensor.multisensor01_motion
+      - binary_sensor.multisensor02_motion
+      - binary_sensor.multisensor03_motion
 
 map:
 
 http:
   base_url: !secret base_url
-
-mqtt:
-  broker: mqtt
 
 zwave:
   usb_path: /dev/ttyACM0

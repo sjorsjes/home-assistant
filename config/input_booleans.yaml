@@ -26,3 +26,11 @@ trash_moved:
 trash_reminder:
   name: Trash reminder enabled
   initial: 'on'
+
+occupancy:
+  name: Occupancy
+  initial: 'on'
+
+enable_vacation:
+  name: Vacation mode
+  initial: 'off'

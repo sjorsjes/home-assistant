@@ -1,4 +1,3 @@
-# Washing Machine - BUSY
 - alias: Wasmachine - bezig
   initial_state: 'on'
   trigger:
@@ -10,7 +9,6 @@
       data:
         entity_id: input_boolean.washingmachine_busy
 
-# Washing Machine - DONE
 - alias: Wasmachine - klaar
   initial_state: 'on'
   trigger:
@@ -22,8 +20,7 @@
       data:
         entity_id: input_boolean.washingmachine_busy
 
-# Washing Machine - NOTIFICATION
-- alias: Wasmachine - notificatie
+- alias: Wasmachine - notificatie google home
   initial_state: 'on'
   trigger:
     - platform: state
@@ -32,15 +29,10 @@
       to: 'off'
       for:
         minutes: 10
+  condition:
+    - condition: template
+      value_template: "{{ is_state('device_tracker.iphonesjors','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
   action:
-    - service: notify.ios_iphonesjors
-      data:
-        title: 'Wasmachine: '
-        message: Ik ben klaar!
-    - service: notify.ios_iphone_van_saskia
-      data:
-        title: 'Wasmachine: '
-        message: Ik ben klaar!
     - service: media_player.volume_set
       data:
         entity_id: media_player.google_home_mini
@@ -50,3 +42,38 @@
       data:
         message: 'De wasmachine is klaar!'
 
+- alias: Wasmachine - notificatie Sjors
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.washingmachine_busy
+      from: 'on'
+      to: 'off'
+      for:
+        minutes: 10
+  condition:
+    - condition: template
+      value_template: "{{ is_state('device_tracker.iphonesjors','home') }}"
+  action:
+    - service: notify.ios_iphonesjors
+      data:
+        title: 'Wasmachine: '
+        message: Ik ben klaar!
+
+- alias: Wasmachine - notificatie Saskia
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.washingmachine_busy
+      from: 'on'
+      to: 'off'
+      for:
+        minutes: 10
+  condition:
+    - condition: template
+      value_template: "{{ is_state('device_tracker.iphone_van_saskia','home') }}"
+  action:
+    - service: notify.ios_iphone_van_saskia
+      data:
+        title: 'Wasmachine: '
+        message: Ik ben klaar!

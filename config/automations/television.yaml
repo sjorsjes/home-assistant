@@ -2,7 +2,11 @@
   initial_state: 'on'
   trigger:
     platform: time
-    at: '06:15:00'
+    at: '06:25:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.occupancy
+      state: 'on'
   action:
     service: switch.turn_on
     data:
@@ -11,8 +15,12 @@
 - alias: 'TV - OFF'
   initial_state: 'on'
   trigger:
-    platform: time
-    at: '01:00:00'
+    - platform: time
+      at: '01:00:00'
+    - platform: state
+      entity_id: input_boolean.occupancy
+      from: 'on'
+      from: 'off'
   action:
     service: switch.turn_off
     data:
