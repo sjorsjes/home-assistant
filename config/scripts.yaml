@@ -1,14 +1,109 @@
-set_hue_scene:
+occupancy_simulator:
   sequence:
-    - service: hue.hue_activate_scene
-      data_template:
-        group_name: 'Woonkamer'
-        scene_name: '{{ states.input_select.hue_scenes.state }}'
-    - service: hue.hue_activate_scene
-      data_template:
-        group_name: 'Eetkamer'
-        scene_name: '{{ states.input_select.hue_scenes.state }}'
-    - service: hue.hue_activate_scene
-      data_template:
-        group_name: 'Keuken'
-        scene_name: '{{ states.input_select.hue_scenes.state }}'
+    - delay: '00:{{ range(10,40) | random | int }}:00'
+
+    - service: light.turn_on
+      data:
+        entity_id: light.woonkamer
+        brightness: 255
+    - service: light.turn_on
+      data:
+        entity_id: light.keuken
+        brightness: 255
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: light.turn_on
+      data:
+        entity_id: light.eetkamer
+        brightness: 255
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: light.turn_on
+      data:
+        entity_id: light.woonkamer
+        brightness: 200
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.eetkamer
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.keuken
+        brightness: 255
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.keuken
+
+    - delay: '00:{{ range(10,40) | random | int }}:00'
+
+    - service: light.turn_on
+      data:
+        entity_id: light.woonkamer
+        brightness: 255
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: light.turn_on
+      data:
+        entity_id: light.eetkamer
+        brightness: 255
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: light.turn_on
+      data:
+        entity_id: light.woonkamer
+        brightness: 200
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.eetkamer
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.keuken
+        brightness: 255
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.keuken
+
+    - service: script.turn_on
+      data:
+        entity_id: script.light_loop
+
+occupancy_simulator_loop:
+  sequence:
+    - delay:
+        seconds: 1
+    - service: script.turn_on
+      data:
+        entity_id: script.occupancy_simulator

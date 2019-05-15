@@ -21,16 +21,21 @@ play_saskia_pick_up_sound:
 trash_moved:
   name: Trash has been moved
   initial: 'off'
-  icon: mdi:delete-empty
+  icon: "mdi:delete-empty"
 
 trash_reminder:
   name: Trash reminder enabled
   initial: 'on'
 
-occupancy:
-  name: Occupancy
+occupancy_simulator:
+  name: Occupancy Simulator
   initial: 'on'
 
 enable_vacation:
   name: Vacation mode
   initial: 'off'
+
+babysitter:
+  name: Oppas
+  initial: 'off'
+  icon: "mdi:account-child"

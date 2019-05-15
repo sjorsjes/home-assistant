@@ -1,0 +1,9 @@
+- platform: version
+  name: Installed Version
+  source: local
+
+- platform: version
+  name: Latest Available Version
+  beta: false
+  image: default
+  source: docker

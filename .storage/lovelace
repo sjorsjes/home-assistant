@@ -34,8 +34,22 @@
                             "cards": [
                                 {
                                     "entities": [
-                                        "device_tracker.iphonesjors",
-                                        "device_tracker.iphone_van_saskia"
+                                        {
+                                            "entity": "device_tracker.iphonesjors"
+                                        },
+                                        {
+                                            "entity": "device_tracker.iphone_van_saskia"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.babysitter",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_boolean.toggle",
+                                                "service_data": {
+                                                    "entity_id": "input_boolean.babysitter"
+                                                }
+                                            }
+                                        }
                                     ],
                                     "type": "glance"
                                 },
@@ -52,78 +66,44 @@
                                     ],
                                     "type": "entities"
                                 },
-                                "break",
                                 {
-                                    "cards": [
+                                    "columns": 3,
+                                    "entities": [
                                         {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.multisensor03_temperature",
-                                                    "name": "Buiten",
-                                                    "secondary_info": "last-changed"
-                                                },
-                                                {
-                                                    "entity": "sensor.multisensor02_temperature",
-                                                    "name": "Zolder",
-                                                    "secondary_info": "last-changed"
-                                                },
-                                                {
-                                                    "entity": "sensor.multisensor01_temperature",
-                                                    "name": "Woonkamer",
-                                                    "secondary_info": "last-changed"
-                                                }
-                                            ],
-                                            "show_header_toggle": false,
-                                            "title": "Temperatuur",
-                                            "type": "entities"
+                                            "entity": "sensor.multisensor03_temperature",
+                                            "name": "Buiten",
+                                            "secondary_info": "last-changed"
                                         },
                                         {
-                                            "entities": [
-                                                {
-                                                    "entity": "binary_sensor.multisensor03_motion",
-                                                    "name": "Buiten",
-                                                    "secondary_info": "last-changed"
-                                                },
-                                                {
-                                                    "entity": "binary_sensor.multisensor02_motion",
-                                                    "name": "Zolder",
-                                                    "secondary_info": "last-changed"
-                                                },
-                                                {
-                                                    "entity": "binary_sensor.multisensor01_motion",
-                                                    "name": "Woonkamer",
-                                                    "secondary_info": "last-changed"
-                                                }
-                                            ],
-                                            "show_header_toggle": false,
-                                            "title": "Beweging",
-                                            "type": "entities"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
+                                            "entity": "sensor.multisensor02_temperature",
+                                            "name": "Zolder",
+                                            "secondary_info": "last-changed"
+                                        },
                                         {
-                                            "entities": [
-                                                {
-                                                    "entity": "sensor.wasmachine_verbruik"
-                                                },
-                                                {
-                                                    "entity": "sensor.droger_verbruik"
-                                                },
-                                                {
-                                                    "entity": "sensor.vaatwasser_verbruik"
-                                                },
-                                                {
-                                                    "entity": "sensor.tv_verbruik"
-                                                }
-                                            ],
-                                            "type": "glance"
+                                            "entity": "sensor.multisensor01_temperature",
+                                            "name": "Woonkamer",
+                                            "secondary_info": "last-changed"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.multisensor03_motion",
+                                            "name": "",
+                                            "secondary_info": "last-changed"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.multisensor02_motion",
+                                            "name": "",
+                                            "secondary_info": "last-changed"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.multisensor01_motion",
+                                            "name": "",
+                                            "secondary_info": "last-changed"
                                         }
                                     ],
-                                    "type": "vertical-stack"
+                                    "title": "Temperatuur & Motion",
+                                    "type": "glance"
                                 },
+                                "break",
                                 {
                                     "cards": [
                                         {
@@ -197,25 +177,6 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "light.woonkamer",
-                                            "type": "custom:slider-entity-row"
-                                        },
-                                        {
-                                            "entity": "light.eetkamer",
-                                            "type": "custom:slider-entity-row"
-                                        },
-                                        {
-                                            "entity": "light.keuken",
-                                            "type": "custom:slider-entity-row"
-                                        }
-                                    ],
-                                    "show_header_toggle": false,
-                                    "type": "entities"
-                                },
-                                "break",
-                                {
-                                    "entities": [
-                                        {
                                             "entity": "light.hue_color_lamp_1",
                                             "icon": "mdi:floor-lamp",
                                             "name": "Lamp",
@@ -246,43 +207,34 @@
                                             "type": "custom:slider-entity-row"
                                         }
                                     ],
-                                    "show_header_toggle": false,
                                     "title": "Woonkamer",
                                     "type": "entities"
                                 },
-                                "break",
                                 {
                                     "entities": [
                                         {
-                                            "entity": "light.hue_ambiance_lamp_1",
-                                            "name": "Lamp 1",
-                                            "type": "custom:slider-entity-row"
+                                            "entity": "sensor.multisensor01_brightness",
+                                            "secondary_info": "last-changed"
                                         },
                                         {
-                                            "entity": "light.hue_color_lamp_1_2",
-                                            "name": "Lamp 2",
-                                            "type": "custom:slider-entity-row"
+                                            "entity": "sensor.multisensor01_humidity",
+                                            "secondary_info": "last-changed"
                                         },
                                         {
-                                            "entity": "light.hue_ambiance_lamp_2",
-                                            "name": "Lamp 3",
-                                            "type": "custom:slider-entity-row"
+                                            "entity": "sensor.multisensor01_temperature",
+                                            "secondary_info": "last-changed"
                                         },
                                         {
-                                            "entity": "light.hue_ambiance_spot_2_3",
-                                            "icon": "mdi:spotlight-beam",
-                                            "name": "Spot 1",
-                                            "type": "custom:slider-entity-row"
+                                            "entity": "binary_sensor.multisensor01_motion",
+                                            "secondary_info": "last-changed"
                                         },
                                         {
-                                            "entity": "light.hue_ambiance_spot_3_3",
-                                            "icon": "mdi:spotlight-beam",
-                                            "name": "Spot 2",
-                                            "type": "custom:slider-entity-row"
+                                            "entity": "light.multisensor01_light",
+                                            "secondary_info": "last-changed"
                                         }
                                     ],
                                     "show_header_toggle": false,
-                                    "title": "Eetkamer",
+                                    "title": "Woonkamer sensor",
                                     "type": "entities"
                                 },
                                 "break",
@@ -325,8 +277,41 @@
                                             "type": "custom:slider-entity-row"
                                         }
                                     ],
-                                    "show_header_toggle": false,
                                     "title": "Keuken",
+                                    "type": "entities"
+                                },
+                                "break",
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "light.hue_ambiance_lamp_1",
+                                            "name": "Lamp 1",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_color_lamp_1_2",
+                                            "name": "Lamp 2",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_lamp_2",
+                                            "name": "Lamp 3",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_2_3",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 1",
+                                            "type": "custom:slider-entity-row"
+                                        },
+                                        {
+                                            "entity": "light.hue_ambiance_spot_3_3",
+                                            "icon": "mdi:spotlight-beam",
+                                            "name": "Spot 2",
+                                            "type": "custom:slider-entity-row"
+                                        }
+                                    ],
+                                    "title": "Eetkamer",
                                     "type": "entities"
                                 }
                             ],
@@ -342,30 +327,49 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.multisensor01_brightness",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.multisensor01_humidity",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.multisensor01_temperature",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.multisensor01_motion",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "light.multisensor01_light",
-                                    "secondary_info": "last-changed"
+                                    "entity": "light.hue_ambiance_candle_1",
+                                    "icon": "mdi:spotlight-beam",
+                                    "name": "Leeslampje",
+                                    "type": "custom:slider-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Slaapkamer Saar",
                             "type": "entities"
                         },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.hue_ambiance_spot_4_4",
+                                    "icon": "mdi:spotlight-beam",
+                                    "name": "Spot 1",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.hue_ambiance_spot_1_4",
+                                    "icon": "mdi:spotlight-beam",
+                                    "name": "Spot 2",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.hue_ambiance_spot_2_4",
+                                    "icon": "mdi:spotlight-beam",
+                                    "name": "Spot 3",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.hue_ambiance_spot_3_4",
+                                    "icon": "mdi:spotlight-beam",
+                                    "name": "Spot 4",
+                                    "type": "custom:slider-entity-row"
+                                }
+                            ],
+                            "type": "entities"
+                        }
+                    ],
+                    "title": "Saar"
+                },
+                {
+                    "cards": [
                         {
                             "entities": [
                                 {
@@ -394,7 +398,7 @@
                             "type": "entities"
                         }
                     ],
-                    "title": "Boven"
+                    "title": "Zolder"
                 },
                 {
                     "cards": [
@@ -433,14 +437,6 @@
                         {
                             "cards": [
                                 {
-                                    "trackers": [
-                                        "sensor.custom_card_tracker",
-                                        "sensor.custom_component_tracker"
-                                    ],
-                                    "type": "custom:tracker-card"
-                                },
-                                "break",
-                                {
                                     "entity": "media_player.google_home_mini",
                                     "tts": {
                                         "platform": "google"
@@ -459,7 +455,7 @@
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_boolean.enable_occupancy_simulator",
+                                            "entity": "input_boolean.occupancy_simulator",
                                             "icon": "mdi:run-fast",
                                             "secondary_info": "last-changed"
                                         },
@@ -470,6 +466,98 @@
                                         }
                                     ],
                                     "type": "entities"
+                                },
+                                "break",
+                                {
+                                    "columns": 4,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.count_automations",
+                                            "icon": "mdi:autorenew",
+                                            "name": "Automations"
+                                        },
+                                        {
+                                            "entity": "sensor.count_binary_sensors",
+                                            "icon": "mdi:unfold-more-horizontal",
+                                            "name": "Binary Sensors"
+                                        },
+                                        {
+                                            "entity": "sensor.count_device_trackers",
+                                            "icon": "mdi:map-marker",
+                                            "name": "Device Trackers"
+                                        },
+                                        {
+                                            "entity": "sensor.count_input_booleans",
+                                            "icon": "mdi:toggle-switch",
+                                            "name": "Input Booleans"
+                                        },
+                                        {
+                                            "entity": "sensor.count_input_datetimes",
+                                            "icon": "mdi:calendar-clock",
+                                            "name": "Input Date Times"
+                                        },
+                                        {
+                                            "entity": "sensor.count_input_numbers",
+                                            "icon": "mdi:numeric",
+                                            "name": "Input Numbers"
+                                        },
+                                        {
+                                            "entity": "sensor.count_input_selects",
+                                            "icon": "mdi:view-list",
+                                            "name": "Input Select"
+                                        },
+                                        {
+                                            "entity": "sensor.count_input_texts",
+                                            "icon": "mdi:alphabetical",
+                                            "name": "Input Texts"
+                                        },
+                                        {
+                                            "entity": "sensor.count_scripts",
+                                            "icon": "mdi:script-text-outline",
+                                            "name": "Scripts"
+                                        },
+                                        {
+                                            "entity": "sensor.count_sensors",
+                                            "icon": "mdi:resistor",
+                                            "name": "Sensors"
+                                        },
+                                        {
+                                            "entity": "sensor.count_switches",
+                                            "icon": "mdi:light-switch",
+                                            "name": "Switches"
+                                        },
+                                        {
+                                            "entity": "sensor.count_zones",
+                                            "icon": "mdi:map-marker-radius",
+                                            "name": "Zones"
+                                        }
+                                    ],
+                                    "title": "Component Count",
+                                    "type": "glance"
+                                },
+                                "break",
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.installed_version",
+                                            "name": "Installed version"
+                                        },
+                                        {
+                                            "entity": "sensor.latest_available_version",
+                                            "name": "Latest version"
+                                        }
+                                    ],
+                                    "show_header_toggle": false,
+                                    "title": "Home Assistant",
+                                    "type": "entities"
+                                },
+                                {
+                                    "title": "Components",
+                                    "trackers": [
+                                        "sensor.custom_card_tracker",
+                                        "sensor.custom_component_tracker"
+                                    ],
+                                    "type": "custom:tracker-card"
                                 }
                             ],
                             "layout": "vertical",

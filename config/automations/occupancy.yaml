@@ -1,19 +1,19 @@
-- alias: Set occupancy off
+- alias: Set occupancy simulator on
   initial_state: 'on'
   trigger:
     - platform: template
       value_template: "{{ is_state('device_tracker.iphonesjors','not_home') and is_state('device_tracker.iphone_van_saskia','not_home') }}"
   action:
-    - service: input_boolean.turn_off
+    - service: input_boolean.turn_on
       data:
-        entity_id: input_boolean.occupancy
+        entity_id: input_boolean.occupancy_simulator
 
-- alias: Set occupancy on
+- alias: Set occupancy simulator off
   initial_state: 'on'
   trigger:
     - platform: template
       value_template: "{{ is_state('device_tracker.iphonesjors','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
   action:
-    - service: input_boolean.turn_on
+    - service: input_boolean.turn_off
       data:
-        entity_id: input_boolean.occupancy
+        entity_id: input_boolean.occupancy_simulator

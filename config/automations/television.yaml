@@ -5,8 +5,8 @@
     at: '06:25:00'
   condition:
     - condition: state
-      entity_id: input_boolean.occupancy
-      state: 'on'
+      entity_id: input_boolean.occupancy_simulator
+      state: 'off'
   action:
     service: switch.turn_on
     data:
@@ -18,9 +18,9 @@
     - platform: time
       at: '01:00:00'
     - platform: state
-      entity_id: input_boolean.occupancy
-      from: 'on'
+      entity_id: input_boolean.occupancy_simulator
       from: 'off'
+      to: 'on'
   action:
     service: switch.turn_off
     data:

@@ -5,8 +5,8 @@
     at: '06:40:00'
   condition:
     - condition: state
-      entity_id: input_boolean.occupancy
-      state: 'on'
+      entity_id: input_boolean.occupancy_simulator
+      state: 'off'
     - condition: sun
       before: sunrise
     - condition: time
@@ -35,8 +35,8 @@
     at: '08:00:00'
   condition:
     - condition: state
-      entity_id: input_boolean.occupancy
-      state: 'on'
+      entity_id: input_boolean.occupancy_simulator
+      state: 'off'
     - condition: sun
       before: sunrise
     - condition: time
@@ -62,8 +62,8 @@
     at: '08:30:00'
   condition:
     - condition: state
-      entity_id: input_boolean.occupancy
-      state: 'on'
+      entity_id: input_boolean.occupancy_simulator
+      state: 'off'
     - condition: time
       weekday:
         - mon
@@ -92,8 +92,8 @@
     at: '10:00:00'
   condition:
     - condition: state
-      entity_id: input_boolean.occupancy
-      state: 'on'
+      entity_id: input_boolean.occupancy_simulator
+      state: 'off'
     - condition: time
       weekday:
         - sat

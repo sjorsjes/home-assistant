@@ -37,8 +37,8 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.occupancy
-        state: 'on'
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
       - condition: state
         entity_id: input_boolean.trash_moved
         state: 'off'

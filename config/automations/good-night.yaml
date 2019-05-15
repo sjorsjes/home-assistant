@@ -6,8 +6,8 @@
     offset: '-00:15:00'
   condition:
     - condition: state
-      entity_id: input_boolean.occupancy
-      state: 'on'
+      entity_id: input_boolean.occupancy_simulator
+      state: 'off'
   action:
     - service: light.turn_on
       data:
@@ -29,8 +29,8 @@
       at: '00:00:00'
   condition:
     - condition: state
-      entity_id: input_boolean.occupancy
-      state: 'on'
+      entity_id: input_boolean.occupancy_simulator
+      state: 'off'
     - condition: time
       after: '23:00:00'
       weekday:

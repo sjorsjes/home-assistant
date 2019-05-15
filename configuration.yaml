@@ -12,25 +12,27 @@ frontend:
 lovelace:
 
 custom_updater:
-  track:
-    - cards
-    - components
-  component_urls:
-    - https://raw.githubusercontent.com/maykar/custom-lovelace/master/tracker.json
-    - https://raw.githubusercontent.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer/master/custom_updater.json
   card_urls:
     - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
+  component_urls:
+    - https://raw.githubusercontent.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer/master/custom_updater.json
 
 config:
 
 system_health:
 
-# discovery:
-#   ignore:
-#     - google_cast
-#     - plex_mediaserver
-
 ios:
+  push:
+    categories:
+      - name: Afvalwijzer
+        identifier: 'afvalwijzer'
+        actions:
+          - identifier: 'MARK_TRASH_MOVED'
+            title: 'Okay'
+            # activationMode: 'background'
+            # authenticationRequired: true
+            # destructive: true
+            # behavior: 'default'
 
 cloud:
   google_actions:
@@ -39,15 +41,10 @@ cloud:
         - switch
 
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
     language: 'nl'
     base_url: !secret base_url_full
-
-cast:
-  media_player:
-    - host: !secret google_home_mini
-    # - host: !secret chromecast_audio
-    # - host: !secret chromecast
 
 history:
   include:
@@ -93,6 +90,11 @@ influxdb:
       - sensor.multisensor03_brightness
       - sensor.multisensor03_humidity
       - sensor.multisensor03_temperature
+      - sensor.power_consumption
+      - sensor.power_consumption_low
+      - sensor.power_consumption_normal
+      - sensor.gas_consumption
+      - sensor.hourly_gas_consumption
       - binary_sensor.multisensor01_motion
       - binary_sensor.multisensor02_motion
       - binary_sensor.multisensor03_motion
@@ -112,8 +114,9 @@ weather:
     api_key: !secret dark_sky
 
 automation: !include_dir_merge_list config/automations
+binary_sensor: !include config/binary_sensors.yaml
 input_boolean: !include config/input_booleans.yaml
-input_select: !include config/input_selects.yaml
+# input_select: !include config/input_selects.yaml
 light: !include config/lights.yaml
 sensor: !include_dir_merge_list config/sensors
 switch: !include config/switches.yaml

@@ -1,0 +1,30 @@
+- alias: Turn occupancy simulator on
+  initial_state: 'on'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '00:15:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.occupancy_simulator
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.babysitter
+      state: 'off'
+  action:
+   -  service: script.turn_on
+      entity_id: script.occupancy_simulator
+
+- alias: Turn occupancy simulator off
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.occupancy_simulator
+      from: 'on'
+      to: 'off'
+  action:
+   -  service: script.turn_off
+      entity_id: script.occupancy_simulator
+   -  service: script.turn_off
+      entity_id: script.occupancy_simulator_loop
+
