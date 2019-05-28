@@ -3,6 +3,10 @@
   trigger:
     - platform: template
       value_template: "{{ is_state('device_tracker.iphonesjors','not_home') and is_state('device_tracker.iphone_van_saskia','not_home') }}"
+  condition:
+    - condition: state
+      entity_id: input_boolean.babysitter
+      state: 'off'
   action:
     - service: input_boolean.turn_on
       data:

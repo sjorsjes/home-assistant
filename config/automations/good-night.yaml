@@ -25,25 +25,56 @@
   trigger:
     - platform: time
       at: '23:00:00'
-    - platform: time
-      at: '00:00:00'
   condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_simulator
-      state: 'off'
-    - condition: time
-      after: '23:00:00'
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - sun
-    - condition: time
-      after: '00:30:00'
-      weekday:
-        - fri
-        - sat
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.babysitter
+        state: 'off'
+      - condition: time
+        after: '23:00:00'
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - sun
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.woonkamer
+        transition: 300
+    - service: light.turn_off
+      data:
+        entity_id: light.keuken
+        transition: 300
+    - service: light.turn_off
+      data:
+        entity_id: light.eetkamer
+        transition: 300
+
+- alias: 'Good Night Routine - OFF weekends'
+  initial_state: 'on'
+  trigger:
+    - platform: time
+      at: '01:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.babysitter
+        state: 'off'
+      - condition: time
+        after: '01:00:00'
+        weekday:
+          - fri
+          - sat
   action:
     - service: light.turn_off
       data:

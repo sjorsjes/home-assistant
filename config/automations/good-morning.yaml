@@ -4,18 +4,20 @@
     platform: time
     at: '06:40:00'
   condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_simulator
-      state: 'off'
-    - condition: sun
-      before: sunrise
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: sun
+        before: sunrise
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
   action:
     - service: light.turn_on
       data:
@@ -34,15 +36,17 @@
     platform: time
     at: '08:00:00'
   condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_simulator
-      state: 'off'
-    - condition: sun
-      before: sunrise
-    - condition: time
-      weekday:
-        - sat
-        - sun
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: sun
+        before: sunrise
+      - condition: time
+        weekday:
+          - sat
+          - sun
   action:
     - service: light.turn_on
       data:
@@ -61,16 +65,18 @@
     platform: time
     at: '08:30:00'
   condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_simulator
-      state: 'off'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - wed
+          - thu
+          - fri
   action:
     - service: light.turn_off
       data:
@@ -91,13 +97,15 @@
     platform: time
     at: '10:00:00'
   condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_simulator
-      state: 'off'
-    - condition: time
-      weekday:
-        - sat
-        - sun
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: time
+        weekday:
+          - sat
+          - sun
   action:
     - service: light.turn_off
       data:
