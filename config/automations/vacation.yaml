@@ -1,5 +1,5 @@
 - alias: Turn off devices when on vacation
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: input_boolean.enable_vacation
@@ -9,10 +9,29 @@
     - service: switch.turn_off
       entity_id: switch.tv_switch
     - service: switch.turn_off
-      entity_id: switch.sonoff04_basic_relay # stereo
+      entity_id: switch.stereo_switch
     - service: switch.turn_off
       entity_id: switch.vaatwasser_switch
     - service: switch.turn_off
       entity_id: switch.wasmachine_switch
     - service: switch.turn_off
+      entity_id: switch.droger_switch
+
+- alias: Turn on devices when back from vacation
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_boolean.enable_vacation
+      from: 'on'
+      to: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.tv_switch
+    - service: switch.turn_on
+      entity_id: switch.stereo_switch
+    - service: switch.turn_on
+      entity_id: switch.vaatwasser_switch
+    - service: switch.turn_on
+      entity_id: switch.wasmachine_switch
+    - service: switch.turn_on
       entity_id: switch.droger_switch

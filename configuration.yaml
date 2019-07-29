@@ -1,9 +1,4 @@
 homeassistant:
-  latitude: !secret latitude
-  longitude: !secret longitude
-  elevation: !secret elevation
-  unit_system: metric
-  time_zone: Europe/Amsterdam
   customize: !include config/customize.yaml
 
 frontend:
@@ -11,11 +6,9 @@ frontend:
 
 lovelace:
 
-custom_updater:
-  card_urls:
-    - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
-  component_urls:
-    - https://raw.githubusercontent.com/xirixiz/Home-Assistant-Sensor-Afvalwijzer/master/custom_updater.json
+hacs:
+  token: !secret github_token
+  theme: true
 
 config:
 
@@ -35,16 +28,11 @@ ios:
             # behavior: 'default'
 
 cloud:
-  google_actions:
-    filter:
-      include_domains:
-        - switch
 
 tts:
   - platform: google_translate
     service_name: google_say
     language: 'nl'
-    base_url: !secret base_url_full
 
 history:
   include:
@@ -53,19 +41,19 @@ history:
       - switch
       - light
       - binary_sensor
-      - cover
+      # - cover
   exclude:
     entities:
       - sensor.date
       - sensor.time
 
-logbook:
-  exclude:
-    domains:
-      - zwave
-    entities:
-      - sensor.time
-      - sensor.date
+# logbook:
+#   exclude:
+#     domains:
+#       - zwave
+#     entities:
+#       - sensor.time
+#       - sensor.date
 
 recorder:
   db_url: !secret database_url
@@ -102,7 +90,6 @@ influxdb:
 map:
 
 http:
-  base_url: !secret base_url
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -122,8 +109,9 @@ sensor: !include_dir_merge_list config/sensors
 switch: !include config/switches.yaml
 script: !include config/scripts.yaml
 
-camera:
-  platform: generic
-  name: Weer
-  still_image_url: https://api.buienradar.nl/image/1.0/RadarMapNL?w=480&h=480
-  content_type: 'image/gif'
+notify:
+  - name: sjors_en_saskia
+    platform: group
+    services:
+      - service: notify.ios_iphonesjors
+      - service: notify.ios_iphone_van_saskia

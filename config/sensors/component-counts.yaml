@@ -152,6 +152,8 @@
           {%- for item in states[domain] -%}
             {% if loop.first %}
               {{loop.length}}
+            {% else %}
+              0
             {% endif %}
           {%- endfor -%}
         {%- endfor -%}

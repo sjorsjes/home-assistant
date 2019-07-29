@@ -1,12 +1,18 @@
-# https://github.com/thehookup/shelly1tasmota/blob/master/Best_HA_Config.yaml
+# - platform: mqtt
+#   name: "Sonoff 4"
+#   state_topic: "stat/homeassistant/sonoff4/POWER"
+#   command_topic: "cmnd/homeassistant/sonoff4/POWER"
+#   availability_topic: "tele/homeassistant/sonoff4/LWT"
+#   payload_on: "ON"
+#   payload_off: "OFF"
+#   payload_available: "Online"
+#   payload_not_available: "Offline"
+#   retain: false
 
 - platform: mqtt
-  name: "Sonoff 4"
-  state_topic: "stat/homeassistant/sonoff4/POWER"
-  command_topic: "cmnd/homeassistant/sonoff4/POWER"
-  availability_topic: "tele/homeassistant/sonoff4/LWT"
-  payload_on: "ON"
-  payload_off: "OFF"
-  payload_available: "Online"
-  payload_not_available: "Offline"
-  retain: false
+  name: "Gevelverlichting"
+  state_topic: "shellies/shelly1-BA0042/relay/0"
+  command_topic: "shellies/shelly1-BA0042/relay/0/command"
+  payload_on: "on"
+  payload_off: "off"
+  retain: true

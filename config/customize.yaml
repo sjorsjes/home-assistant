@@ -7,12 +7,6 @@ group.all_lights:
 group.all_switches:
   hidden: false
 
-light.hue_color_lamp_1:
-  friendly_name: "Lamp woonkamer"
-  icon: 'mdi:floor-lamp'
-light.woonkamer:
-  hidden: true
-
 sensor.wasmachine_verbruik:
   icon: "mdi:washing-machine"
 sensor.greenwave_powernode_1_port_energy:
@@ -157,13 +151,17 @@ sensor.afval_soort:
 zwave.aeotec_zw090_zstick_gen5_eu:
   hidden: true
 
-switch.sonoff_4:
+switch.stereo_switch:
   friendly_name: 'Stereo'
   icon: mdi:speaker
 
-media_player.woonkamer_2:
-  friendly_name: 'Google Home Mini'
+media_player.google_home:
+  friendly_name: 'Google Home'
   icon: mdi:google-home
+
+media_player.google_home_mini:
+  friendly_name: 'Google Home Mini'
+  icon: mdi:dots-horizontal-circle-outline
 
 sensor.trash_gft_formatted:
   friendly_name: "GFT"

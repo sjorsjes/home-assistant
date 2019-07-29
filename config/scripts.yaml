@@ -1,6 +1,6 @@
 occupancy_simulator:
   sequence:
-    - delay: '00:{{ range(10,40) | random | int }}:00'
+    - delay: '00:{{ range(1,20) | random | int }}:00'
 
     - service: light.turn_on
       data:
@@ -10,6 +10,12 @@ occupancy_simulator:
       data:
         entity_id: light.keuken
         brightness: 255
+
+    - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
+
+    - service: switch.turn_on
+      data:
+        entity_id: switch.tv_switch
 
     - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
 
@@ -33,7 +39,7 @@ occupancy_simulator:
 
     - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
 
-    - service: homeassistant.turn_off
+    - service: light.turn_off
       data:
         entity_id: light.eetkamer
 
@@ -46,7 +52,7 @@ occupancy_simulator:
 
     - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
 
-    - service: homeassistant.turn_off
+    - service: light.turn_off
       data:
         entity_id: light.keuken
 
@@ -64,6 +70,11 @@ occupancy_simulator:
         entity_id: light.eetkamer
         brightness: 255
 
+    - service: light.turn_on
+      data:
+        entity_id: light.kantoor
+        brightness: 255
+
     - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
 
     - service: light.turn_off
@@ -79,7 +90,7 @@ occupancy_simulator:
 
     - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
 
-    - service: homeassistant.turn_off
+    - service: light.turn_off
       data:
         entity_id: light.eetkamer
 
@@ -92,9 +103,13 @@ occupancy_simulator:
 
     - delay: '00:0{{ range(9) | random | int }}:{{ range(10,58) | random | int }}'
 
-    - service: homeassistant.turn_off
+    - service: light.turn_off
       data:
         entity_id: light.keuken
+
+    - service: switch.turn_off
+      data:
+        entity_id: switch.tv_switch
 
     - service: script.turn_on
       data:
