@@ -39,3 +39,8 @@ babysitter:
   name: Oppas
   initial: 'off'
   icon: "mdi:account-child"
+
+alarm_enabled:
+  name: Wekker
+  initial: on
+  icon: mdi:alarm

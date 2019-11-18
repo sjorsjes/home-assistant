@@ -122,3 +122,27 @@ occupancy_simulator_loop:
     - service: script.turn_on
       data:
         entity_id: script.occupancy_simulator
+
+alarm_flash:
+  alias: Knipper wekker lampje
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.multisensor04_light
+    - delay:
+        seconds: 0.5 # time for flash light on
+    - service: light.turn_off
+      data:
+        entity_id: light.multisensor04_light
+    - service: script.turn_on
+      data:
+        entity_id: script.alarm_flash_loop
+
+alarm_flash_loop:
+  alias: Knipper wekker lampje - loop
+  sequence:
+    - delay:
+        seconds: 0.5 # time for flash light off
+    - service: script.turn_on
+      data:
+        entity_id: script.alarm_flash

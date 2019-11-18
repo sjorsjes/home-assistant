@@ -1,0 +1,31 @@
+- alias: Wekker aan
+  initial_state: 'on'
+  trigger:
+    platform: template
+    value_template: "{% if (now().strftime('%-H')|int == states('input_number.alarm_hour')|int and now().strftime('%-M')|int == states('input_number.alarm_minutes')|int) %}true{% endif %}"
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.alarm_enabled
+      state: 'on'
+
+  action:
+    - service: script.turn_on
+      entity_id: script.alarm_flash
+
+- alias: Wekker uit
+  initial_state: 'on'
+  trigger:
+    platform: template
+    value_template: "{% if (now().strftime('%-H')|int == states('input_number.alarm_hour')|int and now().strftime('%-M')|int == (states('input_number.alarm_minutes')|int + 5)) %}true{% endif %}"
+
+  condition:
+    - condition: state
+      entity_id: input_boolean.alarm_enabled
+      state: 'on'
+
+  action:
+    - service: script.turn_off
+      entity_id: script.alarm_flash
+    - service: script.turn_off
+      entity_id: script.alarm_flash_loop

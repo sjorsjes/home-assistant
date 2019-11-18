@@ -6,9 +6,7 @@ frontend:
 
 lovelace:
 
-hacs:
-  token: !secret github_token
-  theme: true
+breaking_changes:
 
 config:
 
@@ -94,24 +92,33 @@ http:
 zwave:
   usb_path: /dev/ttyACM0
 
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: !secret tuya_country_code
+
 sun:
 
 weather:
   - platform: darksky
     api_key: !secret dark_sky
 
+# unifi:
+#   controllers:
+#     - host: unifi
+#       site: Home
+#       dont_track_clients: true
+#       dont_track_devices: true
+#       dont_track_wired_clients: true
+#       ssid_filter:
+#         - !secret ss_id
+
 automation: !include_dir_merge_list config/automations
 binary_sensor: !include config/binary_sensors.yaml
 input_boolean: !include config/input_booleans.yaml
+input_number: !include config/input_numbers.yaml
 # input_select: !include config/input_selects.yaml
 light: !include config/lights.yaml
 sensor: !include_dir_merge_list config/sensors
 switch: !include config/switches.yaml
 script: !include config/scripts.yaml
-
-notify:
-  - name: sjors_en_saskia
-    platform: group
-    services:
-      - service: notify.ios_iphonesjors
-      - service: notify.ios_iphone_van_saskia

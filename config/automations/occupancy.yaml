@@ -2,7 +2,7 @@
   initial_state: 'on'
   trigger:
     - platform: template
-      value_template: "{{ is_state('device_tracker.iphonesjors','not_home') and is_state('device_tracker.iphone_van_saskia','not_home') }}"
+      value_template: "{{ is_state('device_tracker.iphone','not_home') and is_state('device_tracker.iphone_van_saskia','not_home') }}"
   condition:
     - condition: state
       entity_id: input_boolean.babysitter
@@ -16,7 +16,7 @@
   initial_state: 'on'
   trigger:
     - platform: template
-      value_template: "{{ is_state('device_tracker.iphonesjors','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
+      value_template: "{{ is_state('device_tracker.iphone','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
   action:
     - service: input_boolean.turn_off
       data:

@@ -2,7 +2,7 @@
   initial_state: 'on'
   trigger:
     - platform: numeric_state
-      above: '2'
+      above: '3'
       entity_id: sensor.vaatwasser_verbruik
   action:
     - service: input_boolean.turn_on
@@ -13,7 +13,7 @@
   initial_state: 'on'
   trigger:
     - platform: numeric_state
-      below: '1.5'
+      below: '3'
       entity_id: sensor.vaatwasser_verbruik
   action:
     - service: input_boolean.turn_off
@@ -27,19 +27,26 @@
       entity_id: input_boolean.dishwasher_busy
       from: 'on'
       to: 'off'
-      for:
-        minutes: 30
+      # for:
+      #   minutes: 30
   condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_simulator
-      state: 'off'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: template
+        value_template: "{{ is_state('device_tracker.iphone','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
+      - condition: time
+        after: '08:00:00'
+        before: '22:00:00'
   action:
     - service: media_player.volume_set
       data:
-        entity_id: media_player.google_home
-        volume_level: '0.5'
+        entity_id: media_player.broadcast
+        volume_level: '0.50'
     - service: tts.google_say
-      entity_id: media_player.google_home
+      entity_id: media_player.broadcast
       data:
         message: 'De vaatwasser is klaar!'
 
@@ -50,13 +57,13 @@
       entity_id: input_boolean.dishwasher_busy
       from: 'on'
       to: 'off'
-      for:
-        minutes: 30
+      # for:
+      #   minutes: 30
   condition:
     - condition: template
-      value_template: "{{ is_state('device_tracker.iphonesjors','home') }}"
+      value_template: "{{ is_state('device_tracker.iphone','home') }}"
   action:
-    - service: notify.ios_iphonesjors
+    - service: notify.ios_iphone
       data:
         title: 'Vaatwasser: '
         message: Ik ben klaar!
@@ -68,8 +75,8 @@
       entity_id: input_boolean.dishwasher_busy
       from: 'on'
       to: 'off'
-      for:
-        minutes: 30
+      # for:
+      #   minutes: 30
   condition:
     - condition: template
       value_template: "{{ is_state('device_tracker.iphone_van_saskia','home') }}"

@@ -30,16 +30,23 @@
       for:
         minutes: 10
   condition:
-    - condition: state
-      entity_id: input_boolean.occupancy_simulator
-      state: 'off'
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: template
+        value_template: "{{ is_state('device_tracker.iphone','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
+      - condition: time
+        after: '08:00:00'
+        before: '22:00:00'
   action:
     - service: media_player.volume_set
       data:
-        entity_id: media_player.google_home
+        entity_id: media_player.broadcast
         volume_level: '0.50'
     - service: tts.google_say
-      entity_id: media_player.google_home
+      entity_id: media_player.broadcast
       data:
         message: 'De droger is klaar!'
 
@@ -54,9 +61,9 @@
         minutes: 10
   condition:
     - condition: template
-      value_template: "{{ is_state('device_tracker.iphonesjors','home') }}"
+      value_template: "{{ is_state('device_tracker.iphone','home') }}"
   action:
-    - service: notify.ios_iphonesjors
+    - service: notify.ios_iphone
       data:
         title: 'Droger: '
         message: Ik ben klaar!

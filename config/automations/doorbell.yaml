@@ -1,0 +1,70 @@
+- alias: "Doorbell notification - Sjors"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_button
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ is_state('device_tracker.iphone','home') }}"
+  action:
+    - service: notify.ios_iphone
+      data:
+        title: 'Deurbel: '
+        message: Er staat iemand voor de deur!
+
+- alias: "Doorbell notification - Saskia"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_button
+      to: 'on'
+  condition:
+    - condition: template
+      value_template: "{{ is_state('device_tracker.iphone_van_saskia','home') }}"
+  action:
+    - service: notify.ios_iphone_van_saskia
+      data:
+        title: 'Deurbel: '
+        message: Er staat iemand voor de deur!
+
+- alias: Doorbell - notificatie google home
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.doorbell_button
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.occupancy_simulator
+        state: 'off'
+      - condition: template
+        value_template: "{{ is_state('device_tracker.iphone','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
+      - condition: time
+        after: '08:00:00'
+        before: '22:00:00'
+  action:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.broadcast
+        volume_level: '0.50'
+    - service: tts.google_say
+      entity_id: media_player.broadcast
+      data:
+        message: 'Iemand heeft op de deurbel gedrukt'
+
+- alias: "DIsable doorbell after 20:00"
+  trigger:
+    platform: time
+    at: "20:00:00"
+  action:
+    service: switch.turn_off
+    entity_id: switch.doorbell_chime_active
+
+- alias: "Doorbell on after 07:00"
+  trigger:
+    platform: time
+    at: "07:00:00"
+  action:
+    service: switch.turn_on
+    entity_id: switch.doorbell_chime_active

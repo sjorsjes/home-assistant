@@ -163,6 +163,10 @@ media_player.google_home_mini:
   friendly_name: 'Google Home Mini'
   icon: mdi:dots-horizontal-circle-outline
 
+media_player.broadcast:
+  friendly_name: 'Google Broadcast'
+  icon: mdi:bullhorn-outline
+
 sensor.trash_gft_formatted:
   friendly_name: "GFT"
   entity_picture: /local/afvalwijzer/gft.png

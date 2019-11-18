@@ -54,7 +54,7 @@
         entity_id: input_boolean.enable_vacation
         state: 'off'
   action:
-    - service: notify.ios_iphonesjors
+    - service: notify.ios_iphone
       data:
         title: "Afval"
         message: 'Het is vandaag - {{ now().strftime("%d-%m-%Y") }}. Afvaltype(n): {{ states.sensor.trash_tomorrow.state }} wordt opgehaald op: {{ (as_timestamp(now()) + (24*3600)) | timestamp_custom("%d-%m-%Y", True) }}!'
