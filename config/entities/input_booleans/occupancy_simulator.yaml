@@ -1,0 +1,3 @@
+occupancy_simulator:
+  name: Occupancy Simulator
+  initial: 'on'

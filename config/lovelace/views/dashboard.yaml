@@ -1,0 +1,421 @@
+path: dashboard
+title: Dashboard
+icon: mdi:home-assistant
+panel: true
+background: >-
+  linear-gradient(to top right, rgba(43, 40, 50, 0.4) 0%,
+  rgba(83, 86, 99, 0.2) 45%,
+  rgba(69, 77, 91, 0.3) 60%)
+cards:
+  - cards:
+      - cards:
+          - template: sjors_picture_button
+            type: 'custom:decluttering-card'
+            variables:
+              - entity: person.sjors
+          - color: auto-no-temperature
+            entity: binary_sensor.babysitter
+            icon: 'mdi:account-child-circle'
+            show_state: true
+            state:
+              - color: var(--paper-green-400)
+                value: 'on'
+              - color: var(--paper-grey-500)
+                value: 'off'
+            style: |
+              ha-card {
+                padding-top: 15px !important;
+                background-color: rgba(0, 0, 0, 0);
+                box-shadow: none;
+              }
+              #img-cell {
+                padding: 0;
+              }
+              #icon {
+                border-radius: 50%;
+                height: 50px !important;
+                width: 50px !important;
+              }
+              #name {
+                display: none;
+              }
+              #state {
+                padding-top: 5px;
+              }
+            tap_action:
+              action: call-service
+              service: input_boolean.toggle
+              service_data:
+                entity_id: input_boolean.babysitter
+            type: 'custom:button-card'
+          - template: sjors_picture_button
+            type: 'custom:decluttering-card'
+            variables:
+              - entity: person.saskia
+        type: horizontal-stack
+      - content: |
+          # {{ states("sensor.time") }}
+          ### {{ states("sensor.date_formatted") }}
+        style: |
+          ha-card {
+            margin-top: 0;
+            margin-bottom: 0;
+            background-color: rgba(0, 0, 0, 0);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 200%;
+            box-shadow: none;
+            text-align: center;
+          }
+          h1, h3 {
+            font-weight: 300 !important;
+            margin: 0;
+          }
+        type: markdown
+      - content: >
+          {% if is_state("sensor.trash_first_next_in_days", "0") %}vandaag wordt {{ states("sensor.trash_today") }} opgehaald.
+          {% endif %}{% if is_state("sensor.trash_tomorrow", "Geen") %}Morgen wordt er niks opgehaald. {% else %}Morgen wordt {{ state("sensor.trash_tomorrow") }} opgehaald.
+          {% endif %}{% if is_state("sensor.trash_day_after_tomorrow", "Geen") %}Overmorgen wordt er niks opgehaald. {% else %}Overmorgen wordt {{ state("sensor.trash_day_after_tomorrow") }} opgehaald.
+          {% endif %}
+        style: |
+          ha-card {
+            margin-bottom: 0;
+            background-color: rgba(0, 0, 0, 0);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 100%;
+            box-shadow: none;
+            text-align: center;
+          }
+          h1, h3 {
+            font-weight: 300 !important;
+          }
+        type: markdown
+      - entity: weather.dark_sky
+        style: |
+          ha-card {
+            background-color: rgba(0, 0, 0, 0);
+            box-shadow: none;
+            text-align: center;
+          }
+        type: weather-forecast
+      - break
+      - type: "custom:power-usage-card"
+        title: "Actueel stroomverbruik"
+        total_power_usage: sensor.power_consumption
+        unknownText: "Onbekend"
+        entities:
+          - entity: sensor.energy_01_wattage
+            name: Koelkast
+          - entity: sensor.energy_02_wattage
+            name: Meterkast
+          - entity: sensor.energy_03_wattage
+            name: Wasmachine
+          - entity: sensor.energy_04_wattage
+            name: Droger
+          - entity: sensor.zwave_energy_01_wattage
+            name: Kantoor PC
+          - entity: sensor.zwave_energy_02_wattage
+            name: Stereo
+          - entity: sensor.zwave_energy_03_wattage
+            name: Vaatwasser
+          - entity: sensor.zwave_energy_04_wattage
+            name: TV
+      # - cards:
+      #     - cards:
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.woonkamer
+      #             - name: Woonkamer
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.keuken
+      #             - name: Keuken
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.eetkamer
+      #             - name: Eetkamer
+      #       type: horizontal-stack
+      #     - cards:
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.grote_slaapkamer
+      #             - name: Slaapkamer
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.nachtlamp_sjors
+      #             - name: Sjors
+      #             - state:
+      #                 - color: '#87c087'
+      #                   icon: 'mdi:desk-lamp'
+      #                   value: 'on'
+      #                 - color: '#BAC0C6'
+      #                   icon: 'mdi:desk-lamp'
+      #                   value: 'off'
+      #                 - color: '#ff0000'
+      #                   icon: 'mdi:desk-lamp'
+      #                   value: unavailable
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.nachtlamp_saskia
+      #             - name: Saskia
+      #             - state:
+      #                 - color: '#87c087'
+      #                   icon: 'mdi:desk-lamp'
+      #                   value: 'on'
+      #                 - color: '#BAC0C6'
+      #                   icon: 'mdi:desk-lamp'
+      #                   value: 'off'
+      #                 - color: '#ff0000'
+      #                   icon: 'mdi:desk-lamp'
+      #                   value: unavailable
+      #       type: horizontal-stack
+      #     - cards:
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.kantoor
+      #             - name: Kantoor
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.slaapkamer_saar
+      #             - name: Saar
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: light.slaapkamer_saar_leeslampje
+      #             - name: Leeslamp Saar
+      #       type: horizontal-stack
+      #     - cards:
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: switch.gevelverlichting
+      #             - name: Gevelverlichting
+      #         - template: sjors_button
+      #           type: 'custom:decluttering-card'
+      #           variables:
+      #             - entity: switch.lsc_switch_01_relay
+      #             - name: Kerstboom
+      #             - state:
+      #                 - color: '#87c087'
+      #                   icon: 'mdi:pine-tree'
+      #                   value: 'on'
+      #                 - color: '#BAC0C6'
+      #                   icon: 'mdi:pine-tree'
+      #                   value: 'off'
+      #                 - color: '#ff0000'
+      #                   icon: 'mdi:pine-tree'
+      #                   value: unavailable
+      #       type: horizontal-stack
+      #   type: 'custom:vertical-stack-in-card'
+      - break
+      - cards:
+          - cards:
+              - template: sjors_button
+                type: 'custom:decluttering-card'
+                variables:
+                  - entity: input_boolean.door_frontdoor
+                  - name: Voordeur
+                  - tap_action:
+                      action: toggle
+                  - state:
+                      - color: '#87c087'
+                        icon: 'mdi:door-open'
+                        value: 'on'
+                      - color: '#BAC0C6'
+                        icon: 'mdi:door'
+                        value: 'off'
+              - template: sjors_button
+                type: 'custom:decluttering-card'
+                variables:
+                  - entity: input_boolean.door_livingroom
+                  - name: Woonkamer deur
+                  - tap_action:
+                      action: toggle
+                  - state:
+                      - color: '#87c087'
+                        icon: 'mdi:door-open'
+                        value: 'on'
+                      - color: '#BAC0C6'
+                        icon: 'mdi:door'
+                        value: 'off'
+            type: horizontal-stack
+        type: 'custom:vertical-stack-in-card'
+      - cards:
+          - cards:
+              - template: sjors_button
+                type: 'custom:decluttering-card'
+                variables:
+                  - entity: switch.zwave_energy_04_relay
+                  - name: Televisie
+                  - state:
+                      - color: '#87c087'
+                        icon: 'mdi:television'
+                        value: 'on'
+                      - color: '#BAC0C6'
+                        icon: 'mdi:television-off'
+                        value: 'off'
+                      - color: '#87c087'
+                        icon: 'mdi:television-play'
+                        operator: template
+                        value: >
+                          return states['media_player.woonkamer'].state ==
+                          'playing'
+                      - color: '#ff0000'
+                        icon: 'mdi:television-pause'
+                        operator: template
+                        value: >
+                          return states['media_player.woonkamer'].state ==
+                          'paused'
+              - template: sjors_button
+                type: 'custom:decluttering-card'
+                variables:
+                  - entity: switch.stereo_switch
+                  - name: Stereo
+                  - state:
+                      - color: '#87c087'
+                        icon: 'mdi:speaker'
+                        value: 'on'
+                      - color: '#BAC0C6'
+                        icon: 'mdi:speaker-off'
+                        value: 'off'
+                      - color: '#87c087'
+                        icon: 'mdi:music'
+                        operator: template
+                        value: >
+                          return
+                          states['media_player.woonkamer_audio'].state ==
+                          'playing'
+                      - color: '#ff0000'
+                        icon: 'mdi:music-off'
+                        operator: template
+                        value: >
+                          return
+                          states['media_player.woonkamer_audio'].state ==
+                          'paused'
+            type: horizontal-stack
+        type: 'custom:vertical-stack-in-card'
+      - cards:
+          - cards:
+              - template: sjors_button
+                type: 'custom:decluttering-card'
+                variables:
+                  - entity: input_boolean.dishwasher_busy
+                  - name: Vaatwasser
+                  - lock:
+                      duration: 5
+                      enabled: true
+                      unlock: hold
+                  - tap_action:
+                      action: call-service
+                      service: switch.toggle
+                      service_data:
+                        entity_id: switch.zwave_energy_03_relay
+                  - state:
+                      - color: '#ff0000'
+                        icon: 'mdi:dishwasher'
+                        operator: template
+                        value: |
+                          [[[
+                            return states['switch.zwave_energy_03_relay'].state == 'off'
+                          ]]]
+                      - color: '#87c087'
+                        icon: 'mdi:dishwasher'
+                        spin: true
+                        value: 'on'
+                      - color: '#BAC0C6'
+                        icon: 'mdi:dishwasher'
+                        value: 'off'
+              - template: sjors_button
+                type: 'custom:decluttering-card'
+                variables:
+                  - entity: input_boolean.dryer_busy
+                  - name: Droger
+                  - lock:
+                      duration: 5
+                      enabled: true
+                      unlock: hold
+                  - tap_action:
+                      action: call-service
+                      service: switch.toggle
+                      service_data:
+                        entity_id: switch.energy_04_relay
+                  - state:
+                      - color: '#ff0000'
+                        icon: 'mdi:tumble-dryer'
+                        operator: template
+                        value: |
+                          [[[
+                            return states['switch.energy_04_relay'].state == 'off'
+                          ]]]
+                      - color: '#87c087'
+                        icon: 'mdi:tumble-dryer'
+                        spin: true
+                        value: 'on'
+                      - color: '#BAC0C6'
+                        icon: 'mdi:tumble-dryer'
+                        value: 'off'
+              - template: sjors_button
+                type: 'custom:decluttering-card'
+                variables:
+                  - entity: input_boolean.washingmachine_busy
+                  - name: Wasmachine
+                  - lock:
+                      duration: 5
+                      enabled: true
+                      unlock: hold
+                  - tap_action:
+                      action: call-service
+                      service: switch.toggle
+                      service_data:
+                        entity_id: switch.energy_03_relay
+                  - state:
+                      - color: '#ff0000'
+                        icon: 'mdi:washing-machine'
+                        operator: template
+                        value: |
+                          [[[
+                            return states['switch.energy_03_relay'].state == 'off'
+                          ]]]
+                      - color: '#87c087'
+                        icon: 'mdi:washing-machine'
+                        spin: true
+                        value: 'on'
+                      - color: '#BAC0C6'
+                        icon: 'mdi:washing-machine'
+                        value: 'off'
+            type: horizontal-stack
+        type: 'custom:vertical-stack-in-card'
+      - cards:
+          - color_thresholds:
+              - color: '#689F38'
+                value: 0.25
+              - color: '#33691E'
+                value: 0.5
+              - color: '#FF7043'
+                value: 1
+              - color: '#FF3D00'
+                value: 1.5
+            decimals: 4
+            entities:
+              - sensor.power_consumption
+            height: 98
+            hour24: true
+            hours_to_show: 0.5
+            name: Stroom verbruik
+            points_per_hour: 120
+            show:
+              fill: fade
+              graph: bar
+              icon: false
+              name: false
+            type: 'custom:mini-graph-card'
+        type: horizontal-stack
+    layout: vertical
+    type: 'custom:layout-card'

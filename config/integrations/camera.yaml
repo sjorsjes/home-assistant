@@ -1,0 +1,6 @@
+camera:
+  - platform: generic
+    still_image_url: !secret camera_image_url
+    stream_source: !secret camera_stream_url
+    username: !secret camera_username
+    password: !secret camera_password

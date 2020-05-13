@@ -1,0 +1,11 @@
+history:
+  include:
+    domains:
+      - sensor
+      - switch
+      - light
+      - binary_sensor
+  exclude:
+    entities:
+      - sensor.date
+      - sensor.time

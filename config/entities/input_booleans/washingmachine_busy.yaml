@@ -1,0 +1,4 @@
+washingmachine_busy:
+  name: Wasmachine bezig
+  initial: off
+  icon: "mdi:washing-machine"

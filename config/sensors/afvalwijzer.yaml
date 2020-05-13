@@ -1,5 +1,5 @@
 - platform: afvalwijzer
-  url: 'mijnafvalwijzer.nl'
-  postcode: !secret afvalwijzer_postcode
-  huisnummer: !secret afvalwijzer_huisnummer
-  label_geen: 'Geen'
+  zipcode: !secret afvalwijzer_postcode
+  housenumber: !secret afvalwijzer_huisnummer
+  count_today: true
+  default_label: 'Geen'

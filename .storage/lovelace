@@ -1,2158 +1,580 @@
 {
     "data": {
         "config": {
-            "cch": {
+            "custom_header": {
+                "compact_mode": true,
+                "editor_warnings": false,
                 "hide_help": true,
                 "hide_unused": true,
-                "sidebar_swipe": false,
-                "voice": "hide"
+                "shadow": false
             },
-            "decluttering_templates": {
-                "sjors_button": {
-                    "card": {
-                        "entity": "[[entity]]",
-                        "hold_action": "[[hold_action]]",
-                        "label": "[[[\n  if (typeof(entity) === 'undefined') return;\n\n  if ('brightness' in entity.attributes)\n  {\n    if (entity.attributes\n    && (entity.attributes.brightness <= 255)) {\n      var bri = Math.round(entity.attributes.brightness / 2.55);\n      return (bri ? bri : '0') + '%';\n    }\n  }\n]]]\n",
-                        "lock": "[[lock]]",
-                        "name": "[[name]]",
-                        "show_icon": "[[show_icon]]",
-                        "show_label": "[[show_label]]",
-                        "show_name": "[[show_name]]",
-                        "show_state": "[[show_state]]",
-                        "state": "[[state]]",
-                        "styles": {
-                            "card": [
-                                {
-                                    "padding": "20px 0"
-                                },
-                                {
-                                    "background-color": "rgba(0, 0, 0, 0)"
-                                },
-                                {
-                                    "box-shadow": "none"
-                                }
-                            ],
-                            "icon": [
-                                {
-                                    "width": "60%"
-                                }
-                            ],
-                            "img_cell": [
-                                {
-                                    "background-color": "#F5F5F5"
-                                },
-                                {
-                                    "border-radius": "50px"
-                                },
-                                {
-                                    "height": "50px"
-                                },
-                                {
-                                    "width": "50px"
-                                },
-                                {
-                                    "margin-bottom": "5px"
-                                }
-                            ],
-                            "label": [
-                                {
-                                    "color": "gray"
-                                },
-                                {
-                                    "font-size": "12px"
-                                },
-                                {
-                                    "padding": "5px 0"
-                                }
-                            ],
-                            "state": [
-                                {
-                                    "padding-top": "5px"
-                                }
-                            ]
-                        },
-                        "tap_action": "[[tap_action]]",
-                        "type": "custom:button-card"
-                    },
-                    "default": [
-                        {
-                            "hold_action": {
-                                "action": "none"
-                            }
-                        },
-                        {
-                            "lock": {
-                                "enabled": false
-                            }
-                        },
-                        {
-                            "show_icon": true
-                        },
-                        {
-                            "show_name": true
-                        },
-                        {
-                            "show_state": false
-                        },
-                        {
-                            "show_label": true
-                        },
-                        {
-                            "tap_action": {
-                                "action": "toggle"
-                            }
-                        },
-                        {
-                            "state": [
-                                {
-                                    "color": "#87c087",
-                                    "icon": "mdi:lightbulb-on-outline",
-                                    "value": "on"
-                                },
-                                {
-                                    "color": "#BAC0C6",
-                                    "icon": "mdi:lightbulb-off-outline",
-                                    "value": "off"
-                                },
-                                {
-                                    "color": "#ff0000",
-                                    "icon": "mdi:lightbulb-off-outline",
-                                    "value": "unavailable"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "sjors_button_basic": {
-                    "card": {
-                        "color": "#BAC0C6",
-                        "entity": "[[entity]]",
-                        "icon": "[[icon]]",
-                        "name": "[[name]]",
-                        "show_state": true,
-                        "style": "ha-card {\n  padding: 25px 0 !important;\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: none;\n}\nha-icon {\n  width: 60% !important;\n}\nimg {\n  width: 100%;\n}\n#img-cell {\n  background-color: #F5F5F5;\n  border-radius: 50px;\n  height: 50px !important;\n  width: 50px !important;\n}\n#state {\n  padding-top: 5px;\n}\n",
-                        "tap_action": {
-                            "action": "toggle"
-                        },
-                        "type": "custom:button-card"
-                    }
-                },
-                "sjors_entities": {
-                    "card": {
-                        "entities": "[[entities]]",
-                        "style": "ha-card {\n  min-height: 365px;\n}\n.card-header { padding-top: 1rem !important; }\n",
-                        "title": "[[title]]",
-                        "type": "entities"
-                    }
-                },
-                "sjors_mini_graph_left": {
-                    "card": {
-                        "entities": [
-                            "[[entity]]"
-                        ],
-                        "font_size": 75,
-                        "height": 65,
-                        "hour24": true,
-                        "line_color": "[[line_color]]",
-                        "show": {
-                            "fill": false,
-                            "icon": false,
-                            "name": false
-                        },
-                        "style": "ha-card {\n  max-height: 8vh !important;\n  padding-right: 4px !important;\n}\n",
-                        "type": "custom:mini-graph-card"
-                    },
-                    "default": {
-                        "line_color": "#FF9800"
-                    }
-                },
-                "sjors_mini_graph_right": {
-                    "card": {
-                        "entities": [
-                            "[[entity]]"
-                        ],
-                        "height": 65,
-                        "hour24": true,
-                        "line_color": "[[line_color]]",
-                        "show": {
-                            "fill": false,
-                            "icon": false,
-                            "name": false
-                        },
-                        "style": "ha-card {\n  padding-left: 4px !important;\n}\n",
-                        "type": "custom:mini-graph-card"
-                    },
-                    "default": {
-                        "line_color": "#1E88E5"
-                    }
-                },
-                "sjors_picture_button": {
-                    "card": {
-                        "entity": "[[entity]]",
-                        "show_entity_picture": true,
-                        "show_icon": true,
-                        "show_name": false,
-                        "show_state": true,
-                        "style": "ha-card {\n  padding-top: 15px !important;\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: none;\n}\nimg {\n  width: 100% !important;\n}\n#img-cell {\n  background-color: #F5F5F5;\n  border-radius: 50%;\n  height: 50px !important;\n  width: 50px !important;\n}\n#state {\n  padding-top: 5px;\n}\n",
-                        "tap_action": {
-                            "action": "more-info"
-                        },
-                        "type": "custom:button-card"
-                    }
-                }
-            },
-            "resources": [
-                {
-                    "type": "css",
-                    "url": "https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/compact-custom-header/compact-custom-header.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/mini-media-player/mini-media-player-bundle.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/button-card/button-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/mini-graph-card/mini-graph-card-bundle.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/decluttering-card/decluttering-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-layout-card/layout-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-card-tools/card-tools.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-card-mod/card-mod.js"
-                },
-                {
-                    "type": "js",
-                    "url": "/community_plugin/vertical-stack-in-card/vertical-stack-in-card.js"
-                },
-                {
-                    "type": "js",
-                    "url": "/community_plugin/upcoming-media-card/upcoming-media-card.js"
-                },
-                {
-                    "type": "js",
-                    "url": "/community_plugin/gauge-card/gauge-card.js"
-                }
-            ],
+            "title": "",
             "views": [
                 {
-                    "background": "right/auto linear-gradient(23deg, rgba(211,211,211,1) 0%, rgba(223,223,223,1) 34%, rgba(255,255,255,1) 100%)",
+                    "background": "center / cover no-repeat url(\"/local/bg.png\") fixed",
+                    "badges": [
+                        {
+                            "entity": "person.sjors"
+                        },
+                        {
+                            "entity": "input_boolean.babysitter"
+                        },
+                        {
+                            "entity": "person.saskia"
+                        }
+                    ],
                     "cards": [
                         {
                             "cards": [
                                 {
-                                    "cards": [
+                                    "columns": 2,
+                                    "entities": [
                                         {
-                                            "template": "sjors_picture_button",
-                                            "type": "custom:decluttering-card",
-                                            "variables": [
-                                                {
-                                                    "entity": "device_tracker.iphone"
-                                                }
-                                            ]
+                                            "entity": "sensor.power_consumption",
+                                            "name": "Stroom verbruik"
                                         },
                                         {
-                                            "color": "auto-no-temperature",
-                                            "entity": "binary_sensor.babysitter",
-                                            "icon": "mdi:account-child-circle",
-                                            "show_state": true,
-                                            "state": [
-                                                {
-                                                    "color": "var(--paper-green-400)",
-                                                    "value": "on"
-                                                },
-                                                {
-                                                    "color": "var(--paper-grey-500)",
-                                                    "value": "off"
-                                                }
-                                            ],
-                                            "style": "ha-card {\n  padding-top: 15px !important;\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: none;\n}\n#img-cell {\n  padding: 0;\n}\n#icon {\n  border-radius: 50%;\n  height: 50px !important;\n  width: 50px !important;\n}\n#name {\n  display: none;\n}\n#state {\n  padding-top: 5px;\n}\n",
+                                            "entity": "sensor.hourly_gas_consumption",
+                                            "name": "Gas verbruik"
+                                        },
+                                        {
+                                            "entity": "sensor.daily_yield",
+                                            "name": "Vandaag opgewekt"
+                                        },
+                                        {
+                                            "entity": "sensor.total_yield",
+                                            "name": "Totaal opgewekt"
+                                        }
+                                    ],
+                                    "theme": "slate",
+                                    "title": "Stroom & Gas",
+                                    "type": "glance"
+                                },
+                                {
+                                    "entity": "sensor.pv_power",
+                                    "max": 2500,
+                                    "min": 0,
+                                    "name": "Garage",
+                                    "severity": {
+                                        "green": 1000,
+                                        "red": 0,
+                                        "yellow": 250
+                                    },
+                                    "theme": "slate",
+                                    "type": "gauge"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "switch.zwave_energy_04_relay",
                                             "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_boolean.toggle",
-                                                "service_data": {
-                                                    "entity_id": "input_boolean.babysitter"
-                                                }
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "switch.zwave_energy_02_relay",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        }
+                                    ],
+                                    "show_state": false,
+                                    "theme": "slate",
+                                    "type": "glance"
+                                },
+                                {
+                                    "columns": 3,
+                                    "entities": [
+                                        {
+                                            "entity": "light.woonkamer",
+                                            "icon": "mdi:lightbulb-group-outline",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.keuken",
+                                            "icon": "mdi:lightbulb-group-outline",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.eetkamer",
+                                            "icon": "mdi:lightbulb-group-outline",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.hal",
+                                            "icon": "mdi:lightbulb-group-outline",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.overloop",
+                                            "icon": "mdi:lightbulb-group-outline",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.kantoor",
+                                            "icon": "mdi:lightbulb-group-outline",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.grote_slaapkamer",
+                                            "icon": "mdi:lightbulb-group-outline",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.nachtlamp_sjors",
+                                            "icon": "mdi:desk-lamp",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.nachtlamp_saskia",
+                                            "icon": "mdi:desk-lamp",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.slaapkamer_saar",
+                                            "icon": "mdi:lightbulb-group-outline",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "light.slaapkamer_saar_leeslampje",
+                                            "icon": "mdi:desk-lamp",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "switch.gevelverlichting",
+                                            "icon": "mdi:white-balance-iridescent",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "switch.tuinverlichting",
+                                            "icon": "mdi:spotlight-beam",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "switch.lsc_switch_01_relay",
+                                            "icon": "mdi:earth",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        }
+                                    ],
+                                    "show_state": false,
+                                    "theme": "slate",
+                                    "type": "glance"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.trash_gft"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_pbd"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_papier"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_restafval"
+                                        }
+                                    ],
+                                    "show_name": false,
+                                    "theme": "slate",
+                                    "type": "glance"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.trash_today",
+                                            "hold_action": {
+                                                "action": "none"
                                             },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "template": "sjors_picture_button",
-                                            "type": "custom:decluttering-card",
-                                            "variables": [
-                                                {
-                                                    "entity": "device_tracker.iphone_van_saskia"
-                                                }
-                                            ]
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "content": "# {{ states(\"sensor.time\") }}\n### {{ states(\"sensor.date_formatted\") }}\n",
-                                    "style": "ha-card {\n  margin-top: 5vh;\n  margin-bottom: 1vh;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 200%;\n  box-shadow: none;\n  text-align: center;\n}\nh1, h3 {\n  font-weight: 300 !important;\n  margin: 0;\n}\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "content": "{% if is_state(\"sensor.trash_firstdate\", \"vandaag\") %}{% else %}op{% endif %} {{ states(\"sensor.trash_firstdate\") }} wordt het {{ states(\"sensor.trash_firstwastetype\")[:-1]|lower }} opgehaald.\n",
-                                    "style": "ha-card {\n  margin-bottom: 3vh;\n  background-color: rgba(0, 0, 0, 0);\n  font-family: 'Open Sans', sans-serif;\n  font-size: 100%;\n  box-shadow: none;\n  text-align: center;\n}\nh1, h3 {\n  font-weight: 300 !important;\n}\n",
-                                    "type": "markdown"
-                                },
-                                {
-                                    "entity": "weather.dark_sky",
-                                    "style": "ha-card {\n  background-color: rgba(0, 0, 0, 0);\n  box-shadow: none;\n  text-align: center;\n}\n",
-                                    "type": "weather-forecast"
-                                },
-                                "break",
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "entities": [
-                                                        {
-                                                            "entity": "binary_sensor.doorbell_button",
-                                                            "name": "Deurbel",
-                                                            "secondary_info": "last-changed"
-                                                        }
-                                                    ],
-                                                    "show_header_toggle": false,
-                                                    "type": "entities"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.woonkamer"
-                                                        },
-                                                        {
-                                                            "name": "Woonkamer"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.keuken"
-                                                        },
-                                                        {
-                                                            "name": "Keuken"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.eetkamer"
-                                                        },
-                                                        {
-                                                            "name": "Eetkamer"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        },
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.grote_slaapkamer"
-                                                        },
-                                                        {
-                                                            "name": "Grote slaapkamer"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.slaapkamer_saar"
-                                                        },
-                                                        {
-                                                            "name": "Saar"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.slaapkamer_saar_leeslampje"
-                                                        },
-                                                        {
-                                                            "name": "Saar's leeslampje"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        },
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.kantoor"
-                                                        },
-                                                        {
-                                                            "name": "Kantoor"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "switch.tuya_switch"
-                                                        },
-                                                        {
-                                                            "name": "Globe"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "switch.gevelverlichting"
-                                                        },
-                                                        {
-                                                            "name": "Gevelverlichting"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "switch.tv_switch"
-                                                        },
-                                                        {
-                                                            "name": "Televisie"
-                                                        },
-                                                        {
-                                                            "state": [
-                                                                {
-                                                                    "color": "#87c087",
-                                                                    "icon": "mdi:television",
-                                                                    "value": "on"
-                                                                },
-                                                                {
-                                                                    "color": "#BAC0C6",
-                                                                    "icon": "mdi:television-off",
-                                                                    "value": "off"
-                                                                },
-                                                                {
-                                                                    "color": "#87c087",
-                                                                    "icon": "mdi:television-play",
-                                                                    "operator": "template",
-                                                                    "value": "return states['media_player.woonkamer'].state == 'playing'\n"
-                                                                },
-                                                                {
-                                                                    "color": "#ff0000",
-                                                                    "icon": "mdi:television-pause",
-                                                                    "operator": "template",
-                                                                    "value": "return states['media_player.woonkamer'].state == 'paused'\n"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "switch.stereo_switch"
-                                                        },
-                                                        {
-                                                            "name": "Stereo"
-                                                        },
-                                                        {
-                                                            "state": [
-                                                                {
-                                                                    "color": "#87c087",
-                                                                    "icon": "mdi:speaker",
-                                                                    "value": "on"
-                                                                },
-                                                                {
-                                                                    "color": "#BAC0C6",
-                                                                    "icon": "mdi:speaker-off",
-                                                                    "value": "off"
-                                                                },
-                                                                {
-                                                                    "color": "#87c087",
-                                                                    "icon": "mdi:music",
-                                                                    "operator": "template",
-                                                                    "value": "return states['media_player.woonkamer_audio'].state == 'playing'\n"
-                                                                },
-                                                                {
-                                                                    "color": "#ff0000",
-                                                                    "icon": "mdi:music-off",
-                                                                    "operator": "template",
-                                                                    "value": "return states['media_player.woonkamer_audio'].state == 'paused'\n"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "input_boolean.dishwasher_busy"
-                                                        },
-                                                        {
-                                                            "name": "Vaatwasser"
-                                                        },
-                                                        {
-                                                            "lock": {
-                                                                "duration": 5,
-                                                                "enabled": true,
-                                                                "unlock": "hold"
-                                                            }
-                                                        },
-                                                        {
-                                                            "tap_action": {
-                                                                "action": "call-service",
-                                                                "service": "switch.toggle",
-                                                                "service_data": {
-                                                                    "entity_id": "switch.vaatwasser_switch"
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            "state": [
-                                                                {
-                                                                    "color": "#ff0000",
-                                                                    "icon": "mdi:dishwasher",
-                                                                    "operator": "template",
-                                                                    "value": "[[[\n  return states['switch.vaatwasser_switch'].state == 'off'\n]]]\n"
-                                                                },
-                                                                {
-                                                                    "color": "#87c087",
-                                                                    "icon": "mdi:dishwasher",
-                                                                    "spin": true,
-                                                                    "value": "on"
-                                                                },
-                                                                {
-                                                                    "color": "#BAC0C6",
-                                                                    "icon": "mdi:dishwasher",
-                                                                    "value": "off"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "input_boolean.dryer_busy"
-                                                        },
-                                                        {
-                                                            "name": "Droger"
-                                                        },
-                                                        {
-                                                            "lock": {
-                                                                "duration": 5,
-                                                                "enabled": true,
-                                                                "unlock": "hold"
-                                                            }
-                                                        },
-                                                        {
-                                                            "tap_action": {
-                                                                "action": "call-service",
-                                                                "service": "switch.toggle",
-                                                                "service_data": {
-                                                                    "entity_id": "switch.droger_switch"
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            "state": [
-                                                                {
-                                                                    "color": "#ff0000",
-                                                                    "icon": "mdi:tumble-dryer",
-                                                                    "operator": "template",
-                                                                    "value": "[[[\n  return states['switch.droger_switch'].state == 'off'\n]]]\n"
-                                                                },
-                                                                {
-                                                                    "color": "#87c087",
-                                                                    "icon": "mdi:tumble-dryer",
-                                                                    "spin": true,
-                                                                    "value": "on"
-                                                                },
-                                                                {
-                                                                    "color": "#BAC0C6",
-                                                                    "icon": "mdi:tumble-dryer",
-                                                                    "value": "off"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "input_boolean.washingmachine_busy"
-                                                        },
-                                                        {
-                                                            "name": "Wasmachine"
-                                                        },
-                                                        {
-                                                            "lock": {
-                                                                "duration": 5,
-                                                                "enabled": true,
-                                                                "unlock": "hold"
-                                                            }
-                                                        },
-                                                        {
-                                                            "tap_action": {
-                                                                "action": "call-service",
-                                                                "service": "switch.toggle",
-                                                                "service_data": {
-                                                                    "entity_id": "switch.wasmachine_switch"
-                                                                }
-                                                            }
-                                                        },
-                                                        {
-                                                            "state": [
-                                                                {
-                                                                    "color": "#ff0000",
-                                                                    "icon": "mdi:washing-machine",
-                                                                    "operator": "template",
-                                                                    "value": "[[[\n  return states['switch.wasmachine_switch'].state == 'off'\n]]]\n"
-                                                                },
-                                                                {
-                                                                    "color": "#87c087",
-                                                                    "icon": "mdi:washing-machine",
-                                                                    "spin": true,
-                                                                    "value": "on"
-                                                                },
-                                                                {
-                                                                    "color": "#BAC0C6",
-                                                                    "icon": "mdi:washing-machine",
-                                                                    "value": "off"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                "break",
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor_temperature"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_mini_graph_right",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor_humidity"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Woonkamer",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor04_temperature"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_mini_graph_right",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor04_humidity"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Slaapkamer Saar",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor02_temperature"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_mini_graph_right",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor02_humidity"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Zolder",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor03_temperature"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_mini_graph_right",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor03_humidity"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Buiten",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "color_thresholds": [
-                                                {
-                                                    "color": "#689F38",
-                                                    "value": 0.25
-                                                },
-                                                {
-                                                    "color": "#33691E",
-                                                    "value": 0.5
-                                                },
-                                                {
-                                                    "color": "#FF7043",
-                                                    "value": 1
-                                                },
-                                                {
-                                                    "color": "#FF3D00",
-                                                    "value": 1.5
-                                                }
-                                            ],
-                                            "decimals": 4,
-                                            "entities": [
-                                                "sensor.power_consumption"
-                                            ],
-                                            "height": 98,
-                                            "hour24": true,
-                                            "hours_to_show": 0.5,
-                                            "name": "Stroom verbruik",
-                                            "points_per_hour": 120,
-                                            "show": {
-                                                "fill": "fade",
-                                                "graph": "bar",
-                                                "icon": false,
-                                                "name": false
+                                            "name": "Vandaag",
+                                            "show_state": false,
+                                            "state_image": {
+                                                "Geen": "/local/afvalwijzer/kliko.png",
+                                                "gft": "/local/afvalwijzer/gft_large.png",
+                                                "papier": "/local/afvalwijzer/papier_large.png",
+                                                "pbd": "/local/afvalwijzer/plastic_large.png",
+                                                "rest": "/local/afvalwijzer/rest_large.png"
                                             },
-                                            "type": "custom:mini-graph-card"
+                                            "tap_action": {
+                                                "action": "none"
+                                            },
+                                            "theme": "slate",
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_tomorrow",
+                                            "hold_action": {
+                                                "action": "none"
+                                            },
+                                            "name": "Morgen",
+                                            "show_state": false,
+                                            "state_image": {
+                                                "Geen": "/local/afvalwijzer/kliko.png",
+                                                "gft": "/local/afvalwijzer/gft_large.png",
+                                                "papier": "/local/afvalwijzer/papier_large.png",
+                                                "pbd": "/local/afvalwijzer/plastic_large.png",
+                                                "rest": "/local/afvalwijzer/rest_large.png"
+                                            },
+                                            "tap_action": {
+                                                "action": "none"
+                                            },
+                                            "theme": "slate",
+                                            "type": "picture-entity"
+                                        },
+                                        {
+                                            "entity": "sensor.trash_day_after_tomorrow",
+                                            "hold_action": {
+                                                "action": "none"
+                                            },
+                                            "name": "Overmorgen",
+                                            "show_state": false,
+                                            "state_image": {
+                                                "Geen": "/local/afvalwijzer/kliko.png",
+                                                "gft": "/local/afvalwijzer/gft_large.png",
+                                                "papier": "/local/afvalwijzer/papier_large.png",
+                                                "pbd": "/local/afvalwijzer/plastic_large.png",
+                                                "rest": "/local/afvalwijzer/rest_large.png"
+                                            },
+                                            "tap_action": {
+                                                "action": "none"
+                                            },
+                                            "theme": "slate",
+                                            "type": "picture-entity"
                                         }
                                     ],
                                     "type": "horizontal-stack"
                                 }
                             ],
-                            "layout": "vertical",
-                            "type": "custom:layout-card"
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "aspect_ratio": "56.25%",
+                            "camera_image": "camera.generic_camera",
+                            "camera_view": "live",
+                            "entities": [],
+                            "hold_action": {
+                                "action": "none"
+                            },
+                            "image": "camera.generic_camera",
+                            "tap_action": {
+                                "action": "none"
+                            },
+                            "theme": "slate",
+                            "type": "picture-glance"
                         }
                     ],
-                    "panel": true,
+                    "path": "default_view",
                     "title": "Home"
                 },
                 {
-                    "background": "right/auto linear-gradient(23deg, rgba(211,211,211,1) 0%, rgba(223,223,223,1) 34%, rgba(255,255,255,1) 100%)",
+                    "badges": [],
                     "cards": [
                         {
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.woonkamer_lamp"
-                                                        },
-                                                        {
-                                                            "name": "Lamp"
-                                                        },
-                                                        {
-                                                            "hold_action": {
-                                                                "action": "more-info"
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.woonkamer_spot_1"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 1"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.woonkamer_spot_3"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 3"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.woonkamer_spot_2"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 2"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.woonkamer_spot_4"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 4"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Woonkamer",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.keuken_spot_1"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 1"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.keuken_spot_4"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 4"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.keuken_spot_2"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 2"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.keuken_spot_5"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 5"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.keuken_spot_3"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 3"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.keuken_spot_6"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 6"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Keuken",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.eetkamer_tafel_lamp_1"
-                                                                },
-                                                                {
-                                                                    "name": "Lamp 1"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.eetkamer_spot_1"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 1"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.eetkamer_tafel_lamp_2"
-                                                                },
-                                                                {
-                                                                    "name": "Lamp 2"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.eetkamer_spot_2"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 2"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.eetkamer_tafel_lamp_3"
-                                                                },
-                                                                {
-                                                                    "name": "Lamp 3"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Eetkamer",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                "break",
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_button",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "light.slaapkamer_saar_leeslampje"
-                                                        },
-                                                        {
-                                                            "name": "Leeslampje"
-                                                        },
-                                                        {
-                                                            "hold_action": {
-                                                                "action": "more-info"
-                                                            }
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.slaapkamer_saar_spot_1"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 1"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.slaapkamer_saar_spot_3"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 3"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.slaapkamer_saar_spot_2"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 2"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.slaapkamer_saar_spot_4"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 4"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Woonkamer",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.grote_slaapkamer_spot_1"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 1"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.grote_slaapkamer_spot_4"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 4"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.grote_slaapkamer_spot_2"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 2"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.grote_slaapkamer_spot_3"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 3"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Grote slaapkamer",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.kantoor_spot_1"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 1"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.kantoor_spot_4"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 4"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.kantoor_spot_2"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 2"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "light.kantoor_spot_3"
-                                                                },
-                                                                {
-                                                                    "name": "Spot 3"
-                                                                },
-                                                                {
-                                                                    "hold_action": {
-                                                                        "action": "more-info"
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Kantoor",
-                                    "type": "custom:vertical-stack-in-card"
-                                }
-                            ],
-                            "layout": "horizontal",
-                            "type": "custom:layout-card"
-                        }
-                    ],
-                    "panel": true,
-                    "title": "Lampen"
-                },
-                {
-                    "background": "right/auto linear-gradient(23deg, rgba(211,211,211,1) 0%, rgba(223,223,223,1) 34%, rgba(255,255,255,1) 100%)",
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "sensor.synology_dsm_cpu_load_total",
-                                            "scale": "45px",
-                                            "title": "CPU",
-                                            "type": "custom:gauge-card"
-                                        },
-                                        {
-                                            "entity": "sensor.synology_dsm_memory_usage_real",
-                                            "scale": "45px",
-                                            "title": "Memory",
-                                            "type": "custom:gauge-card"
-                                        }
-                                    ],
-                                    "title": "Synology NAS",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                "break",
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor_temperature"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_mini_graph_right",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor_humidity"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Woonkamer",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor02_temperature"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_mini_graph_right",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor02_humidity"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Zolder",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor03_temperature"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "template": "sjors_mini_graph_right",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.multisensor03_humidity"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Buiten",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                "break",
-                                {
-                                    "cards": [
-                                        {
-                                            "decimals": 4,
-                                            "entities": [
-                                                "sensor.power_consumption"
-                                            ],
-                                            "height": 98,
-                                            "hour24": true,
-                                            "hours_to_show": 0.5,
-                                            "line_color": "#D84315",
-                                            "name": "Stroom verbruik",
-                                            "points_per_hour": 120,
-                                            "show": {
-                                                "graph": "bar",
-                                                "icon": false,
-                                                "name": false
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        }
-                                    ],
-                                    "title": "Stroom verbruik",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "decimals": 4,
-                                            "entities": [
-                                                "sensor.hourly_gas_consumption"
-                                            ],
-                                            "height": 98,
-                                            "hour24": true,
-                                            "hours_to_show": 0.5,
-                                            "line_color": "#FDD835",
-                                            "name": "Stroom verbruik",
-                                            "points_per_hour": 120,
-                                            "show": {
-                                                "graph": "bar",
-                                                "icon": false,
-                                                "name": false
-                                            },
-                                            "type": "custom:mini-graph-card"
-                                        }
-                                    ],
-                                    "title": "Gas verbruik",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                "break",
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.vaatwasser_verbruik"
-                                                        },
-                                                        {
-                                                            "line_color": "#D84315"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Vaatwasser",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.wasmachine_verbruik"
-                                                        },
-                                                        {
-                                                            "line_color": "#D84315"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Wasmachine",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.droger_verbruik"
-                                                        },
-                                                        {
-                                                            "line_color": "#D84315"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Droger",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.tv_verbruik"
-                                                        },
-                                                        {
-                                                            "line_color": "#D84315"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "TV",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "template": "sjors_mini_graph_left",
-                                                    "type": "custom:decluttering-card",
-                                                    "variables": [
-                                                        {
-                                                            "entity": "sensor.nas_verbruik"
-                                                        },
-                                                        {
-                                                            "line_color": "#D84315"
-                                                        }
-                                                    ]
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "NAS",
-                                    "type": "custom:vertical-stack-in-card"
-                                }
-                            ],
-                            "layout": "vertical",
-                            "type": "custom:layout-card"
-                        }
-                    ],
-                    "layout": "vertical",
-                    "panel": true,
-                    "title": "Sensoren",
-                    "type": "custom:layout-card"
-                },
-                {
-                    "background": "right/auto linear-gradient(23deg, rgba(211,211,211,1) 0%, rgba(223,223,223,1) 34%, rgba(255,255,255,1) 100%)",
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "all_shadows": false,
-                                    "clock": 24,
-                                    "date": "ddmm",
-                                    "entity": "sensor.plex_recently_added_2",
-                                    "image_style": "fanart",
-                                    "max": 3,
-                                    "title": "Recently Downloaded Movies",
-                                    "type": "custom:upcoming-media-card"
-                                },
-                                "break",
-                                {
-                                    "all_shadows": false,
-                                    "clock": 24,
-                                    "date": "ddmm",
-                                    "entity": "sensor.plex_recently_added",
-                                    "image_style": "fanart",
-                                    "max": 3,
-                                    "title": "Recently Downloaded Series",
-                                    "type": "custom:upcoming-media-card"
-                                }
-                            ],
-                            "layout": "vertical",
-                            "type": "custom:layout-card"
-                        }
-                    ],
-                    "panel": true,
-                    "title": "Media"
-                },
-                {
-                    "background": "right/auto linear-gradient(23deg, rgba(211,211,211,1) 0%, rgba(223,223,223,1) 34%, rgba(255,255,255,1) 100%)",
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_automations"
-                                                                },
-                                                                {
-                                                                    "name": "Automations"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:autorenew"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_input_booleans"
-                                                                },
-                                                                {
-                                                                    "name": "Input booleans"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:toggle-switch"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_input_selects"
-                                                                },
-                                                                {
-                                                                    "name": "Input selects"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:view-list"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_sensors"
-                                                                },
-                                                                {
-                                                                    "name": "Sensors"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:resistor"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_binary_sensors"
-                                                                },
-                                                                {
-                                                                    "name": "Binary sensors"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:unfold-more-horizontal"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_input_datetimes"
-                                                                },
-                                                                {
-                                                                    "name": "Input date time"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:calendar-clock"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_input_texts"
-                                                                },
-                                                                {
-                                                                    "name": "Input texts"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:alphabetical"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_switches"
-                                                                },
-                                                                {
-                                                                    "name": "Switches"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:light-switch"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_device_trackers"
-                                                                },
-                                                                {
-                                                                    "name": "Device trackers"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:map-marker"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_input_numbers"
-                                                                },
-                                                                {
-                                                                    "name": "Input numbers"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:numeric"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_scripts"
-                                                                },
-                                                                {
-                                                                    "name": "Scripts"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:script-text-outline"
-                                                                }
-                                                            ]
-                                                        },
-                                                        {
-                                                            "template": "sjors_button_basic",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "sensor.count_zones"
-                                                                },
-                                                                {
-                                                                    "name": "Zones"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:map-marker-radius"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                }
-                                            ],
-                                            "type": "horizontal-stack"
-                                        }
-                                    ],
-                                    "title": "Components",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                "break",
-                                {
-                                    "cards": [
-                                        {
-                                            "cards": [
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "template": "sjors_button",
-                                                            "type": "custom:decluttering-card",
-                                                            "variables": [
-                                                                {
-                                                                    "entity": "input_boolean.play_saskia_pick_up_sound"
-                                                                },
-                                                                {
-                                                                    "name": "Saskia neem je telefoon op"
-                                                                },
-                                                                {
-                                                                    "icon": "mdi:bullhorn-outline"
-                                                                }
-                                                            ]
-                                                        }
-                                                    ],
-                                                    "type": "horizontal-stack"
-                                                },
-                                                {
-                                                    "cards": [
-                                                        {
-                                                            "entity": "media_player.google_home",
-                                                            "name": "Woonkamer",
-                                                            "tts": {
-                                                                "platform": "google"
-                                                            },
-                                                            "type": "custom:mini-media-player"
-                                                        },
-                                                        {
-                                                            "entity": "media_player.google_home_mini",
-                                                            "name": "Slaapkamer",
-                                                            "tts": {
-                                                                "platform": "google"
-                                                            },
-                                                            "type": "custom:mini-media-player"
-                                                        }
-                                                    ],
-                                                    "type": "vertical-stack"
-                                                }
-                                            ],
-                                            "type": "vertical-stack"
-                                        }
-                                    ],
-                                    "title": "Intercom",
-                                    "type": "custom:vertical-stack-in-card"
-                                },
-                                "break",
+                            "entities": [
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_boolean.occupancy_simulator",
-                                            "icon": "mdi:run-fast"
-                                        },
-                                        {
-                                            "entity": "input_boolean.enable_vacation",
-                                            "icon": "mdi:beach"
+                                            "entity": "sensor.zwave_energy_01_wattage",
+                                            "name": "wattage"
                                         }
                                     ],
-                                    "show_header_toggle": false,
-                                    "type": "entities"
+                                    "entity": "sensor.zwave_energy_01_total_daily_energy",
+                                    "type": "custom:multiple-entity-row"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "input_boolean.alarm_enabled"
-                                        },
-                                        {
-                                            "entity": "input_number.alarm_hour"
-                                        },
-                                        {
-                                            "entity": "input_number.alarm_minutes"
+                                            "entity": "sensor.zwave_energy_02_wattage",
+                                            "name": "wattage"
                                         }
                                     ],
-                                    "show_header_toggle": false,
-                                    "title": "Wekker",
-                                    "type": "entities"
+                                    "entity": "sensor.zwave_energy_02_total_daily_energy",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zwave_energy_03_wattage",
+                                            "name": "wattage"
+                                        }
+                                    ],
+                                    "entity": "sensor.zwave_energy_03_total_daily_energy",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zwave_energy_04_wattage",
+                                            "name": "wattage"
+                                        }
+                                    ],
+                                    "entity": "sensor.zwave_energy_04_total_daily_energy",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.energy_01_wattage",
+                                            "name": "wattage"
+                                        },
+                                        {
+                                            "entity": "sensor.energy_01_amperage",
+                                            "name": "wattage"
+                                        }
+                                    ],
+                                    "entity": "sensor.energy_01_total_daily_energy",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.energy_02_wattage",
+                                            "name": "wattage"
+                                        },
+                                        {
+                                            "entity": "sensor.energy_02_amperage",
+                                            "name": "wattage"
+                                        }
+                                    ],
+                                    "entity": "sensor.energy_02_total_daily_energy",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.energy_03_wattage",
+                                            "name": "wattage"
+                                        },
+                                        {
+                                            "entity": "sensor.energy_03_amperage",
+                                            "name": "wattage"
+                                        }
+                                    ],
+                                    "entity": "sensor.energy_03_total_daily_energy",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.energy_04_wattage",
+                                            "name": "wattage"
+                                        },
+                                        {
+                                            "entity": "sensor.energy_04_amperage",
+                                            "name": "wattage"
+                                        }
+                                    ],
+                                    "entity": "sensor.energy_04_total_daily_energy",
+                                    "type": "custom:multiple-entity-row"
                                 }
                             ],
-                            "layout": "vertical",
-                            "type": "custom:layout-card"
+                            "show_header_toggle": false,
+                            "title": "Verbruik vandaag",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.multisensor01_temperature",
+                                    "name": "woonkamer"
+                                },
+                                {
+                                    "entity": "sensor.hue_motion_sensor_1_temperature_2",
+                                    "name": "hal"
+                                },
+                                {
+                                    "entity": "sensor.hue_motion_sensor_1_temperature",
+                                    "name": "overloop"
+                                },
+                                {
+                                    "entity": "sensor.multisensor02_temperature",
+                                    "name": "zolder"
+                                },
+                                {
+                                    "entity": "sensor.multisensor03_temperature",
+                                    "name": "buiten"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_temperature",
+                                    "name": "darksky buiten"
+                                }
+                            ],
+                            "hours_to_show": 6,
+                            "refresh_interval": 0,
+                            "title": "Temperatuur - laatste 6 uur",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.multisensor01_humidity",
+                                    "name": "Woonkamer"
+                                },
+                                {
+                                    "entity": "sensor.multisensor02_humidity",
+                                    "name": "Zolder"
+                                },
+                                {
+                                    "entity": "sensor.multisensor03_humidity",
+                                    "name": "Buiten"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_humidity",
+                                    "name": "darksky buiten"
+                                }
+                            ],
+                            "hours_to_show": 6,
+                            "refresh_interval": 0,
+                            "title": "Humidity - laatste 6 uur",
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.multisensor01_brightness",
+                                    "name": "Woonkamer"
+                                },
+                                {
+                                    "entity": "sensor.hue_motion_sensor_1_light_level_2",
+                                    "name": "Hal"
+                                },
+                                {
+                                    "entity": "sensor.multisensor02_brightness",
+                                    "name": "Zolder"
+                                },
+                                {
+                                    "entity": "sensor.multisensor03_brightness",
+                                    "name": "Buiten"
+                                },
+                                {
+                                    "entity": "sensor.hue_motion_sensor_1_light_level",
+                                    "name": "Overloop"
+                                }
+                            ],
+                            "hours_to_show": 6,
+                            "refresh_interval": 0,
+                            "title": "Lux - laatste 6 uur",
+                            "type": "history-graph"
                         }
                     ],
-                    "panel": true,
+                    "path": "sensors",
+                    "title": "Sensors"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.google_nest_hub",
+                            "name": "Woonkamer",
+                            "toggle_power": false,
+                            "tts": {
+                                "platform": "google"
+                            },
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "entity": "media_player.google_home",
+                            "name": "Kantoor",
+                            "toggle_power": false,
+                            "tts": {
+                                "platform": "google"
+                            },
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "entity": "media_player.google_home_mini",
+                            "name": "Slaapkamer",
+                            "toggle_power": false,
+                            "tts": {
+                                "platform": "google"
+                            },
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "entity": "input_boolean.play_saskia_pick_up_sound",
+                            "hold_action": {
+                                "action": "none"
+                            },
+                            "show_icon": true,
+                            "show_name": true,
+                            "state_color": true,
+                            "tap_action": {
+                                "action": "toggle"
+                            },
+                            "theme": "slate",
+                            "type": "button"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "sensor.steps",
+                                    "max": 10000,
+                                    "min": 0,
+                                    "name": "Sjors",
+                                    "severity": {
+                                        "green": 7500,
+                                        "red": 0,
+                                        "yellow": 2500
+                                    },
+                                    "theme": "slate",
+                                    "type": "gauge"
+                                },
+                                {
+                                    "entity": "sensor.steps_2",
+                                    "max": 10000,
+                                    "min": 0,
+                                    "name": "Saskia",
+                                    "severity": {
+                                        "green": 7500,
+                                        "red": 0,
+                                        "yellow": 2500
+                                    },
+                                    "theme": "slate",
+                                    "type": "gauge"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        }
+                    ],
+                    "path": "Speakers",
                     "title": "Overig"
                 }
             ]

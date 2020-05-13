@@ -1,0 +1,194 @@
+sjors_button:
+  card:
+    entity: '[[entity]]'
+    hold_action: '[[hold_action]]'
+    label: |
+      [[[
+        if (typeof(entity) === 'undefined') return;
+
+        if ('brightness' in entity.attributes)
+        {
+          if (entity.attributes
+          && (entity.attributes.brightness <= 255)) {
+            var bri = Math.round(entity.attributes.brightness / 2.55);
+            return (bri ? bri : '0') + '%';
+          }
+        }
+      ]]]
+    lock: '[[lock]]'
+    name: '[[name]]'
+    show_icon: '[[show_icon]]'
+    show_label: '[[show_label]]'
+    show_name: '[[show_name]]'
+    show_state: '[[show_state]]'
+    state: '[[state]]'
+    styles:
+      card:
+        - padding: 20px 0
+        - background-color: 'rgba(0, 0, 0, 0)'
+        - box-shadow: none
+      icon:
+        - width: 60%
+      img_cell:
+        - background-color: '#F5F5F5'
+        - border-radius: 50px
+        - height: 50px
+        - width: 50px
+        - margin-bottom: 5px
+      label:
+        - color: gray
+        - font-size: 12px
+        - padding: 5px 0
+      state:
+        - padding-top: 5px
+    tap_action: '[[tap_action]]'
+    type: 'custom:button-card'
+  default:
+    - hold_action:
+        action: none
+    - lock:
+        enabled: false
+    - show_icon: true
+    - show_name: true
+    - show_state: false
+    - show_label: true
+    - tap_action:
+        action: toggle
+    - state:
+        - color: '#87c087'
+          icon: 'mdi:lightbulb-on-outline'
+          value: 'on'
+        - color: '#BAC0C6'
+          icon: 'mdi:lightbulb-off-outline'
+          value: 'off'
+        - color: '#ff0000'
+          icon: 'mdi:lightbulb-off-outline'
+          value: unavailable
+sjors_button_basic:
+  card:
+    color: '#BAC0C6'
+    entity: '[[entity]]'
+    icon: '[[icon]]'
+    name: '[[name]]'
+    show_state: true
+    style: |
+      ha-card {
+        padding: 25px 0 !important;
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: none;
+      }
+      ha-icon {
+        width: 60% !important;
+      }
+      img {
+        width: 100%;
+      }
+      #img-cell {
+        background-color: #F5F5F5;
+        border-radius: 50px;
+        height: 50px !important;
+        width: 50px !important;
+      }
+      #state {
+        padding-top: 5px;
+      }
+    tap_action:
+      action: toggle
+    type: 'custom:button-card'
+sjors_entities:
+  card:
+    entities: '[[entities]]'
+    style: |
+      ha-card {
+        min-height: 365px;
+      }
+      .card-header { padding-top: 1rem !important; }
+    title: '[[title]]'
+    type: entities
+sjors_mini_graph_basic:
+  card:
+    entities:
+      - '[[entity]]'
+    font_size: 75
+    height: 40
+    hour24: true
+    line_color: '[[line_color]]'
+    name: '[[name]]'
+    show:
+      fill: false
+      icon: false
+    style: |
+      ha-card {
+        max-height: 8vh !important;
+        padding-right: 4px !important;
+      }
+    type: 'custom:mini-graph-card'
+  default:
+    line_color: '#FF9800'
+sjors_mini_graph_left:
+  card:
+    entities:
+      - '[[entity]]'
+    font_size: 75
+    height: 40
+    hour24: true
+    line_color: '[[line_color]]'
+    show:
+      fill: false
+      icon: false
+      name: false
+    style: |
+      ha-card {
+        max-height: 8vh !important;
+        padding-right: 4px !important;
+      }
+    type: 'custom:mini-graph-card'
+  default:
+    line_color: '#FF9800'
+sjors_mini_graph_right:
+  card:
+    entities:
+      - '[[entity]]'
+    font_size: 75
+    height: 40
+    hour24: true
+    line_color: '[[line_color]]'
+    show:
+      fill: false
+      icon: false
+      name: false
+    style: |
+      ha-card {
+        padding-left: 4px !important;
+      }
+    type: 'custom:mini-graph-card'
+  default:
+    line_color: '#1E88E5'
+sjors_picture_button:
+  card:
+    entity: '[[entity]]'
+    show_entity_picture: true
+    show_icon: true
+    show_name: false
+    show_state: true
+    style: |
+      ha-card {
+        padding-top: 15px !important;
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: none;
+      }
+      img {
+        width: 100% !important;
+      }
+      #img-cell {
+        background-color: #F5F5F5;
+        border-radius: 50%;
+        height: 50px !important;
+        width: 50px !important;
+      }
+      #state {
+        padding-top: 5px;
+      }
+    tap_action:
+      action: more-info
+    type: 'custom:button-card'

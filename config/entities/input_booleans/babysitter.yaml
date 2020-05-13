@@ -1,0 +1,4 @@
+babysitter:
+  name: Oppas
+  initial: 'off'
+  icon: "mdi:account-child"

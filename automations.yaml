@@ -1,0 +1,12 @@
+- id: '1583864694414'
+  alias: Droger is bezig
+  description: ''
+  trigger:
+  - above: '2'
+    entity_id: sensor.energy_04_wattage
+    platform: numeric_state
+  condition: []
+  action:
+  - data: {}
+    entity_id: input_boolean.dryer_busy
+    service: input_boolean.turn_on

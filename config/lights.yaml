@@ -1,6 +1,0 @@
-- platform: group
-  name: All hue lights
-  entities:
-    - light.woonkamer
-    - light.eetkamer
-    - light.keuken

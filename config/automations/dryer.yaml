@@ -3,7 +3,7 @@
   trigger:
     - platform: numeric_state
       above: '2'
-      entity_id: sensor.droger_verbruik
+      entity_id: sensor.energy_04_wattage
   action:
     - service: input_boolean.turn_on
       data:
@@ -14,7 +14,7 @@
   trigger:
     - platform: numeric_state
       below: '1.5'
-      entity_id: sensor.droger_verbruik
+      entity_id: sensor.energy_04_wattage
   action:
     - service: input_boolean.turn_off
       data:
@@ -36,7 +36,7 @@
         entity_id: input_boolean.occupancy_simulator
         state: 'off'
       - condition: template
-        value_template: "{{ is_state('device_tracker.iphone','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
+        value_template: "{{ is_state('device_tracker.iphone_van_sjors','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
       - condition: time
         after: '08:00:00'
         before: '22:00:00'
@@ -61,9 +61,9 @@
         minutes: 10
   condition:
     - condition: template
-      value_template: "{{ is_state('device_tracker.iphone','home') }}"
+      value_template: "{{ is_state('device_tracker.iphone_van_sjors','home') }}"
   action:
-    - service: notify.ios_iphone
+    - service: notify.mobile_app_iphone_van_sjors
       data:
         title: 'Droger: '
         message: Ik ben klaar!
@@ -81,7 +81,7 @@
     - condition: template
       value_template: "{{ is_state('device_tracker.iphone_van_saskia','home') }}"
   action:
-    - service: notify.ios_iphone_van_saskia
+    - service: notify.mobile_app_iphone_van_saskia
       data:
         title: 'Droger: '
         message: Ik ben klaar!

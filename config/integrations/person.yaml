@@ -1,0 +1,12 @@
+person:
+  - name: Sjors
+    id: sjors
+    user_id: !secret sjors_id
+    device_trackers:
+      - device_tracker.iphone_van_sjors
+
+  - name: Saskia
+    id: saskia
+    user_id: !secret saskia_id
+    device_trackers:
+      - device_tracker.iphone_van_saskia

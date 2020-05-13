@@ -1,0 +1,15 @@
+sensor.trash_gft:
+  entity_picture: /local/afvalwijzer/gft.png
+  friendly_name: GFT
+
+sensor.trash_pbd:
+  entity_picture: /local/afvalwijzer/plastic.png
+  friendly_name: Plastic
+
+sensor.trash_papier:
+  entity_picture: /local/afvalwijzer/papier.png
+  friendly_name: Papier
+
+sensor.trash_restafval:
+  entity_picture: /local/afvalwijzer/rest.png
+  friendly_name: Restafval

@@ -1,0 +1,1 @@
+input_number: !include_dir_merge_named ../entities/input_numbers

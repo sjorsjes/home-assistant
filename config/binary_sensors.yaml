@@ -1,6 +1,0 @@
-- platform: template
-  sensors:
-    babysitter:
-      friendly_name: Babysitter
-      value_template: "{{ states.input_boolean.babysitter.state == 'on' }}"
-      device_class: presence

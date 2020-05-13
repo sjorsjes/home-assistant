@@ -1,0 +1,4 @@
+play_saskia_pick_up_sound:
+  name: Saskia neem je telefoon op
+  initial: off
+  icon: "mdi:voice"

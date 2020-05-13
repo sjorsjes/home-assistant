@@ -1,0 +1,7 @@
+alarm_minutes:
+  name: Minuten
+  icon: mdi:timer
+  initial: 30
+  min: 0
+  max: 59
+  step: 5

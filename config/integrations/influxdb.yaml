@@ -1,0 +1,65 @@
+influxdb:
+  host: !secret influxdb_url
+  database: !secret influxdb_db
+  include:
+    entities:
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_temperature
+      - sensor.multisensor01_brightness
+      - sensor.multisensor01_humidity
+      - sensor.multisensor01_temperature
+      - sensor.multisensor02_brightness
+      - sensor.multisensor02_humidity
+      - sensor.multisensor02_temperature
+      - sensor.multisensor03_brightness
+      - sensor.multisensor03_humidity
+      - sensor.multisensor03_temperature
+      - sensor.multisensor04_brightness
+      - sensor.multisensor04_humidity
+      - sensor.multisensor04_temperature
+      - sensor.hue_motion_sensor_1_light_level
+      - sensor.hue_motion_sensor_1_temperature
+      - sensor.hue_motion_sensor_2_light_level
+      - sensor.hue_motion_sensor_2_temperature
+      - sensor.power_consumption
+      - sensor.power_consumption_low
+      - sensor.power_consumption_normal
+      - sensor.gas_consumption
+      - sensor.hourly_gas_consumption
+      - sensor.energy_01_amperage
+      - sensor.energy_01_total_daily_energy
+      - sensor.energy_01_voltage
+      - sensor.energy_01_wattage
+      - sensor.energy_02_amperage
+      - sensor.energy_02_total_daily_energy
+      - sensor.energy_02_voltage
+      - sensor.energy_02_wattage
+      - sensor.energy_03_amperage
+      - sensor.energy_03_total_daily_energy
+      - sensor.energy_03_voltage
+      - sensor.energy_03_wattage
+      - sensor.energy_04_amperage
+      - sensor.energy_04_total_daily_energy
+      - sensor.energy_04_voltage
+      - sensor.energy_04_wattage
+      - sensor.zwave_energy_01_total_daily_energy
+      - sensor.zwave_energy_01_wattage
+      - sensor.zwave_energy_02_amperage
+      - sensor.zwave_energy_02_total_daily_energy
+      - sensor.zwave_energy_02_voltage
+      - sensor.zwave_energy_02_wattage
+      - sensor.zwave_energy_03_amperage
+      - sensor.zwave_energy_03_total_daily_energy
+      - sensor.zwave_energy_03_voltage
+      - sensor.zwave_energy_03_wattage
+      - sensor.zwave_energy_04_amperage
+      - sensor.zwave_energy_04_total_daily_energy
+      - sensor.zwave_energy_04_voltage
+      - sensor.zwave_energy_04_wattage
+      - binary_sensor.multisensor01_motion
+      - binary_sensor.multisensor02_motion
+      - binary_sensor.multisensor03_motion
+      - sensor.pv_power
+      - sensor.pv_gen_meter
+      - sensor.total_yield
+      - sensor.daily_yield

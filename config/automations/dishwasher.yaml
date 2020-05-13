@@ -2,8 +2,8 @@
   initial_state: 'on'
   trigger:
     - platform: numeric_state
-      above: '3'
-      entity_id: sensor.vaatwasser_verbruik
+      above: '5'
+      entity_id: sensor.zwave_energy_03_wattage
   action:
     - service: input_boolean.turn_on
       data:
@@ -13,8 +13,8 @@
   initial_state: 'on'
   trigger:
     - platform: numeric_state
-      below: '3'
-      entity_id: sensor.vaatwasser_verbruik
+      below: '5'
+      entity_id: sensor.zwave_energy_03_wattage
   action:
     - service: input_boolean.turn_off
       data:
@@ -27,8 +27,8 @@
       entity_id: input_boolean.dishwasher_busy
       from: 'on'
       to: 'off'
-      # for:
-      #   minutes: 30
+      for:
+        minutes: 5
   condition:
     condition: and
     conditions:
@@ -36,7 +36,7 @@
         entity_id: input_boolean.occupancy_simulator
         state: 'off'
       - condition: template
-        value_template: "{{ is_state('device_tracker.iphone','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
+        value_template: "{{ is_state('device_tracker.iphone_van_sjors','home') or is_state('device_tracker.iphone_van_saskia','home') }}"
       - condition: time
         after: '08:00:00'
         before: '22:00:00'
@@ -57,13 +57,13 @@
       entity_id: input_boolean.dishwasher_busy
       from: 'on'
       to: 'off'
-      # for:
-      #   minutes: 30
+      for:
+        minutes: 5
   condition:
     - condition: template
-      value_template: "{{ is_state('device_tracker.iphone','home') }}"
+      value_template: "{{ is_state('device_tracker.iphone_van_sjors','home') }}"
   action:
-    - service: notify.ios_iphone
+    - service: notify.mobile_app_iphone_van_sjors
       data:
         title: 'Vaatwasser: '
         message: Ik ben klaar!
@@ -75,13 +75,13 @@
       entity_id: input_boolean.dishwasher_busy
       from: 'on'
       to: 'off'
-      # for:
-      #   minutes: 30
+      for:
+        minutes: 5
   condition:
     - condition: template
       value_template: "{{ is_state('device_tracker.iphone_van_saskia','home') }}"
   action:
-    - service: notify.ios_iphone_van_saskia
+    - service: notify.mobile_app_iphone_van_saskia
       data:
         title: 'Vaatwasser: '
         message: Ik ben klaar!
