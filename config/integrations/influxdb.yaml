@@ -21,45 +21,22 @@ influxdb:
       - sensor.hue_motion_sensor_1_temperature
       - sensor.hue_motion_sensor_2_light_level
       - sensor.hue_motion_sensor_2_temperature
-      - sensor.power_consumption
-      - sensor.power_consumption_low
-      - sensor.power_consumption_normal
-      - sensor.gas_consumption
-      - sensor.hourly_gas_consumption
-      - sensor.energy_01_amperage
-      - sensor.energy_01_total_daily_energy
-      - sensor.energy_01_voltage
       - sensor.energy_01_wattage
-      - sensor.energy_02_amperage
-      - sensor.energy_02_total_daily_energy
-      - sensor.energy_02_voltage
+      - sensor.energy_01_total_daily_energy
       - sensor.energy_02_wattage
-      - sensor.energy_03_amperage
-      - sensor.energy_03_total_daily_energy
-      - sensor.energy_03_voltage
+      - sensor.energy_02_total_daily_energy
       - sensor.energy_03_wattage
-      - sensor.energy_04_amperage
-      - sensor.energy_04_total_daily_energy
-      - sensor.energy_04_voltage
+      - sensor.energy_03_total_daily_energy
       - sensor.energy_04_wattage
-      - sensor.zwave_energy_01_total_daily_energy
+      - sensor.energy_04_total_daily_energy
       - sensor.zwave_energy_01_wattage
-      - sensor.zwave_energy_02_amperage
-      - sensor.zwave_energy_02_total_daily_energy
-      - sensor.zwave_energy_02_voltage
+      - sensor.zwave_energy_01_total_daily_energy
       - sensor.zwave_energy_02_wattage
-      - sensor.zwave_energy_03_amperage
-      - sensor.zwave_energy_03_total_daily_energy
-      - sensor.zwave_energy_03_voltage
+      - sensor.zwave_energy_02_total_daily_energy
       - sensor.zwave_energy_03_wattage
-      - sensor.zwave_energy_04_amperage
-      - sensor.zwave_energy_04_total_daily_energy
-      - sensor.zwave_energy_04_voltage
+      - sensor.zwave_energy_03_total_daily_energy
       - sensor.zwave_energy_04_wattage
-      - binary_sensor.multisensor01_motion
-      - binary_sensor.multisensor02_motion
-      - binary_sensor.multisensor03_motion
+      - sensor.zwave_energy_04_total_daily_energy
       - sensor.pv_power
-      - sensor.pv_gen_meter
       - sensor.total_yield
       - sensor.daily_yield

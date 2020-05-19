@@ -27,30 +27,6 @@
                         {
                             "cards": [
                                 {
-                                    "columns": 2,
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.power_consumption",
-                                            "name": "Stroom verbruik"
-                                        },
-                                        {
-                                            "entity": "sensor.hourly_gas_consumption",
-                                            "name": "Gas verbruik"
-                                        },
-                                        {
-                                            "entity": "sensor.daily_yield",
-                                            "name": "Vandaag opgewekt"
-                                        },
-                                        {
-                                            "entity": "sensor.total_yield",
-                                            "name": "Totaal opgewekt"
-                                        }
-                                    ],
-                                    "theme": "slate",
-                                    "title": "Stroom & Gas",
-                                    "type": "glance"
-                                },
-                                {
                                     "entity": "sensor.pv_power",
                                     "max": 2500,
                                     "min": 0,
@@ -62,6 +38,54 @@
                                     },
                                     "theme": "slate",
                                     "type": "gauge"
+                                },
+                                {
+                                    "columns": 2,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.daily_yield",
+                                            "name": "Vandaag opgewekt"
+                                        },
+                                        {
+                                            "entity": "sensor.total_yield",
+                                            "name": "Totaal opgewekt"
+                                        }
+                                    ],
+                                    "theme": "slate",
+                                    "type": "glance"
+                                },
+                                {
+                                    "columns": 3,
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.dsmr_consumption_gas_currently_delivered"
+                                        },
+                                        {
+                                            "entity": "sensor.dsmr_day_consumption_gas"
+                                        },
+                                        {
+                                            "entity": "sensor.dsmr_day_consumption_gas_cost"
+                                        },
+                                        {
+                                            "entity": "sensor.dsmr_day_consumption_electricity_merged"
+                                        },
+                                        {
+                                            "entity": "sensor.dsmr_day_consumption_electricity_returned_merged"
+                                        },
+                                        {
+                                            "entity": "sensor.dsmr_day_consumption_electricity_cost_merged"
+                                        },
+                                        {
+                                            "entity": "sensor.daily_yield",
+                                            "name": "Vandaag opgewekt"
+                                        },
+                                        {
+                                            "entity": "sensor.total_yield",
+                                            "name": "Totaal opgewekt"
+                                        }
+                                    ],
+                                    "theme": "slate",
+                                    "type": "glance"
                                 }
                             ],
                             "type": "vertical-stack"
