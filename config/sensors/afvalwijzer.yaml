@@ -1,5 +1,6 @@
 - platform: afvalwijzer
-  zipcode: !secret afvalwijzer_postcode
-  housenumber: !secret afvalwijzer_huisnummer
-  count_today: true
+  provider: mijnafvalwijzer
+  postal_code: !secret afvalwijzer_postcode
+  street_number: !secret afvalwijzer_huisnummer
+  include_date_today: true
   default_label: 'Geen'

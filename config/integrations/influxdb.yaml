@@ -5,18 +5,6 @@ influxdb:
     entities:
       - sensor.dark_sky_humidity
       - sensor.dark_sky_temperature
-      - sensor.multisensor01_brightness
-      - sensor.multisensor01_humidity
-      - sensor.multisensor01_temperature
-      - sensor.multisensor02_brightness
-      - sensor.multisensor02_humidity
-      - sensor.multisensor02_temperature
-      - sensor.multisensor03_brightness
-      - sensor.multisensor03_humidity
-      - sensor.multisensor03_temperature
-      - sensor.multisensor04_brightness
-      - sensor.multisensor04_humidity
-      - sensor.multisensor04_temperature
       - sensor.hue_motion_sensor_1_light_level
       - sensor.hue_motion_sensor_1_temperature
       - sensor.hue_motion_sensor_2_light_level
@@ -37,6 +25,24 @@ influxdb:
       - sensor.zwave_energy_03_total_daily_energy
       - sensor.zwave_energy_04_wattage
       - sensor.zwave_energy_04_total_daily_energy
-      - sensor.pv_power
-      - sensor.total_yield
-      - sensor.daily_yield
+      - sensor.zwave_energy_05_wattage
+      - sensor.zwave_energy_05_total_daily_energy
+      - sensor.temperature_reader_01_temperature
+      - sensor.temperature_reader_02_temperature
+      - sensor.temperature_reader_03_temperature
+      - sensor.temperature_reader_04_temperature
+      - sensor.temperature_reader_05_temperature
+      - sensor.temperature_reader_02_06_temperature
+      - sensor.temperature_reader_02_07_temperature
+      - sensor.temperature_reader_02_08_temperature
+      - sensor.temperature_reader_01_humidity
+      - sensor.temperature_reader_02_humidity
+      - sensor.temperature_reader_03_humidity
+      - sensor.temperature_reader_04_humidity
+      - sensor.temperature_reader_05_humidity
+      - sensor.temperature_reader_02_06_humidity
+      - sensor.temperature_reader_02_07_humidity
+      - sensor.temperature_reader_02_08_humidity
+      - sensor.pv_voltage
+      - sensor.pv_voltage_a
+      - sensor.pv_current_a

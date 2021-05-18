@@ -1,0 +1,39 @@
+fan:
+  - platform: template
+    fans:
+      mechanical_ventilation:
+        friendly_name: "Mechanical Ventilation"
+        value_template: >
+          {{ "off" if states('sensor.fanspeed') == 'Low' else "on" }}
+        percentage_template: >
+          {% if states('sensor.fanspeed') == 'Low' %}
+            33
+          {% elif states('sensor.fanspeed') == 'Medium' %}
+            66
+          {% else %}
+            100
+          {% endif %}
+        turn_on:
+          service: switch.turn_on
+          data:
+            entity_id: switch.fansendhigh
+        turn_off:
+          service: switch.turn_on
+          data:
+            entity_id: switch.fansendlow
+        set_percentage:
+          service: switch.turn_on
+          data_template:
+            entity_id: >
+              {%
+                set mapper = {
+                  'high':'switch.fansendhigh',
+                  'mid':'switch.fansendmedium',
+                  'low':'switch.fansendlow'
+                }
+              %}
+              {{ mapper[preset_modes] if speed in mapper else switch.fansendlow }}
+        preset_modes:
+          - 'low'
+          - 'mid'
+          - 'high'

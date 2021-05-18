@@ -1,0 +1,72 @@
+utility_meter:
+  zwave_energy_01_daily_usage:
+    source: sensor.zwave_energy_01_total_daily_energy
+    cycle: daily
+
+  zwave_energy_01_monthly_usage:
+    source: sensor.zwave_energy_01_total_daily_energy
+    cycle: monthly
+
+  zwave_energy_02_daily_usage:
+    source: sensor.zwave_energy_02_total_daily_energy
+    cycle: daily
+
+  zwave_energy_02_monthly_usage:
+    source: sensor.zwave_energy_02_total_daily_energy
+    cycle: monthly
+
+  zwave_energy_03_daily_usage:
+    source: sensor.zwave_energy_03_total_daily_energy
+    cycle: daily
+
+  zwave_energy_03_monthly_usage:
+    source: sensor.zwave_energy_03_total_daily_energy
+    cycle: monthly
+
+  zwave_energy_04_daily_usage:
+    source: sensor.zwave_energy_04_total_daily_energy
+    cycle: daily
+
+  zwave_energy_04_monthly_usage:
+    source: sensor.zwave_energy_04_total_daily_energy
+    cycle: monthly
+
+  zwave_energy_05_daily_usage:
+    source: sensor.zwave_energy_05_total_daily_energy
+    cycle: daily
+
+  zwave_energy_05_monthly_usage:
+    source: sensor.zwave_energy_05_total_daily_energy
+    cycle: monthly
+
+  energy_01_daily_usage:
+    source: sensor.energy_01_total_daily_energy
+    cycle: daily
+
+  energy_01_monthly_usage:
+    source: sensor.energy_01_total_daily_energy
+    cycle: monthly
+
+  energy_02_daily_usage:
+    source: sensor.energy_02_total_daily_energy
+    cycle: daily
+
+  energy_02_monthly_usage:
+    source: sensor.energy_02_total_daily_energy
+    cycle: monthly
+
+  energy_03_daily_usage:
+    source: sensor.energy_03_total_daily_energy
+    cycle: daily
+
+  energy_03_monthly_usage:
+    source: sensor.energy_03_total_daily_energy
+    cycle: monthly
+
+  energy_04_daily_usage:
+    source: sensor.energy_04_total_daily_energy
+    cycle: daily
+
+  energy_04_monthly_usage:
+    source: sensor.energy_04_total_daily_energy
+    cycle: monthly

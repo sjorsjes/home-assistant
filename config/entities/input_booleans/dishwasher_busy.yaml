@@ -1,4 +1,0 @@
-dishwasher_busy:
-  name: Vaatwasser bezig
-  initial: off
-  icon: "mdi:washing-machine"

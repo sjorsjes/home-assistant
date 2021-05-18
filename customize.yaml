@@ -1,15 +1,17 @@
-sensor.trash_gft:
+sensor.afvalwijzer_gft:
   entity_picture: /local/afvalwijzer/gft.png
   friendly_name: GFT
-
-sensor.trash_pbd:
+sensor.afvalwijzer_plastic:
   entity_picture: /local/afvalwijzer/plastic.png
   friendly_name: Plastic
-
-sensor.trash_papier:
+sensor.afvalwijzer_papier:
   entity_picture: /local/afvalwijzer/papier.png
   friendly_name: Papier
-
-sensor.trash_restafval:
+sensor.afvalwijzer_restafval:
   entity_picture: /local/afvalwijzer/rest.png
   friendly_name: Restafval
+sensor.pv_power_formatted:
+  icon: mdi:solar-power
+light.tuin:
+  icon: mdi:outdoor-lamp
+  friendly_name: Gevel verlichting

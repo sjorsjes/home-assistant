@@ -1,5 +1,5 @@
 platform: mqtt
-name: "Gevelverlichting"
+name: "Zijgevel verlichting"
 state_topic: "shellies/shelly1-BA0042/relay/0"
 command_topic: "shellies/shelly1-BA0042/relay/0/command"
 payload_on: "on"

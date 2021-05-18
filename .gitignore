@@ -8,6 +8,9 @@
 /.storage
 /deps
 /tts
+/custom_components
+/www
+/image
 __pycache__
 .HA_VERSION
 .ios.conf

@@ -1,5 +1,32 @@
 - platform: template
   sensors:
-    date_formatted:
-      entity_id: sensor.date
-      value_template: '{{ as_timestamp(strptime(states.sensor.date.state, "%Y-%m-%d")) | timestamp_custom("%a %d %b") }}'
+    # date_formatted:
+    #   value_template: '{{ as_timestamp(strptime(states.sensor.date.state, "%Y-%m-%d")) | timestamp_custom("%a %d %b") }}'
+
+    dsmr_reading_electricity_currently_delivered_in_watt:
+      unit_of_measurement: 'W'
+      value_template: '{{ (states("sensor.dsmr_reading_electricity_currently_delivered") | float * 1000) | round(0) }}'
+
+    dsmr_reading_electricity_currently_returned_in_watt:
+      unit_of_measurement: 'W'
+      value_template: '{{ (states("sensor.dsmr_reading_electricity_currently_returned") | float * 1000) | round(0) }}'
+
+    pv_power_formatted:
+      friendly_name: Current power generated
+      unit_of_measurement: 'W'
+      value_template: >
+        {% if is_state('sensor.pv_voltage', 'unknown') %}
+          0
+        {% else %}
+          {{ states('sensor.pv_voltage') }}
+        {% endif %}
+
+    total_electricity_usage:
+      friendly_name: Total house usage
+      unit_of_measurement: W
+      value_template: >
+        {% if states('sensor.dsmr_reading_electricity_currently_delivered_in_watt')|int == 0  %}
+          {{ states('sensor.pv_power_formatted')|int - states('sensor.dsmr_reading_electricity_currently_returned_in_watt')|int }}
+        {% else %}
+          {{ states('sensor.pv_power_formatted')|int + states('sensor.dsmr_reading_electricity_currently_delivered_in_watt')|int }}
+        {% endif %}

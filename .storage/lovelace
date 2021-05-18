@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
             "custom_header": {
@@ -11,7 +13,6 @@
             "title": "",
             "views": [
                 {
-                    "background": "center / cover no-repeat url(\"/local/bg.png\") fixed",
                     "badges": [
                         {
                             "entity": "person.sjors"
@@ -27,17 +28,45 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "sensor.pv_power",
-                                    "max": 2500,
-                                    "min": 0,
-                                    "name": "Garage",
-                                    "severity": {
-                                        "green": 1000,
-                                        "red": 0,
-                                        "yellow": 250
-                                    },
-                                    "theme": "slate",
-                                    "type": "gauge"
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.total_electricity_usage",
+                                            "max": 5500,
+                                            "name": "Totaal verbruik",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 3000,
+                                                "yellow": 1000
+                                            },
+                                            "type": "gauge",
+                                            "min": 0
+                                        },
+                                        {
+                                            "entity": "sensor.dsmr_reading_electricity_currently_delivered_in_watt",
+                                            "max": 5500,
+                                            "min": 0,
+                                            "name": "Verbruik",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 3000,
+                                                "yellow": 2000
+                                            },
+                                            "type": "gauge"
+                                        },
+                                        {
+                                            "entity": "sensor.pv_power_formatted",
+                                            "max": 2395,
+                                            "min": 0,
+                                            "name": "PV Garage",
+                                            "severity": {
+                                                "green": 0,
+                                                "red": 4000,
+                                                "yellow": 4000
+                                            },
+                                            "type": "gauge"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
                                 },
                                 {
                                     "columns": 2,
@@ -51,41 +80,17 @@
                                             "name": "Totaal opgewekt"
                                         }
                                     ],
-                                    "theme": "slate",
                                     "type": "glance"
                                 },
                                 {
-                                    "columns": 3,
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.dsmr_consumption_gas_currently_delivered"
-                                        },
-                                        {
-                                            "entity": "sensor.dsmr_day_consumption_gas"
-                                        },
-                                        {
-                                            "entity": "sensor.dsmr_day_consumption_gas_cost"
-                                        },
-                                        {
-                                            "entity": "sensor.dsmr_day_consumption_electricity_merged"
-                                        },
-                                        {
-                                            "entity": "sensor.dsmr_day_consumption_electricity_returned_merged"
-                                        },
-                                        {
-                                            "entity": "sensor.dsmr_day_consumption_electricity_cost_merged"
-                                        },
-                                        {
-                                            "entity": "sensor.daily_yield",
-                                            "name": "Vandaag opgewekt"
-                                        },
-                                        {
-                                            "entity": "sensor.total_yield",
-                                            "name": "Totaal opgewekt"
-                                        }
-                                    ],
-                                    "theme": "slate",
-                                    "type": "glance"
+                                    "type": "custom:power-wheel-card",
+                                    "title_power": "Verbruik",
+                                    "solar_power_entity": "sensor.pv_power_formatted",
+                                    "grid_power_consumption_entity": "sensor.dsmr_reading_electricity_currently_delivered_in_watt",
+                                    "grid_power_production_entity": "sensor.dsmr_reading_electricity_currently_returned_in_watt",
+                                    "solar_icon": "mdi:white-balance-sunny",
+                                    "grid_icon": "mdi:flash-circle",
+                                    "home_icon": "mdi:home-circle"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -96,19 +101,23 @@
                                     "entities": [
                                         {
                                             "entity": "switch.zwave_energy_04_relay",
+                                            "name": "TV",
                                             "tap_action": {
                                                 "action": "toggle"
                                             }
                                         },
                                         {
                                             "entity": "switch.zwave_energy_02_relay",
+                                            "name": "Stereo",
                                             "tap_action": {
                                                 "action": "toggle"
                                             }
+                                        },
+                                        {
+                                            "entity": "input_boolean.cinema_mode_enabled"
                                         }
                                     ],
                                     "show_state": false,
-                                    "theme": "slate",
                                     "type": "glance"
                                 },
                                 {
@@ -192,11 +201,21 @@
                                             }
                                         },
                                         {
-                                            "entity": "switch.gevelverlichting",
+                                            "entity": "switch.lsc_switch_01_relay",
+                                            "icon": "mdi:earth",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "switch.zijgevel_verlichting",
                                             "icon": "mdi:white-balance-iridescent",
                                             "tap_action": {
                                                 "action": "toggle"
                                             }
+                                        },
+                                        {
+                                            "entity": "light.tuin"
                                         },
                                         {
                                             "entity": "switch.tuinverlichting",
@@ -206,15 +225,21 @@
                                             }
                                         },
                                         {
-                                            "entity": "switch.lsc_switch_01_relay",
-                                            "icon": "mdi:earth",
+                                            "entity": "switch.schuurverlichting01",
+                                            "icon": "mdi:led-strip",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            }
+                                        },
+                                        {
+                                            "entity": "switch.schuurverlichting02",
+                                            "icon": "mdi:led-strip",
                                             "tap_action": {
                                                 "action": "toggle"
                                             }
                                         }
                                     ],
                                     "show_state": false,
-                                    "theme": "slate",
                                     "type": "glance"
                                 }
                             ],
@@ -223,28 +248,9 @@
                         {
                             "cards": [
                                 {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.trash_gft"
-                                        },
-                                        {
-                                            "entity": "sensor.trash_pbd"
-                                        },
-                                        {
-                                            "entity": "sensor.trash_papier"
-                                        },
-                                        {
-                                            "entity": "sensor.trash_restafval"
-                                        }
-                                    ],
-                                    "show_name": false,
-                                    "theme": "slate",
-                                    "type": "glance"
-                                },
-                                {
                                     "cards": [
                                         {
-                                            "entity": "sensor.trash_today",
+                                            "entity": "sensor.afvalwijzer_today",
                                             "hold_action": {
                                                 "action": "none"
                                             },
@@ -254,8 +260,8 @@
                                                 "Geen": "/local/afvalwijzer/kliko.png",
                                                 "gft": "/local/afvalwijzer/gft_large.png",
                                                 "papier": "/local/afvalwijzer/papier_large.png",
-                                                "pbd": "/local/afvalwijzer/plastic_large.png",
-                                                "rest": "/local/afvalwijzer/rest_large.png"
+                                                "plastic": "/local/afvalwijzer/plastic_large.png",
+                                                "restafval": "/local/afvalwijzer/rest_large.png"
                                             },
                                             "tap_action": {
                                                 "action": "none"
@@ -264,7 +270,7 @@
                                             "type": "picture-entity"
                                         },
                                         {
-                                            "entity": "sensor.trash_tomorrow",
+                                            "entity": "sensor.afvalwijzer_tomorrow",
                                             "hold_action": {
                                                 "action": "none"
                                             },
@@ -274,8 +280,8 @@
                                                 "Geen": "/local/afvalwijzer/kliko.png",
                                                 "gft": "/local/afvalwijzer/gft_large.png",
                                                 "papier": "/local/afvalwijzer/papier_large.png",
-                                                "pbd": "/local/afvalwijzer/plastic_large.png",
-                                                "rest": "/local/afvalwijzer/rest_large.png"
+                                                "plastic": "/local/afvalwijzer/plastic_large.png",
+                                                "restafval": "/local/afvalwijzer/rest_large.png"
                                             },
                                             "tap_action": {
                                                 "action": "none"
@@ -284,7 +290,7 @@
                                             "type": "picture-entity"
                                         },
                                         {
-                                            "entity": "sensor.trash_day_after_tomorrow",
+                                            "entity": "sensor.afvalwijzer_day_after_tomorrow",
                                             "hold_action": {
                                                 "action": "none"
                                             },
@@ -294,8 +300,8 @@
                                                 "Geen": "/local/afvalwijzer/kliko.png",
                                                 "gft": "/local/afvalwijzer/gft_large.png",
                                                 "papier": "/local/afvalwijzer/papier_large.png",
-                                                "pbd": "/local/afvalwijzer/plastic_large.png",
-                                                "rest": "/local/afvalwijzer/rest_large.png"
+                                                "plastic": "/local/afvalwijzer/plastic_large.png",
+                                                "restafval": "/local/afvalwijzer/rest_large.png"
                                             },
                                             "tap_action": {
                                                 "action": "none"
@@ -305,24 +311,51 @@
                                         }
                                     ],
                                     "type": "horizontal-stack"
+                                },
+                                {
+                                    "type": "custom:auto-entities",
+                                    "card": {
+                                        "type": "glance"
+                                    },
+                                    "filter": {
+                                        "include": [
+                                            {
+                                                "entity_id": "sensor.afvalwijzer_gft"
+                                            },
+                                            {
+                                                "entity_id": "sensor.afvalwijzer_papier"
+                                            },
+                                            {
+                                                "entity_id": "sensor.afvalwijzer_plastic"
+                                            },
+                                            {
+                                                "entity_id": "sensor.afvalwijzer_restafval"
+                                            }
+                                        ]
+                                    },
+                                    "sort": {
+                                        "attribute": "days_until_collection_date",
+                                        "method": "attribute",
+                                        "numeric": true
+                                    }
+                                },
+                                {
+                                    "aspect_ratio": "56.25%",
+                                    "camera_image": "camera.generic_camera",
+                                    "camera_view": "live",
+                                    "entities": [],
+                                    "hold_action": {
+                                        "action": "none"
+                                    },
+                                    "image": "camera.generic_camera",
+                                    "tap_action": {
+                                        "action": "none"
+                                    },
+                                    "type": "picture-glance",
+                                    "title": "Oprit"
                                 }
                             ],
                             "type": "vertical-stack"
-                        },
-                        {
-                            "aspect_ratio": "56.25%",
-                            "camera_image": "camera.generic_camera",
-                            "camera_view": "live",
-                            "entities": [],
-                            "hold_action": {
-                                "action": "none"
-                            },
-                            "image": "camera.generic_camera",
-                            "tap_action": {
-                                "action": "none"
-                            },
-                            "theme": "slate",
-                            "type": "picture-glance"
                         }
                     ],
                     "path": "default_view",
@@ -332,116 +365,260 @@
                     "badges": [],
                     "cards": [
                         {
+                            "show_header_toggle": false,
+                            "title": "Temperatuur",
+                            "type": "entities",
                             "entities": [
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.zwave_energy_01_wattage",
-                                            "name": "wattage"
-                                        }
-                                    ],
-                                    "entity": "sensor.zwave_energy_01_total_daily_energy",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.zwave_energy_02_wattage",
-                                            "name": "wattage"
-                                        }
-                                    ],
-                                    "entity": "sensor.zwave_energy_02_total_daily_energy",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.zwave_energy_03_wattage",
-                                            "name": "wattage"
-                                        }
-                                    ],
-                                    "entity": "sensor.zwave_energy_03_total_daily_energy",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.zwave_energy_04_wattage",
-                                            "name": "wattage"
-                                        }
-                                    ],
-                                    "entity": "sensor.zwave_energy_04_total_daily_energy",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.energy_01_wattage",
-                                            "name": "wattage"
+                                            "entity": "sensor.temperature_reader_01_temperature",
+                                            "name": "Temp",
+                                            "secondary_info": "last-changed"
                                         },
                                         {
-                                            "entity": "sensor.energy_01_amperage",
-                                            "name": "wattage"
+                                            "entity": "sensor.temperature_reader_01_humidity",
+                                            "name": "Humidity"
                                         }
                                     ],
-                                    "entity": "sensor.energy_01_total_daily_energy",
+                                    "entity": "sensor.temperature_reader_01_battery_level",
+                                    "state_header": "Battery",
+                                    "icon": "mdi:thermometer",
                                     "type": "custom:multiple-entity-row"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.energy_02_wattage",
-                                            "name": "wattage"
+                                            "entity": "sensor.temperature_reader_02_temperature",
+                                            "name": "Temp"
                                         },
                                         {
-                                            "entity": "sensor.energy_02_amperage",
-                                            "name": "wattage"
+                                            "entity": "sensor.temperature_reader_02_humidity",
+                                            "name": "Humidity"
                                         }
                                     ],
-                                    "entity": "sensor.energy_02_total_daily_energy",
+                                    "entity": "sensor.temperature_reader_02_battery_level",
+                                    "state_header": "Battery",
+                                    "icon": "mdi:thermometer",
                                     "type": "custom:multiple-entity-row"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.energy_03_wattage",
-                                            "name": "wattage"
+                                            "entity": "sensor.temperature_reader_03_temperature",
+                                            "name": "Temp"
                                         },
                                         {
-                                            "entity": "sensor.energy_03_amperage",
-                                            "name": "wattage"
+                                            "entity": "sensor.temperature_reader_03_humidity",
+                                            "name": "Humidity"
                                         }
                                     ],
-                                    "entity": "sensor.energy_03_total_daily_energy",
+                                    "entity": "sensor.temperature_reader_03_battery_level",
+                                    "state_header": "Battery",
+                                    "icon": "mdi:thermometer",
                                     "type": "custom:multiple-entity-row"
                                 },
                                 {
                                     "entities": [
                                         {
-                                            "entity": "sensor.energy_04_wattage",
-                                            "name": "wattage"
+                                            "entity": "sensor.temperature_reader_04_temperature",
+                                            "name": "Temp"
                                         },
                                         {
-                                            "entity": "sensor.energy_04_amperage",
-                                            "name": "wattage"
+                                            "entity": "sensor.temperature_reader_04_humidity",
+                                            "name": "Humidity"
                                         }
                                     ],
-                                    "entity": "sensor.energy_04_total_daily_energy",
+                                    "entity": "sensor.temperature_reader_04_battery_level",
+                                    "state_header": "Battery",
+                                    "icon": "mdi:thermometer",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.temperature_reader_05_temperature",
+                                            "name": "Temp"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_05_humidity",
+                                            "name": "Humidity"
+                                        }
+                                    ],
+                                    "entity": "sensor.temperature_reader_05_battery_level",
+                                    "state_header": "Battery",
+                                    "icon": "mdi:thermometer",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.temperature_reader_02_06_temperature",
+                                            "name": "Temp"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_06_humidity",
+                                            "name": "Humidity"
+                                        }
+                                    ],
+                                    "entity": "sensor.temperature_reader_02_06_battery_level",
+                                    "state_header": "Battery",
+                                    "icon": "mdi:thermometer",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.temperature_reader_02_07_temperature",
+                                            "name": "Temp"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_07_humidity",
+                                            "name": "Humidity"
+                                        }
+                                    ],
+                                    "entity": "sensor.temperature_reader_02_07_battery_level",
+                                    "state_header": "Battery",
+                                    "icon": "mdi:thermometer",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.temperature_reader_02_08_temperature",
+                                            "name": "Temp"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_08_humidity",
+                                            "name": "Humidity"
+                                        }
+                                    ],
+                                    "entity": "sensor.temperature_reader_02_08_battery_level",
+                                    "state_header": "Battery",
+                                    "icon": "mdi:thermometer",
+                                    "type": "custom:multiple-entity-row"
+                                }
+                            ]
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zwave_energy_01_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.zwave_energy_01_monthly_usage",
+                                    "name": "Kantoor PC",
+                                    "state_header": "deze maand",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zwave_energy_05_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.zwave_energy_05_monthly_usage",
+                                    "name": "Prusa Mini+",
+                                    "state_header": "deze maand",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zwave_energy_02_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.zwave_energy_02_monthly_usage",
+                                    "name": "Stereo",
+                                    "state_header": "deze maand",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zwave_energy_03_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.zwave_energy_03_monthly_usage",
+                                    "name": "Vaatwasser",
+                                    "state_header": "deze maand",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.zwave_energy_04_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.zwave_energy_04_monthly_usage",
+                                    "name": "TV",
+                                    "state_header": "deze maand",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.energy_01_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.energy_01_monthly_usage",
+                                    "name": "Koelkast",
+                                    "state_header": "deze maand",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.energy_02_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.energy_02_monthly_usage",
+                                    "name": "NAS",
+                                    "state_header": "deze maand",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.energy_03_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.energy_03_monthly_usage",
+                                    "name": "Wasmachine",
+                                    "state_header": "deze maand",
+                                    "type": "custom:multiple-entity-row"
+                                },
+                                {
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.energy_04_daily_usage",
+                                            "name": "vandaag"
+                                        }
+                                    ],
+                                    "entity": "sensor.energy_04_monthly_usage",
+                                    "name": "Droger",
+                                    "state_header": "deze maand",
                                     "type": "custom:multiple-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Verbruik vandaag",
+                            "title": "Verbruik",
                             "type": "entities"
                         },
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.multisensor01_temperature",
-                                    "name": "woonkamer"
-                                },
-                                {
-                                    "entity": "sensor.hue_motion_sensor_1_temperature_2",
+                                    "entity": "sensor.hue_motion_sensor_2_temperature",
                                     "name": "hal"
                                 },
                                 {
@@ -449,16 +626,32 @@
                                     "name": "overloop"
                                 },
                                 {
-                                    "entity": "sensor.multisensor02_temperature",
-                                    "name": "zolder"
-                                },
-                                {
-                                    "entity": "sensor.multisensor03_temperature",
-                                    "name": "buiten"
-                                },
-                                {
                                     "entity": "sensor.dark_sky_temperature",
                                     "name": "darksky buiten"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_01_temperature"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_02_temperature"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_03_temperature"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_04_temperature"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_05_temperature"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_02_06_temperature"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_02_07_temperature"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_02_08_temperature"
                                 }
                             ],
                             "hours_to_show": 6,
@@ -469,20 +662,32 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.multisensor01_humidity",
-                                    "name": "Woonkamer"
-                                },
-                                {
-                                    "entity": "sensor.multisensor02_humidity",
-                                    "name": "Zolder"
-                                },
-                                {
-                                    "entity": "sensor.multisensor03_humidity",
-                                    "name": "Buiten"
-                                },
-                                {
                                     "entity": "sensor.dark_sky_humidity",
                                     "name": "darksky buiten"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_01_humidity"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_02_humidity"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_03_humidity"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_04_humidity"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_05_humidity"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_02_06_humidity"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_02_07_humidity"
+                                },
+                                {
+                                    "entity": "sensor.temperature_reader_02_08_humidity"
                                 }
                             ],
                             "hours_to_show": 6,
@@ -491,32 +696,31 @@
                             "type": "history-graph"
                         },
                         {
+                            "type": "glance",
                             "entities": [
                                 {
-                                    "entity": "sensor.multisensor01_brightness",
-                                    "name": "Woonkamer"
+                                    "entity": "sensor.fanspeed"
                                 },
                                 {
-                                    "entity": "sensor.hue_motion_sensor_1_light_level_2",
-                                    "name": "Hal"
+                                    "entity": "fan.mechanical_ventilation"
                                 },
                                 {
-                                    "entity": "sensor.multisensor02_brightness",
-                                    "name": "Zolder"
+                                    "entity": "sensor.fantimer"
                                 },
                                 {
-                                    "entity": "sensor.multisensor03_brightness",
-                                    "name": "Buiten"
+                                    "entity": "sensor.ithofancontrol_uptime_sensor"
                                 },
                                 {
-                                    "entity": "sensor.hue_motion_sensor_1_light_level",
-                                    "name": "Overloop"
+                                    "entity": "switch.fansendlow"
+                                },
+                                {
+                                    "entity": "switch.fansendmedium"
+                                },
+                                {
+                                    "entity": "switch.fansendhigh"
                                 }
                             ],
-                            "hours_to_show": 6,
-                            "refresh_interval": 0,
-                            "title": "Lux - laatste 6 uur",
-                            "type": "history-graph"
+                            "title": "Fans"
                         }
                     ],
                     "path": "sensors",
@@ -530,7 +734,8 @@
                             "name": "Woonkamer",
                             "toggle_power": false,
                             "tts": {
-                                "platform": "google"
+                                "platform": "cloud",
+                                "language": "nl-NL"
                             },
                             "type": "custom:mini-media-player"
                         },
@@ -539,7 +744,8 @@
                             "name": "Kantoor",
                             "toggle_power": false,
                             "tts": {
-                                "platform": "google"
+                                "platform": "cloud",
+                                "language": "nl-NL"
                             },
                             "type": "custom:mini-media-player"
                         },
@@ -548,7 +754,8 @@
                             "name": "Slaapkamer",
                             "toggle_power": false,
                             "tts": {
-                                "platform": "google"
+                                "platform": "cloud",
+                                "language": "nl-NL"
                             },
                             "type": "custom:mini-media-player"
                         },
@@ -563,47 +770,240 @@
                             "tap_action": {
                                 "action": "toggle"
                             },
-                            "theme": "slate",
                             "type": "button"
                         },
                         {
+                            "type": "vertical-stack",
                             "cards": [
                                 {
-                                    "entity": "sensor.steps",
-                                    "max": 10000,
-                                    "min": 0,
-                                    "name": "Sjors",
-                                    "severity": {
-                                        "green": 7500,
-                                        "red": 0,
-                                        "yellow": 2500
-                                    },
-                                    "theme": "slate",
-                                    "type": "gauge"
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.vaatwasser_door"
+                                        },
+                                        {
+                                            "entity": "sensor.vaatwasser_duration"
+                                        },
+                                        {
+                                            "entity": "sensor.vaatwasser_program_progress"
+                                        },
+                                        {
+                                            "entity": "sensor.vaatwasser_remaining_program_time"
+                                        }
+                                    ],
+                                    "title": "Vaatwasser",
+                                    "show_header_toggle": false,
+                                    "state_color": true
                                 },
                                 {
-                                    "entity": "sensor.steps_2",
-                                    "max": 10000,
-                                    "min": 0,
-                                    "name": "Saskia",
-                                    "severity": {
-                                        "green": 7500,
-                                        "red": 0,
-                                        "yellow": 2500
-                                    },
-                                    "theme": "slate",
-                                    "type": "gauge"
+                                    "type": "entities",
+                                    "entities": [
+                                        "switch.wasmachine",
+                                        "sensor.wasmachine_washer_completion_time",
+                                        "sensor.wasmachine_washer_job_state",
+                                        "sensor.wasmachine_washer_machine_state"
+                                    ]
+                                },
+                                {
+                                    "type": "entities",
+                                    "entities": [
+                                        "switch.droger",
+                                        "sensor.droger_dryer_completion_time",
+                                        "sensor.droger_dryer_job_state",
+                                        "sensor.droger_dryer_machine_state"
+                                    ]
                                 }
-                            ],
-                            "type": "horizontal-stack"
+                            ]
                         }
                     ],
                     "path": "Speakers",
                     "title": "Overig"
+                },
+                {
+                    "title": "Prusa Mini+",
+                    "path": "prusa-mini",
+                    "icon": "",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "grid",
+                            "square": false,
+                            "cards": [
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:threedy-card",
+                                            "base_entity": "sensor.prusa_mini",
+                                            "use_24hr": true,
+                                            "temperature_unit": "C",
+                                            "monitored": [
+                                                "Status",
+                                                "ETA",
+                                                "Elapsed",
+                                                "Hotend",
+                                                "Bed",
+                                                "Remaining"
+                                            ],
+                                            "printer_type": "Cantilever",
+                                            "name": "Prusa Mini+"
+                                        },
+                                        {
+                                            "type": "horizontal-stack",
+                                            "cards": [
+                                                {
+                                                    "type": "history-graph",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.prusa_mini_actual_bed_temp",
+                                                            "name": "Actual"
+                                                        },
+                                                        {
+                                                            "entity": "sensor.prusa_mini_target_bed_temp",
+                                                            "name": "Target"
+                                                        }
+                                                    ],
+                                                    "hours_to_show": 24,
+                                                    "refresh_interval": 0,
+                                                    "title": "Bed"
+                                                },
+                                                {
+                                                    "type": "history-graph",
+                                                    "entities": [
+                                                        {
+                                                            "entity": "sensor.prusa_mini_actual_tool0_temp",
+                                                            "name": "Actual"
+                                                        },
+                                                        {
+                                                            "entity": "sensor.prusa_mini_target_tool0_temp",
+                                                            "name": "Target"
+                                                        }
+                                                    ],
+                                                    "hours_to_show": 24,
+                                                    "refresh_interval": 0,
+                                                    "title": "Nozzle"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "picture-glance",
+                                    "title": "Prusa mini+",
+                                    "image": "http://192.168.178.200/webcam/?action=snapshot",
+                                    "entities": [],
+                                    "camera_image": "camera.octoprint",
+                                    "camera_view": "live",
+                                    "entity": "binary_sensor.prusa_mini_printing",
+                                    "tap_action": {
+                                        "action": "none"
+                                    },
+                                    "hold_action": {
+                                        "action": "none"
+                                    },
+                                    "aspect_ratio": "16:9"
+                                }
+                            ],
+                            "columns": 2
+                        }
+                    ]
+                },
+                {
+                    "title": "iPhones",
+                    "path": "iphones",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.iphone_van_saskia"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_saskia_activity"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_saskia_average_active_pace"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_saskia_distance"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_saskia_floors_ascended"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_saskia_floors_descended"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_saskia_steps"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_saskia_storage"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.iphone_van_sjors"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_sjors_activity"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_sjors_average_active_pace"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_sjors_distance"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_sjors_floors_ascended"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_sjors_floors_descended"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_sjors_steps"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_sjors_storage"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.iphone_van_sjors_steps",
+                                    "min": 0,
+                                    "max": 100,
+                                    "name": "Sjors",
+                                    "severity": {
+                                        "green": 10000,
+                                        "yellow": 5000,
+                                        "red": 0
+                                    }
+                                },
+                                {
+                                    "type": "gauge",
+                                    "entity": "sensor.iphone_van_saskia_steps",
+                                    "min": 0,
+                                    "max": 100,
+                                    "name": "Saskia",
+                                    "severity": {
+                                        "green": 10000,
+                                        "yellow": 5000,
+                                        "red": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }

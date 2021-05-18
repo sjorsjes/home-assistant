@@ -1,0 +1,4 @@
+cinema_mode_enabled:
+  name: Cinema mode
+  initial: on
+  icon: "mdi:theater"

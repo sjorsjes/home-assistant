@@ -1,4 +1,0 @@
-dryer_busy:
-  name: Droger bezig
-  initial: off
-  icon: "mdi:washing-machine"

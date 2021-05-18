@@ -1,3 +1,0 @@
-sensor.zwave_energy_04_wattage:
-  ignored: false
-  polling_intensity: 10
