@@ -15,3 +15,30 @@ sensor.pv_power_formatted:
 light.tuin:
   icon: mdi:outdoor-lamp
   friendly_name: Gevel verlichting
+sensor.nedis_smart_plug_current:
+  icon: mdi:current-dc
+  unit_of_measurement: A
+sensor.nedis_smart_plug_current_consumption:
+  icon: mdi:flash
+  unit_of_measurement: kW
+sensor.nedis_smart_plug_current_consumption_cost:
+  icon: mdi:currency-eur
+  unit_of_measurement: €
+sensor.nedis_smart_plug_current_daily_usage:
+  icon: mdi:current-dc
+  unit_of_measurement: A
+sensor.nedis_smart_plug_current_monthly_usage:
+  icon: mdi:current-dc
+  unit_of_measurement: A
+sensor.nedis_smart_plug_current_consumption_daily_usage:
+  icon: mdi:flash
+  unit_of_measurement: kW
+sensor.nedis_smart_plug_current_consumption_monthly_usage:
+  icon: mdi:flash
+  unit_of_measurement: kW
+sensor.nedis_smart_plug_current_consumption_cost_daily_usage:
+  icon: mdi:currency-eur
+  unit_of_measurement: €
+sensor.nedis_smart_plug_current_consumption_cost_monthly_usage:
+  icon: mdi:currency-eur
+  unit_of_measurement: €

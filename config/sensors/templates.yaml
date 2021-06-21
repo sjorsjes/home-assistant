@@ -30,3 +30,39 @@
         {% else %}
           {{ states('sensor.pv_power_formatted')|int + states('sensor.dsmr_reading_electricity_currently_delivered_in_watt')|int }}
         {% endif %}
+
+    daily_yield_kwh:
+      friendly_name: Daily power yield
+      unit_of_measurement: kWh
+      value_template: >
+        {{ states('sensor.daily_yield') | float / 1000 }}
+
+    nedis_smart_plug_current_consumption:
+      friendly_name: Current consumption
+      unit_of_measurement: kW
+      value_template: >
+        {{ (states.switch.nedis_smart_plug.attributes.current_consumption | float / 1000) | round(2) }}
+
+    nedis_smart_plug_current_consumption_watt:
+      friendly_name: Current consumption
+      unit_of_measurement: W
+      value_template: >
+        {{ (states.switch.nedis_smart_plug.attributes.current_consumption | float) | round(2) }}
+
+    nedis_smart_plug_current_consumption_cost:
+      friendly_name: Current consumption costs
+      unit_of_measurement: €
+      value_template: >
+        {{ (states('sensor.nedis_smart_plug_consumption_kwh') | float * 0.20813) | round(2) }}
+
+    nedis_smart_plug_current:
+      friendly_name: Current
+      unit_of_measurement: A
+      value_template: >
+        {{ (states.switch.nedis_smart_plug.attributes.current | float / 1000) | round(2) }}
+
+    nedis_smart_plug_voltage:
+      friendly_name: Voltage
+      unit_of_measurement: V
+      value_template: >
+        {{ states.switch.nedis_smart_plug.attributes.voltage | float }}

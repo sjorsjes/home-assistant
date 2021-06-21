@@ -1,0 +1,28 @@
+group:
+  hallway_motion_sensors:
+    name: Bewegingssensoren Hal
+    entities:
+      - binary_sensor.hue_motion_sensor_2_motion
+      - binary_sensor.hue_motion_sensor_1_motion_2
+  bijkeuken_devices:
+    name: Bijkeuken apparaten
+    entities:
+      - sensor.wasmachine_washer_job_state
+      - sensor.droger_dryer_job_state
+  tuin_lights:
+    name: Tuinverlichting
+    entities:
+      - light.tuin
+      - switch.tuinverlichting
+      - switch.zijgevel_verlichting
+  slaapkamer_lights:
+    name: Slaapkamer
+    entities:
+      - light.grote_slaapkamer
+      - light.nachtlamp_sjors
+      - light.nachtlamp_saskia
+  saar_slaapkamer_lights:
+    name: Slaapkamer Saar
+    entities:
+      - light.slaapkamer_saar
+      - light.slaapkamer_saar_leeslampje

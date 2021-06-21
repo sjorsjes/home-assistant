@@ -1,0 +1,6 @@
+- platform: integration
+  source: sensor.nedis_smart_plug_current_consumption_watt
+  name: Nedis smart plug consumption kwh
+  unit_prefix: k
+  method: trapezoidal
+  round: 2

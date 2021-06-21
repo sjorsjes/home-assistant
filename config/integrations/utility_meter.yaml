@@ -70,3 +70,35 @@ utility_meter:
   energy_04_monthly_usage:
     source: sensor.energy_04_total_daily_energy
     cycle: monthly
+
+  nedis_smart_plug_current_consumption_daily_usage:
+    source: sensor.nedis_smart_plug_current_consumption
+    cycle: daily
+
+  nedis_smart_plug_current_consumption_monthly_usage:
+    source: sensor.nedis_smart_plug_current_consumption
+    cycle: monthly
+
+  nedis_smart_plug_current_daily_usage:
+    source: sensor.nedis_smart_plug_current
+    cycle: daily
+
+  nedis_smart_plug_current_monthly_usage:
+    source: sensor.nedis_smart_plug_current
+    cycle: monthly
+
+  nedis_smart_plug_current_consumption_cost_daily_usage:
+    source: sensor.nedis_smart_plug_current_consumption_cost
+    cycle: daily
+
+  nedis_smart_plug_current_consumption_cost_monthly_usage:
+    source: sensor.nedis_smart_plug_current_consumption_cost
+    cycle: monthly
+
+  nedis_smart_plug_current_consumption_kwh_daily_usage:
+    source: sensor.nedis_smart_plug_consumption_kwh
+    cycle: daily
+
+  nedis_smart_plug_current_consumption_kwh_monthly_usage:
+    source: sensor.nedis_smart_plug_consumption_kwh
+    cycle: monthly

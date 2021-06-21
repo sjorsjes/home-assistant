@@ -35,6 +35,7 @@ influxdb:
       - sensor.temperature_reader_02_06_temperature
       - sensor.temperature_reader_02_07_temperature
       - sensor.temperature_reader_02_08_temperature
+      - sensor.temperature_reader_09_temperature
       - sensor.temperature_reader_01_humidity
       - sensor.temperature_reader_02_humidity
       - sensor.temperature_reader_03_humidity
@@ -43,6 +44,12 @@ influxdb:
       - sensor.temperature_reader_02_06_humidity
       - sensor.temperature_reader_02_07_humidity
       - sensor.temperature_reader_02_08_humidity
+      - sensor.temperature_reader_09_humidity
       - sensor.pv_voltage
       - sensor.pv_voltage_a
       - sensor.pv_current_a
+      - sensor.nedis_smart_plug_current
+      - sensor.nedis_smart_plug_current_consumption
+      - sensor.nedis_smart_plug_voltage
+      - sensor.nedis_smart_plug_current_consumption_cost
+      - sensor.nedis_smart_plug_consumption_kwh

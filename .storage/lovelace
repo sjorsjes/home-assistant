@@ -28,6 +28,16 @@
                         {
                             "cards": [
                                 {
+                                    "type": "custom:power-wheel-card",
+                                    "title_power": "Verbruik",
+                                    "solar_power_entity": "sensor.pv_power_formatted",
+                                    "grid_power_consumption_entity": "sensor.dsmr_reading_electricity_currently_delivered_in_watt",
+                                    "grid_power_production_entity": "sensor.dsmr_reading_electricity_currently_returned_in_watt",
+                                    "solar_icon": "mdi:white-balance-sunny",
+                                    "grid_icon": "mdi:flash-circle",
+                                    "home_icon": "mdi:home-circle"
+                                },
+                                {
                                     "cards": [
                                         {
                                             "entity": "sensor.total_electricity_usage",
@@ -67,30 +77,6 @@
                                         }
                                     ],
                                     "type": "horizontal-stack"
-                                },
-                                {
-                                    "columns": 2,
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.daily_yield",
-                                            "name": "Vandaag opgewekt"
-                                        },
-                                        {
-                                            "entity": "sensor.total_yield",
-                                            "name": "Totaal opgewekt"
-                                        }
-                                    ],
-                                    "type": "glance"
-                                },
-                                {
-                                    "type": "custom:power-wheel-card",
-                                    "title_power": "Verbruik",
-                                    "solar_power_entity": "sensor.pv_power_formatted",
-                                    "grid_power_consumption_entity": "sensor.dsmr_reading_electricity_currently_delivered_in_watt",
-                                    "grid_power_production_entity": "sensor.dsmr_reading_electricity_currently_returned_in_watt",
-                                    "solar_icon": "mdi:white-balance-sunny",
-                                    "grid_icon": "mdi:flash-circle",
-                                    "home_icon": "mdi:home-circle"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -118,7 +104,8 @@
                                         }
                                     ],
                                     "show_state": false,
-                                    "type": "glance"
+                                    "type": "glance",
+                                    "title": "TV & Stereo"
                                 },
                                 {
                                     "columns": 3,
@@ -240,7 +227,8 @@
                                         }
                                     ],
                                     "show_state": false,
-                                    "type": "glance"
+                                    "type": "glance",
+                                    "title": "Lights"
                                 }
                             ],
                             "type": "vertical-stack"
@@ -365,362 +353,468 @@
                     "badges": [],
                     "cards": [
                         {
-                            "show_header_toggle": false,
-                            "title": "Temperatuur",
-                            "type": "entities",
-                            "entities": [
+                            "type": "vertical-stack",
+                            "cards": [
                                 {
-                                    "entities": [
+                                    "type": "horizontal-stack",
+                                    "cards": [
                                         {
-                                            "entity": "sensor.temperature_reader_01_temperature",
-                                            "name": "Temp",
-                                            "secondary_info": "last-changed"
+                                            "type": "button",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "entity": "switch.nedis_smart_plug",
+                                            "icon_height": "24px",
+                                            "show_state": false,
+                                            "show_name": true,
+                                            "name": "Car charger"
                                         },
                                         {
-                                            "entity": "sensor.temperature_reader_01_humidity",
-                                            "name": "Humidity"
+                                            "type": "glance",
+                                            "title": "Currently",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current",
+                                                    "name": "Current"
+                                                },
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_consumption",
+                                                    "name": "Consumption"
+                                                }
+                                            ]
                                         }
-                                    ],
-                                    "entity": "sensor.temperature_reader_01_battery_level",
-                                    "state_header": "Battery",
-                                    "icon": "mdi:thermometer",
-                                    "type": "custom:multiple-entity-row"
+                                    ]
                                 },
                                 {
-                                    "entities": [
+                                    "type": "horizontal-stack",
+                                    "cards": [
                                         {
-                                            "entity": "sensor.temperature_reader_02_temperature",
-                                            "name": "Temp"
+                                            "type": "glance",
+                                            "title": "Consumption",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_consumption_kwh_daily_usage",
+                                                    "name": "Daily"
+                                                },
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_consumption_kwh_monthly_usage",
+                                                    "name": "Monthly"
+                                                }
+                                            ]
                                         },
                                         {
-                                            "entity": "sensor.temperature_reader_02_humidity",
-                                            "name": "Humidity"
+                                            "type": "glance",
+                                            "title": "Costs",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_consumption_cost_daily_usage",
+                                                    "name": "Daily"
+                                                },
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_consumption_cost_monthly_usage",
+                                                    "name": "Monthly"
+                                                }
+                                            ]
                                         }
-                                    ],
-                                    "entity": "sensor.temperature_reader_02_battery_level",
-                                    "state_header": "Battery",
-                                    "icon": "mdi:thermometer",
-                                    "type": "custom:multiple-entity-row"
+                                    ]
                                 },
                                 {
-                                    "entities": [
+                                    "type": "horizontal-stack",
+                                    "cards": [
                                         {
-                                            "entity": "sensor.temperature_reader_03_temperature",
-                                            "name": "Temp"
+                                            "type": "glance",
+                                            "title": "Power",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_consumption_daily_usage",
+                                                    "name": "Daily"
+                                                },
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_consumption_monthly_usage",
+                                                    "name": "Monthly"
+                                                }
+                                            ]
                                         },
                                         {
-                                            "entity": "sensor.temperature_reader_03_humidity",
-                                            "name": "Humidity"
+                                            "type": "glance",
+                                            "title": "Current",
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_daily_usage",
+                                                    "name": "Daily"
+                                                },
+                                                {
+                                                    "entity": "sensor.nedis_smart_plug_current_monthly_usage",
+                                                    "name": "Monthly"
+                                                }
+                                            ]
                                         }
-                                    ],
-                                    "entity": "sensor.temperature_reader_03_battery_level",
-                                    "state_header": "Battery",
-                                    "icon": "mdi:thermometer",
-                                    "type": "custom:multiple-entity-row"
+                                    ]
                                 },
                                 {
+                                    "type": "history-graph",
                                     "entities": [
                                         {
-                                            "entity": "sensor.temperature_reader_04_temperature",
-                                            "name": "Temp"
-                                        },
-                                        {
-                                            "entity": "sensor.temperature_reader_04_humidity",
-                                            "name": "Humidity"
+                                            "entity": "sensor.nedis_smart_plug_current"
                                         }
                                     ],
-                                    "entity": "sensor.temperature_reader_04_battery_level",
-                                    "state_header": "Battery",
-                                    "icon": "mdi:thermometer",
-                                    "type": "custom:multiple-entity-row"
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Current"
                                 },
                                 {
+                                    "type": "history-graph",
                                     "entities": [
                                         {
-                                            "entity": "sensor.temperature_reader_05_temperature",
-                                            "name": "Temp"
-                                        },
-                                        {
-                                            "entity": "sensor.temperature_reader_05_humidity",
-                                            "name": "Humidity"
+                                            "entity": "sensor.nedis_smart_plug_current_consumption"
                                         }
                                     ],
-                                    "entity": "sensor.temperature_reader_05_battery_level",
-                                    "state_header": "Battery",
-                                    "icon": "mdi:thermometer",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.temperature_reader_02_06_temperature",
-                                            "name": "Temp"
-                                        },
-                                        {
-                                            "entity": "sensor.temperature_reader_02_06_humidity",
-                                            "name": "Humidity"
-                                        }
-                                    ],
-                                    "entity": "sensor.temperature_reader_02_06_battery_level",
-                                    "state_header": "Battery",
-                                    "icon": "mdi:thermometer",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.temperature_reader_02_07_temperature",
-                                            "name": "Temp"
-                                        },
-                                        {
-                                            "entity": "sensor.temperature_reader_02_07_humidity",
-                                            "name": "Humidity"
-                                        }
-                                    ],
-                                    "entity": "sensor.temperature_reader_02_07_battery_level",
-                                    "state_header": "Battery",
-                                    "icon": "mdi:thermometer",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
-                                        {
-                                            "entity": "sensor.temperature_reader_02_08_temperature",
-                                            "name": "Temp"
-                                        },
-                                        {
-                                            "entity": "sensor.temperature_reader_02_08_humidity",
-                                            "name": "Humidity"
-                                        }
-                                    ],
-                                    "entity": "sensor.temperature_reader_02_08_battery_level",
-                                    "state_header": "Battery",
-                                    "icon": "mdi:thermometer",
-                                    "type": "custom:multiple-entity-row"
+                                    "hours_to_show": 24,
+                                    "refresh_interval": 0,
+                                    "title": "Current Consumption"
                                 }
                             ]
                         },
                         {
-                            "entities": [
+                            "type": "vertical-stack",
+                            "cards": [
                                 {
+                                    "type": "entities",
+                                    "show_header_toggle": false,
+                                    "title": "Temperatuur",
                                     "entities": [
                                         {
-                                            "entity": "sensor.zwave_energy_01_daily_usage",
-                                            "name": "vandaag"
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.temperature_reader_01_temperature",
+                                                    "name": "Temp",
+                                                    "secondary_info": "last-changed"
+                                                },
+                                                {
+                                                    "entity": "sensor.temperature_reader_01_humidity",
+                                                    "name": "Humidity"
+                                                }
+                                            ],
+                                            "entity": "sensor.temperature_reader_01_battery_level",
+                                            "state_header": "Battery",
+                                            "icon": "mdi:thermometer",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.temperature_reader_02_temperature",
+                                                    "name": "Temp"
+                                                },
+                                                {
+                                                    "entity": "sensor.temperature_reader_02_humidity",
+                                                    "name": "Humidity"
+                                                }
+                                            ],
+                                            "entity": "sensor.temperature_reader_02_battery_level",
+                                            "state_header": "Battery",
+                                            "icon": "mdi:thermometer",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.temperature_reader_03_temperature",
+                                                    "name": "Temp"
+                                                },
+                                                {
+                                                    "entity": "sensor.temperature_reader_03_humidity",
+                                                    "name": "Humidity"
+                                                }
+                                            ],
+                                            "entity": "sensor.temperature_reader_03_battery_level",
+                                            "state_header": "Battery",
+                                            "icon": "mdi:thermometer",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.temperature_reader_04_temperature",
+                                                    "name": "Temp"
+                                                },
+                                                {
+                                                    "entity": "sensor.temperature_reader_04_humidity",
+                                                    "name": "Humidity"
+                                                }
+                                            ],
+                                            "entity": "sensor.temperature_reader_04_battery_level",
+                                            "state_header": "Battery",
+                                            "icon": "mdi:thermometer",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.temperature_reader_05_temperature",
+                                                    "name": "Temp"
+                                                },
+                                                {
+                                                    "entity": "sensor.temperature_reader_05_humidity",
+                                                    "name": "Humidity"
+                                                }
+                                            ],
+                                            "entity": "sensor.temperature_reader_05_battery_level",
+                                            "state_header": "Battery",
+                                            "icon": "mdi:thermometer",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.temperature_reader_02_06_temperature",
+                                                    "name": "Temp"
+                                                },
+                                                {
+                                                    "entity": "sensor.temperature_reader_02_06_humidity",
+                                                    "name": "Humidity"
+                                                }
+                                            ],
+                                            "entity": "sensor.temperature_reader_02_06_battery_level",
+                                            "state_header": "Battery",
+                                            "icon": "mdi:thermometer",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.temperature_reader_02_07_temperature",
+                                                    "name": "Temp"
+                                                },
+                                                {
+                                                    "entity": "sensor.temperature_reader_02_07_humidity",
+                                                    "name": "Humidity"
+                                                }
+                                            ],
+                                            "entity": "sensor.temperature_reader_02_07_battery_level",
+                                            "state_header": "Battery",
+                                            "icon": "mdi:thermometer",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.temperature_reader_02_08_temperature",
+                                                    "name": "Temp"
+                                                },
+                                                {
+                                                    "entity": "sensor.temperature_reader_02_08_humidity",
+                                                    "name": "Humidity"
+                                                }
+                                            ],
+                                            "entity": "sensor.temperature_reader_02_08_battery_level",
+                                            "state_header": "Battery",
+                                            "icon": "mdi:thermometer",
+                                            "type": "custom:multiple-entity-row"
                                         }
-                                    ],
-                                    "entity": "sensor.zwave_energy_01_monthly_usage",
-                                    "name": "Kantoor PC",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
+                                    ]
                                 },
                                 {
+                                    "type": "entities",
+                                    "show_header_toggle": false,
+                                    "title": "Verbruik",
                                     "entities": [
                                         {
-                                            "entity": "sensor.zwave_energy_05_daily_usage",
-                                            "name": "vandaag"
-                                        }
-                                    ],
-                                    "entity": "sensor.zwave_energy_05_monthly_usage",
-                                    "name": "Prusa Mini+",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.zwave_energy_01_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.zwave_energy_01_monthly_usage",
+                                            "name": "Kantoor PC",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
+                                        },
                                         {
-                                            "entity": "sensor.zwave_energy_02_daily_usage",
-                                            "name": "vandaag"
-                                        }
-                                    ],
-                                    "entity": "sensor.zwave_energy_02_monthly_usage",
-                                    "name": "Stereo",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.zwave_energy_05_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.zwave_energy_05_monthly_usage",
+                                            "name": "Prusa Mini+",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
+                                        },
                                         {
-                                            "entity": "sensor.zwave_energy_03_daily_usage",
-                                            "name": "vandaag"
-                                        }
-                                    ],
-                                    "entity": "sensor.zwave_energy_03_monthly_usage",
-                                    "name": "Vaatwasser",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.zwave_energy_02_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.zwave_energy_02_monthly_usage",
+                                            "name": "Stereo",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
+                                        },
                                         {
-                                            "entity": "sensor.zwave_energy_04_daily_usage",
-                                            "name": "vandaag"
-                                        }
-                                    ],
-                                    "entity": "sensor.zwave_energy_04_monthly_usage",
-                                    "name": "TV",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.zwave_energy_03_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.zwave_energy_03_monthly_usage",
+                                            "name": "Vaatwasser",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
+                                        },
                                         {
-                                            "entity": "sensor.energy_01_daily_usage",
-                                            "name": "vandaag"
-                                        }
-                                    ],
-                                    "entity": "sensor.energy_01_monthly_usage",
-                                    "name": "Koelkast",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.zwave_energy_04_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.zwave_energy_04_monthly_usage",
+                                            "name": "TV",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
+                                        },
                                         {
-                                            "entity": "sensor.energy_02_daily_usage",
-                                            "name": "vandaag"
-                                        }
-                                    ],
-                                    "entity": "sensor.energy_02_monthly_usage",
-                                    "name": "NAS",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.energy_01_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.energy_01_monthly_usage",
+                                            "name": "Koelkast",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
+                                        },
                                         {
-                                            "entity": "sensor.energy_03_daily_usage",
-                                            "name": "vandaag"
-                                        }
-                                    ],
-                                    "entity": "sensor.energy_03_monthly_usage",
-                                    "name": "Wasmachine",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
-                                },
-                                {
-                                    "entities": [
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.energy_02_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.energy_02_monthly_usage",
+                                            "name": "NAS",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
+                                        },
                                         {
-                                            "entity": "sensor.energy_04_daily_usage",
-                                            "name": "vandaag"
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.energy_03_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.energy_03_monthly_usage",
+                                            "name": "Wasmachine",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
+                                        },
+                                        {
+                                            "entities": [
+                                                {
+                                                    "entity": "sensor.energy_04_daily_usage",
+                                                    "name": "vandaag"
+                                                }
+                                            ],
+                                            "entity": "sensor.energy_04_monthly_usage",
+                                            "name": "Droger",
+                                            "state_header": "deze maand",
+                                            "type": "custom:multiple-entity-row"
                                         }
-                                    ],
-                                    "entity": "sensor.energy_04_monthly_usage",
-                                    "name": "Droger",
-                                    "state_header": "deze maand",
-                                    "type": "custom:multiple-entity-row"
+                                    ]
                                 }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Verbruik",
-                            "type": "entities"
+                            ]
                         },
                         {
-                            "entities": [
+                            "type": "vertical-stack",
+                            "cards": [
                                 {
-                                    "entity": "sensor.hue_motion_sensor_2_temperature",
-                                    "name": "hal"
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.hue_motion_sensor_2_temperature",
+                                            "name": "hal"
+                                        },
+                                        {
+                                            "entity": "sensor.hue_motion_sensor_1_temperature",
+                                            "name": "overloop"
+                                        },
+                                        {
+                                            "entity": "sensor.dark_sky_temperature",
+                                            "name": "darksky buiten"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_01_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_03_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_04_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_05_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_06_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_07_temperature"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_08_temperature"
+                                        }
+                                    ],
+                                    "hours_to_show": 6,
+                                    "refresh_interval": 0,
+                                    "title": "Temperatuur - laatste 6 uur",
+                                    "type": "history-graph"
                                 },
                                 {
-                                    "entity": "sensor.hue_motion_sensor_1_temperature",
-                                    "name": "overloop"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_temperature",
-                                    "name": "darksky buiten"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_01_temperature"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_02_temperature"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_03_temperature"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_04_temperature"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_05_temperature"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_02_06_temperature"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_02_07_temperature"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_02_08_temperature"
+                                    "entities": [
+                                        {
+                                            "entity": "sensor.dark_sky_humidity",
+                                            "name": "darksky buiten"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_01_humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_03_humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_04_humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_05_humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_06_humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_07_humidity"
+                                        },
+                                        {
+                                            "entity": "sensor.temperature_reader_02_08_humidity"
+                                        }
+                                    ],
+                                    "hours_to_show": 6,
+                                    "refresh_interval": 0,
+                                    "title": "Humidity - laatste 6 uur",
+                                    "type": "history-graph"
                                 }
-                            ],
-                            "hours_to_show": 6,
-                            "refresh_interval": 0,
-                            "title": "Temperatuur - laatste 6 uur",
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.dark_sky_humidity",
-                                    "name": "darksky buiten"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_01_humidity"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_02_humidity"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_03_humidity"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_04_humidity"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_05_humidity"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_02_06_humidity"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_02_07_humidity"
-                                },
-                                {
-                                    "entity": "sensor.temperature_reader_02_08_humidity"
-                                }
-                            ],
-                            "hours_to_show": 6,
-                            "refresh_interval": 0,
-                            "title": "Humidity - laatste 6 uur",
-                            "type": "history-graph"
-                        },
-                        {
-                            "type": "glance",
-                            "entities": [
-                                {
-                                    "entity": "sensor.fanspeed"
-                                },
-                                {
-                                    "entity": "fan.mechanical_ventilation"
-                                },
-                                {
-                                    "entity": "sensor.fantimer"
-                                },
-                                {
-                                    "entity": "sensor.ithofancontrol_uptime_sensor"
-                                },
-                                {
-                                    "entity": "switch.fansendlow"
-                                },
-                                {
-                                    "entity": "switch.fansendmedium"
-                                },
-                                {
-                                    "entity": "switch.fansendhigh"
-                                }
-                            ],
-                            "title": "Fans"
+                            ]
                         }
                     ],
                     "path": "sensors",
@@ -814,6 +908,13 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "sensor.switchbotone_linkquality",
+                                "switch.switchbotone_switch"
+                            ]
                         }
                     ],
                     "path": "Speakers",
@@ -823,70 +924,27 @@
                     "title": "Prusa Mini+",
                     "path": "prusa-mini",
                     "icon": "",
-                    "panel": true,
+                    "panel": false,
                     "badges": [],
                     "cards": [
                         {
-                            "type": "grid",
-                            "square": false,
+                            "type": "vertical-stack",
                             "cards": [
                                 {
-                                    "type": "vertical-stack",
-                                    "cards": [
-                                        {
-                                            "type": "custom:threedy-card",
-                                            "base_entity": "sensor.prusa_mini",
-                                            "use_24hr": true,
-                                            "temperature_unit": "C",
-                                            "monitored": [
-                                                "Status",
-                                                "ETA",
-                                                "Elapsed",
-                                                "Hotend",
-                                                "Bed",
-                                                "Remaining"
-                                            ],
-                                            "printer_type": "Cantilever",
-                                            "name": "Prusa Mini+"
-                                        },
-                                        {
-                                            "type": "horizontal-stack",
-                                            "cards": [
-                                                {
-                                                    "type": "history-graph",
-                                                    "entities": [
-                                                        {
-                                                            "entity": "sensor.prusa_mini_actual_bed_temp",
-                                                            "name": "Actual"
-                                                        },
-                                                        {
-                                                            "entity": "sensor.prusa_mini_target_bed_temp",
-                                                            "name": "Target"
-                                                        }
-                                                    ],
-                                                    "hours_to_show": 24,
-                                                    "refresh_interval": 0,
-                                                    "title": "Bed"
-                                                },
-                                                {
-                                                    "type": "history-graph",
-                                                    "entities": [
-                                                        {
-                                                            "entity": "sensor.prusa_mini_actual_tool0_temp",
-                                                            "name": "Actual"
-                                                        },
-                                                        {
-                                                            "entity": "sensor.prusa_mini_target_tool0_temp",
-                                                            "name": "Target"
-                                                        }
-                                                    ],
-                                                    "hours_to_show": 24,
-                                                    "refresh_interval": 0,
-                                                    "title": "Nozzle"
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                    "type": "custom:threedy-card",
+                                    "base_entity": "sensor.prusa_mini",
+                                    "use_24hr": true,
+                                    "temperature_unit": "C",
+                                    "monitored": [
+                                        "Status",
+                                        "ETA",
+                                        "Elapsed",
+                                        "Hotend",
+                                        "Bed",
+                                        "Remaining"
+                                    ],
+                                    "printer_type": "Cantilever",
+                                    "name": "Prusa Mini+"
                                 },
                                 {
                                     "type": "picture-glance",
@@ -902,10 +960,44 @@
                                     "hold_action": {
                                         "action": "none"
                                     },
-                                    "aspect_ratio": "16:9"
+                                    "aspect_ratio": "17:9"
                                 }
-                            ],
-                            "columns": 2
+                            ]
+                        },
+                        {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "horizontal-stack",
+                                    "title": "Filament box",
+                                    "cards": [
+                                        {
+                                            "type": "gauge",
+                                            "min": 0,
+                                            "max": 100,
+                                            "entity": "sensor.temperature_reader_09_humidity",
+                                            "name": "Luchtvochtigheid",
+                                            "severity": {
+                                                "green": 0,
+                                                "yellow": 20,
+                                                "red": 60
+                                            }
+                                        },
+                                        {
+                                            "type": "gauge",
+                                            "min": 0,
+                                            "max": 50,
+                                            "entity": "sensor.temperature_reader_09_temperature",
+                                            "name": "Temperatuur",
+                                            "severity": {
+                                                "green": 0,
+                                                "yellow": 20,
+                                                "red": 30
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },

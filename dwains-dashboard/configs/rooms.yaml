@@ -1,0 +1,104 @@
+# https://dwainscheeren.github.io/dwains-lovelace-dashboard/configuration/rooms.html
+
+rooms:
+  - name: Hal
+    icon: mdi:key-chain-variant
+    light: light.hal
+    temperature: sensor.temperature_reader_02_06_temperature
+    humidity: sensor.temperature_reader_02_06_humidity
+    motion: group.hallway_motion_sensors
+  - name: Woonkamer
+    icon: mdi:sofa-outline
+    light: light.woonkamer
+    temperature: sensor.temperature_reader_02_07_temperature
+    humidity: sensor.temperature_reader_02_07_humidity
+    media_player: media_player.woonkamer_tv
+    more_entities:
+      entities:
+        - media_player.woonkamer_audio
+  - name: Eetkamer
+    icon: mdi:silverware-fork-knife
+    light: light.eetkamer
+    temperature: sensor.temperature_reader_02_07_temperature
+    humidity: sensor.temperature_reader_02_07_humidity
+  - name: Keuken
+    icon: mdi:stove
+    light: light.keuken
+    temperature: sensor.temperature_reader_02_07_temperature
+    humidity: sensor.temperature_reader_02_07_humidity
+    media_player: media_player.google_nest_hub
+    device: sensor.vaatwasser_program_progress
+  - name: Bijkeuken
+    icon: mdi:fridge-variant-outline
+    temperature: sensor.temperature_reader_02_08_temperature
+    humidity: sensor.temperature_reader_02_08_humidity
+    device: group.bijkeuken_devices
+  - name: Slaapkamer Saar
+    icon: mdi:unicorn-variant
+    light: group.saar_slaapkamer_lights
+    temperature: sensor.temperature_reader_02_temperature
+    humidity: sensor.temperature_reader_02_humidity
+  - name: Slaapkamer
+    icon: mdi:bed-king-outline
+    light: group.slaapkamer_lights
+    temperature: sensor.temperature_reader_01_temperature
+    humidity: sensor.temperature_reader_01_humidity
+    media_player: media_player.google_home_mini
+  - name: Kantoor
+    icon: mdi:briefcase-outline
+    light: light.kantoor
+    temperature: sensor.temperature_reader_03_temperature
+    humidity: sensor.temperature_reader_03_humidity
+    media_player: media_player.google_home
+  - name: Tuin
+    icon: mdi:tree-outline
+    light: group.tuin_lights
+    temperature: sensor.dark_sky_temperature
+    humidity: sensor.dark_sky_humidity
+
+# rooms:
+#   - name: Hallway
+#     icon: mdi:key
+#     light: light.hallway
+#     temperature: sensor.hallway_temperature
+#     climate: climate.hallway_climate
+#     humidity: sensor.halway_humidity
+#     motion: binary_sensor.hallway_sensor_motion
+#     door: binary_sensor.hallway_door_contact
+#     window: binary_sensor.hallway_window_contact
+#     safety: sensor.smoke_sensor
+#     device: switch.television
+#     vacuum: 
+#       entity: vacuum.rockrobo
+#       camera: camera.rockrobo_map
+#     plant: plant.hallway_plant
+#     media_player: media_player.awesome_hallway_tv
+#     more_entities:
+#       entities:
+#         - entity: sensor.hallway_motion_battery_level
+#         - entity: sensor.smokedetector_battery
+#   - name: Garage
+#     icon: mdi:garage
+#     light: group.garage_lights
+#     door: group.garage_doors
+#     addons:
+#       - name: Hello room
+#         icon: mdi:puzzle
+#         path: 'dwains-dashboard/addons/rooms/hello-room/page.yaml'
+#         button_path: 'dwains-dashboard/addons/rooms/hello-room/button.yaml'
+#         data:
+#           some_data: 'This is some data parsed.'
+#           some_other_data: 'and some other data.'
+#           entity: vacuum.roborock
+#   - name: Bedroom
+#     icon: fal:bed
+#     more_entities:
+#       columns: 2 #optional
+#       entities:
+#         - entity: sensor.name1
+#         - entity: sensor.name2
+#     page_entities:
+#       columns: 1 #optional
+#       entities:
+#         - entity: sensor.name1
+#         - entity: sensor.name2
